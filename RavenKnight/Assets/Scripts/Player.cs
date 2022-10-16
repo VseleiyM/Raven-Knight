@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [Header("Speeds")]
     public float WalkSpeed = 150;
     public bool isFacingRight = true;
+    public PlayerKeyboardController ControllrePlayer;
 
     private MoveState _moveState = MoveState.Idle;
     private DirectionState _directionState = DirectionState.Right;
@@ -23,31 +24,46 @@ public class Player : MonoBehaviour
         _moveState = MoveState.Walk;
         if (_directionState == DirectionState.Left)
         {
-            _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
+            if (horizontal > 0 && !isFacingRight) Flip(); else if (horizontal < 0 && isFacingRight) Flip();
             _directionState = DirectionState.Right;
         }
-        _walkTime = _walkCooldown;
-        _animatorController.Play("Walk");
-   
+        horizontal = 1;
+        //_animatorController.Play("Walk");
+
     }
 
     public void MoveLeft()
     {
-            _moveState = MoveState.Walk;
-            if (_directionState == DirectionState.Right)
-            {
-                _transform.localScale = new Vector3(-_transform.localScale.x, _transform.localScale.y, _transform.localScale.z);
-                _directionState = DirectionState.Left;
-            }
-            _walkTime = _walkCooldown;
-            _animatorController.Play("Walk");
-        
+        _moveState = MoveState.Walk;
+        if (_directionState == DirectionState.Right)
+        {
+            if (horizontal > 0 && !isFacingRight) Flip(); else if (horizontal < 0 && isFacingRight) Flip();
+            _directionState = DirectionState.Left;
+        }
+        horizontal = -1;
+        //_animatorController.Play("Walk");
     }
 
-    void Flip()
+    public void MoveUp()
+    {
+        _moveState = MoveState.Walk;
+        vertical = 1;
+        //_animatorController.Play("Walk");
+    }
+
+    public void MoveDoun()
+    {
+        _moveState = MoveState.Walk;
+        vertical = -1;
+        //_animatorController.Play("Walk");
+    }
+
+    void Flip()// готово
     {
         isFacingRight = !isFacingRight;
         Vector3 theScale = transform.localScale;
+        if (theScale.x > 0) _directionState = DirectionState.Right;
+        else _directionState = DirectionState.Left;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
@@ -55,11 +71,12 @@ public class Player : MonoBehaviour
     private void Idle()
     {
         _moveState = MoveState.Idle;
-        _animatorController.Play("Idle");
+        //_animatorController.Play("Idle");
     }
 
     private void Start()
     {
+        ControllrePlayer = GetComponent<PlayerKeyboardController>();
         _transform = GetComponent<Transform>();
         body = GetComponent<Rigidbody2D>();
         body.fixedAngle = true;
@@ -72,17 +89,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (horizontal > 0 && !isFacingRight) Flip(); else if (horizontal < 0 && isFacingRight) Flip();
-        if (_moveState == MoveState.Walk)
+
+        if(ControllrePlayer.ClikLock == true)
         {
-            body.velocity = ((_directionState == DirectionState.Right ? Vector2.right : -Vector2.right)
-                                    * WalkSpeed * Time.deltaTime);
-            _walkTime -= Time.deltaTime;
-            if (_walkTime <= 0)
-            {
-                Idle();
-            }
+            horizontal = 0;
+            vertical = 0;
         }
+        direction = new Vector2(horizontal, vertical);
     }
 
     void FixedUpdate()

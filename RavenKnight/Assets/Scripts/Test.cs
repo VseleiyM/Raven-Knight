@@ -39,7 +39,6 @@ public class Test : MonoBehaviour
         {
             body.velocity = new Vector2(body.velocity.x, Mathf.Sign(body.velocity.y) * speed / 100f);
         }
-        
     }
 
     void Flip()

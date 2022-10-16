@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerKeyboardController : MonoBehaviour
 {
     public Player Player;
+    public bool ClikLock;
 
     public bool lookAtCursor;
     public KeyCode leftButton = KeyCode.A;
@@ -28,14 +29,27 @@ public class PlayerKeyboardController : MonoBehaviour
         if (Player != null)
         {
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(rightButton))
             {
                 Player.MoveRight();
+                ClikLock = false;
             }
-            if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(leftButton))
             {
                 Player.MoveLeft();
+                ClikLock = false;
             }
+            else if (Input.GetKey(upButton))
+            {
+                Player.MoveUp();
+                ClikLock = false;
+            }
+            else if (Input.GetKey(downButton))
+            {
+                Player.MoveDoun();
+                ClikLock = false;
+            }
+            else ClikLock = true;
         }
     }
 }
