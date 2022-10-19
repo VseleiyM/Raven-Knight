@@ -61,11 +61,18 @@ public class Player : MonoBehaviour
     void Flip()// готово
     {
         isFacingRight = !isFacingRight;
-        Vector3 theScale = transform.localScale;
-        if (theScale.x > 0) _directionState = DirectionState.Right;
-        else _directionState = DirectionState.Left;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+
+        if(direction != null)
+        {
+            if (horizontal > 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
     }
 
     private void Idle()
@@ -90,10 +97,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        if(ControllrePlayer.ClikLock == true)
+        if(ControllrePlayer.ClikLock == true)// надо переделать
         {
             horizontal = 0;
             vertical = 0;
+            Idle();
         }
         direction = new Vector2(horizontal, vertical);
     }

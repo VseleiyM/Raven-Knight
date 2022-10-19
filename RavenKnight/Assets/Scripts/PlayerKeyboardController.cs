@@ -28,28 +28,33 @@ public class PlayerKeyboardController : MonoBehaviour
 
         if (Player != null)
         {
-
-            if (Input.GetKey(rightButton))
+            if (Input.GetKey(rightButton) || Input.GetKey(leftButton) || Input.GetKey(upButton) || Input.GetKey(downButton))
             {
-                Player.MoveRight();
-                ClikLock = false;
+                if (Input.GetKey(rightButton))
+                {
+                    Player.MoveRight();
+                    ClikLock = false;
+                }
+                if (Input.GetKey(leftButton))
+                {
+                    Player.MoveLeft();
+                    ClikLock = false;
+                }
+                if (Input.GetKey(upButton))
+                {
+                    Player.MoveUp();
+                    ClikLock = false;
+                }
+                if (Input.GetKey(downButton))
+                {
+                    Player.MoveDoun();
+                    ClikLock = false;
+                }
             }
-            else if (Input.GetKey(leftButton))
+            else
             {
-                Player.MoveLeft();
-                ClikLock = false;
+                ClikLock = true;
             }
-            else if (Input.GetKey(upButton))
-            {
-                Player.MoveUp();
-                ClikLock = false;
-            }
-            else if (Input.GetKey(downButton))
-            {
-                Player.MoveDoun();
-                ClikLock = false;
-            }
-            else ClikLock = true;
         }
     }
 }

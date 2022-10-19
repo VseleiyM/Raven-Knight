@@ -44,9 +44,21 @@ public class Test : MonoBehaviour
     void Flip()
     {
         isFacingRight = !isFacingRight;
-        Vector3 theScale = transform.localScale;
+
+        if (direction != null)
+        {
+            if (horizontal > 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+        }
+        /*Vector3 theScale = transform.localScale;
         theScale.x *= -1;
-        transform.localScale = theScale;
+        transform.localScale = theScale;*/
     }
 
     void Update()
