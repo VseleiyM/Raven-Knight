@@ -95,12 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb62ebec486c0b4ea4656dc35055621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 0
   lookAtCursor: 1
   transformSootPoint: {fileID: 6314529850524058750}
   round: {fileID: 98784386847227925, guid: da52c666636ace44b9e2b3106ea6c208, type: 3}
   ammunition: 1
-  reloadTime: 0.5
-  fireRate: 0.3
+  reloadTime: 0.1
+  fireRate: 0.25
   roundsPerShot: 1
 --- !u!1 &6314529850524058751
 GameObject:

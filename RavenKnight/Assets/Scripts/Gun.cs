@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    //public float offset;
+    public float offset;
 
     public bool lookAtCursor;
     public enum ShootState
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
     public GameObject round;
     public int ammunition;
 
-    [Range(0.5f, 10)] public float reloadTime;
+    [Range(0.1f, 10)] public float reloadTime;
 
     private int remainingAmmunition;
 
