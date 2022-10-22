@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
     public float offset;
+    private float LoclSx;
+    private float LoclSy;
+    private float LoclSz;
 
     public bool lookAtCursor;
     public enum ShootState
@@ -40,6 +44,10 @@ public class Gun : MonoBehaviour
     void Start()
     {
         remainingAmmunition = ammunition;
+
+        LoclSx = transform.localScale.x;
+        LoclSy = transform.localScale.y;
+        LoclSz = transform.localScale.z;
     }
 
     void Update()
@@ -68,10 +76,23 @@ public class Gun : MonoBehaviour
             lookPos = lookPos - transform.position;
             float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            
+
             /*Vector3 lookPos = Camera.main.ScreenToWorldPoint((Input.mousePosition) - transform.position);
             float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle + offset);*/
+
+            Vector3 LoclScale = new Vector3(LoclSx, LoclSy, LoclSz);
+
+            if (angle > 90 || angle < -90)
+            {
+                LoclScale.y = -LoclSy;
+            }
+            else
+            {
+                LoclScale.y = +LoclSy;
+            }
+
+            transform.localScale = LoclScale;
 
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6314529849321404726}
   - component: {fileID: 6314529849321404727}
   - component: {fileID: 6314529849321404724}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: "\u0414\u0440\u043E\u0431\u043E\u0432\u0438\u043A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6314529849321404725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: -0.59, z: 0}
-  m_LocalScale: {x: 0.62540674, y: 0.5538905, z: 1}
+  m_LocalPosition: {x: 1.25, y: -0.57, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 6314529850524058750}
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d01e21e84ea2f94bbf82be8ab3f46b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,10 +98,10 @@ MonoBehaviour:
   offset: 0
   lookAtCursor: 1
   transformSootPoint: {fileID: 6314529850524058750}
-  round: {fileID: 98784386847227925, guid: da52c666636ace44b9e2b3106ea6c208, type: 3}
+  round: {fileID: 7682917005161228325, guid: 348d31a22cc4a84419dba45e89475da4, type: 3}
   ammunition: 1
   reloadTime: 0.1
-  fireRate: 0.25
+  fireRate: 0.3
   roundsPerShot: 1
 --- !u!1 &6314529850524058751
 GameObject:
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6314529850524058750}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -126,10 +126,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6314529850524058751}
-  m_LocalRotation: {x: 0, y: 0, z: -0.009948241, w: 0.9999505}
-  m_LocalPosition: {x: 3.4, y: 0.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.09, y: 0.38, z: 0}
+  m_LocalScale: {x: 4.4663305, y: 4.288954, z: 1}
   m_Children: []
   m_Father: {fileID: 6314529849321404726}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.14}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

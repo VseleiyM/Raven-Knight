@@ -46,7 +46,7 @@ public class Target : MonoBehaviour
         }
         else
         {
-            Invoke("ResetMaterial", 0.2f);
+            Invoke("ResetMaterial", 0.1f);
         }
         spriteRend.material = matBlink;
     }

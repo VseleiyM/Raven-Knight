@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  pushPowerObj: 300
+  pushPowerObj: 100
   explosion: {fileID: 3479514573046072331, guid: 993692b9877e7d848b73f70ada8200ed,
     type: 3}
   matBlink: {fileID: 2100000, guid: ce790fe4a1c3a404891d061bc176c2d0, type: 2}
@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  speed: 3
+  speed: 0
   point2: {fileID: 1268504545058300664}
   point: {fileID: 1268504544305359204}
-  stoppingDistance: 50
+  stoppingDistance: 10
 --- !u!61 &6598493095572794733
 BoxCollider2D:
   m_ObjectHideFlags: 0

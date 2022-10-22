@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
+
     public float speed = 150;
     public bool lookAtCursor;
     public KeyCode leftButton = KeyCode.A;
@@ -26,6 +27,7 @@ public class Test : MonoBehaviour
 
     void Start()
     {
+
         body = GetComponent<Rigidbody2D>();
         body.fixedAngle = true;
 
@@ -55,14 +57,8 @@ public class Test : MonoBehaviour
 
         if (direction != null)
         {
-            if (FlipChakc == false)
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else if(FlipChakc == true)
-            {
-                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
+            if (FlipChakc == false)gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            else if(FlipChakc == true)gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
 
@@ -78,13 +74,6 @@ public class Test : MonoBehaviour
 
     void Update()
     {
-        if (lookAtCursor)
-        {
-            Vector3 lookPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
-            lookPos = lookPos - transform.position;
-            float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
 
         if (Input.GetKey(upButton)) vertical = 1;
         else if (Input.GetKey(downButton)) vertical = -1; else vertical = 0;
@@ -95,9 +84,9 @@ public class Test : MonoBehaviour
         direction = new Vector2(horizontal, vertical);
 
         pos = mainCamera.WorldToScreenPoint(transform.position);
-
-        if (Input.mousePosition.x+flipBufL < pos.x && isFacingRight) FlipChakc = true;
-        else if (Input.mousePosition.x-flipBufR > pos.x && !isFacingRight) FlipChakc = false;
+        //условие разварота
+        if (Input.mousePosition.x + flipBufL < pos.x && isFacingRight) FlipChakc = true;
+        else if (Input.mousePosition.x - flipBufR > pos.x && !isFacingRight)FlipChakc = false;
 
         Flip();
 
