@@ -96,15 +96,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987b703d076b45045b9ee3256b1f274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   distace: 0
   lifetime: 0
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 256
-  penetration: 6
-  damage: 4
-  pushPower: 15
+  penetration: 1
+  damage: 1
+  pushPower: 10
 --- !u!61 &-184505044449800231
 BoxCollider2D:
   m_ObjectHideFlags: 0
