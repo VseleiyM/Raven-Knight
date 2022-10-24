@@ -437,6 +437,7 @@ MonoBehaviour:
   settingsButton: {fileID: 668481389}
   exitButton: {fileID: 668481389}
   menuButton: {fileID: 61356359}
+  backToMenuButton: {fileID: 61356359}
   menuObj: {fileID: 1407152938}
   settingsObj: {fileID: 1648010576}
   loadImage: {fileID: 794320852}

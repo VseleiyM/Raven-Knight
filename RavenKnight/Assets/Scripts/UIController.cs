@@ -34,7 +34,7 @@ public class UIController : MonoBehaviour
     private void LoadNewScene()
     {
         loadImage.SetActive(true);
-        SceneManager.LoadSceneAsync("RavenKnight1");
+        SceneManager.LoadSceneAsync("TestLevle");
         menuObj.SetActive(false);
         backImage.SetActive(false);
     }
@@ -55,7 +55,7 @@ public class UIController : MonoBehaviour
     private void LoadScene()
     {
         loadImage.SetActive(true);
-        SceneManager.LoadSceneAsync("RavenKnight1");
+        SceneManager.LoadSceneAsync("TestLevle");
         menuObj.SetActive(false);
         backImage.SetActive(false);
     }
