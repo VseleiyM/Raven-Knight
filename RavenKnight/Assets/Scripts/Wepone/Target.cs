@@ -65,7 +65,7 @@ public class Target : MonoBehaviour
 
         _rBody.AddForce(pushDirection * (pushPower * pushPowerObj));
     }
-
+    
     /*public void PenetrSpeed(RaycastHit2D hitInfo)
     {
 

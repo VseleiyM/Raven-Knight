@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BotEname1 : MonoBehaviour
 {
@@ -17,18 +18,26 @@ public class BotEname1 : MonoBehaviour
     public float stoppingDistance;
     private float stoppingDistanceSlep;
 
+    public Transform PlayerTr;
+    NavMeshAgent agent;
+
     bool chill = false;
     bool angry = false;
     bool goBack = false;
 
     void Start()
     {
+        var agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         Physics2D.queriesStartInColliders = false;
         rb = GetComponent<Rigidbody2D>();
         Playre = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void Update()
     {
+        agent.SetDestination(PlayerTr.position);
         if (angry == false)
         {
             chill = true;
@@ -81,6 +90,7 @@ public class BotEname1 : MonoBehaviour
 
     void Angry()
     {
+        agent.SetDestination(PlayerTr.position);
         transform.position = Vector2.MoveTowards(transform.position, Playre.position, speed * Time.deltaTime);
     }
 

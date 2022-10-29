@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Atac : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float damage;
+    public float SpeedAttac;
+    public float TimeAttack = 0;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        HealthPlayer healthP = collision.gameObject.GetComponent<HealthPlayer>();
+        if (healthP != null)
+        {
+            if(TimeAttack < Time.time)
+            {
+                healthP.Hit(damage);
+                TimeAttack = Time.time + SpeedAttac;
+            }
+             
+        }   
     }
 }

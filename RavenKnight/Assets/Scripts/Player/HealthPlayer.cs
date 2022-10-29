@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthPlayer : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class HealthPlayer : MonoBehaviour
 
     private void Start()
     {
+
         _rBody = GetComponent<Rigidbody2D>();
 
         spriteRend = GetComponent<SpriteRenderer>();
@@ -34,7 +36,7 @@ public class HealthPlayer : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
 

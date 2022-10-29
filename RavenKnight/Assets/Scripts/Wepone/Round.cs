@@ -8,11 +8,11 @@ public class Round : MonoBehaviour
     public int speed;
     public float distace;
     public float lifetime;
-    public LayerMask whatIsSolid;
+    //public LayerMask whatIsSolid;
     public int penetration;
 
     public float damage;
-    public RaycastHit2D hitInfo;
+    //public RaycastHit2D hitInfo;
 
     private Vector3 pushFrom;
     public float pushPower = 10;
