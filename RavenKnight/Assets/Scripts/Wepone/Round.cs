@@ -8,7 +8,6 @@ public class Round : MonoBehaviour
     public int speed;
     public float distace;
     public float lifetime;
-    //public LayerMask whatIsSolid;
     public int penetration;
 
     public float damage;
@@ -41,10 +40,14 @@ public class Round : MonoBehaviour
         pushFrom = new Vector3(transform.position.x, transform.position.y);
 
         if (target != null)
-        {
-            target.Hit(damage);
-            target.PushAway(pushFrom, pushPower);
-            penetration -= 1;
+        {            
+            if (target.Nohealth == true)
+            {
+                target.Hit(damage);
+                target.PushAway(pushFrom, pushPower);
+                penetration -= 1;
+            }
+            else if (target.Nohealth == false) penetration -= penetration;
 
         }
     }

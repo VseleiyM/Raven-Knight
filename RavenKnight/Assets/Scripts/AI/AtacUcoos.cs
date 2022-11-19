@@ -54,7 +54,7 @@ public class AtacUcoos : MonoBehaviour
 
             transform.localScale = LoclScale;
 
-            if(Vector2.Distance(transform.position, playerTr.position) < agent.stoppingDistance)
+            if(Vector2.Distance(transform.position, playerTr.position) < agent.stoppingDistance - 1)
             {
                 if (TimeAttack < Time.time)
                 {

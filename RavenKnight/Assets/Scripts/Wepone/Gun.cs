@@ -18,6 +18,9 @@ public class Gun : MonoBehaviour
         Reloading
     }
 
+    [Range(0f, 100f)] public float flipBufR = 0;
+    [Range(0f, 100f)] public float flipBufL = 0;
+
     // Как далеко вперед дуло находится от центра пистолета
     public Transform transformSootPoint;
 
@@ -79,6 +82,7 @@ public class Gun : MonoBehaviour
 
             Vector3 LoclScale = new Vector3(LoclSx, LoclSy, LoclSz);
 
+
             if (angle > 90 || angle < -90)
             {
                 LoclScale.y = -LoclSy;
@@ -90,8 +94,8 @@ public class Gun : MonoBehaviour
 
             transform.localScale = LoclScale;
 
-        }
-    }
+            }
+}
 
     /// Попытки выстрелить из пистолета
     public void Shoot()

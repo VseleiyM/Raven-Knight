@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  Nohealth: 1
   pushPowerObj: 0
   explosion: {fileID: 3479514573046072331, guid: 993692b9877e7d848b73f70ada8200ed,
     type: 3}

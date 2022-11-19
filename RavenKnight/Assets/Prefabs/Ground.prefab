@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  Nohealth: 1
   pushPowerObj: 300
   explosion: {fileID: 3479514573046072331, guid: 993692b9877e7d848b73f70ada8200ed,
     type: 3}
