@@ -145,6 +145,7 @@ public class SpawenEneme : MonoBehaviour
     public GameObject zombie_prefab; // префаб с мобом
     public GameObject zombie2_prefab; // префаб с мобом
     public GameObject zombie3_prefab; // префаб с мобом
+    public GameObject zombie4_prefab;
     public List<GameObject> zombie; // список мобов
     public float delayBetweenWaves = 15f; // пауза между волнами
     public int currentWave = 1; // номер волны
@@ -169,26 +170,41 @@ public class SpawenEneme : MonoBehaviour
     private void Spawn()
     {
         zombie.Clear();
-        int zombieCount = currentWave * LivelWave * 5; // функция количества мобов от волны
-        int zombieCount2 = currentWave * LivelWave * 2;
+        int zombieCount = currentWave * LivelWave *5; // функция количества мобов от волны
+        int zombieCount2 = currentWave * LivelWave*2;
         int zombieCount3 = currentWave * LivelWave;
+        int zombieCount4 = currentWave * LivelWave*2;
         for (int i = 0; i < zombieCount; i++)
         {
 
             GameObject z = (GameObject)Instantiate(zombie_prefab,                  // префаб моба
                                                    GetSpawnPoint(i, zombieCount),  // получаем точку спавна
                                                    GetSpawnDirection(i));          // получаем направление
-            GameObject z1 = (GameObject)Instantiate(zombie2_prefab,                 
-                                                   GetSpawnPoint(i, zombieCount2), 
-                                                   GetSpawnDirection(i));
-            GameObject z2 = (GameObject)Instantiate(zombie3_prefab,                
-                                                   GetSpawnPoint(i, zombieCount3), 
-                                                   GetSpawnDirection(i));
 
             zombie.Add(z); // добавляем в список
+        }
+        for (int i = 0; i < zombieCount2; i++)
+        {
+            GameObject z1 = (GameObject)Instantiate(zombie2_prefab,
+                                                   GetSpawnPoint(i, zombieCount2),
+                                                   GetSpawnDirection(i));
             zombie.Add(z1);
+        }
+        for (int i = 0; i < zombieCount3; i++)
+        {
+            GameObject z2 = (GameObject)Instantiate(zombie3_prefab,
+                                                   GetSpawnPoint(i, zombieCount3),
+                                                   GetSpawnDirection(i));
             zombie.Add(z2);
         }
+        for (int i = 0; i < zombieCount4; i++)
+        {
+            GameObject z3 = (GameObject)Instantiate(zombie4_prefab,
+                                                   GetSpawnPoint(i, zombieCount4),
+                                                   GetSpawnDirection(i));
+            zombie.Add(z3);
+        }
+        delayBetweenWaves *= 2;
         waitForZombies = false;
     }
 

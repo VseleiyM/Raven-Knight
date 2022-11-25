@@ -8,6 +8,9 @@ public class Atac : MonoBehaviour
     public float SpeedAttac;
     public float TimeAttack = 0;
 
+    private Vector3 pushFrom;
+    public float pushPower = 10;
+
     void Start()
     {
         
@@ -27,6 +30,7 @@ public class Atac : MonoBehaviour
             if(TimeAttack < Time.time)
             {
                 healthP.Hit(damage);
+                healthP.PushAway(pushFrom, pushPower);
                 TimeAttack = Time.time + SpeedAttac;
             }
              

@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 3}
   zombie3_prefab: {fileID: 3642710364756243519, guid: 966dc10251be0ab439f8cc17a4c58da5,
     type: 3}
+  zombie4_prefab: {fileID: 2170441231365481888, guid: acb8a29cd8015a94ab5698a5a335081a,
+    type: 3}
   zombie: []
   delayBetweenWaves: 15
   currentWave: 1
