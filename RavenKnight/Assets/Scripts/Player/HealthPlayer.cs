@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthPlayer : MonoBehaviour
 {
 
-    public float health;
+    public float health = 10;
+    public float Defense = 5;
 
     private Rigidbody2D _rBody;
     private Vector3 TargetTransform;
@@ -22,6 +24,7 @@ public class HealthPlayer : MonoBehaviour
 
     private void Start()
     {
+
         _rBody = GetComponent<Rigidbody2D>();
 
         spriteRend = GetComponent<SpriteRenderer>();
@@ -33,14 +36,19 @@ public class HealthPlayer : MonoBehaviour
 
     private void Update()
     {
-
+        
     }
 
 
     //Урон получение
     public void Hit(float damage)
     {
-        health -= damage;
+        Defense -= damage;
+        if(Defense <= 0)
+        {
+            health -= damage;
+        }
+        
         if (health <= 0)
         {
             Invoke("KillEnemy", 0f);

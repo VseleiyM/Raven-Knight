@@ -18,6 +18,9 @@ public class Gun : MonoBehaviour
         Reloading
     }
 
+    [Range(0f, 100f)] public float flipBufR = 0;
+    [Range(0f, 100f)] public float flipBufL = 0;
+
     // Как далеко вперед дуло находится от центра пистолета
     public Transform transformSootPoint;
 
@@ -77,11 +80,8 @@ public class Gun : MonoBehaviour
             float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            /*Vector3 lookPos = Camera.main.ScreenToWorldPoint((Input.mousePosition) - transform.position);
-            float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, angle + offset);*/
-
             Vector3 LoclScale = new Vector3(LoclSx, LoclSy, LoclSz);
+
 
             if (angle > 90 || angle < -90)
             {
@@ -94,8 +94,8 @@ public class Gun : MonoBehaviour
 
             transform.localScale = LoclScale;
 
-        }
-    }
+            }
+}
 
     /// Попытки выстрелить из пистолета
     public void Shoot()

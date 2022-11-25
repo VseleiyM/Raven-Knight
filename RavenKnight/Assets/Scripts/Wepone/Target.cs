@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public float health;
+    public bool Nohealth = true;
 
     private Rigidbody2D _rBody;
     private Vector3 TargetTransform;
@@ -23,9 +24,13 @@ public class Target : MonoBehaviour
     {
         _rBody = GetComponent<Rigidbody2D>();
 
-        spriteRend = GetComponent<SpriteRenderer>();
-        matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
-        matDefault = spriteRend.material;
+        if(Nohealth == true)
+        {
+            spriteRend = GetComponent<SpriteRenderer>();
+            matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
+            matDefault = spriteRend.material;
+        }
+        
 
         explosion = Resources.Load("Explosion");
     }
@@ -35,13 +40,20 @@ public class Target : MonoBehaviour
         
     }
 
+    public void RemoveAtItme(SpawenEneme zombie)
+    {
+        //zombie.RemoveAt(zombie_gameobject);
+    }
+
 
     //Урон получение
     public void Hit(float damage)
     {
+
         health -= damage;
         if (health <= 0)
         {
+
             Invoke("KillEnemy", 0f);
         }
         else
@@ -65,7 +77,7 @@ public class Target : MonoBehaviour
 
         _rBody.AddForce(pushDirection * (pushPower * pushPowerObj));
     }
-
+    
     /*public void PenetrSpeed(RaycastHit2D hitInfo)
     {
 

@@ -48,3 +48,6 @@ TagManager:
   - name: Wepon
     uniqueID: 1361268519
     locked: 0
+  - name: Up
+    uniqueID: 1075561291
+    locked: 0
