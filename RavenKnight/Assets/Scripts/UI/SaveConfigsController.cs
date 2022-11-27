@@ -11,7 +11,10 @@ public class SaveConfigsController : MonoBehaviour
     
     public UnityEngine.UI.Slider musicSlider;
     public UnityEngine.UI.Slider soundSlider;
-    public UnityEngine.UI.Button applyChangesButton;
+    public UnityEngine.UI.Button applyChangesAButton;
+    public UnityEngine.UI.Button applyChangesVButton;
+    public UnityEngine.UI.Toggle screenMode;
+    public UnityEngine.UI.Dropdown screenResolution;
     public AudioSource music;
     public AudioSource click;
     
@@ -20,7 +23,8 @@ public class SaveConfigsController : MonoBehaviour
     void Start()
     {
         _path = Path.Combine(Application.dataPath, "Config.json");
-        applyChangesButton.onClick.AddListener(ApplyChanges);
+        applyChangesAButton.onClick.AddListener(ApplyAChanges);
+        applyChangesVButton.onClick.AddListener(ApplyVChanges);
 
         
         if (File.Exists(_path))
@@ -28,6 +32,8 @@ public class SaveConfigsController : MonoBehaviour
             _configData = JsonUtility.FromJson<ConfigData>(File.ReadAllText(_path));
             music.volume = _configData.musicValue;
             click.volume = _configData.soundValue;
+            screenMode.isOn = _configData.screenMode;
+            screenResolution.value = _configData.screenResolution;
         }
         
         musicSlider.value = music.volume;
@@ -37,10 +43,17 @@ public class SaveConfigsController : MonoBehaviour
     // Update is called once per frame
 
 
-    private void ApplyChanges()
+    private void ApplyAChanges()
     {
         _configData.soundValue = click.volume;
         _configData.musicValue = music.volume;
+        File.WriteAllText(_path, JsonUtility.ToJson(_configData));
+    }
+    
+    private void ApplyVChanges()
+    {
+        _configData.screenMode = screenMode.isOn;
+        _configData.screenResolution = screenResolution.value;
         File.WriteAllText(_path, JsonUtility.ToJson(_configData));
     }
 }
@@ -50,4 +63,6 @@ public class ConfigData
 {
     public float soundValue;
     public float musicValue;
+    public bool screenMode;
+    public int screenResolution;
 }

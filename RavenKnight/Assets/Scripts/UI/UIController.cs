@@ -1,100 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseUI : MonoBehaviour
+
+public class UIController : MonoBehaviour
 {
-    public UnityEngine.UI.Button continueButton;
+    public UnityEngine.UI.Button newGameButton;
+    public UnityEngine.UI.Button loadButton;
     public UnityEngine.UI.Button settingsButton;
-    public UnityEngine.UI.Button backToPauseButton;
-    public UnityEngine.UI.Button backToMenuButton;
     public UnityEngine.UI.Button exitButton;
+    public UnityEngine.UI.Button menuButton;
     public UnityEngine.UI.Button audioSettButton;
     public UnityEngine.UI.Button videoSettButton;
     public UnityEngine.UI.Button backFromAButton;
     public UnityEngine.UI.Button backFromVButton;
     public UnityEngine.UI.Slider loadSlider;
 
-    public Gun gun;
-    public Test player;
-    public GameObject pauseUI;
-    public GameObject pauseObj;
+    public GameObject menuObj;
     public GameObject settingsObj;
     public GameObject loadCanvas;
+    public GameObject backImage;
     public GameObject settingButtObj;
     public GameObject audioSettObj;
     public GameObject videoSettObj;
-    
-
-    public static bool gameIsPaused;
+    public GameObject loadText;
+    public GameObject pressText;
+    public GameObject nameText;
     
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
-        gun.lookAtCursor = true;
-        continueButton.onClick.AddListener(ClosePause);
+        newGameButton.onClick.AddListener(LoadNewScene);
+        //loadButton.onClick.AddListener(LoadScene);
         settingsButton.onClick.AddListener(OpenSettings);
-        backToPauseButton.onClick.AddListener(CloseSettings);
-        backToMenuButton.onClick.AddListener(BackToMainMenu);
+        menuButton.onClick.AddListener(CloseSettings);
         exitButton.onClick.AddListener(ExitScene);
+        
         audioSettButton.onClick.AddListener(OpenAudioSettings);
         backFromAButton.onClick.AddListener(CloseAudioSettings);
-        videoSettButton.onClick.AddListener(OpenVideoSettings);
+        videoSettButton.onClick.AddListener(OpenVideSettings);
         backFromVButton.onClick.AddListener(CloseVideoSettings);
     }
 
     // Update is called once per frame
-    void Update()
+    private void LoadNewScene()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                ClosePause();
-            }
-            else
-            {
-                OpenPause();
-            }
-        }
-        
-    }
-
-    private void OpenPause()
-    {
-        pauseUI.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-        gun.lookAtCursor = false;
-    }
-    
-    private void ClosePause()
-    {
-        pauseUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-        gun.lookAtCursor = true;
+        loadCanvas.SetActive(true);
+        StartCoroutine(LoadAsync());
+        menuObj.SetActive(false);
+        backImage.SetActive(false);
+        nameText.SetActive(false);
     }
 
     private void OpenSettings()
     {
-        pauseObj.SetActive(false);
+        menuObj.SetActive(false);
         settingsObj.SetActive(true);
     }
 
     private void CloseSettings()
     {
-        settingsObj.SetActive(false);
-        pauseObj.SetActive(true);
-    }
-
-    private void BackToMainMenu()
-    {
-        loadCanvas.SetActive(true);
-        StartCoroutine(LoadAsync());
+       settingsObj.SetActive(false);
+       menuObj.SetActive(true);
     }
 
     private void OpenAudioSettings()
@@ -102,14 +70,14 @@ public class PauseUI : MonoBehaviour
         settingButtObj.SetActive(false);
         audioSettObj.SetActive(true);
     }
-
+    
     private void CloseAudioSettings()
     {
         settingButtObj.SetActive(true);
         audioSettObj.SetActive(false);
     }
     
-    private void OpenVideoSettings()
+    private void OpenVideSettings()
     {
         settingButtObj.SetActive(false);
         videoSettObj.SetActive(true);
@@ -120,18 +88,39 @@ public class PauseUI : MonoBehaviour
         settingButtObj.SetActive(true);
         videoSettObj.SetActive(false);
     }
+    
+    // с загрузкой сохранений
+   /* private void LoadScene()
+    {
+        loadImage.SetActive(true);
+        SceneManager.LoadSceneAsync("TestLevle");
+        menuObj.SetActive(false);
+        backImage.SetActive(false);
+    }
+    */
+    
     private void ExitScene()
     {
         Application.Quit();
     }
-    
+
     IEnumerator LoadAsync()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MenuScene");
-        
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("TestLevle");
+
+        asyncLoad.allowSceneActivation = false;
         while (!asyncLoad.isDone)
         {
             loadSlider.value = asyncLoad.progress;
+            if (loadSlider.value >= .9f && !asyncLoad.allowSceneActivation)
+            {
+                loadText.SetActive(false);
+                pressText.SetActive(true);
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                }
+            }
 
             yield return null;
         }
