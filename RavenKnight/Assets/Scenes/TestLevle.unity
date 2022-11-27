@@ -1605,7 +1605,7 @@ PrefabInstance:
     - target: {fileID: 767701520, guid: 6ba4ed286857830418362352ea8b447c, type: 3}
       propertyPath: zombie2_prefab
       value: 
-      objectReference: {fileID: 5674139186956492168, guid: c3c01fb7c11adf7408a2618f5e453445,
+      objectReference: {fileID: 4941618768192300500, guid: 72bd5ae679de99440a19f7c93ed8ef75,
         type: 3}
     - target: {fileID: 767701520, guid: 6ba4ed286857830418362352ea8b447c, type: 3}
       propertyPath: zombie3_prefab
