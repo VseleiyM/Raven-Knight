@@ -12,6 +12,8 @@ public class Target : MonoBehaviour
 
     public float pushPowerObj = 1;
 
+    private SpawenEneme Spawn;
+
 
 
     public UnityEngine.Object explosion;
@@ -23,8 +25,10 @@ public class Target : MonoBehaviour
     private void Start()
     {
         _rBody = GetComponent<Rigidbody2D>();
+        Spawn = GameObject.FindGameObjectWithTag("Spawen").GetComponent<SpawenEneme>();
 
-        if(Nohealth == true)
+
+        if (Nohealth == true)
         {
             spriteRend = GetComponent<SpriteRenderer>();
             matBlink = Resources.Load("EnemyBlink", typeof(Material)) as Material;
@@ -93,6 +97,10 @@ public class Target : MonoBehaviour
         GameObject explosionRef = (GameObject)Instantiate(explosion);
         explosionRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
+        if (Spawn != null)
+        {
+            Spawn.zombie.Remove(gameObject);
+        }
         Destroy(gameObject);
     }
 }

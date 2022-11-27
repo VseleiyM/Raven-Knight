@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 767701520}
   m_Layer: 0
   m_Name: SpawenEneme
-  m_TagString: Untagged
+  m_TagString: Spawen
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,20 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7dd63305416f54595b566f47fa0bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie_prefab: {fileID: 1268504544536439687, guid: 7b4b593d345cfad40b75103a7747f4fe,
+  zombie_prefab: {fileID: 5674139186956492168, guid: c3c01fb7c11adf7408a2618f5e453445,
     type: 3}
-  zombie2_prefab: {fileID: 969986125435719893, guid: 94c8476aacea13844b6d6bb2aa14afc8,
+  zombie2_prefab: {fileID: 4941618768192300500, guid: 72bd5ae679de99440a19f7c93ed8ef75,
     type: 3}
-  zombie3_prefab: {fileID: 3642710364756243519, guid: 966dc10251be0ab439f8cc17a4c58da5,
+  zombie3_prefab: {fileID: 8411313741529271487, guid: dc048377de7d3134eb5af3aff014be5d,
     type: 3}
-  zombie4_prefab: {fileID: 2170441231365481888, guid: acb8a29cd8015a94ab5698a5a335081a,
+  zombie4_prefab: {fileID: 7525682932554542409, guid: 69b5a06d58f3b9145a34da55544befaf,
     type: 3}
   zombie: []
-  delayBetweenWaves: 15
+  delayBetweenWaves: 5
   currentWave: 1
   LivelWave: 1
   spawn_point: {x: 0, y: 0, z: 0}
   zombie_look: {x: 0, y: 0, z: 0}
+  WaveCount: 0
+  EnemyTypes_1: 4
+  EnemyTypes_2: 2
+  EnemyTypes_3: 1
+  EnemyTypes_4: 1
   Timere: 0
   Zaderzka: 1
   cellX: 1

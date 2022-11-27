@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Spawen
   layers:
   - Default
   - TransparentFX
@@ -45,9 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 3421806271
+    locked: 0
   - name: Wepon
     uniqueID: 1361268519
     locked: 0
   - name: Up
     uniqueID: 1075561291
+    locked: 0
+  - name: Mobs
+    uniqueID: 1207782759
     locked: 0

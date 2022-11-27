@@ -4,144 +4,7 @@ using UnityEngine;
 
 public class SpawenEneme : MonoBehaviour
 {
-    /*[Range(1, 3)] public int Level;
-    public int Waves;
-    private bool WavesBool = true;
 
-    [Range(0, 45)] public float maxRoundVariation;
-    public Transform transformSootPoint;
-    public GameObject Eneme_1;
-    public GameObject Eneme_2;
-    public GameObject Eneme_3;
-
-    public float SpeedAttac = 1;
-    private float TimeSp_1 = 0;
-    private float TimeSp_2 = 0;
-    private float TimeSp_3 = 0;
-
-    [SerializeField] private int Eneme_1Int;
-    [SerializeField] private int Eneme_2Int;
-    [SerializeField] private int Eneme_3Int;
-
-    void Start()
-    {
-        if (Waves > 0)
-        {
-            if (Level == 1)
-            {
-                Eneme_1Int = Random.Range(5, 8);
-                Eneme_2Int = Random.Range(2, 3);
-                Eneme_3Int = Random.Range(1, 2);
-
-            }
-            else if (Level == 2)
-            {
-                Eneme_1Int = Random.Range(8, 12);
-                Eneme_2Int = Random.Range(3, 5);
-                Eneme_3Int = Random.Range(2, 4);
-            }
-            else if (Level == 3)
-            {
-                Eneme_1Int = Random.Range(12, 16);
-                Eneme_2Int = Random.Range(5, 8);
-                Eneme_3Int = Random.Range(4, 6);
-            }
-            WavesBool = true;
-            StartCoroutine(FlareCountdown());
-
-        }
-        else if (Waves < 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-
-    void Update()
-    {
-
-    }
-
-    void SpaweneOj()
-    {
-        if (Waves > 0)
-        {
-            if (Level == 1)
-            {
-                Eneme_1Int = Random.Range(5, 8);
-                Eneme_2Int = Random.Range(2, 3);
-                Eneme_3Int = Random.Range(1, 2);
-
-            }
-            else if (Level == 2)
-            {
-                Eneme_1Int = Random.Range(8, 12);
-                Eneme_2Int = Random.Range(3, 5);
-                Eneme_3Int = Random.Range(2, 4);
-            }
-            else if (Level == 3)
-            {
-                Eneme_1Int = Random.Range(12, 16);
-                Eneme_2Int = Random.Range(5, 8);
-                Eneme_3Int = Random.Range(4, 6);
-            }
-            Waves -= 1;
-            StartCoroutine(FlareCountdown());
-        }
-        else if (Waves < 0)
-        {
-            Destroy(gameObject);
-        }    
-    }
-
-    public float summ = 0;
-
-    public IEnumerator FlareCountdown()
-    {
-        while (Eneme_1Int > 0)
-        {
-            Invoke("Level_1", SpeedAttac);
-        }
-        while (Eneme_2Int > 0)
-        {
-            Invoke("Level_2", SpeedAttac);
-        }
-        while (Eneme_3Int > 0)
-        {
-            Invoke("Level_3", SpeedAttac);
-        }
-        yield return new WaitForSeconds(10.0f);
-        Invoke("SpaweneOj", 1f);
-    }
-
-
-
-
-
-    public void Level_1()
-    {
-        GameObject spawnedEneme_1 = Instantiate(
-                Eneme_1,
-                transformSootPoint.position,
-                transform.rotation);
-        Eneme_1Int -= 1;
-    }
-    public void Level_2()
-    {
-        GameObject spawnedEneme_2 = Instantiate(
-                Eneme_2,
-                transformSootPoint.position,
-                transform.rotation);
-        Eneme_2Int -= 1;
-    }
-    public void Level_3()
-    {
-        GameObject spawnedEneme_3 = Instantiate(
-                Eneme_3,
-                transformSootPoint.position,
-                transform.rotation);
-        Eneme_3Int -= 1;
-    }*/
     public GameObject zombie_prefab; // префаб с мобом
     public GameObject zombie2_prefab; // префаб с мобом
     public GameObject zombie3_prefab; // префаб с мобом
@@ -152,6 +15,12 @@ public class SpawenEneme : MonoBehaviour
     public int LivelWave = 1;// уровень волн
     public Vector3 spawn_point; // точка спавна мобов
     public Vector3 zombie_look; // куда смотреть мобам
+    public int WaveCount = 3;
+
+    public int EnemyTypes_1 = 1;
+    public int EnemyTypes_2 = 1;
+    public int EnemyTypes_3 = 1;
+    public int EnemyTypes_4 = 1;
 
     public float Timere = 0;
     public int Zaderzka = 1;
@@ -170,21 +39,23 @@ public class SpawenEneme : MonoBehaviour
     private void Spawn()
     {
         zombie.Clear();
-        int zombieCount = currentWave * LivelWave *5; // функция количества мобов от волны
-        int zombieCount2 = currentWave * LivelWave*2;
-        int zombieCount3 = currentWave * LivelWave;
-        int zombieCount4 = currentWave * LivelWave*2;
+        int zombieCount = currentWave * LivelWave *EnemyTypes_1;; // функция количества мобов от волны
+        int zombieCount2 = currentWave * LivelWave* EnemyTypes_2;
+        int zombieCount3 = currentWave * LivelWave * EnemyTypes_3;
+        int zombieCount4 = currentWave * LivelWave * EnemyTypes_4;
         for (int i = 0; i < zombieCount; i++)
         {
+            spawn_point = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 6f),0);
 
             GameObject z = (GameObject)Instantiate(zombie_prefab,                  // префаб моба
                                                    GetSpawnPoint(i, zombieCount),  // получаем точку спавна
                                                    GetSpawnDirection(i));          // получаем направление
-
-            zombie.Add(z); // добавляем в список
+            zombie.Add(z);
         }
         for (int i = 0; i < zombieCount2; i++)
         {
+            spawn_point = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 6f), 0);
+
             GameObject z1 = (GameObject)Instantiate(zombie2_prefab,
                                                    GetSpawnPoint(i, zombieCount2),
                                                    GetSpawnDirection(i));
@@ -192,19 +63,24 @@ public class SpawenEneme : MonoBehaviour
         }
         for (int i = 0; i < zombieCount3; i++)
         {
+            spawn_point = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 6f), 0);
+
             GameObject z2 = (GameObject)Instantiate(zombie3_prefab,
                                                    GetSpawnPoint(i, zombieCount3),
                                                    GetSpawnDirection(i));
             zombie.Add(z2);
+
         }
         for (int i = 0; i < zombieCount4; i++)
         {
+            spawn_point = new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 6f), 0);
+
             GameObject z3 = (GameObject)Instantiate(zombie4_prefab,
                                                    GetSpawnPoint(i, zombieCount4),
                                                    GetSpawnDirection(i));
             zombie.Add(z3);
         }
-        delayBetweenWaves *= 2;
+        WaveCount = WaveCount - 1;
         waitForZombies = false;
     }
 
@@ -230,7 +106,7 @@ public class SpawenEneme : MonoBehaviour
     {
         if (waitForZombies) return; // если ожидание спавна - выходим
 
-        if (zombie.Count == 0 || zombie.Count > 0 || zombie.Count < 0) // если зомби не осталось
+        if (zombie.Count == 0 || zombie.Count < 0 && WaveCount > 0) // если зомби не осталось
         {
             currentWave++; // счетчик волны +1
             waitForZombies = true; // флаг ожидания спавна
