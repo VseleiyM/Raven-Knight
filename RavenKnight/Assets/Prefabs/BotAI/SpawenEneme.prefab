@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5796354507018181563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240418881257024286}
+  - component: {fileID: 767701520}
+  m_Layer: 0
+  m_Name: SpawenEneme
+  m_TagString: Spawen
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1240418881257024286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796354507018181563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.31, y: -5.010601, z: -52.223206}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767701520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796354507018181563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7dd63305416f54595b566f47fa0bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie_prefab: {fileID: 5674139186956492168, guid: c3c01fb7c11adf7408a2618f5e453445,
+    type: 3}
+  zombie2_prefab: {fileID: 4941618768192300500, guid: 72bd5ae679de99440a19f7c93ed8ef75,
+    type: 3}
+  zombie3_prefab: {fileID: 8411313741529271487, guid: dc048377de7d3134eb5af3aff014be5d,
+    type: 3}
+  zombie4_prefab: {fileID: 7525682932554542409, guid: 69b5a06d58f3b9145a34da55544befaf,
+    type: 3}
+  zombie5_prefabB: {fileID: 8280771808362125970, guid: 97b7cbbb2540837428619a7a3b794213,
+    type: 3}
+  zombie: []
+  delayBetweenWaves: 5
+  currentWave: 1
+  LivelWave: 1
+  spawn_point: {x: 0, y: 0, z: 0}
+  zombie_look: {x: 0, y: 0, z: 0}
+  WaveCount: 0
+  EnemyTypes_1: 6
+  EnemyTypes_2: 1
+  EnemyTypes_3: 1
+  EnemyTypes_4: 1
+  Timere: 0
+  Zaderzka: 1
+  cellX: 1
+  cellY: 1
+  waitForZombies: 1
