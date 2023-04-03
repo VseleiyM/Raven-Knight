@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerKeyboardController : MonoBehaviour
 {
-    public Player Player;
+    public PlayerOld Player;
     public bool ClikLock;
 
     public bool lookAtCursor;
@@ -16,7 +16,7 @@ public class PlayerKeyboardController : MonoBehaviour
     private void Start()
     {
 
-        Player = Player == null ? GetComponent<Player>() : Player;
+        Player = Player == null ? GetComponent<PlayerOld>() : Player;
         if (Player == null)
         {
             Debug.LogError("Player not set to controller");

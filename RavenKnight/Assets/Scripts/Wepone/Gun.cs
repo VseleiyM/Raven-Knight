@@ -55,6 +55,8 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         switch (shootState)
         {
             case ShootState.Shooting:

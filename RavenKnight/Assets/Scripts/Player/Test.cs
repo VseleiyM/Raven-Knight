@@ -80,6 +80,8 @@ public class Test : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         if(lookAtCursor == true)
         {
             if (Input.GetKey(upButton))

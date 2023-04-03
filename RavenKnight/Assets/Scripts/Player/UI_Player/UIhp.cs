@@ -23,7 +23,7 @@ public class UIhp : MonoBehaviour
     void Start()
     {
         h = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthPlayer>();
-        SE = GameObject.FindGameObjectWithTag("Spawen").GetComponent<SpawenEneme>();
+        // SE = GameObject.FindGameObjectWithTag("Spawen").GetComponent<SpawenEneme>();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class UIhp : MonoBehaviour
         float HP = h.health;
         bar.text = "HP" + HP;
 
-        Wave = SE.WaveCount;
+        // Wave = SE.WaveCount;
         waveText.text = "Wave: " + Wave*-1;
 
         textFps.text = ("FPS: " + (int)fps);

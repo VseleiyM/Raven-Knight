@@ -11,6 +11,8 @@ public class CharacterShooting : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         if (Input.GetMouseButton(shootButton))
         {
             gun.Shoot();
