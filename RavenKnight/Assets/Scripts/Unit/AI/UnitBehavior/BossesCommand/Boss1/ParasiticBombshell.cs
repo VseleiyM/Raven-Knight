@@ -15,7 +15,7 @@ public class ParasiticBombshell : UnitCommand
     [SerializeField] private GameObject areaEffectPrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
-    [SerializeField] private string damageableTag;
+    [SerializeField] private DamageableTag damageableTag;
 
     private bool isReady = true;
     private Transform temp;

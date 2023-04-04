@@ -8,8 +8,8 @@ public class Player : MonoBehaviour, IDamageable
 {
     public float Speed { get => _speed; }
     [SerializeField] private float _speed = 1;
-    public string DamageableTag { get => _damageableTag; }
-    [SerializeField] private string _damageableTag;
+    public DamageableTag DamageableTag { get => _damageableTag; }
+    [SerializeField] private DamageableTag _damageableTag;
     
     private PlayerInfo playerInfo;
 

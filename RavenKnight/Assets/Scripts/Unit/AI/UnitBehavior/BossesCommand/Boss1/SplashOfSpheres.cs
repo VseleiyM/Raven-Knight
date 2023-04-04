@@ -12,7 +12,7 @@ public class SplashOfSpheres : UnitCommand
     [SerializeField] private GameObject projectilePrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
-    [SerializeField] private string damageableTag;
+    [SerializeField] private DamageableTag damageableTag;
 
     private bool isReady = true;
     private Vector3 target;

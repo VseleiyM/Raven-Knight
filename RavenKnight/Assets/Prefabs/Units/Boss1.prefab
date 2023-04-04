@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4257065755169097077}
+  - component: {fileID: 3703864740433641052}
   - component: {fileID: 5965438865224818109}
   - component: {fileID: 3132095950495469572}
   - component: {fileID: 4220095325179223436}
-  - component: {fileID: 3703864740433641052}
   - component: {fileID: 5767095737175026990}
   - component: {fileID: 6390528661053583313}
   - component: {fileID: 406939398369415979}
@@ -38,6 +38,20 @@ Transform:
   m_Father: {fileID: 3774518901421596486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3703864740433641052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236565339235944693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 5965438865224818109}
+  time: 1
 --- !u!114 &5965438865224818109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ifTrue: {fileID: 4220095325179223436}
-  ifFalse: {fileID: 3703864740433641052}
+  ifFalse: {fileID: 5767095737175026990}
   singleTriggering: 1
   parameterName: 0
   logicOperator: 0
@@ -86,28 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d815b171c1e1a4ebb2715acc36abe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 5965438865224818109}
+  _nextStep: {fileID: 3703864740433641052}
   cooldown: 1
   areaAttack: {fileID: 8845370322990767090}
   deadZoneBox: 1
   areaEffectPrefab: {fileID: 3060119034310443955, guid: fc6156740147193478d632006a8d1c09,
     type: 3}
   count: 10
-  damageableTag: Player
---- !u!114 &3703864740433641052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3236565339235944693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nextStep: {fileID: 5767095737175026990}
-  time: 1
+  damageableTag: 0
 --- !u!114 &5767095737175026990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafbd5854e1f06147b17591469d4b877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 5965438865224818109}
+  _nextStep: {fileID: 3703864740433641052}
   cooldown: 0
   areaAttack: {fileID: 1725804911211390888, guid: 4d07faaf3f4d625429ce252385fa05cc,
     type: 3}
-  damageableTag: Player
+  damageableTag: 0
 --- !u!114 &406939398369415979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,12 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cecffeb4db49f4a8f2b0fa203895bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 5965438865224818109}
+  _nextStep: {fileID: 3703864740433641052}
   cooldown: 0
   projectilePrefab: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
   count: 8
-  damageableTag: Player
+  damageableTag: 0
 --- !u!1 &3774518901421596487
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 4804545235018760440}
   _animator: {fileID: 2069867068647452737}
   _mob: {fileID: 6725696061794394773}
-  startStep: {fileID: 5965438865224818109}
+  startStep: {fileID: 3703864740433641052}
   _typeAttack: 1
   _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}

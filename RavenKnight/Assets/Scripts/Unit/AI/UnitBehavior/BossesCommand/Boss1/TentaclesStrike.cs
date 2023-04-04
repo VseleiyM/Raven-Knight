@@ -10,7 +10,7 @@ public class TentaclesStrike : UnitCommand
     [Min(0)]
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private GameObject areaAttack;
-    [SerializeField] private string damageableTag;
+    [SerializeField] private DamageableTag damageableTag;
 
     private bool isReady = true;
     private Vector3 target;

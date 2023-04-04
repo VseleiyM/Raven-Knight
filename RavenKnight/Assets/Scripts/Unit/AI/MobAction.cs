@@ -5,7 +5,7 @@ using UnityEngine;
 public class MobAction : MonoBehaviour
 {
     [SerializeField] private MobInfo mobInfo;
-    [SerializeField] private string damageableTag;
+    [SerializeField] private DamageableTag damageableTag;
 
     private Transform temp;
 
@@ -35,7 +35,7 @@ public class MobAction : MonoBehaviour
             List<Collider2D> results = new List<Collider2D>();
             mobInfo.AttackTrigger.GetContacts(results);
             foreach (var collider in results)
-                if (collider.tag == damageableTag)
+                if (collider.tag == damageableTag.ToString())
                 {
                     collider.GetComponent<IDamageable>().TakeDamage(0f);
                     break;
@@ -47,6 +47,7 @@ public class MobAction : MonoBehaviour
             Vector3 spawnPoint = new Vector3(mobInfo.transform.position.x, mobInfo.transform.position.y);
             Vector3 target = mobInfo.target.position;
             float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
+
             var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));
             projectile.transform.parent = temp;
             projectile.layer = mobInfo.gameObject.layer;
