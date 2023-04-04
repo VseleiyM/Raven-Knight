@@ -15374,6 +15374,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mob3
       objectReference: {fileID: 0}
+    - target: {fileID: 3774518901421596487, guid: 85394c16a2fdb724e9e352cac3b44fe4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5217896816445079018, guid: 85394c16a2fdb724e9e352cac3b44fe4,
         type: 3}
       propertyPath: spawnRadius
@@ -17164,23 +17169,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1193193233522019093, guid: 884d646cec030a5458d8180401d274dd,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193193233522019093, guid: 884d646cec030a5458d8180401d274dd,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193193233522019093, guid: 884d646cec030a5458d8180401d274dd,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1193193233522019093, guid: 884d646cec030a5458d8180401d274dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1193193233522019093, guid: 884d646cec030a5458d8180401d274dd,
         type: 3}

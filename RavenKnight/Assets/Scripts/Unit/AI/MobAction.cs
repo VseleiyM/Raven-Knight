@@ -52,7 +52,6 @@ public class MobAction : MonoBehaviour
             projectile.layer = mobInfo.gameObject.layer;
             Projectile compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = damageableTag;
-            compProjectile.coroutine = compProjectile.StartCoroutine(compProjectile.MoveRight());
         }
     }
 }

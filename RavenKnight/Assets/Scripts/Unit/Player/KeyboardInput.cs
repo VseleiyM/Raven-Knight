@@ -19,7 +19,6 @@ public class KeyboardInput : MonoBehaviour
     private void FixedUpdate()
     {
         direction.Set(horizontal, vertical);
-        if (direction.magnitude > 0)
-            movement.Move(direction);
+        movement.Move(direction);
     }
 }

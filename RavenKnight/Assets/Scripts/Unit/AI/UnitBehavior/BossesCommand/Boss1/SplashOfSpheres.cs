@@ -45,7 +45,6 @@ public class SplashOfSpheres : UnitCommand
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.gameObject.layer = gameObject.layer;
             compProjectile.damageableTag = damageableTag;
-            compProjectile.coroutine = compProjectile.StartCoroutine(compProjectile.MoveRight());
         }
 
         isReady = false;

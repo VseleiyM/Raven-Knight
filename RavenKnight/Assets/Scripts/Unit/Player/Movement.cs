@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInfo))]
+
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 1;
-    [Space(10)]
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Animator animator;
-
+    private PlayerInfo playerInfo;
     private Rigidbody2D _rigidbody;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
+    private void Awake()
+    {
+        playerInfo = GetComponent<PlayerInfo>();
+        animator = playerInfo.Animator;
+        spriteRenderer = playerInfo.SpriteRenderer;
+    }
 
     private void Start()
     {
@@ -19,17 +26,21 @@ public class Movement : MonoBehaviour
     public void Move(Vector2 direction)
     {
         Init();
+        Animation();
         Flip();
 
         void Init()
+        {
+            Vector2 offset = direction * Time.fixedDeltaTime * playerInfo.Player.Speed;
+            _rigidbody.MovePosition(_rigidbody.position + offset);
+        }
+
+        void Animation()
         {
             if (direction.magnitude > 0)
                 animator.SetBool("Run", true);
             else
                 animator.SetBool("Run", false);
-
-            Vector2 offset = direction * Time.fixedDeltaTime * speed;
-            _rigidbody.MovePosition(_rigidbody.position + offset);
         }
 
         void Flip()

@@ -18,6 +18,11 @@ public class Projectile : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        coroutine = StartCoroutine(MoveRight());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StopCoroutine(coroutine);
