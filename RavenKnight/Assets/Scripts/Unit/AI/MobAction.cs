@@ -32,14 +32,8 @@ public class MobAction : MonoBehaviour
 
         void Hit()
         {
-            List<Collider2D> results = new List<Collider2D>();
-            mobInfo.AttackTrigger.GetContacts(results);
-            foreach (var collider in results)
-                if (collider.tag == damageableTag.ToString())
-                {
-                    collider.GetComponent<IDamageable>().TakeDamage(0f);
-                    break;
-                }
+            if (mobInfo.AttackTrigger.IsTouching(mobInfo.targetCollider))
+                mobInfo.targetCollider.GetComponent<IDamageable>().TakeDamage(0f);
         }
 
         void CreateProjectile()

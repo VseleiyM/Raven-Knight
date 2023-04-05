@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MoveTo : UnitCommand
 {
+    public override UnitCommand NextStep { get { return _nextStep; } }
     [SerializeField] private UnitCommand _nextStep;
 
     private NavMeshAgent agent;
@@ -12,7 +13,6 @@ public class MoveTo : UnitCommand
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
-    public override UnitCommand NextStep { get { return _nextStep; } }
 
     public override void RequestData(MobInfo mobInfo)
     {

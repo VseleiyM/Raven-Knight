@@ -7,8 +7,6 @@ public class ParasiticBombshell : UnitCommand
     public override UnitCommand NextStep => _nextStep;
     [SerializeField] private UnitCommand _nextStep;
 
-    [Min(0)]
-    [SerializeField] private float cooldown = 1f;
     [SerializeField] private BoxCollider2D areaAttack;
     [Min(0)]
     [SerializeField] private float deadZoneBox;
@@ -17,7 +15,6 @@ public class ParasiticBombshell : UnitCommand
     [SerializeField] private int count = 1;
     [SerializeField] private DamageableTag damageableTag;
 
-    private bool isReady = true;
     private Transform temp;
 
     private void Awake()
@@ -36,8 +33,6 @@ public class ParasiticBombshell : UnitCommand
 
     public override void Execute()
     {
-        if (!isReady) return;
-
         for (int i = 0; i < count; i++)
         {
             float minX = areaAttack.size.x * -0.5f;
@@ -74,14 +69,5 @@ public class ParasiticBombshell : UnitCommand
             compAreaEffect.gameObject.layer = gameObject.layer;
             compAreaEffect.damageableTag = damageableTag;
         }
-
-        isReady = false;
-        StartCoroutine(Cooldown());
-    }
-
-    private IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(cooldown);
-        isReady = true;
     }
 }
