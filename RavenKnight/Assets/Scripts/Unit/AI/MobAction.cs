@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MobAction : MonoBehaviour
 {
-    [SerializeField] private MobInfo mobInfo;
-    [SerializeField] private DamageableTag damageableTag;
-
+    private MobInfo mobInfo;
     private Transform temp;
 
     private void Awake()
@@ -16,6 +14,8 @@ public class MobAction : MonoBehaviour
             temp = new GameObject("Temp").transform;
         else
             temp = goTemp.transform;
+
+        mobInfo = GetComponentInParent<MobInfo>();
     }
 
     public void Attack()
@@ -46,7 +46,7 @@ public class MobAction : MonoBehaviour
             projectile.transform.parent = temp;
             projectile.layer = mobInfo.gameObject.layer;
             Projectile compProjectile = projectile.GetComponent<Projectile>();
-            compProjectile.damageableTag = damageableTag;
+            compProjectile.damageableTag = mobInfo.Mob.DamageableTag;
         }
     }
 }

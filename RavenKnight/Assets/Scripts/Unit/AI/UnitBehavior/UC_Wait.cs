@@ -8,6 +8,7 @@ public class UC_Wait : UnitCommand
     private UnitCommand _result;
 
     [SerializeField] private UnitCommand _nextStep;
+    [Space(10)]
     [Min(0)]
     [SerializeField] private float time;
 

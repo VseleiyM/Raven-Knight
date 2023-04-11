@@ -114,8 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe05f76cdd1fd854fa3f2317fdb7b7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobInfo: {fileID: 5536215956165206449}
-  damageableTag: 1
 --- !u!1 &5536215956165206452
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 0
+  _damageableTag: 1
 --- !u!1 &6079798895492789766
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +277,7 @@ GameObject:
   - component: {fileID: 4873314101259762566}
   - component: {fileID: 6634649217331459165}
   - component: {fileID: 8345886419290001366}
+  - component: {fileID: 5663901790079783081}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -325,4 +325,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ifTrue: {fileID: 8345886419290001366}
-  ifFalse: {fileID: 6634649217331459165}
+  ifFalse: {fileID: 5663901790079783081}
+--- !u!114 &5663901790079783081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079798895492789766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 6634649217331459165}
+  time: 0.25

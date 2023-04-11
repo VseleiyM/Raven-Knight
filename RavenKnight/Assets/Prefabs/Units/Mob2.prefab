@@ -130,7 +130,7 @@ MonoBehaviour:
   _attackTrigger: {fileID: 7690338234648570116}
   _spriteRenderer: {fileID: 8197714107943249547}
   _animator: {fileID: 3445439267889616434}
-  _mob: {fileID: 0}
+  _mob: {fileID: 7944196964802036966}
   startStep: {fileID: 1715678258332773597}
   _typeAttack: 1
   _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 0
+  _damageableTag: 1
 --- !u!1 &2270828943839637126
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ GameObject:
   - component: {fileID: 611697198402970374}
   - component: {fileID: 1715678258332773597}
   - component: {fileID: 4039405043959322454}
+  - component: {fileID: 646654120481133589}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -210,7 +212,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ifTrue: {fileID: 4039405043959322454}
-  ifFalse: {fileID: 1715678258332773597}
+  ifFalse: {fileID: 646654120481133589}
+--- !u!114 &646654120481133589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270828943839637126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 1715678258332773597}
+  time: 0.25
 --- !u!1 &8107478893741695018
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,5 +341,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe05f76cdd1fd854fa3f2317fdb7b7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobInfo: {fileID: 506871643399256369}
-  damageableTag: 1

@@ -6,15 +6,15 @@ public class ParasiticBombshell : UnitCommand
 {
     public override UnitCommand NextStep => _nextStep;
     [SerializeField] private UnitCommand _nextStep;
-
+    [Space(10)]
     [SerializeField] private BoxCollider2D areaAttack;
     [Min(0)]
     [SerializeField] private float deadZoneBox;
     [SerializeField] private GameObject areaEffectPrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
-    [SerializeField] private DamageableTag damageableTag;
 
+    private DamageableTag damageableTag;
     private Transform temp;
 
     private void Awake()
@@ -28,7 +28,7 @@ public class ParasiticBombshell : UnitCommand
 
     public override void RequestData(MobInfo mobInfo)
     {
-        
+        damageableTag = mobInfo.Mob.DamageableTag;
     }
 
     public override void Execute()

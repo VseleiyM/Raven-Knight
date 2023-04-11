@@ -48,14 +48,14 @@ public class MobInfo : MonoBehaviour
         firstStep.RequestData(this);
         firstStep.Execute();
         UnitCommand step = firstStep.NextStep;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForFixedUpdate();
 
         while (true)
         {
             step.RequestData(this);
             step.Execute();
             step = step.NextStep;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForFixedUpdate();
         }
     }
 }

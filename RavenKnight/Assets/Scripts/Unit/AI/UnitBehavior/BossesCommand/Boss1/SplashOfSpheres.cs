@@ -6,13 +6,11 @@ public class SplashOfSpheres : UnitCommand
 {
     public override UnitCommand NextStep => _nextStep;
     [SerializeField] private UnitCommand _nextStep;
-
+    [Space(10)]
     [SerializeField] private GameObject projectilePrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
-    [SerializeField] private DamageableTag damageableTag;
 
-    private Vector3 target;
     private Transform temp;
 
     private void Awake()
@@ -26,7 +24,7 @@ public class SplashOfSpheres : UnitCommand
 
     public override void RequestData(MobInfo mobInfo)
     {
-        target = mobInfo.target.position;
+
     }
 
     public override void Execute()
@@ -39,7 +37,7 @@ public class SplashOfSpheres : UnitCommand
             projectile.transform.parent = temp;
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.gameObject.layer = gameObject.layer;
-            compProjectile.damageableTag = damageableTag;
+            compProjectile.damageableTag = DamageableTag.All;
         }
     }
 }

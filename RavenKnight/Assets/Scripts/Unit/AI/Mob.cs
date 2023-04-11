@@ -8,6 +8,8 @@ public class Mob : MonoBehaviour, IDamageable
     [SerializeField] private float _currentHealth;
     public float MaxHealth { get => _maxHealth; }
     [SerializeField] private float _maxHealth;
+    public DamageableTag DamageableTag { get => _damageableTag; }
+    [SerializeField] private DamageableTag _damageableTag;
 
     private void Awake()
     {

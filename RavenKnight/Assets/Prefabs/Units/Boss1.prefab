@@ -68,7 +68,7 @@ MonoBehaviour:
   ifFalse: {fileID: 3132095950495469572}
   singleTriggering: 1
   parameterName: 0
-  logicOperator: 0
+  logicOperator: 2
   value: 5
 --- !u!114 &3132095950495469572
 MonoBehaviour:
@@ -86,7 +86,7 @@ MonoBehaviour:
   ifFalse: {fileID: 5767095737175026990}
   singleTriggering: 1
   parameterName: 0
-  logicOperator: 0
+  logicOperator: 2
   value: 2.5
 --- !u!114 &4220095325179223436
 MonoBehaviour:
@@ -101,13 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3703864740433641052}
-  cooldown: 1
   areaAttack: {fileID: 8845370322990767090}
   deadZoneBox: 1
   areaEffectPrefab: {fileID: 3060119034310443955, guid: fc6156740147193478d632006a8d1c09,
     type: 3}
   count: 10
-  damageableTag: 0
 --- !u!114 &5767095737175026990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,10 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3703864740433641052}
-  cooldown: 0
   areaAttack: {fileID: 1725804911211390888, guid: 4d07faaf3f4d625429ce252385fa05cc,
     type: 3}
-  damageableTag: 0
 --- !u!114 &406939398369415979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,11 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3703864740433641052}
-  cooldown: 0
   projectilePrefab: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
   count: 8
-  damageableTag: 0
 --- !u!1 &3774518901421596487
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 10
+  _damageableTag: 1
 --- !u!61 &8845370322990767090
 BoxCollider2D:
   m_ObjectHideFlags: 0
