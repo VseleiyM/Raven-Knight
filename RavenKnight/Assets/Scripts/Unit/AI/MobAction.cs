@@ -18,6 +18,18 @@ public class MobAction : MonoBehaviour
         mobInfo = GetComponentInParent<MobInfo>();
     }
 
+    public void Audio_Attack()
+    {
+        foreach(var clip in mobInfo.ListAudioClip)
+        {
+            if(clip.name.ToLower() == "attack")
+            {
+                mobInfo.AudioSource.clip = clip;
+                mobInfo.AudioSource.Play();
+            }
+        }
+    }
+
     public void Attack()
     {
         switch ((int)mobInfo.TypeAttack)
@@ -32,14 +44,14 @@ public class MobAction : MonoBehaviour
 
         void Hit()
         {
-            if (mobInfo.AttackTrigger.IsTouching(mobInfo.targetCollider))
-                mobInfo.targetCollider.GetComponent<IDamageable>().TakeDamage(0f);
+            if (mobInfo.AttackTrigger.IsTouching(mobInfo.Mob.targetCollider))
+                mobInfo.Mob.targetCollider.GetComponent<IDamageable>().TakeDamage(0f);
         }
 
         void CreateProjectile()
         {
             Vector3 spawnPoint = new Vector3(mobInfo.transform.position.x, mobInfo.transform.position.y);
-            Vector3 target = mobInfo.target.position;
+            Vector3 target = mobInfo.Mob.target.position;
             float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
 
             var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));

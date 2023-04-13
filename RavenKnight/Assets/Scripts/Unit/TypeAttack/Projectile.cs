@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed = 1f;
 
     public DamageableTag damageableTag;
+    public float damage;
+
     public Coroutine coroutine;
 
     private Animator animator;
@@ -34,7 +36,7 @@ public class Projectile : MonoBehaviour
         
         IDamageable target = collision.GetComponent<IDamageable>();
         if (target != null)
-            target.TakeDamage(0f);
+            target.TakeDamage(damage);
     }
 
     public IEnumerator MoveRight()

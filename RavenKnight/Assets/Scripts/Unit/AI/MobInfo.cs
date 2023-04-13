@@ -15,47 +15,25 @@ public class MobInfo : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     public Animator Animator { get => _animator; }
     [SerializeField] private Animator _animator;
+    public AudioSource AudioSource { get => _audioSource; }
+    [SerializeField] private AudioSource _audioSource;
     public Mob Mob { get => _mob; }
     [SerializeField] private Mob _mob;
 
-    [Space(10)]
-    [SerializeField] private UnitCommand startStep;
     public TypeAttack TypeAttack { get => _typeAttack; }
+    [Space(10)]
     [SerializeField] private TypeAttack _typeAttack;
     public GameObject Projectile { get => _projectile; }
     [SerializeField] private GameObject _projectile;
     public Transform PointForProjectile { get => _pointForProjectile; }
     [SerializeField] private Transform _pointForProjectile;
-
+    public List<AudioClip> ListAudioClip { get => _listAudioClip; }
     [Space(10)]
-    public Transform target;
-    public Collider2D targetCollider;
+    [SerializeField] private List<AudioClip> _listAudioClip;
 
-    private Coroutine enableAI;
-
-    private void Start()
+    private void Awake()
     {
-        Agent.updateRotation = false;
         Agent.updateUpAxis = false;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
-        targetCollider = target.GetComponent<Collider2D>();
-
-        enableAI = StartCoroutine(EnableAI(startStep));
-    }
-
-    private IEnumerator EnableAI(UnitCommand firstStep)
-    {
-        firstStep.RequestData(this);
-        firstStep.Execute();
-        UnitCommand step = firstStep.NextStep;
-        yield return new WaitForFixedUpdate();
-
-        while (true)
-        {
-            step.RequestData(this);
-            step.Execute();
-            step = step.NextStep;
-            yield return new WaitForFixedUpdate();
-        }
+        Agent.updateRotation = false;
     }
 }

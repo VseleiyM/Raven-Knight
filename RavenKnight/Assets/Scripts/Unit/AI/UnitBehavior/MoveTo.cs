@@ -17,7 +17,7 @@ public class MoveTo : UnitCommand
     public override void RequestData(MobInfo mobInfo)
     {
         agent = mobInfo.Agent;
-        target = mobInfo.target;
+        target = mobInfo.Mob.target;
         animator = mobInfo.Animator;
         spriteRenderer = mobInfo.SpriteRenderer;
     }

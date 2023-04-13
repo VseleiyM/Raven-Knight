@@ -20,7 +20,7 @@ public class AttackTarget : UnitCommand
     public override void RequestData(MobInfo mobInfo)
     {
         attacktrigger = mobInfo.AttackTrigger;
-        target = mobInfo.targetCollider;
+        target = mobInfo.Mob.targetCollider;
         animator = mobInfo.Animator;
         agent = mobInfo.Agent;
         spriteRenderer = mobInfo.SpriteRenderer;

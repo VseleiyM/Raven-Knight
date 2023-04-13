@@ -8,6 +8,7 @@ public class AreaEffect : MonoBehaviour
     [SerializeField] private Collider2D _trigger;
 
     public DamageableTag damageableTag;
+    public float damage;
 
     public void HitArea()
     {
@@ -19,7 +20,7 @@ public class AreaEffect : MonoBehaviour
                 collision.tag != damageableTag.ToString())
                 break;
             
-            collision.GetComponent<IDamageable>().TakeDamage(0f);
+            collision.GetComponent<IDamageable>().TakeDamage(damage);
         }
         Destroy(gameObject);
     }
