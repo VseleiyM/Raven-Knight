@@ -18,6 +18,11 @@ public class MobAction : MonoBehaviour
         mobInfo = GetComponentInParent<MobInfo>();
     }
 
+    public void Dead()
+    {
+        Destroy(mobInfo.gameObject);
+    }
+
     public void Audio_Attack()
     {
         foreach(var clip in mobInfo.ListAudioClip)
@@ -26,6 +31,7 @@ public class MobAction : MonoBehaviour
             {
                 mobInfo.AudioSource.clip = clip;
                 mobInfo.AudioSource.Play();
+                break;
             }
         }
     }

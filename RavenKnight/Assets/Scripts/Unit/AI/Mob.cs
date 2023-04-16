@@ -17,8 +17,8 @@ public class Mob : MonoBehaviour, IDamageable
     [Space(10)]
     public Transform target;
     public Collider2D targetCollider;
+    public Coroutine corotine_AI;
 
-    private Coroutine enableAI;
     private MobInfo mobInfo;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class Mob : MonoBehaviour, IDamageable
         target = GameObject.FindGameObjectWithTag("Player").transform;
         targetCollider = target.GetComponent<Collider2D>();
 
-        enableAI = StartCoroutine(EnableAI(startStep));
+        corotine_AI = StartCoroutine(EnableAI(startStep));
     }
 
     private IEnumerator EnableAI(UnitCommand firstStep)
@@ -54,7 +54,14 @@ public class Mob : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        
+        _currentHealth = _currentHealth - damage;
+
+        if (CurrentHealth <= 0)
+        {
+            StopAllCoroutines();
+            mobInfo.Agent.isStopped = true;
+            mobInfo.Animator.SetTrigger("Dead");
+        }
     }
 
     public bool ReturnParameter(int id, ref float result)
