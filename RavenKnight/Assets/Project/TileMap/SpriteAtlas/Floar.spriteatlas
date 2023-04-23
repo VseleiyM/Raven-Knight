@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Floar
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: f37f2c8fc52b63046bb858046fd76efe, type: 3}
+    - {fileID: 2800000, guid: cf5e87065ed0ceb42985bf18630fb953, type: 3}
+    - {fileID: 2800000, guid: 59e02b36ce59360468a234e792558ad7, type: 3}
+    - {fileID: 2800000, guid: 68176d9b4c69911438ceabe7931e1a43, type: 3}
+    - {fileID: 2800000, guid: 6d48b2050c6a9094a85c031b0451168c, type: 3}
+    - {fileID: 2800000, guid: 004038e1de537304397d5b1a31b06a78, type: 3}
+    - {fileID: 2800000, guid: c096f43388768a54a9645917064963f7, type: 3}
+    - {fileID: 2800000, guid: e9aefe747c58a544c80586573c997196, type: 3}
+    - {fileID: 2800000, guid: 63eb301a27431544c97c410b1fad487c, type: 3}
+    - {fileID: 2800000, guid: 02b2b642e714da44b981459b4602bc36, type: 3}
+    - {fileID: 2800000, guid: 4a9ededc7b191e54698a52ee8e529d24, type: 3}
+    - {fileID: 2800000, guid: bf35b6e481f3029468e118592565c65f, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 004038e1de537304397d5b1a31b06a78, type: 3}
+  - {fileID: 21300000, guid: 02b2b642e714da44b981459b4602bc36, type: 3}
+  - {fileID: 21300000, guid: c096f43388768a54a9645917064963f7, type: 3}
+  - {fileID: 21300000, guid: e9aefe747c58a544c80586573c997196, type: 3}
+  - {fileID: 21300000, guid: bf35b6e481f3029468e118592565c65f, type: 3}
+  - {fileID: 21300000, guid: 6d48b2050c6a9094a85c031b0451168c, type: 3}
+  - {fileID: 21300000, guid: cf5e87065ed0ceb42985bf18630fb953, type: 3}
+  - {fileID: 21300000, guid: 59e02b36ce59360468a234e792558ad7, type: 3}
+  - {fileID: 21300000, guid: 63eb301a27431544c97c410b1fad487c, type: 3}
+  - {fileID: 21300000, guid: 68176d9b4c69911438ceabe7931e1a43, type: 3}
+  - {fileID: 21300000, guid: 4a9ededc7b191e54698a52ee8e529d24, type: 3}
+  - {fileID: 21300000, guid: f37f2c8fc52b63046bb858046fd76efe, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Wall_Top_1
+  - Wall_Side_2
+  - Wall_Top_4
+  - Wall_Top_3
+  - Wall_Side_4
+  - Wall_Top_2
+  - Floor_2
+  - Floor_3
+  - Wall_Side_1
+  - Floor_4
+  - Wall_Side_3
+  - Floor_1
+  m_Tag: Floar
+  m_IsVariant: 0

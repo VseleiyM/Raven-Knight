@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mob1Attack_2
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 0936e58f2d2466e4faff94778e4d6e79, type: 3}
+    - {fileID: 2800000, guid: 73add4c1df01daf40b28519075b384fa, type: 3}
+    - {fileID: 2800000, guid: 5295ea2c92390cd43a0c226aca35c12d, type: 3}
+    - {fileID: 2800000, guid: 30099ea92a69922439d22541bb4535fb, type: 3}
+    - {fileID: 2800000, guid: eae36cca9d8f7c04881bca29276b9be7, type: 3}
+    - {fileID: 2800000, guid: bae026c1364394248a8acace0e9a4c58, type: 3}
+    - {fileID: 2800000, guid: 7e026c043a71d6a4cb3bac7ce4b96269, type: 3}
+    - {fileID: 2800000, guid: 8e737a52cea707d47a4e5ff122a4fc23, type: 3}
+    - {fileID: 2800000, guid: 81e45d55bd9563745a93729a88b91ae1, type: 3}
+    - {fileID: 2800000, guid: 21a632712f9f21548bd907f698797d13, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 21a632712f9f21548bd907f698797d13, type: 3}
+  - {fileID: 21300000, guid: 73add4c1df01daf40b28519075b384fa, type: 3}
+  - {fileID: 21300000, guid: bae026c1364394248a8acace0e9a4c58, type: 3}
+  - {fileID: 21300000, guid: 8e737a52cea707d47a4e5ff122a4fc23, type: 3}
+  - {fileID: 21300000, guid: 7e026c043a71d6a4cb3bac7ce4b96269, type: 3}
+  - {fileID: 21300000, guid: 81e45d55bd9563745a93729a88b91ae1, type: 3}
+  - {fileID: 21300000, guid: 30099ea92a69922439d22541bb4535fb, type: 3}
+  - {fileID: 21300000, guid: eae36cca9d8f7c04881bca29276b9be7, type: 3}
+  - {fileID: 21300000, guid: 5295ea2c92390cd43a0c226aca35c12d, type: 3}
+  - {fileID: 21300000, guid: 0936e58f2d2466e4faff94778e4d6e79, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - mob1attack_49
+  - mob1attack_41
+  - mob1attack_45
+  - mob1attack_47
+  - mob1attack_46
+  - mob1attack_48
+  - mob1attack_43
+  - mob1attack_44
+  - mob1attack_42
+  - mob1attack_40
+  m_Tag: mob1Attack_2
+  m_IsVariant: 0
