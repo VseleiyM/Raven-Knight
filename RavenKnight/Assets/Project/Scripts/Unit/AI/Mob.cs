@@ -8,11 +8,16 @@ public class Mob : MonoBehaviour, IDamageable
     [SerializeField] private float _currentHealth;
     public float MaxHealth { get => _maxHealth; }
     [SerializeField] private float _maxHealth;
-    public float Damage { get => _damage; }
-    [SerializeField] private float _damage;
     public DamageableTag DamageableTag { get => _damageableTag; }
     [SerializeField] private DamageableTag _damageableTag;
-    [SerializeField] private UnitCommand startStep;
+    public float Damage { get => _damage; }
+    [SerializeField] private float _damage;
+    public int GainScore { get => _gainScore; }
+    [SerializeField] private int _gainScore;
+    public bool IsBoss { get => _isBoss; }
+    [SerializeField] private bool _isBoss;
+
+    [Space(10)][SerializeField] private UnitCommand startStep;
 
     [Space(10)]
     public Transform target;
@@ -32,6 +37,11 @@ public class Mob : MonoBehaviour, IDamageable
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
         targetCollider = target.GetComponent<Collider2D>();
+
+        if (_isBoss)
+        {
+            GlobalEvents.SendBossInit(this);
+        }
 
         corotine_AI = StartCoroutine(EnableAI(startStep));
     }
@@ -55,6 +65,11 @@ public class Mob : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         _currentHealth = _currentHealth - damage;
+
+        if (_isBoss)
+        {
+            GlobalEvents.SendBossTakeDamage(this);
+        }
 
         if (CurrentHealth <= 0)
         {

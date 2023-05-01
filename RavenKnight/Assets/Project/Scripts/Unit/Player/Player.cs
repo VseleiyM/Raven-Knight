@@ -14,11 +14,13 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float _speed = 1;
     public DamageableTag DamageableTag { get => _damageableTag; }
     [SerializeField] private DamageableTag _damageableTag;
-
-    public bool IsDead { get => _isDead; }
-    [SerializeField] private bool _isDead;
     public bool IsInvincible { get => _isInvincible; }
     [SerializeField] private bool _isInvincible;
+
+    public bool IsDead { get => _isDead; }
+    [Space(10)][SerializeField] private bool _isDead;
+    public int Score { get => _score; }
+    [SerializeField] private int _score;
     public List<MonoBehaviour> DisableComponents { get => _disableComponents; }
     [SerializeField] private List<MonoBehaviour> _disableComponents;
 
@@ -27,8 +29,22 @@ public class Player : MonoBehaviour, IDamageable
     private void Awake()
     {
         playerInfo = GetComponent<PlayerInfo>();
-
         _currentHealth = _maxHealth;
+    }
+
+    private void Start()
+    {
+        GlobalEvents.SendPlayerInit(this);
+    }
+
+    private void OnEnable()
+    {
+        GlobalEvents.mobDead += OnMobDead;
+    }
+
+    private void OnDisable()
+    {
+        GlobalEvents.mobDead -= OnMobDead;
     }
 
     public void TakeDamage(float damage)
@@ -37,7 +53,8 @@ public class Player : MonoBehaviour, IDamageable
 
         if (!_isDead)
         {
-            _currentHealth = _currentHealth - damage;
+            _currentHealth -= damage;
+            GlobalEvents.SendPlayerInit(this);
 
             if (_currentHealth > 0)
             {
@@ -49,5 +66,11 @@ public class Player : MonoBehaviour, IDamageable
                 _isDead = true;
             }
         }
+    }
+
+    private void OnMobDead(Mob mob)
+    {
+        _score += mob.GainScore;
+        GlobalEvents.SendPlayerScoreChanged(this);
     }
 }

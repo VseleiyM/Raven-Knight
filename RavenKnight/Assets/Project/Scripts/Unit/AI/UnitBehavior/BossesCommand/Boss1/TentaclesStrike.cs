@@ -24,6 +24,7 @@ public class TentaclesStrike : UnitCommand
 
     public override void RequestData(MobInfo mobInfo)
     {
+        target = mobInfo.Mob.target.position;
         damageableTag = mobInfo.Mob.DamageableTag;
     }
 

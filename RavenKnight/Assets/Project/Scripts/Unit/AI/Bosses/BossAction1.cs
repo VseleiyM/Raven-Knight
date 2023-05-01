@@ -33,6 +33,7 @@ public class BossAction1 : MonoBehaviour
             var enemy = Instantiate(deathSpawn, spawnPointV3, Quaternion.identity);
             enemy.transform.parent = units;
         }
+        GlobalEvents.SendBossDead(mobInfo.Mob);
         Destroy(mobInfo.gameObject);
     }
 }

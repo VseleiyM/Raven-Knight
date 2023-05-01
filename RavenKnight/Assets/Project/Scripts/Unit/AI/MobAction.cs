@@ -20,14 +20,15 @@ public class MobAction : MonoBehaviour
 
     public void Dead()
     {
+        GlobalEvents.SendMobDead(mobInfo.Mob);
         Destroy(mobInfo.gameObject);
     }
 
     public void Audio_Attack()
     {
-        foreach(var clip in mobInfo.ListAudioClip)
+        foreach (var clip in mobInfo.ListAudioClip)
         {
-            if(clip.name.ToLower() == "attack")
+            if (clip.name.ToLower() == "attack")
             {
                 mobInfo.AudioSource.clip = clip;
                 mobInfo.AudioSource.Play();
