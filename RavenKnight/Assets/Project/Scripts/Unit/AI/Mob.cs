@@ -75,6 +75,7 @@ public class Mob : MonoBehaviour, IDamageable
         {
             StopAllCoroutines();
             mobInfo.Agent.isStopped = true;
+            mobInfo.PhysicsCollider.enabled = false;
             mobInfo.Animator.SetTrigger("Dead");
         }
     }

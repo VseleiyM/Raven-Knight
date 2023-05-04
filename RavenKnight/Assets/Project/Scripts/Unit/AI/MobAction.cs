@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MobAction : MonoBehaviour
 {
@@ -18,9 +19,17 @@ public class MobAction : MonoBehaviour
         mobInfo = GetComponentInParent<MobInfo>();
     }
 
-    public void Dead()
+    public void SendMobDead()
     {
+        var goScore = Instantiate(TestLevle.instance.Prefabs.TextScore, TestLevle.instance.CanvasWorldPosition);
+        goScore.transform.position = mobInfo.transform.position;
+        Text textScore = goScore.GetComponent<Text>();
+        textScore.text = $"+{mobInfo.Mob.GainScore}";
         GlobalEvents.SendMobDead(mobInfo.Mob);
+    }
+
+    public void DestroyUnit()
+    {
         Destroy(mobInfo.gameObject);
     }
 

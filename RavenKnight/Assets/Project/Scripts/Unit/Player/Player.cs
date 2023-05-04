@@ -40,11 +40,13 @@ public class Player : MonoBehaviour, IDamageable
     private void OnEnable()
     {
         GlobalEvents.mobDead += OnMobDead;
+        GlobalEvents.bossDead += OnBossDead;
     }
 
     private void OnDisable()
     {
         GlobalEvents.mobDead -= OnMobDead;
+        GlobalEvents.bossDead -= OnBossDead;
     }
 
     public void TakeDamage(float damage)
@@ -69,6 +71,12 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     private void OnMobDead(Mob mob)
+    {
+        _score += mob.GainScore;
+        GlobalEvents.SendPlayerScoreChanged(this);
+    }
+
+    private void OnBossDead(Mob mob)
     {
         _score += mob.GainScore;
         GlobalEvents.SendPlayerScoreChanged(this);

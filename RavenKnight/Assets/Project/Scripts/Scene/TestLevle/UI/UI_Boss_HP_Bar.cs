@@ -35,6 +35,8 @@ public class UI_Boss_HP_Bar : MonoBehaviour
         {
             slider.value = currentPersentHealth;
         }
+
+        nameBoss.text = mob.gameObject.name;
     }
 
     private void OnBossTakeDamage(Mob mob)

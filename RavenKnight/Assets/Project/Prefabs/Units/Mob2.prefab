@@ -248,8 +248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 1
-  _damage: 1
   _damageableTag: 1
+  _damage: 1
+  _gainScore: 11
+  _isBoss: 0
   startStep: {fileID: 1715678258332773597}
   target: {fileID: 0}
   targetCollider: {fileID: 0}

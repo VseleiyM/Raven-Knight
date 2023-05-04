@@ -97,4 +97,5 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 2954273981308449834}
   projectilePrefab: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
-  cooldown: 1
+  cooldown: 0.25
+  damage: 1

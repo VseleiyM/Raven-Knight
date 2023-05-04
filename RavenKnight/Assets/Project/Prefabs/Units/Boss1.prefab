@@ -421,7 +421,7 @@ MonoBehaviour:
   _maxHealth: 10
   _damageableTag: 1
   _damage: 0
-  _gainScore: 0
+  _gainScore: 12345
   _isBoss: 1
   startStep: {fileID: 3703864740433641052}
   target: {fileID: 0}
