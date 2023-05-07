@@ -7,37 +7,37 @@ public class UI_Score : MonoBehaviour
 {
     [SerializeField] private Text text_Score;
 
+    private int score = 0;
+
     private void OnEnable()
     {
-        GlobalEvents.playerInit += OnPlayerInit;
-        GlobalEvents.playerScoreChanged += OnPlayerScoreChanged;
+        GlobalEvents.scoreChanged += OnPlayerScoreChanged;
+        GlobalEvents.createFlyText += OnCreateScoreText;
     }
 
     private void OnDisable()
     {
-        GlobalEvents.playerInit -= OnPlayerInit;
-        GlobalEvents.playerScoreChanged -= OnPlayerScoreChanged;
+        GlobalEvents.scoreChanged -= OnPlayerScoreChanged;
+        GlobalEvents.createFlyText -= OnCreateScoreText;
     }
 
-    private void OnPlayerInit(Player player)
+    private void OnPlayerScoreChanged(int value)
     {
+        score += value;
         string scoreString = "";
-        for (int i = player.Score.ToString().Length; i < 7; i++)
+        for (int i = score.ToString().Length; i < 7; i++)
         {
             scoreString += "0";
         }
-        scoreString += player.Score.ToString();
+        scoreString += score.ToString();
         text_Score.text = $"Score: {scoreString}";
     }
 
-    private void OnPlayerScoreChanged(Player player)
+    private void OnCreateScoreText(Vector3 spawnPoint, int value)
     {
-        string scoreString = "";
-        for (int i = player.Score.ToString().Length; i < 7; i++)
-        {
-            scoreString += "0";
-        }
-        scoreString += player.Score.ToString();
-        text_Score.text = $"Score: {scoreString}";
+        var goScore = Instantiate(TestLevle.instance.Prefabs.TextScore, TestLevle.instance.CanvasWorldPosition);
+        goScore.transform.position = spawnPoint;
+        Text textScore = goScore.GetComponent<Text>();
+        textScore.text = $"+{value}";
     }
 }

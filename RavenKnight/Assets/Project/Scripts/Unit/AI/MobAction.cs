@@ -21,11 +21,9 @@ public class MobAction : MonoBehaviour
 
     public void SendMobDead()
     {
-        var goScore = Instantiate(TestLevle.instance.Prefabs.TextScore, TestLevle.instance.CanvasWorldPosition);
-        goScore.transform.position = mobInfo.transform.position;
-        Text textScore = goScore.GetComponent<Text>();
-        textScore.text = $"+{mobInfo.Mob.GainScore}";
         GlobalEvents.SendMobDead(mobInfo.Mob);
+        GlobalEvents.SendScoreChanged(mobInfo.Mob.GainScore);
+        GlobalEvents.SendCreateScoreText(mobInfo.transform.position, mobInfo.Mob.GainScore);
     }
 
     public void DestroyUnit()

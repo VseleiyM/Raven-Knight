@@ -26,6 +26,8 @@ public class BossAction1 : MonoBehaviour
     public void SendBossDead()
     {
         GlobalEvents.SendBossDead(mobInfo.Mob);
+        GlobalEvents.SendScoreChanged(mobInfo.Mob.GainScore);
+        GlobalEvents.SendCreateScoreText(mobInfo.transform.position, mobInfo.Mob.GainScore);
     }
 
     public void Dead()

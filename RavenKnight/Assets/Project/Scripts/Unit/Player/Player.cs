@@ -19,8 +19,6 @@ public class Player : MonoBehaviour, IDamageable
 
     public bool IsDead { get => _isDead; }
     [Space(10)][SerializeField] private bool _isDead;
-    public int Score { get => _score; }
-    [SerializeField] private int _score;
     public List<MonoBehaviour> DisableComponents { get => _disableComponents; }
     [SerializeField] private List<MonoBehaviour> _disableComponents;
 
@@ -35,18 +33,6 @@ public class Player : MonoBehaviour, IDamageable
     private void Start()
     {
         GlobalEvents.SendPlayerInit(this);
-    }
-
-    private void OnEnable()
-    {
-        GlobalEvents.mobDead += OnMobDead;
-        GlobalEvents.bossDead += OnBossDead;
-    }
-
-    private void OnDisable()
-    {
-        GlobalEvents.mobDead -= OnMobDead;
-        GlobalEvents.bossDead -= OnBossDead;
     }
 
     public void TakeDamage(float damage)
@@ -68,17 +54,5 @@ public class Player : MonoBehaviour, IDamageable
                 _isDead = true;
             }
         }
-    }
-
-    private void OnMobDead(Mob mob)
-    {
-        _score += mob.GainScore;
-        GlobalEvents.SendPlayerScoreChanged(this);
-    }
-
-    private void OnBossDead(Mob mob)
-    {
-        _score += mob.GainScore;
-        GlobalEvents.SendPlayerScoreChanged(this);
     }
 }
