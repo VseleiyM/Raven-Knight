@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class MobAction : MonoBehaviour
 {
     private MobInfo mobInfo;
-    private Transform temp;
+    private Transform folder;
 
     private void Awake()
     {
         var goTemp = GameObject.Find("Temp");
         if (!goTemp)
-            temp = new GameObject("Temp").transform;
+            folder = new GameObject("Temp").transform;
         else
-            temp = goTemp.transform;
+            folder = goTemp.transform;
 
         mobInfo = GetComponentInParent<MobInfo>();
     }
@@ -69,11 +69,17 @@ public class MobAction : MonoBehaviour
             float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
 
             var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));
-            projectile.transform.parent = temp;
+            projectile.transform.parent = folder;
             projectile.layer = mobInfo.gameObject.layer;
             Projectile compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = mobInfo.Mob.DamageableTag;
             compProjectile.damage = mobInfo.Mob.Damage;
         }
+    }
+
+    public void MobSpawned()
+    {
+        mobInfo.PhysicsCollider.enabled = true;
+        mobInfo.Mob.EnableAI();
     }
 }

@@ -13,6 +13,8 @@ public class GlobalEvents : MonoBehaviour
     public static event Action<Mob> bossInit;
     public static event Action<Mob> bossTakeDamage;
     public static event Action<Mob> bossDead;
+    public static event Action closeRoom;
+    public static event Action openRoom;
 
     public static void SendPlayerInit(Player player)
     {
@@ -52,5 +54,15 @@ public class GlobalEvents : MonoBehaviour
     public static void SendBossDead(Mob mob)
     {
         bossDead?.Invoke(mob);
+    }
+
+    public static void SendCloseRoom()
+    {
+        closeRoom?.Invoke();
+    }
+
+    public static void SendOpenRoom()
+    {
+        openRoom?.Invoke();
     }
 }

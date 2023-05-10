@@ -42,11 +42,15 @@ public class Mob : MonoBehaviour, IDamageable
         {
             GlobalEvents.SendBossInit(this);
         }
-
-        corotine_AI = StartCoroutine(EnableAI(startStep));
     }
 
-    private IEnumerator EnableAI(UnitCommand firstStep)
+    public void EnableAI()
+    {
+        if (corotine_AI != null) return;
+        corotine_AI = StartCoroutine(corotineAI(startStep));
+    }
+
+    private IEnumerator corotineAI(UnitCommand firstStep)
     {
         firstStep.RequestData(mobInfo);
         firstStep.Execute();
