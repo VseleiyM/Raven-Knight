@@ -15,6 +15,8 @@ public class GlobalEvents : MonoBehaviour
     public static event Action<Mob> bossDead;
     public static event Action closeRoom;
     public static event Action openRoom;
+    public static event Action waveClear;
+    public static event Action<int> nextWave;
 
     public static void SendPlayerInit(Player player)
     {
@@ -64,5 +66,15 @@ public class GlobalEvents : MonoBehaviour
     public static void SendOpenRoom()
     {
         openRoom?.Invoke();
+    }
+
+    public static void SendWaveClear()
+    {
+        waveClear?.Invoke();
+    }
+
+    public static void SendNextWave(int index)
+    {
+        nextWave?.Invoke(index);
     }
 }

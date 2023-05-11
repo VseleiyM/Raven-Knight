@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private BoxCollider2D trigger;
     [SerializeField] private List<GameObject> listEnemy;
     [SerializeField] private List<WaveSettings> listWave;
-    [SerializeField] private float spawnDelay;
+    [SerializeField] [Min(0.01f)] private float spawnDelay = 1;
 
 
     [SerializeField] private bool isClear = false;
@@ -34,22 +34,15 @@ public class EnemySpawner : MonoBehaviour
             folder = goTemp.transform;
     }
 
-    private void OnEnable()
-    {
-        GlobalEvents.mobDead += OnMobDead;
-    }
-
-    private void OnDisable()
-    {
-        GlobalEvents.mobDead -= OnMobDead;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag != "Player" || triggered) return;
 
+        GlobalEvents.mobDead += OnMobDead;
+
         triggered = true;
         GlobalEvents.SendCloseRoom();
+        GlobalEvents.SendNextWave(currentWave + 1);
         SpawnWave();
     }
 
@@ -89,10 +82,12 @@ public class EnemySpawner : MonoBehaviour
             currentWave++;
             if (currentWave < listWave.Count)
             {
+                GlobalEvents.SendNextWave(currentWave + 1);
                 SpawnWave();
             }
             else
             {
+                GlobalEvents.mobDead -= OnMobDead;
                 isClear = true;
                 GlobalEvents.SendOpenRoom();
             }
