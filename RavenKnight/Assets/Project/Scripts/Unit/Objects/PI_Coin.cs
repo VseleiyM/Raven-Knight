@@ -15,6 +15,8 @@ public class PI_Coin : PickupItem
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.tag != "Player") return;
+
         GlobalEvents.SendScoreChanged(gainScore);
         GlobalEvents.SendCreateScoreText(transform.position, gainScore);
         animator.SetTrigger("Picked");

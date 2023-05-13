@@ -18,6 +18,7 @@ public class Mob : MonoBehaviour, IDamageable
     [SerializeField] private bool _isBoss;
 
     [Space(10)][SerializeField] private UnitCommand startStep;
+    [SerializeField] private List<DropSlot> dropList;
 
     [Space(10)]
     public Transform target;
@@ -68,7 +69,7 @@ public class Mob : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        _currentHealth = _currentHealth - damage;
+        _currentHealth -= damage;
 
         if (_isBoss)
         {
@@ -77,9 +78,26 @@ public class Mob : MonoBehaviour, IDamageable
 
         if (CurrentHealth <= 0)
         {
+            DeathLogic();
+        }
+
+        void DeathLogic()
+        {
             StopAllCoroutines();
             mobInfo.Agent.isStopped = true;
             mobInfo.PhysicsCollider.enabled = false;
+
+            foreach (var dropSlot in dropList)
+            {
+                if (!dropSlot.DropItemPrefab & dropSlot.DropChance == 0) continue;
+
+                int random = Random.Range(1, 100);
+                if (random < dropSlot.DropChance)
+                {
+                    Instantiate(dropSlot.DropItemPrefab, transform.position, Quaternion.identity);
+                }
+            }
+
             mobInfo.Animator.SetTrigger("Dead");
         }
     }

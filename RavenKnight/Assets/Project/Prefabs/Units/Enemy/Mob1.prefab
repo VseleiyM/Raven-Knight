@@ -367,6 +367,10 @@ MonoBehaviour:
   _gainScore: 10
   _isBoss: 0
   startStep: {fileID: 6634649217331459165}
+  dropList:
+  - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
+      type: 3}
+    _dropChance: 50
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!1 &6079798895492789766
