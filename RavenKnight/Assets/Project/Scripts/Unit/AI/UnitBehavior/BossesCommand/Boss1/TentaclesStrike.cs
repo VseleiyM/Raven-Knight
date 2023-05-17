@@ -36,7 +36,7 @@ public class TentaclesStrike : UnitCommand
 
         var area = Instantiate(areaAttack, spawnPoint, Quaternion.Euler(0f, 0f, angle));
         area.transform.parent = temp;
-        AreaEffect compAreaEffect = area.GetComponent<AreaEffect>();
+        AreaEffectSingle compAreaEffect = area.GetComponent<AreaEffectSingle>();
         compAreaEffect.damageableTag = damageableTag;
         compAreaEffect.Trigger.gameObject.layer = gameObject.layer;
 

@@ -48,10 +48,10 @@ public class MobAction : MonoBehaviour
     {
         switch ((int)mobInfo.TypeAttack)
         {
-            case (int)TypeAttack.HitScan:
+            case (int)AIEnumTypeAttack.HitScan:
                 Hit();
                 break;
-            case (int)TypeAttack.Projectile:
+            case (int)AIEnumTypeAttack.Projectile:
                 CreateProjectile();
                 break;
         }

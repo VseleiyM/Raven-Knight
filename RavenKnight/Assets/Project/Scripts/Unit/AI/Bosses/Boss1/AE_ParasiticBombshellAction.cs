@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AE_ParasiticBombshellAction : MonoBehaviour
 {
-    [SerializeField] private AreaEffect areaEffect;
+    [SerializeField] private AreaEffectSingle areaEffect;
     [SerializeField] private GameObject enemyPrefab;
 
     private Transform units;

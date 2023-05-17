@@ -158,11 +158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 0
-  _maxHealth: 5
+  _maxHealth: 100
   _speed: 10
   _damageableTag: 0
-  _isDead: 0
   _isInvincible: 0
+  _isDead: 0
   _disableComponents:
   - {fileID: 2122723203619113950}
   - {fileID: 4110047189124146463}

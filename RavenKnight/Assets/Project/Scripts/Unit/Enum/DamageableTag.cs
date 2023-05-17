@@ -6,5 +6,6 @@ public enum DamageableTag
 {
     All = 0,
     Player = 1,
-    Enemy = 2
+    Enemy = 2,
+    PickupItems = 3
 }

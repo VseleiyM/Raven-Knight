@@ -65,7 +65,7 @@ public class ParasiticBombshell : UnitCommand
 
             var area = Instantiate(areaEffectPrefab, spawnPoint, Quaternion.identity);
             area.transform.parent = temp;
-            var compAreaEffect = area.GetComponent<AreaEffect>();
+            var compAreaEffect = area.GetComponent<AreaEffectSingle>();
             compAreaEffect.gameObject.layer = gameObject.layer;
             compAreaEffect.damageableTag = damageableTag;
         }

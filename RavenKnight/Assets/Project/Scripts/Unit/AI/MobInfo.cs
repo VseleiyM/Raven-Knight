@@ -20,9 +20,9 @@ public class MobInfo : MonoBehaviour
     public Mob Mob { get => _mob; }
     [SerializeField] private Mob _mob;
 
-    public TypeAttack TypeAttack { get => _typeAttack; }
+    public AIEnumTypeAttack TypeAttack { get => _typeAttack; }
     [Space(10)]
-    [SerializeField] private TypeAttack _typeAttack;
+    [SerializeField] private AIEnumTypeAttack _typeAttack;
     public GameObject Projectile { get => _projectile; }
     [SerializeField] private GameObject _projectile;
     public Transform PointForProjectile { get => _pointForProjectile; }

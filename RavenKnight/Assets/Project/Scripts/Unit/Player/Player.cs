@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private bool _isInvincible;
 
     public bool IsDead { get => _isDead; }
-    [Space(10)][SerializeField] private bool _isDead;
+    [Space(10)] [SerializeField] private bool _isDead;
     public List<MonoBehaviour> DisableComponents { get => _disableComponents; }
     [SerializeField] private List<MonoBehaviour> _disableComponents;
 
@@ -42,11 +42,22 @@ public class Player : MonoBehaviour, IDamageable
         if (!_isDead)
         {
             _currentHealth -= damage;
-            GlobalEvents.SendPlayerInit(this);
+
+            if (_currentHealth > _maxHealth)
+                _currentHealth = _maxHealth;
+
+            GlobalEvents.SendPlayerTakeDamage(this);
 
             if (_currentHealth > 0)
             {
-                playerInfo.Animator.SetTrigger("TakedDamage");
+                if (damage > 0)
+                {
+                    playerInfo.Animator.SetTrigger("TakedDamage");
+                }
+                else if (damage < 0)
+                {
+                    playerInfo.Animator.SetTrigger("TakedHeal");
+                }
             }
             else
             {

@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Spawen
   - Enemy
-  - Item
+  - PickupItems
   layers:
   - Default
   - TransparentFX

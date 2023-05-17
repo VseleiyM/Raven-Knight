@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PI_Coin : PickupItem
+public class PI_Coin : MonoBehaviour
 {
     [SerializeField] private int gainScore;
 

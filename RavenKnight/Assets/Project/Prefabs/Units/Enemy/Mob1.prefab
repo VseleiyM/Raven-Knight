@@ -371,6 +371,9 @@ MonoBehaviour:
   - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
       type: 3}
     _dropChance: 50
+  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
+      type: 3}
+    _dropChance: 50
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!1 &6079798895492789766

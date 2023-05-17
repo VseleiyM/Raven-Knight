@@ -86,19 +86,23 @@ public class Mob : MonoBehaviour, IDamageable
             StopAllCoroutines();
             mobInfo.Agent.isStopped = true;
             mobInfo.PhysicsCollider.enabled = false;
+            DropItemLogic();
+            mobInfo.Animator.SetTrigger("Dead");
 
-            foreach (var dropSlot in dropList)
+            void DropItemLogic()
             {
-                if (!dropSlot.DropItemPrefab & dropSlot.DropChance == 0) continue;
-
-                int random = Random.Range(1, 100);
-                if (random < dropSlot.DropChance)
+                foreach (var dropSlot in dropList)
                 {
-                    Instantiate(dropSlot.DropItemPrefab, transform.position, Quaternion.identity);
+                    if (!dropSlot.DropItemPrefab & dropSlot.DropChance == 0) continue;
+
+                    int random = Random.Range(1, 100);
+                    if (random < dropSlot.DropChance)
+                    {
+                        Vector3 spawnPoint = transform.position + (Vector3)Random.insideUnitCircle * 0.125f;
+                        Instantiate(dropSlot.DropItemPrefab, spawnPoint, Quaternion.identity);
+                    }
                 }
             }
-
-            mobInfo.Animator.SetTrigger("Dead");
         }
     }
 
