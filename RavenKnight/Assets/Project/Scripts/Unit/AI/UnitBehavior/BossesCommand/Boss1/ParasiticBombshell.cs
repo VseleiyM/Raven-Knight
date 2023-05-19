@@ -13,6 +13,7 @@ public class ParasiticBombshell : UnitCommand
     [SerializeField] private GameObject areaEffectPrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
+    [SerializeField] private int damage = 1;
 
     private DamageableTag damageableTag;
     private Transform temp;
@@ -68,6 +69,7 @@ public class ParasiticBombshell : UnitCommand
             var compAreaEffect = area.GetComponent<AreaEffectSingle>();
             compAreaEffect.gameObject.layer = gameObject.layer;
             compAreaEffect.damageableTag = damageableTag;
+            compAreaEffect.damage = damage;
         }
     }
 }

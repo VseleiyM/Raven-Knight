@@ -8,6 +8,7 @@ public class TentaclesStrike : UnitCommand
     [SerializeField] private UnitCommand _nextStep;
     [Space(10)]
     [SerializeField] private GameObject areaAttack;
+    [SerializeField] private int damage = 1;
 
     private DamageableTag damageableTag;
     private Vector3 target;
@@ -38,6 +39,7 @@ public class TentaclesStrike : UnitCommand
         area.transform.parent = temp;
         AreaEffectSingle compAreaEffect = area.GetComponent<AreaEffectSingle>();
         compAreaEffect.damageableTag = damageableTag;
+        compAreaEffect.damage = damage;
         compAreaEffect.Trigger.gameObject.layer = gameObject.layer;
 
         compAreaEffect.Trigger.transform.localPosition = compAreaEffect.Trigger.transform.localPosition + Vector3.right * length / 2;

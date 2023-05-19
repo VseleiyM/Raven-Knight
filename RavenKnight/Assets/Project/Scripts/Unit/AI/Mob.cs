@@ -26,10 +26,17 @@ public class Mob : MonoBehaviour, IDamageable
     public Coroutine corotine_AI;
 
     private MobInfo mobInfo;
+    private Transform folder;
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
+
+        var goTemp = GameObject.Find("Temp");
+        if (!goTemp)
+            folder = new GameObject("Temp").transform;
+        else
+            folder = goTemp.transform;
     }
 
     private void Start()
@@ -99,7 +106,8 @@ public class Mob : MonoBehaviour, IDamageable
                     if (random < dropSlot.DropChance)
                     {
                         Vector3 spawnPoint = transform.position + (Vector3)Random.insideUnitCircle * 0.125f;
-                        Instantiate(dropSlot.DropItemPrefab, spawnPoint, Quaternion.identity);
+                        var item = Instantiate(dropSlot.DropItemPrefab, spawnPoint, Quaternion.identity);
+                        item.transform.parent = folder;
                     }
                 }
             }

@@ -8,14 +8,14 @@ public class DashAbilitys : Ability
     public string defaultAnimationName = "Default";
     public RotationAnimDash rotationAnimDash;
 
-    private CharacterMovement _characterMovement;
+    private KeyboardInput _characterMovement;
     private Vector3 _dashDirection;
     private float _dashTime;
     private bool _isDashing;
 
     private void Awake()
     {
-        _characterMovement = GetComponent<CharacterMovement>();
+        _characterMovement = GetComponent<KeyboardInput>();
     }
 
     public void StartDashAnimation()
@@ -63,7 +63,7 @@ public class DashAbilitys : Ability
     {
         if (IsActive)
         {
-            _dashDirection = _characterMovement.direction;
+            _dashDirection = _characterMovement.Direction;
             rotationAnimDash.RotateObject(_dashDirection);
             
             _isDashing = true;

@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<GameObject> listEnemy;
     [SerializeField] private List<WaveSettings> listWave;
     [SerializeField] [Min(0.01f)] private float spawnDelay = 1;
-
+    [SerializeField] private bool bossRoom;
 
     [SerializeField] private bool isClear = false;
     [SerializeField] private bool triggered = false;
@@ -38,7 +38,14 @@ public class EnemySpawner : MonoBehaviour
     {
         if (collision.tag != "Player" || triggered) return;
 
-        GlobalEvents.mobDead += OnMobDead;
+        if (bossRoom)
+        {
+            GlobalEvents.bossDead += OnMobDead;
+        }
+        else
+        {
+            GlobalEvents.mobDead += OnMobDead;
+        }
 
         triggered = true;
         GlobalEvents.SendCloseRoom();
@@ -64,10 +71,12 @@ public class EnemySpawner : MonoBehaviour
             for (int i1 = 0; i1 < currentSettings.Settings[i]; i1++)
             {
                 Vector3 spawnPoint = transform.position + (Vector3)trigger.offset;
-                spawnPoint += (Vector3)(trigger.size * Random.insideUnitCircle) / 2;
+                if (!bossRoom)
+                    spawnPoint += (Vector3)(trigger.size * Random.insideUnitCircle) / 2;
                 var enemyGO = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
                 enemyGO.transform.parent = folder;
                 var mobInfo = enemyGO.GetComponent<MobInfo>();
+
                 mobInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
                 listLifeEnemy.Add(enemyGO);
             }
@@ -87,7 +96,15 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                GlobalEvents.mobDead -= OnMobDead;
+                if (bossRoom)
+                {
+                    GlobalEvents.bossDead -= OnMobDead;
+                }
+                else
+                {
+                    GlobalEvents.mobDead -= OnMobDead;
+                }
+
                 isClear = true;
                 GlobalEvents.SendOpenRoom();
             }

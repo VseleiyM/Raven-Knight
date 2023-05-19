@@ -8,7 +8,8 @@ public class KeyboardInput : MonoBehaviour
 
     private float horizontal;
     private float vertical;
-    private Vector2 direction;
+    public Vector2 Direction => _direction;
+    private Vector2 _direction;
 
     private void Update()
     {
@@ -18,7 +19,7 @@ public class KeyboardInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direction.Set(horizontal, vertical);
-        movement.Move(direction);
+        _direction.Set(horizontal, vertical);
+        movement.Move(_direction);
     }
 }

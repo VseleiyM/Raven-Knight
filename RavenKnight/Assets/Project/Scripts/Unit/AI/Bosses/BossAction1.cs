@@ -39,7 +39,15 @@ public class BossAction1 : MonoBehaviour
             Vector3 spawnPointV3 = new Vector3(offset.x, offset.y, 0f);
             var enemy = Instantiate(deathSpawn, spawnPointV3, Quaternion.identity);
             enemy.transform.parent = units;
+            var mobInfo = enemy.GetComponent<MobInfo>();
+            mobInfo.Animator.SetFloat("SpawnDelay", 6);
         }
         Destroy(mobInfo.gameObject);
+    }
+
+    public void MobSpawned()
+    {
+        mobInfo.PhysicsCollider.enabled = true;
+        mobInfo.Mob.EnableAI();
     }
 }

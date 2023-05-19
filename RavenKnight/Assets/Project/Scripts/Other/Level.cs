@@ -6,6 +6,11 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private GameObject gate;
 
+    private void Start()
+    {
+        gate.SetActive(false);
+    }
+
     private void OnEnable()
     {
         GlobalEvents.closeRoom += OnRoomClose;

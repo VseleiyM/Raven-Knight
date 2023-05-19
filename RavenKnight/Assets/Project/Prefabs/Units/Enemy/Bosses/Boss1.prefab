@@ -69,7 +69,7 @@ MonoBehaviour:
   singleTriggering: 1
   parameterName: 0
   logicOperator: 2
-  value: 5
+  value: 50
 --- !u!114 &3132095950495469572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   singleTriggering: 1
   parameterName: 0
   logicOperator: 2
-  value: 2.5
+  value: 25
 --- !u!114 &4220095325179223436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   areaEffectPrefab: {fileID: 3060119034310443955, guid: fc6156740147193478d632006a8d1c09,
     type: 3}
   count: 10
+  damage: 20
 --- !u!114 &5767095737175026990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   singleTriggering: 0
   parameterName: 0
   logicOperator: 1
-  value: 7.5
+  value: 75
 --- !u!114 &6390528661053583313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +140,7 @@ MonoBehaviour:
   _nextStep: {fileID: 3703864740433641052}
   areaAttack: {fileID: 1725804911211390888, guid: 4d07faaf3f4d625429ce252385fa05cc,
     type: 3}
+  damage: 8
 --- !u!114 &406939398369415979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +172,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
   count: 8
+  damage: 3
 --- !u!1 &3774518901421596487
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,13 +182,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3774518901421596486}
+  - component: {fileID: 6725696061794394773}
+  - component: {fileID: 3774518901421596482}
   - component: {fileID: 2413799393261654351}
   - component: {fileID: 3774518901421596481}
   - component: {fileID: 6471844199626542967}
   - component: {fileID: 3774518901421596483}
   - component: {fileID: 3774518901421596485}
-  - component: {fileID: 3774518901421596482}
-  - component: {fileID: 6725696061794394773}
   - component: {fileID: 8845370322990767090}
   m_Layer: 11
   m_Name: Boss1
@@ -210,6 +213,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6725696061794394773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774518901421596487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _maxHealth: 100
+  _damageableTag: 1
+  _damage: 0
+  _gainScore: 12345
+  _isBoss: 1
+  startStep: {fileID: 3703864740433641052}
+  dropList: []
+  target: {fileID: 0}
+  targetCollider: {fileID: 0}
+--- !u!114 &3774518901421596482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774518901421596487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 3774518901421596485}
+  _physicsCollider: {fileID: 3774518901421596481}
+  _attackTrigger: {fileID: 6471844199626542967}
+  _spriteRenderer: {fileID: 4804545235018760440}
+  _animator: {fileID: 2069867068647452737}
+  _audioSource: {fileID: 2413799393261654351}
+  _mob: {fileID: 6725696061794394773}
+  _typeAttack: 1
+  _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
+    type: 3}
+  _pointForProjectile: {fileID: 3774518901421596486}
+  _listAudioClip: []
 --- !u!82 &2413799393261654351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -313,7 +362,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3774518901421596487}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -381,51 +430,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3774518901421596482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3774518901421596487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 3774518901421596485}
-  _physicsCollider: {fileID: 3774518901421596481}
-  _attackTrigger: {fileID: 6471844199626542967}
-  _spriteRenderer: {fileID: 4804545235018760440}
-  _animator: {fileID: 2069867068647452737}
-  _audioSource: {fileID: 2413799393261654351}
-  _mob: {fileID: 6725696061794394773}
-  _typeAttack: 1
-  _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
-    type: 3}
-  _pointForProjectile: {fileID: 3774518901421596486}
-  _listAudioClip: []
---- !u!114 &6725696061794394773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3774518901421596487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 10
-  _damageableTag: 1
-  _damage: 0
-  _gainScore: 12345
-  _isBoss: 1
-  startStep: {fileID: 3703864740433641052}
-  target: {fileID: 0}
-  targetCollider: {fileID: 0}
 --- !u!61 &8845370322990767090
 BoxCollider2D:
   m_ObjectHideFlags: 0

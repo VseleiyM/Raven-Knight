@@ -123,13 +123,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5536215956165206453}
+  - component: {fileID: 4722426256141545490}
+  - component: {fileID: 5536215956165206449}
   - component: {fileID: 2579988923874463599}
   - component: {fileID: 5536215956165206450}
   - component: {fileID: 2406544975325131140}
   - component: {fileID: 5536215956165206448}
   - component: {fileID: 5536215956165206454}
-  - component: {fileID: 5536215956165206449}
-  - component: {fileID: 4722426256141545490}
   m_Layer: 11
   m_Name: Mob1
   m_TagString: Enemy
@@ -153,6 +153,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4722426256141545490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536215956165206452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _maxHealth: 1
+  _damageableTag: 1
+  _damage: 1
+  _gainScore: 10
+  _isBoss: 0
+  startStep: {fileID: 6634649217331459165}
+  dropList:
+  - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
+      type: 3}
+    _dropChance: 50
+  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
+      type: 3}
+    _dropChance: 50
+  target: {fileID: 0}
+  targetCollider: {fileID: 0}
+--- !u!114 &5536215956165206449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536215956165206452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 5536215956165206454}
+  _physicsCollider: {fileID: 5536215956165206450}
+  _attackTrigger: {fileID: 2406544975325131140}
+  _spriteRenderer: {fileID: 4186222893383695883}
+  _animator: {fileID: 7209412827145719474}
+  _audioSource: {fileID: 2579988923874463599}
+  _mob: {fileID: 4722426256141545490}
+  _typeAttack: 0
+  _projectile: {fileID: 0}
+  _pointForProjectile: {fileID: 0}
+  _listAudioClip: []
 --- !u!82 &2579988923874463599
 AudioSource:
   m_ObjectHideFlags: 0
@@ -325,57 +376,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5536215956165206449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5536215956165206452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 5536215956165206454}
-  _physicsCollider: {fileID: 5536215956165206450}
-  _attackTrigger: {fileID: 2406544975325131140}
-  _spriteRenderer: {fileID: 4186222893383695883}
-  _animator: {fileID: 7209412827145719474}
-  _audioSource: {fileID: 2579988923874463599}
-  _mob: {fileID: 4722426256141545490}
-  _typeAttack: 0
-  _projectile: {fileID: 0}
-  _pointForProjectile: {fileID: 0}
-  _listAudioClip: []
---- !u!114 &4722426256141545490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5536215956165206452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 1
-  _damageableTag: 1
-  _damage: 1
-  _gainScore: 10
-  _isBoss: 0
-  startStep: {fileID: 6634649217331459165}
-  dropList:
-  - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  target: {fileID: 0}
-  targetCollider: {fileID: 0}
 --- !u!1 &6079798895492789766
 GameObject:
   m_ObjectHideFlags: 0

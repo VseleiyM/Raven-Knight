@@ -10,6 +10,7 @@ public class SplashOfSpheres : UnitCommand
     [SerializeField] private GameObject projectilePrefab;
     [Min(1)]
     [SerializeField] private int count = 1;
+    [SerializeField] private int damage = 1;
 
     private Transform temp;
 
@@ -38,6 +39,7 @@ public class SplashOfSpheres : UnitCommand
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.gameObject.layer = gameObject.layer;
             compProjectile.damageableTag = DamageableTag.All;
+            compProjectile.damage = damage;
         }
     }
 }

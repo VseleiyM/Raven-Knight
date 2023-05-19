@@ -73,6 +73,7 @@ MonoBehaviour:
   trigger: {fileID: 760217798647119433}
   listEnemy: []
   listWave: []
-  spawnDelay: 0
+  spawnDelay: 1
+  bossRoom: 0
   isClear: 0
   triggered: 0
