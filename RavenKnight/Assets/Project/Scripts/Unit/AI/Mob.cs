@@ -32,11 +32,11 @@ public class Mob : MonoBehaviour, IDamageable
     {
         _currentHealth = _maxHealth;
 
-        var goTemp = GameObject.Find("Temp");
-        if (!goTemp)
+        var goFolder = GameObject.Find("Temp");
+        if (!goFolder)
             folder = new GameObject("Temp").transform;
         else
-            folder = goTemp.transform;
+            folder = goFolder.transform;
     }
 
     private void Start()

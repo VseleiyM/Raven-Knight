@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
         foreach (var go in disableInGame)
         { go.SetActive(false); }
 
-        SceneManager.LoadSceneAsync((int)EnumScenes.TestLevle, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)EnumScenes.GameScene, LoadSceneMode.Additive);
         SceneManager.sceneLoaded += OnSceneLoadCompleted;
     }
 
@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
         foreach (var go in disableInMenu)
         { go.SetActive(false); }
 
-        var async = SceneManager.UnloadSceneAsync((int)EnumScenes.TestLevle);
+        var async = SceneManager.UnloadSceneAsync((int)EnumScenes.GameScene);
         async.completed += OnAsyncCompleted;
 
         for (int i = 0; i < SceneManager.sceneCount; i++)
@@ -64,7 +64,6 @@ public class UIController : MonoBehaviour
         Application.Quit();
     }
 
-    #region EventTriggers
     private void OnAsyncCompleted(AsyncOperation async)
     {
         audioListener.enabled = true;
@@ -80,5 +79,4 @@ public class UIController : MonoBehaviour
 
         SceneManager.sceneLoaded -= OnSceneLoadCompleted;
     }
-    #endregion
 }

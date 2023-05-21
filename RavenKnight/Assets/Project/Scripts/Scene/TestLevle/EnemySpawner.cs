@@ -27,11 +27,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        var goTemp = GameObject.Find("Units");
-        if (!goTemp)
+        var goFolder = GameObject.Find("Units");
+        if (!goFolder)
             folder = new GameObject("Units").transform;
         else
-            folder = goTemp.transform;
+            folder = goFolder.transform;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Score : MonoBehaviour
 {
+    [SerializeField] private GameObject textScorePrefab;
     [SerializeField] private Text text_Score;
 
     private int score = 0;
@@ -35,7 +36,7 @@ public class UI_Score : MonoBehaviour
 
     private void OnCreateScoreText(Vector3 spawnPoint, int value)
     {
-        var goScore = Instantiate(TestLevle.instance.Prefabs.TextScore, TestLevle.instance.CanvasWorldPosition);
+        var goScore = Instantiate(textScorePrefab, GameScene.instance.CanvasWorldPosition);
         goScore.transform.position = spawnPoint;
         Text textScore = goScore.GetComponent<Text>();
         textScore.text = $"+{value}";

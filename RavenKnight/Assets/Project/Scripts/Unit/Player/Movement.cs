@@ -13,14 +13,10 @@ public class Movement : MonoBehaviour
 
     private void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
         playerInfo = GetComponent<PlayerInfo>();
         animator = playerInfo.Animator;
         spriteRenderer = playerInfo.SpriteRenderer;
-    }
-
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void Move(Vector2 direction)

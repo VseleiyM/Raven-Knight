@@ -15,11 +15,11 @@ public class KeyboardInput : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        _direction.Set(horizontal, vertical);
     }
 
     private void FixedUpdate()
     {
-        _direction.Set(horizontal, vertical);
         movement.Move(_direction);
     }
 }

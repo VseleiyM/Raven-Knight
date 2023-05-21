@@ -10,11 +10,11 @@ public class MobAction : MonoBehaviour
 
     private void Awake()
     {
-        var goTemp = GameObject.Find("Temp");
-        if (!goTemp)
+        var goFolder = GameObject.Find("Temp");
+        if (!goFolder)
             folder = new GameObject("Temp").transform;
         else
-            folder = goTemp.transform;
+            folder = goFolder.transform;
 
         mobInfo = GetComponentInParent<MobInfo>();
     }

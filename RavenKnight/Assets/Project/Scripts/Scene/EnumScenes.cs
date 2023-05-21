@@ -5,5 +5,6 @@ using UnityEngine;
 public enum EnumScenes
 {
     MenuScene = 0,
-    TestLevle = 1
+    GameScene = 1,
+    Level1 = 2
 }
