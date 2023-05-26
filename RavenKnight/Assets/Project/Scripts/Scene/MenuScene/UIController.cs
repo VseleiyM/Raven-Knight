@@ -41,16 +41,24 @@ public class UIController : MonoBehaviour
         foreach (var go in disableInMenu)
         { go.SetActive(false); }
 
-        var async = SceneManager.UnloadSceneAsync((int)EnumScenes.GameScene);
-        async.completed += OnAsyncCompleted;
+        SceneController.instance.allSubSceneClosed += OnAllSubSceneClosed;
+        SceneController.instance.CloseAllSubScene();
 
-        for (int i = 0; i < SceneManager.sceneCount; i++)
+        void OnAllSubSceneClosed()
         {
-            Scene scene = SceneManager.GetSceneAt(i);
-            if (scene.buildIndex == (int)EnumScenes.MenuScene)
+            var async = SceneManager.UnloadSceneAsync((int)EnumScenes.GameScene);
+            async.completed += OnAsyncCompleted;
+
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                SceneManager.SetActiveScene(scene);
+                Scene scene = SceneManager.GetSceneAt(i);
+                if (scene.buildIndex == (int)EnumScenes.MenuScene)
+                {
+                    SceneManager.SetActiveScene(scene);
+                }
             }
+
+            SceneController.instance.allSubSceneClosed -= OnAllSubSceneClosed;
         }
     }
     
