@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2606,7 +2606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45094f67ad9ea3f45b61d7334960dc69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScorePrefab: {fileID: 0}
+  textScorePrefab: {fileID: 1382901338467350907, guid: ba08a73a31176a8498c6daa5ddf69953,
+    type: 3}
   text_Score: {fileID: 1803113426}
 --- !u!1 &1873440959
 GameObject:
