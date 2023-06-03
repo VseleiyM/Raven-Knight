@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,8 +32,10 @@ namespace UI
             Init(slider, optionName, defaultValue);
         }
 
+        public event Action<float> valueChanged;
         private void OnValueChanged(float value)
         {
+            valueChanged?.Invoke(value);
             PlayerPrefs.SetFloat(optionName, value);
         }
         private void SetPersistentValue()

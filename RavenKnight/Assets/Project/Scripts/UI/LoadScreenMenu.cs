@@ -5,11 +5,10 @@ namespace UI
 {
     public class LoadScreenMenu : AbstractMenu
     {
-        private AudioListener audioListener;
         private void OnSceneLoadCompleted(Scene scene, LoadSceneMode loadSceneMode)
         {
-            audioListener.enabled = false;
             SceneManager.SetActiveScene(scene);
+            Time.timeScale = 1;
             SetActive(false);
         }
 
@@ -17,7 +16,6 @@ namespace UI
         {
             base.Init(menuController);
             SceneManager.sceneLoaded += OnSceneLoadCompleted;
-            audioListener = GameObject.Find("MainMenuCamera").GetComponent<AudioListener>();
         }
     }
 }

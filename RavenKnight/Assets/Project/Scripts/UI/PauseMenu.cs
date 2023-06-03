@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI
@@ -14,8 +15,31 @@ namespace UI
         {
             OpenMenu(MenuType.options);
         }
+
+        private void GameSceneClose()
+        {
+            SceneController.instance.allSubSceneClosed += OnAllSubSceneClosed;
+            SceneController.instance.CloseAllSubScene();
+
+            void OnAllSubSceneClosed()
+            {
+                var async = SceneManager.UnloadSceneAsync((int)EnumScenes.GameScene);
+
+                for (int i = 0; i < SceneManager.sceneCount; i++)
+                {
+                    Scene scene = SceneManager.GetSceneAt(i);
+                    if (scene.buildIndex == (int)EnumScenes.MenuScene)
+                    {
+                        SceneManager.SetActiveScene(scene);
+                    }
+                }
+
+                SceneController.instance.allSubSceneClosed -= OnAllSubSceneClosed;
+            }
+        }
         private void OpenMainMenu()
         {
+            GameSceneClose();
             menuController.gameMode = EnumScenes.MenuScene;
             OpenMenu(MenuType.mainMenu);
         }

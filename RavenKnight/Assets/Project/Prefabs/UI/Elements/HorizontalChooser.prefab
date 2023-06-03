@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5701907770265238245}
   - component: {fileID: 5239218235164307817}
   m_Layer: 5
-  m_Name: HorizontalChooserButton
+  m_Name: HorizontalChooser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7330541640319832280}
   - component: {fileID: 6469932098540817072}
   - component: {fileID: 6480252866252201872}
+  - component: {fileID: 7955940396773770482}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -182,6 +183,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7955940396773770482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335247427551127870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0aac900a0f85c4384243da07099f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8697465983110167371
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +207,7 @@ GameObject:
   - component: {fileID: 8290758113387042010}
   - component: {fileID: 3634486577238628175}
   - component: {fileID: 2861881240177297531}
+  - component: {fileID: 3503955383883643379}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -300,6 +314,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3503955383883643379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697465983110167371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0aac900a0f85c4384243da07099f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &537161096072750833
 PrefabInstance:
   m_ObjectHideFlags: 0
