@@ -4,7 +4,7 @@ using Zenject;
 
 namespace UI
 {
-    public class AudioOptionMenu : AbstractOptionsMenu
+    public class AudioOptionsMenu : AbstractOptionsMenu
     {
         [Space, Header("Sliders")]
         [SerializeField] private PersistentOptionWithSlider masterOption = new PersistentOptionWithSlider();

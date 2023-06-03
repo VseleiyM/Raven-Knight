@@ -31,8 +31,17 @@ namespace UI
         {
             Init(slider, optionName, defaultValue);
         }
-
+        /// <summary>
+        /// Событие изменения значения ползунка.
+        /// </summary>
         public event Action<float> valueChanged;
+        /// <summary>
+        /// Текущее значение ползунка.
+        /// </summary>
+        public float currentValue
+        {
+            get => slider.value;
+        }
         private void OnValueChanged(float value)
         {
             valueChanged?.Invoke(value);

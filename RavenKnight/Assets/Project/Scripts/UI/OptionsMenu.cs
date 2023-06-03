@@ -22,6 +22,7 @@ namespace UI
 
         private void OnGraphicsOptionsOpen()
         {
+            OpenMenu(MenuType.graphicsOptions);
         }
 
         private void OnAudioOptionsOpen()

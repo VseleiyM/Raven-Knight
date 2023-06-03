@@ -2,7 +2,7 @@
 
 namespace UI
 {
-    public class GameOptionMenu : AbstractOptionsMenu
+    public class GameOptionsMenu : AbstractOptionsMenu
     {
         [Space, Header("Choosers")]
         [SerializeField] private HorizontalChooser languageChooser = null;

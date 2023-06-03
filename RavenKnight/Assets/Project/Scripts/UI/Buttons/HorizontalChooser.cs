@@ -95,12 +95,16 @@ namespace UI
             SetIndex(currentIndex + value);
         }
         /// <summary>
+        /// Индекс для выбора по умолчанию.
+        /// </summary>
+        public int defaultIndex { get; set; } = 0;
+        /// <summary>
         /// Сбросить инедекс на значение по умолчанию.
         /// Значение равно 0, т.е. первому наименованию из переданных.
         /// </summary>
         public void ResetIndexToDefault()
         {
-            SetIndex(0);
+            SetIndex(defaultIndex);
         }
 
         private void ErrorMessage(string fieldName)

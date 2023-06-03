@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace UI
 {
@@ -24,9 +25,42 @@ namespace UI
             chooser.indexChanged += OnIndexChanged;
         }
 
+        /// <summary>
+        /// Индекс для настройки по умолчанию.
+        /// </summary>
+        public int defaultIndex
+        {
+            get => chooser.defaultIndex;
+            set => chooser.defaultIndex = value;
+        }
+        /// <summary>
+        /// Индекс выбранной настройки.
+        /// </summary>
+        public int currentIndex
+        {
+            get => chooser.currentIndex;
+        }
+
+        /// <summary>
+        /// Выбранное в опции наименование.
+        /// </summary>
+        public string currentName
+        {
+            get => chooser.currentName;
+        }
+        /// <summary>
+        /// Событие изменения выранного индекса.
+        /// </summary>
+        public event Action<int> indexChanged;
+        /// <summary>
+        /// Событие изменения выбора.
+        /// </summary>
+        public event Action valueChanged;
         private void OnIndexChanged(int index)
         {
             PlayerPrefs.SetInt(optionName, chooser.currentIndex);
+            indexChanged?.Invoke(index);
+            valueChanged?.Invoke();
         }
         private void SetPersistentValue()
         {
