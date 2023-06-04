@@ -9,7 +9,7 @@ namespace UI
     /// </summary>
     public abstract class AbstractOptionsMenu : AbstractMenuWithBack
     {
-        [Space, Header("Reset button")]
+        [Header("Reset button")]
         [SerializeField] private Button resetButton = null;
 
         public override void Init(MenuController menuController)

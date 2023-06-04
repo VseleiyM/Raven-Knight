@@ -17,17 +17,18 @@ MonoBehaviour:
   backButton: {fileID: 4219337199299792716}
   resetButton: {fileID: 2190096545280967464}
   masterOption:
-    defaultValue: 0.5
+    defaultValue: 1
     slider: {fileID: 4348523847237503617}
     optionName: Audio.Master
   soundOption:
-    defaultValue: 0.5
+    defaultValue: 1
     slider: {fileID: 938743328381994893}
     optionName: Audio.Sound
   musicOption:
-    defaultValue: 0.5
+    defaultValue: 1
     slider: {fileID: 1842687187954538599}
     optionName: Audio.Music
+  audioMixer: {fileID: 24100000, guid: cc4d9a3ef6d7d2340b4cda21e2c18d7e, type: 2}
 --- !u!1001 &2305573955513842986
 PrefabInstance:
   m_ObjectHideFlags: 0
