@@ -16,8 +16,4 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private Player _player;
 
     public Weapon weapon;
-
-    public List<AudioClip> ListAudioClip { get => _listAudioClip; }
-    [Space(10)]
-    [SerializeField] private List<AudioClip> _listAudioClip;
 }

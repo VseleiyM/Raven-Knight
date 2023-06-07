@@ -27,9 +27,6 @@ public class MobInfo : MonoBehaviour
     [SerializeField] private GameObject _projectile;
     public Transform PointForProjectile { get => _pointForProjectile; }
     [SerializeField] private Transform _pointForProjectile;
-    public List<AudioClip> ListAudioClip { get => _listAudioClip; }
-    [Space(10)]
-    [SerializeField] private List<AudioClip> _listAudioClip;
 
     private void Awake()
     {

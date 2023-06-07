@@ -8,7 +8,4 @@ public class TypeAttackInfo : MonoBehaviour
     [SerializeField] private Animator _animator;
     public AudioSource AudioSource { get => _audioSource; }
     [SerializeField] private AudioSource _audioSource;
-    public List<AudioClip> ListAudioClip { get => _listAudioClip; }
-    [Space(10)]
-    [SerializeField] private List<AudioClip> _listAudioClip;
 }

@@ -11,17 +11,10 @@ public class PlayerAction : MonoBehaviour
         playerInfo = GetComponentInParent<PlayerInfo>();
     }
 
-    public void SoundEffect(string nameAudio)
+    public void SoundEffect(AudioClip clip)
     {
-        foreach (var clip in playerInfo.ListAudioClip)
-        {
-            if (clip.name.ToLower() == nameAudio)
-            {
-                playerInfo.AudioSource.clip = clip;
-                playerInfo.AudioSource.Play();
-                break;
-            }
-        }
+        playerInfo.AudioSource.clip = clip;
+        playerInfo.AudioSource.Play();
     }
 
     public void Dead()

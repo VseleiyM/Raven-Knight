@@ -55,17 +55,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void SoundEffect(string nameAudio)
+    public void SoundEffect(AudioClip clip)
     {
-        foreach (var clip in weaponInfo.ListAudioClip)
-        {
-            if (clip.name.ToLower() == nameAudio)
-            {
-                weaponInfo.AudioSource.clip = clip;
-                weaponInfo.AudioSource.Play();
-                break;
-            }
-        }
+        weaponInfo.AudioSource.clip = clip;
+        weaponInfo.AudioSource.Play();
     }
 
     private IEnumerator Cooldown()

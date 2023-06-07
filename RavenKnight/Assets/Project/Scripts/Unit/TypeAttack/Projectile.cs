@@ -27,17 +27,10 @@ public class Projectile : MonoBehaviour
         coroutine = StartCoroutine(MoveRight());
     }
 
-    public void SoundEffect(string nameAudio)
+    public void SoundEffect(AudioClip clip)
     {
-        foreach (var clip in attackInfo.ListAudioClip)
-        {
-            if (clip.name.ToLower() == nameAudio)
-            {
-                attackInfo.AudioSource.clip = clip;
-                attackInfo.AudioSource.Play();
-                break;
-            }
-        }
+        attackInfo.AudioSource.clip = clip;
+        attackInfo.AudioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

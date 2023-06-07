@@ -10,7 +10,4 @@ public class WeaponInfo : MonoBehaviour
     [SerializeField] private AudioSource _audioSource;
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; }
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    public List<AudioClip> ListAudioClip { get => _listAudioClip; }
-    [Space(10)]
-    [SerializeField] private List<AudioClip> _listAudioClip;
 }

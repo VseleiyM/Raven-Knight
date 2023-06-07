@@ -31,17 +31,10 @@ public class MobAction : MonoBehaviour
         Destroy(mobInfo.gameObject);
     }
 
-    public void SoundEffect(string nameAudio)
+    public void SoundEffect(AudioClip clip)
     {
-        foreach (var clip in mobInfo.ListAudioClip)
-        {
-            if (clip.name.ToLower() == nameAudio)
-            {
-                mobInfo.AudioSource.clip = clip;
-                mobInfo.AudioSource.Play();
-                break;
-            }
-        }
+        mobInfo.AudioSource.clip = clip;
+        mobInfo.AudioSource.Play();
     }
 
     public void Attack()
