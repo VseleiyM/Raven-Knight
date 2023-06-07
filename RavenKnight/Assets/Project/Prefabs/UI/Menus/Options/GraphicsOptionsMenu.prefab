@@ -419,8 +419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 102
   _isRememberForBack: 1
-  backButton: {fileID: 5942598090913077390}
-  resetButton: {fileID: 8544041654478869738}
+  backButton: {fileID: 5614477026106515400}
+  resetButton: {fileID: 7566171603465720748}
   resolutionChooser: {fileID: 1366017573552521941}
   winModeChooser: {fileID: 3152237001537028685}
   brightnessOption:
@@ -1705,27 +1705,27 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8577469315158747880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5942598090913077390 stripped
+--- !u!114 &5614477026106515400 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2697959229319311974, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
+  m_CorrespondingSourceObject: {fileID: 4243494751500907808, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
     type: 3}
   m_PrefabInstance: {fileID: 8577469315158747880}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166b63c461e61945a7c3abb267b6c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8544041654478869738 stripped
+--- !u!114 &7566171603465720748 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 115900037162286594, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
+  m_CorrespondingSourceObject: {fileID: 2164324979269794116, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
     type: 3}
   m_PrefabInstance: {fileID: 8577469315158747880}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166b63c461e61945a7c3abb267b6c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

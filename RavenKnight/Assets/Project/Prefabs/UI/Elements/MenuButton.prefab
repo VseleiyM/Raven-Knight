@@ -24,8 +24,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3891145896851708620}
   - component: {fileID: 3891145896851708617}
-  - component: {fileID: 3891145896851708619}
   - component: {fileID: 1389012994109735088}
+  - component: {fileID: 2995695236190231949}
+  - component: {fileID: 2183651782149982001}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -61,7 +62,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3891145896851708621}
   m_CullTransparentMesh: 0
---- !u!114 &3891145896851708619
+--- !u!114 &1389012994109735088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +71,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3891145896851708621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e0aac900a0f85c4384243da07099f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2995695236190231949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3891145896851708621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166b63c461e61945a7c3abb267b6c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -104,7 +117,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1389012994109735088
+--- !u!114 &2183651782149982001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,9 +126,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3891145896851708621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0aac900a0f85c4384243da07099f1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 92e29519ff4f9ea41b0735b0f3b8f80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectTransform: {fileID: 3891145896851708620}
+  buttonWithEvents: {fileID: 2995695236190231949}
+  scale: 1.2
 --- !u!1 &6252557454176411673
 GameObject:
   m_ObjectHideFlags: 0

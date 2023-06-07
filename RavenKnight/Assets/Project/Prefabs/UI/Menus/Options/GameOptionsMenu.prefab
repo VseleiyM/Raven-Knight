@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 100
   _isRememberForBack: 1
-  backButton: {fileID: 888057273374569744}
-  resetButton: {fileID: 2934608101504072052}
+  backButton: {fileID: 1423694948348408406}
+  resetButton: {fileID: 3975318257413422642}
   languageChooser: {fileID: 782880773546380970}
   subtitlesChooser: {fileID: 8488537207170694717}
   bloodChooser: {fileID: 7843153257444658235}
@@ -311,28 +311,28 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2963950185281030006}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &888057273374569744 stripped
+--- !u!114 &1423694948348408406 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2697959229319311974, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
+  m_CorrespondingSourceObject: {fileID: 4243494751500907808, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
     type: 3}
   m_PrefabInstance: {fileID: 2963950185281030006}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166b63c461e61945a7c3abb267b6c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2934608101504072052 stripped
+--- !u!114 &3975318257413422642 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 115900037162286594, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
+  m_CorrespondingSourceObject: {fileID: 2164324979269794116, guid: 9cc2fa8a190a2ce45a03068b662af1ef,
     type: 3}
   m_PrefabInstance: {fileID: 2963950185281030006}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0166b63c461e61945a7c3abb267b6c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6979066071398925561
