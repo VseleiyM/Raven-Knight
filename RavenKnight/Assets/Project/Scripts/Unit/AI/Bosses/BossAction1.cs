@@ -23,6 +23,19 @@ public class BossAction1 : MonoBehaviour
             units = goUnits.transform;
     }
 
+    public void SoundEffect(string nameAudio)
+    {
+        foreach (var clip in mobInfo.ListAudioClip)
+        {
+            if (clip.name.ToLower() == nameAudio)
+            {
+                mobInfo.AudioSource.clip = clip;
+                mobInfo.AudioSource.Play();
+                break;
+            }
+        }
+    }
+
     public void SendBossDead()
     {
         GlobalEvents.SendBossDead(mobInfo.Mob);

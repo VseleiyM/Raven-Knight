@@ -13,16 +13,31 @@ public class Projectile : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D _rigidbody;
+    private TypeAttackInfo attackInfo;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        attackInfo = GetComponent<TypeAttackInfo>();
     }
 
     private void Start()
     {
         coroutine = StartCoroutine(MoveRight());
+    }
+
+    public void SoundEffect(string nameAudio)
+    {
+        foreach (var clip in attackInfo.ListAudioClip)
+        {
+            if (clip.name.ToLower() == nameAudio)
+            {
+                attackInfo.AudioSource.clip = clip;
+                attackInfo.AudioSource.Play();
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

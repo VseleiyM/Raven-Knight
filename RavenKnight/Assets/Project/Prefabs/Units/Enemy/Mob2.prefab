@@ -253,6 +253,7 @@ MonoBehaviour:
   _gainScore: 11
   _isBoss: 0
   startStep: {fileID: 1715678258332773597}
+  dropList: []
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!1 &2270828943839637126

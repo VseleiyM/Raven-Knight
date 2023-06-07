@@ -11,6 +11,19 @@ public class PlayerAction : MonoBehaviour
         playerInfo = GetComponentInParent<PlayerInfo>();
     }
 
+    public void SoundEffect(string nameAudio)
+    {
+        foreach (var clip in playerInfo.ListAudioClip)
+        {
+            if (clip.name.ToLower() == nameAudio)
+            {
+                playerInfo.AudioSource.clip = clip;
+                playerInfo.AudioSource.Play();
+                break;
+            }
+        }
+    }
+
     public void Dead()
     {
         foreach (var comp in playerInfo.Player.DisableComponents)

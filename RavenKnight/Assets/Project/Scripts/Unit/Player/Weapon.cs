@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float damage = 1;
 
     private PlayerInfo playerInfo;
+    private WeaponInfo weaponInfo;
     private bool isReady = true;
     private Transform temp;
 
@@ -25,12 +26,19 @@ public class Weapon : MonoBehaviour
             temp = goTemp.transform;
 
         playerInfo = GetComponentInParent<PlayerInfo>();
+        weaponInfo = GetComponent<WeaponInfo>();
         playerInfo.weapon = this;
     }
 
     public void Shoot()
     {
-        if (isReady)
+        if (!isReady) return;
+
+        Init();
+        ChangeData();
+        StartCoroutine(Cooldown());
+
+        void Init()
         {
             var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
             projectile.transform.parent = temp;
@@ -38,8 +46,25 @@ public class Weapon : MonoBehaviour
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = playerInfo.Player.DamageableTag;
             compProjectile.damage = damage;
+        }
+
+        void ChangeData()
+        {
             isReady = false;
-            StartCoroutine(Cooldown());
+            weaponInfo.Animator.SetTrigger("FireT");
+        }
+    }
+
+    public void SoundEffect(string nameAudio)
+    {
+        foreach (var clip in weaponInfo.ListAudioClip)
+        {
+            if (clip.name.ToLower() == nameAudio)
+            {
+                weaponInfo.AudioSource.clip = clip;
+                weaponInfo.AudioSource.Play();
+                break;
+            }
         }
     }
 
