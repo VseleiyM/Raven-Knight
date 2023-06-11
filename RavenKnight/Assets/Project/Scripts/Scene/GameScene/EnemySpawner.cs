@@ -38,14 +38,9 @@ public class EnemySpawner : MonoBehaviour
     {
         if (collision.tag != "Player" || triggered) return;
 
-        if (bossRoom)
-        {
-            GlobalEvents.bossDead += OnMobDead;
-        }
-        else
-        {
-            GlobalEvents.mobDead += OnMobDead;
-        }
+        GlobalEvents.mobSpawned += OnMobSpawned;
+        GlobalEvents.bossDead += OnMobDead;
+        GlobalEvents.mobDead += OnMobDead;
 
         triggered = true;
         GlobalEvents.SendCloseRoom();
@@ -78,9 +73,13 @@ public class EnemySpawner : MonoBehaviour
                 var mobInfo = enemyGO.GetComponent<MobInfo>();
 
                 mobInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
-                listLifeEnemy.Add(enemyGO);
             }
         }
+    }
+
+    private void OnMobSpawned(Mob mob)
+    {
+        listLifeEnemy.Add(mob.gameObject);
     }
 
     private void OnMobDead(Mob mob)
@@ -96,14 +95,9 @@ public class EnemySpawner : MonoBehaviour
             }
             else
             {
-                if (bossRoom)
-                {
-                    GlobalEvents.bossDead -= OnMobDead;
-                }
-                else
-                {
-                    GlobalEvents.mobDead -= OnMobDead;
-                }
+                GlobalEvents.mobSpawned -= OnMobSpawned;
+                GlobalEvents.bossDead -= OnMobDead;
+                GlobalEvents.mobDead -= OnMobDead;
 
                 isClear = true;
                 GlobalEvents.SendOpenRoom();

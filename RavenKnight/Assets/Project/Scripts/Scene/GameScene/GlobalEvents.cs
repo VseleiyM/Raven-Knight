@@ -9,6 +9,7 @@ public class GlobalEvents : MonoBehaviour
     public static event Action<Player> playerTakeDamage;
     public static event Action<int> scoreChanged;
     public static event Action<Vector3, int> createFlyText;
+    public static event Action<Mob> mobSpawned;
     public static event Action<Mob> mobDead;
     public static event Action<Mob> bossInit;
     public static event Action<Mob> bossTakeDamage;
@@ -36,6 +37,11 @@ public class GlobalEvents : MonoBehaviour
     public static void SendCreateScoreText(Vector3 spawnPoint, int value)
     {
         createFlyText?.Invoke(spawnPoint, value);
+    }
+
+    public static void SendMobSpawned(Mob mob)
+    {
+        mobSpawned?.Invoke(mob);
     }
 
     public static void SendMobDead(Mob mob)

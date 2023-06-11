@@ -37,6 +37,7 @@ public class Mob : MonoBehaviour, IDamageable
             folder = new GameObject("Temp").transform;
         else
             folder = goFolder.transform;
+        GlobalEvents.SendMobSpawned(this);
     }
 
     private void Start()

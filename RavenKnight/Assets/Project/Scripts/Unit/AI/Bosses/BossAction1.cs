@@ -34,6 +34,7 @@ public class BossAction1 : MonoBehaviour
         GlobalEvents.SendBossDead(mobInfo.Mob);
         GlobalEvents.SendScoreChanged(mobInfo.Mob.GainScore);
         GlobalEvents.SendCreateScoreText(mobInfo.transform.position, mobInfo.Mob.GainScore);
+        Destroy(mobInfo.gameObject);
     }
 
     public void Dead()
@@ -48,7 +49,6 @@ public class BossAction1 : MonoBehaviour
             var mobInfo = enemy.GetComponent<MobInfo>();
             mobInfo.Animator.SetFloat("SpawnDelay", 6);
         }
-        Destroy(mobInfo.gameObject);
     }
 
     public void MobSpawned()

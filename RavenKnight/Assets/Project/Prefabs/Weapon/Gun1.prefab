@@ -51,7 +51,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8984344394082757371, guid: f5e7e55a2b6b70245b4d11e32ceda1ad,
     type: 3}
   cooldown: 0.25
-  damage: 1
+  damage: 5
 --- !u!114 &7758094727869109406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +67,6 @@ MonoBehaviour:
   _animator: {fileID: 9147555941490384137}
   _audioSource: {fileID: 1067234191740480116}
   _spriteRenderer: {fileID: 2954273981308449834}
-  _listAudioClip: []
 --- !u!212 &2954273981308449834
 SpriteRenderer:
   m_ObjectHideFlags: 0

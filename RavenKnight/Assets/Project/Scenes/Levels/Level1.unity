@@ -3707,6 +3707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119435, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 760217798647119446, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: m_RootOrder
@@ -15239,6 +15244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2543793839112336363, guid: bfe99f49d22be6e4e86c199e8c406b90,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfe99f49d22be6e4e86c199e8c406b90, type: 3}
