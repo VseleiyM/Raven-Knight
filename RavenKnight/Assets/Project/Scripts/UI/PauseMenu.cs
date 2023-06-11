@@ -47,7 +47,6 @@ namespace UI
         private void PauseChange()
         {
             isPause = !isPause;
-            Debug.LogError("Pause: " + isPause.ToString());
             Time.timeScale = isPause ? 0 : 1;
             SetActive(isPause);
         }
