@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:RavenKnight/Assets/Project/Prefabs/Weapon/Gun1/Animations.meta
 guid: fe3775a77a7305c4d8ea1251bb98c794
+========
+guid: 42288b115ee100841bba13f1ecde1a6a
+>>>>>>>> B_Andrey_new_UI:RavenKnight/Assets/Project/Scripts/Audio.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
