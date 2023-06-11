@@ -58,6 +58,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorizontalChooser
       objectReference: {fileID: 0}
+    - target: {fileID: 2137570117759289818, guid: b0a6033d5fa1977488ce41c671d60d2d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3618132476541966427, guid: b0a6033d5fa1977488ce41c671d60d2d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -96,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 3618132476541966427, guid: b0a6033d5fa1977488ce41c671d60d2d,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 470
       objectReference: {fileID: 0}
     - target: {fileID: 3618132476541966427, guid: b0a6033d5fa1977488ce41c671d60d2d,
         type: 3}
