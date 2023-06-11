@@ -109,7 +109,8 @@ namespace UI
         {
             if (Input.GetKeyDown(pauseButtonKey))
             {
-                pauseKeyDowned?.Invoke();
+                if (gameMode == EnumScenes.GameScene)
+                    pauseKeyDowned?.Invoke();
             }
         }
     }
