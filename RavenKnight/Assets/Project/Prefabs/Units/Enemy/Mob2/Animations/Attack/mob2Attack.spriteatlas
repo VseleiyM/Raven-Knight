@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mob2Attack
+  m_Name: Mob2Attack
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -30,84 +30,84 @@ SpriteAtlas:
       enableTightPacking: 0
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 8a0d3934d3051234ebf3afb5cb1271bf, type: 3}
-    - {fileID: 2800000, guid: 5ea60d43da347c74caa7ae7ee0af6a26, type: 3}
-    - {fileID: 2800000, guid: 7db63e5e2303e63419412811a236cec0, type: 3}
-    - {fileID: 2800000, guid: a67634540ad3d2e43842ac39370ba221, type: 3}
-    - {fileID: 2800000, guid: 141c70ad6299e944a80da17e91f68150, type: 3}
-    - {fileID: 2800000, guid: e2139d700f0d1014bb585b14928fd6a5, type: 3}
-    - {fileID: 2800000, guid: b27925326aadd3847b87e9de56628823, type: 3}
-    - {fileID: 2800000, guid: a92f84653dcbca04db40a0e3c8ba90f7, type: 3}
-    - {fileID: 2800000, guid: 9a1be6830f8bd78419b34c34ee2e4ffb, type: 3}
-    - {fileID: 2800000, guid: 972cef3a7bea8214286d862c347a2866, type: 3}
-    - {fileID: 2800000, guid: 4741f20475f5efa4da3f14a80c2fa9a4, type: 3}
-    - {fileID: 2800000, guid: f99a44266f63c4642a4e52c721f2a4e0, type: 3}
-    - {fileID: 2800000, guid: 8e9922c99e3532e42a1ecfea7907a886, type: 3}
-    - {fileID: 2800000, guid: d7c419158708b044eaf5e27294e637e8, type: 3}
-    - {fileID: 2800000, guid: 7c7063cd7523c4848b3a5e4bd4f4f8ef, type: 3}
-    - {fileID: 2800000, guid: 09bdd899efdb3a0409e5d321ade8d182, type: 3}
-    - {fileID: 2800000, guid: 8d436fe1ebb5d64418469cc55658c258, type: 3}
-    - {fileID: 2800000, guid: db643c74b5345084790b3cc6494acfdf, type: 3}
-    - {fileID: 2800000, guid: 1ca367bdea4d04d418513ea38bc6fe28, type: 3}
-    - {fileID: 2800000, guid: 5ea501148e3b04949bafb6161d165b47, type: 3}
-    - {fileID: 2800000, guid: 8d7a81ad3ee574346bcd222e42fef154, type: 3}
-    - {fileID: 2800000, guid: 71db100062f5e114f9fbd23aeddcad49, type: 3}
-    - {fileID: 2800000, guid: 685db7929c0031b4f85cd7452d73c673, type: 3}
-    - {fileID: 2800000, guid: 34fa728b1947b594caae28a45ee99e3c, type: 3}
-    - {fileID: 2800000, guid: 1cefd7c38c5b993409269bb5f358bb41, type: 3}
+    - {fileID: 2800000, guid: f112228828f1ccf4a92605155b1f140b, type: 3}
+    - {fileID: 2800000, guid: cdf7af64879fdd34897032384708caf0, type: 3}
+    - {fileID: 2800000, guid: 802268adf6d21c848b070554b69b9fa8, type: 3}
+    - {fileID: 2800000, guid: 2cb39d55f30c2004dbaf8050614eb919, type: 3}
+    - {fileID: 2800000, guid: 8c6a639cc985ba64ea2b08df74bc4843, type: 3}
+    - {fileID: 2800000, guid: 23e2aec81883da7499f1c31c2ca1c8fb, type: 3}
+    - {fileID: 2800000, guid: 522fb9a77f85d754dafceeff5b292465, type: 3}
+    - {fileID: 2800000, guid: e89a134c4293a414783cf721971268c1, type: 3}
+    - {fileID: 2800000, guid: a5623a1389f17e5439db8de570ee8cad, type: 3}
+    - {fileID: 2800000, guid: eab6577e557fd2e418683fbc5ee967a3, type: 3}
+    - {fileID: 2800000, guid: 8852b6385b96bc94781ac23a1a0d62d1, type: 3}
+    - {fileID: 2800000, guid: ee37585ccad3b8048b3b48317fe49284, type: 3}
+    - {fileID: 2800000, guid: d11ff3b054349584ea01b80eace856db, type: 3}
+    - {fileID: 2800000, guid: d1e6c9289b381944cb7ea047f117932a, type: 3}
+    - {fileID: 2800000, guid: 3bdfb686b74be294eaaef404011d010b, type: 3}
+    - {fileID: 2800000, guid: f31b02c3f8961684e86024c72cace461, type: 3}
+    - {fileID: 2800000, guid: 185f91c6e2a460f41a07a9cd9bab95dd, type: 3}
+    - {fileID: 2800000, guid: c488bf348b3bc8c43a8577bf7862a439, type: 3}
+    - {fileID: 2800000, guid: 8cc7f9e048987b447b6feef40e473a89, type: 3}
+    - {fileID: 2800000, guid: f981af25aa86a3c45956207231d76531, type: 3}
+    - {fileID: 2800000, guid: 6166bb077eac50b43b654d99f4c54afd, type: 3}
+    - {fileID: 2800000, guid: bda1f8a3be7a3fd4080ddea91bba4d2a, type: 3}
+    - {fileID: 2800000, guid: 6a7d7e6818976484b9f0654bcf0dc149, type: 3}
+    - {fileID: 2800000, guid: 95a95e27dc8f7dc409588757354abc17, type: 3}
+    - {fileID: 2800000, guid: a06215c64b56d854e915177f9d1fb3ed, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 71db100062f5e114f9fbd23aeddcad49, type: 3}
-  - {fileID: 21300000, guid: e2139d700f0d1014bb585b14928fd6a5, type: 3}
-  - {fileID: 21300000, guid: 8d436fe1ebb5d64418469cc55658c258, type: 3}
-  - {fileID: 21300000, guid: b27925326aadd3847b87e9de56628823, type: 3}
-  - {fileID: 21300000, guid: 685db7929c0031b4f85cd7452d73c673, type: 3}
-  - {fileID: 21300000, guid: 5ea60d43da347c74caa7ae7ee0af6a26, type: 3}
-  - {fileID: 21300000, guid: 9a1be6830f8bd78419b34c34ee2e4ffb, type: 3}
-  - {fileID: 21300000, guid: 1cefd7c38c5b993409269bb5f358bb41, type: 3}
-  - {fileID: 21300000, guid: 4741f20475f5efa4da3f14a80c2fa9a4, type: 3}
-  - {fileID: 21300000, guid: 5ea501148e3b04949bafb6161d165b47, type: 3}
-  - {fileID: 21300000, guid: 8a0d3934d3051234ebf3afb5cb1271bf, type: 3}
-  - {fileID: 21300000, guid: a67634540ad3d2e43842ac39370ba221, type: 3}
-  - {fileID: 21300000, guid: db643c74b5345084790b3cc6494acfdf, type: 3}
-  - {fileID: 21300000, guid: d7c419158708b044eaf5e27294e637e8, type: 3}
-  - {fileID: 21300000, guid: a92f84653dcbca04db40a0e3c8ba90f7, type: 3}
-  - {fileID: 21300000, guid: f99a44266f63c4642a4e52c721f2a4e0, type: 3}
-  - {fileID: 21300000, guid: 09bdd899efdb3a0409e5d321ade8d182, type: 3}
-  - {fileID: 21300000, guid: 8e9922c99e3532e42a1ecfea7907a886, type: 3}
-  - {fileID: 21300000, guid: 972cef3a7bea8214286d862c347a2866, type: 3}
-  - {fileID: 21300000, guid: 34fa728b1947b594caae28a45ee99e3c, type: 3}
-  - {fileID: 21300000, guid: 141c70ad6299e944a80da17e91f68150, type: 3}
-  - {fileID: 21300000, guid: 8d7a81ad3ee574346bcd222e42fef154, type: 3}
-  - {fileID: 21300000, guid: 1ca367bdea4d04d418513ea38bc6fe28, type: 3}
-  - {fileID: 21300000, guid: 7c7063cd7523c4848b3a5e4bd4f4f8ef, type: 3}
-  - {fileID: 21300000, guid: 7db63e5e2303e63419412811a236cec0, type: 3}
+  - {fileID: 21300000, guid: d11ff3b054349584ea01b80eace856db, type: 3}
+  - {fileID: 21300000, guid: 8cc7f9e048987b447b6feef40e473a89, type: 3}
+  - {fileID: 21300000, guid: a5623a1389f17e5439db8de570ee8cad, type: 3}
+  - {fileID: 21300000, guid: bda1f8a3be7a3fd4080ddea91bba4d2a, type: 3}
+  - {fileID: 21300000, guid: f31b02c3f8961684e86024c72cace461, type: 3}
+  - {fileID: 21300000, guid: c488bf348b3bc8c43a8577bf7862a439, type: 3}
+  - {fileID: 21300000, guid: cdf7af64879fdd34897032384708caf0, type: 3}
+  - {fileID: 21300000, guid: f981af25aa86a3c45956207231d76531, type: 3}
+  - {fileID: 21300000, guid: 2cb39d55f30c2004dbaf8050614eb919, type: 3}
+  - {fileID: 21300000, guid: 3bdfb686b74be294eaaef404011d010b, type: 3}
+  - {fileID: 21300000, guid: 185f91c6e2a460f41a07a9cd9bab95dd, type: 3}
+  - {fileID: 21300000, guid: a06215c64b56d854e915177f9d1fb3ed, type: 3}
+  - {fileID: 21300000, guid: 6166bb077eac50b43b654d99f4c54afd, type: 3}
+  - {fileID: 21300000, guid: 95a95e27dc8f7dc409588757354abc17, type: 3}
+  - {fileID: 21300000, guid: 522fb9a77f85d754dafceeff5b292465, type: 3}
+  - {fileID: 21300000, guid: d1e6c9289b381944cb7ea047f117932a, type: 3}
+  - {fileID: 21300000, guid: 8852b6385b96bc94781ac23a1a0d62d1, type: 3}
+  - {fileID: 21300000, guid: 6a7d7e6818976484b9f0654bcf0dc149, type: 3}
+  - {fileID: 21300000, guid: f112228828f1ccf4a92605155b1f140b, type: 3}
+  - {fileID: 21300000, guid: 23e2aec81883da7499f1c31c2ca1c8fb, type: 3}
+  - {fileID: 21300000, guid: e89a134c4293a414783cf721971268c1, type: 3}
+  - {fileID: 21300000, guid: ee37585ccad3b8048b3b48317fe49284, type: 3}
+  - {fileID: 21300000, guid: 8c6a639cc985ba64ea2b08df74bc4843, type: 3}
+  - {fileID: 21300000, guid: 802268adf6d21c848b070554b69b9fa8, type: 3}
+  - {fileID: 21300000, guid: eab6577e557fd2e418683fbc5ee967a3, type: 3}
   m_PackedSpriteNamesToIndex:
-  - mob2attack_21
-  - mob2attack_05
-  - mob2attack_16
-  - mob2attack_06
-  - mob2attack_22
-  - mob2attack_01
+  - mob2attack_12
+  - mob2attack_18
   - mob2attack_08
-  - mob2attack_24
-  - mob2attack_10
-  - mob2attack_19
-  - mob2attack_00
-  - mob2attack_03
+  - mob2attack_21
+  - mob2attack_15
   - mob2attack_17
+  - mob2attack_01
+  - mob2attack_19
+  - mob2attack_03
+  - mob2attack_14
+  - mob2attack_16
+  - mob2attack_24
+  - mob2attack_20
+  - mob2attack_23
+  - mob2attack_06
   - mob2attack_13
+  - mob2attack_10
+  - mob2attack_22
+  - mob2attack_00
+  - mob2attack_05
   - mob2attack_07
   - mob2attack_11
-  - mob2attack_15
-  - mob2attack_12
-  - mob2attack_09
-  - mob2attack_23
   - mob2attack_04
-  - mob2attack_20
-  - mob2attack_18
-  - mob2attack_14
   - mob2attack_02
-  m_Tag: mob2Attack
+  - mob2attack_09
+  m_Tag: Mob2Attack
   m_IsVariant: 0
