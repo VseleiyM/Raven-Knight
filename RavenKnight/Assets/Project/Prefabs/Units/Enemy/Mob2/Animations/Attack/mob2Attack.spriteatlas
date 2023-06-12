@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mob2Attack
+  m_Name: mob2Attack
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -109,5 +109,5 @@ SpriteAtlas:
   - mob2attack_04
   - mob2attack_02
   - mob2attack_09
-  m_Tag: Mob2Attack
+  m_Tag: mob2Attack
   m_IsVariant: 0

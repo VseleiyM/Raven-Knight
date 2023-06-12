@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mob2Run
+  m_Name: mob2Run
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -70,5 +70,5 @@ SpriteAtlas:
   - mob2run_07
   - mob2run_08
   - mob2run_03
-  m_Tag: Mob2Run
+  m_Tag: mob2Run
   m_IsVariant: 0
