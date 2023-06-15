@@ -145,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7090846464093108760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.6, y: -1.9147692, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7859437779115335722}
@@ -203,7 +203,6 @@ MonoBehaviour:
   _typeAttack: 0
   _projectile: {fileID: 0}
   _pointForProjectile: {fileID: 0}
-  _listAudioClip: []
 --- !u!82 &972458798343247043
 AudioSource:
   m_ObjectHideFlags: 0

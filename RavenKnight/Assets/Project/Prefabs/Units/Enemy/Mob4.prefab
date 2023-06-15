@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506871643399256373}
+  - component: {fileID: 7944196964802036966}
+  - component: {fileID: 506871643399256369}
   - component: {fileID: 7175248544281983243}
   - component: {fileID: 506871643399256370}
   - component: {fileID: 7690338234648570116}
   - component: {fileID: 506871643399256368}
   - component: {fileID: 506871643399256374}
-  - component: {fileID: 506871643399256369}
-  - component: {fileID: 7944196964802036966}
   m_Layer: 11
   m_Name: Mob4
   m_TagString: Enemy
@@ -39,6 +39,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7944196964802036966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506871643399256372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _maxHealth: 1
+  _damageableTag: 1
+  _damage: 1
+  _gainScore: 11
+  _isBoss: 0
+  startStep: {fileID: 1715678258332773597}
+  dropList: []
+  target: {fileID: 0}
+  targetCollider: {fileID: 0}
+--- !u!114 &506871643399256369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506871643399256372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 506871643399256374}
+  _physicsCollider: {fileID: 506871643399256370}
+  _attackTrigger: {fileID: 7690338234648570116}
+  _spriteRenderer: {fileID: 8197714107943249547}
+  _animator: {fileID: 3445439267889616434}
+  _audioSource: {fileID: 7175248544281983243}
+  _mob: {fileID: 7944196964802036966}
+  _typeAttack: 1
+  _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
+    type: 3}
+  _pointForProjectile: {fileID: 506871643399256373}
 --- !u!82 &7175248544281983243
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48,9 +93,10 @@ AudioSource:
   m_GameObject: {fileID: 506871643399256372}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7008553581896884548, guid: cc4d9a3ef6d7d2340b4cda21e2c18d7e,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -150,7 +196,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
 --- !u!58 &7690338234648570116
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -210,52 +256,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &506871643399256369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506871643399256372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 506871643399256374}
-  _physicsCollider: {fileID: 506871643399256370}
-  _attackTrigger: {fileID: 7690338234648570116}
-  _spriteRenderer: {fileID: 8197714107943249547}
-  _animator: {fileID: 3445439267889616434}
-  _audioSource: {fileID: 7175248544281983243}
-  _mob: {fileID: 7944196964802036966}
-  _typeAttack: 1
-  _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
-    type: 3}
-  _pointForProjectile: {fileID: 506871643399256373}
-  _listAudioClip: []
---- !u!114 &7944196964802036966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506871643399256372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 1
-  _damageableTag: 1
-  _damage: 1
-  _gainScore: 11
-  _isBoss: 0
-  startStep: {fileID: 1715678258332773597}
-  dropList: []
-  target: {fileID: 0}
-  targetCollider: {fileID: 0}
 --- !u!1 &2270828943839637126
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8107478893741695018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019, y: -0.252, z: 0}
+  m_LocalPosition: {x: -0.36, y: -0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506871643399256373}
