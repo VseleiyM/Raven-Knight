@@ -7,45 +7,84 @@ public class AttackTarget : UnitCommand
 {
     [SerializeField] private UnitCommand ifTrue;
     [SerializeField] private UnitCommand ifFalse;
+    [Space(10)]
+    [Min(1)] [SerializeField] private int attackVariant = 1;
 
-    private Collider2D attacktrigger;
-    private Collider2D target;
+    private bool attack = false;
+    private bool attackReady = true;
+
+    private MobInfo mobInfo;
+    private MobAction mobAction;
     private UnitCommand _nextStep;
-    private Animator animator;
-    private NavMeshAgent agent;
-    private SpriteRenderer spriteRenderer;
 
     public override UnitCommand NextStep { get { return _nextStep; } }
 
+    private void Awake()
+    {
+        mobAction = GetComponentInParent<MobAction>();
+        mobAction.attack += OnAttack;
+        mobAction.attackFinished += OnAttackFinish;
+    }
+
+    private void OnDestroy()
+    {
+        mobAction.attack -= OnAttack;
+        mobAction.attackFinished -= OnAttackFinish;
+    }
+
     public override void RequestData(MobInfo mobInfo)
     {
-        attacktrigger = mobInfo.AttackTrigger;
-        target = mobInfo.Mob.targetCollider;
-        animator = mobInfo.Animator;
-        agent = mobInfo.Agent;
-        spriteRenderer = mobInfo.SpriteRenderer;
+        this.mobInfo = mobInfo;
     }
 
     public override void Execute()
     {
-        if (attacktrigger.IsTouching(target))
+        if (!attackReady)
         {
-            _nextStep = ifTrue;
-
-            if (transform.position.x < target.transform.position.x)
-                spriteRenderer.flipX = false;
+            if (attack)
+            {
+                _nextStep = ifTrue;
+                attack = false;
+                mobInfo.Animator.SetBool("Attack", false);
+            }
             else
-                spriteRenderer.flipX = true;
+            {
+                _nextStep = this;
+            }
+            return;
+        }
 
-            animator.SetBool("Attack", true);
-            agent.isStopped = true;
+        if (mobInfo.AttackTrigger.IsTouching(mobInfo.Mob.targetCollider))
+        {
+            attackReady = false;
+            _nextStep = this;
+
+            mobInfo.SpriteRenderer.flipX = transform.position.x > mobInfo.Mob.targetCollider.transform.position.x;
+            mobInfo.Animator.SetInteger("AttackVariant", attackVariant);
+            mobInfo.Animator.SetBool("Attack", true);
+            mobInfo.Animator.SetBool("Run", false);
+            mobInfo.Agent.isStopped = true;
         }
         else
         {
             _nextStep = ifFalse;
-            animator.SetBool("Attack", false);
-            agent.isStopped = false;
+            mobInfo.Animator.SetBool("Attack", false);
+            mobInfo.Agent.isStopped = false;
         }
     }
 
+    private void OnAttack(int variant)
+    {
+        if (variant == attackVariant)
+            attack = true;
+    }
+
+    private void OnAttackFinish(int variant)
+    {
+        if (variant == attackVariant)
+        {
+            attackReady = true;
+            attack = false;
+        }
+    }
 }

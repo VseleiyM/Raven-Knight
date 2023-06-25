@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1907517497685749461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1337840526507681023}
   m_Father: {fileID: 0}
@@ -49,9 +49,9 @@ MonoBehaviour:
   _trigger: {fileID: 396899866621744247}
   animator: {fileID: 1647725733198490747}
   damageableTag: 1
-  damage: -2
+  damage: -5
   tickInSecond: 1
-  duration: 5
+  duration: 10
 --- !u!58 &396899866621744247
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
 --- !u!95 &1647725733198490747
 Animator:
   serializedVersion: 3
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 5611973147800666856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 4105705538842911503}
   m_RootOrder: 0

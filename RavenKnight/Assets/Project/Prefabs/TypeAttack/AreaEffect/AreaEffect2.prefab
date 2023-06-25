@@ -158,7 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _trigger: {fileID: 7637097519385701333}
-  damageableTag: 
+  damageableTag: 0
+  damage: 0
 --- !u!1 &6227763295033030014
 GameObject:
   m_ObjectHideFlags: 0

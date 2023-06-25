@@ -24,16 +24,9 @@ public class MoveTo : UnitCommand
 
     public override void Execute()
     {
-        if (agent.velocity.magnitude > 0)
-            animator.SetBool("Run", true);
-        else
-            animator.SetBool("Run", false);
-
-        if (transform.position.x < target.transform.position.x)
-            spriteRenderer.flipX = false;
-        else
-            spriteRenderer.flipX = true;
-
+        agent.isStopped = true;
+        animator.SetBool("Run", agent.velocity.magnitude > 0);
+        spriteRenderer.flipX = transform.position.x > target.transform.position.x;
         agent.SetDestination(target.position);
     }
 }

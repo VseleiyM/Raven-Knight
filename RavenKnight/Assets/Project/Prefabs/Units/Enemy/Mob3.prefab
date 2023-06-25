@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4270901138975635629}
   - component: {fileID: 2663658042315519862}
   - component: {fileID: 808044105153170685}
+  - component: {fileID: 5816136929351097052}
   - component: {fileID: 3926589139242111874}
   m_Layer: 0
   m_Name: Brain
@@ -26,11 +27,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223447369590879533}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3760685715564454558}
+  m_Father: {fileID: 5858160733551046518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2663658042315519862
@@ -58,8 +59,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401f359cfbf39b84998472ae8348707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTrue: {fileID: 808044105153170685}
+  ifTrue: {fileID: 5816136929351097052}
   ifFalse: {fileID: 3926589139242111874}
+  attackVariant: 1
+--- !u!114 &5816136929351097052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223447369590879533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cc4cd7b5b74604eaf4fccdc0741ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 3926589139242111874}
+  damageableTag: 1
+  damage: 5
 --- !u!114 &3926589139242111874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +125,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4270901138975635629}
   - {fileID: 5858160733551046518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,6 +172,7 @@ MonoBehaviour:
   _agent: {fileID: 3760685715564454557}
   _physicsCollider: {fileID: 8771652548400218220}
   _attackTrigger: {fileID: 6449708031344652975}
+  _rigidbody2D: {fileID: 0}
   _spriteRenderer: {fileID: 4826811126915759392}
   _animator: {fileID: 678549681874026657}
   _audioSource: {fileID: 6568995859037654084}
@@ -274,7 +291,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2.25}
+  m_Size: {x: 1, y: 1.5}
   m_Direction: 0
 --- !u!58 &6449708031344652975
 CircleCollider2D:
@@ -322,7 +339,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3760685715564454559}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
@@ -331,7 +348,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 0
-  m_Height: 2
+  m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -364,9 +381,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4270901138975635629}
   m_Father: {fileID: 3760685715564454558}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &4826811126915759392
 SpriteRenderer:

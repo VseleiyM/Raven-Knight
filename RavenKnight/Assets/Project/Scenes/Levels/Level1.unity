@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -219,20 +219,19 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.data[0]
       value: 
-      objectReference: {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4,
+      objectReference: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
         type: 3}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.data[1]
       value: 
-      objectReference: {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.data[2]
@@ -248,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[0]._settings.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -324,6 +323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemySpawner Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119435, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119446, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -3813,12 +3817,12 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -3830,22 +3834,61 @@ PrefabInstance:
         type: 3}
       propertyPath: listEnemy.Array.data[1]
       value: 
+      objectReference: {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b,
+        type: 3}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listEnemy.Array.data[2]
+      value: 
+      objectReference: {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742,
+        type: 3}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listEnemy.Array.data[3]
+      value: 
       objectReference: {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c,
         type: 3}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: listEnemy.Array.data[4]
+      value: 
+      objectReference: {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b,
+        type: 3}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listEnemy.Array.data[5]
+      value: 
+      objectReference: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
+        type: 3}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: listWave.Array.data[0]._settings.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[1]._settings.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[2]._settings.Array.size
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[3]._settings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[4]._settings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[5]._settings.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -3854,23 +3897,98 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: listWave.Array.data[0]._settings.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[0]._settings.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[0]._settings.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[0]._settings.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[0]._settings.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: listWave.Array.data[1]._settings.Array.data[0]
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[1]._settings.Array.data[1]
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[2]._settings.Array.data[0]
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listWave.Array.data[2]._settings.Array.data[1]
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[2]._settings.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[3]._settings.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[3]._settings.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[3]._settings.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[4]._settings.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[4]._settings.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[4]._settings.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[5]._settings.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[5]._settings.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: listWave.Array.data[5]._settings.Array.data[5]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119433, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}

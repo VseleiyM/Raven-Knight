@@ -17,7 +17,7 @@ public class Mob : MonoBehaviour, IDamageable
     public bool IsBoss { get => _isBoss; }
     [SerializeField] private bool _isBoss;
 
-    [Space(10)][SerializeField] private UnitCommand startStep;
+    [Space(10)] [SerializeField] private UnitCommand startStep;
     [SerializeField] private List<DropSlot> dropList;
 
     [Space(10)]
@@ -26,6 +26,9 @@ public class Mob : MonoBehaviour, IDamageable
     public Coroutine corotine_AI;
 
     private MobInfo mobInfo;
+    private bool enableAI = false;
+    private UnitCommand step;
+    private MobAction mobAction;
     private Transform folder;
 
     private void Awake()
@@ -37,6 +40,8 @@ public class Mob : MonoBehaviour, IDamageable
             folder = new GameObject("Temp").transform;
         else
             folder = goFolder.transform;
+
+        mobAction = GetComponentInChildren<MobAction>();
         GlobalEvents.SendMobSpawned(this);
     }
 
@@ -53,10 +58,27 @@ public class Mob : MonoBehaviour, IDamageable
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!enableAI) return;
+
+        step.RequestData(mobInfo);
+        step.Execute();
+        step = step.NextStep;
+    }
+
     public void EnableAI()
     {
-        if (corotine_AI != null) return;
-        corotine_AI = StartCoroutine(corotineAI(startStep));
+        New();
+
+        void New()
+        {
+            startStep.RequestData(mobInfo);
+            startStep.Execute();
+            step = startStep.NextStep;
+            enableAI = true;
+
+        }
     }
 
     private IEnumerator corotineAI(UnitCommand firstStep)
@@ -80,16 +102,12 @@ public class Mob : MonoBehaviour, IDamageable
         _currentHealth -= damage;
 
         if (_isBoss)
-        {
             GlobalEvents.SendBossTakeDamage(this);
-        }
+
+        if (mobAction)
+            mobAction.SendTakeDamage();
 
         if (CurrentHealth <= 0)
-        {
-            DeathLogic();
-        }
-
-        void DeathLogic()
         {
             StopAllCoroutines();
             mobInfo.Agent.isStopped = true;
@@ -113,6 +131,7 @@ public class Mob : MonoBehaviour, IDamageable
                 }
             }
         }
+
     }
 
     public bool ReturnParameter(int id, ref float result)
