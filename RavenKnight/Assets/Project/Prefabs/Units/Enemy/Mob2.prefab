@@ -196,7 +196,7 @@ MonoBehaviour:
   _agent: {fileID: 7090846464093108762}
   _physicsCollider: {fileID: 7090846464093108766}
   _attackTrigger: {fileID: 1141358738142685736}
-  _rigidbody2D: {fileID: 0}
+  _rigidbody2D: {fileID: 7090846464093108764}
   _spriteRenderer: {fileID: 1489385070228088231}
   _animator: {fileID: 5386255241901724958}
   _audioSource: {fileID: 972458798343247043}
