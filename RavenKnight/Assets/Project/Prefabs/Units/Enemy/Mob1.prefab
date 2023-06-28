@@ -203,7 +203,6 @@ MonoBehaviour:
   _typeAttack: 0
   _projectile: {fileID: 0}
   _pointForProjectile: {fileID: 0}
-  _listAudioClip: []
 --- !u!82 &2579988923874463599
 AudioSource:
   m_ObjectHideFlags: 0
