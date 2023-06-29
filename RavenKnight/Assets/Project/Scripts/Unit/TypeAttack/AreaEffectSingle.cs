@@ -16,11 +16,16 @@ public class AreaEffectSingle : MonoBehaviour
         _trigger.GetContacts(results);
         foreach (var collision in results)
         {
-            if (damageableTag != DamageableTag.All &&
-                collision.tag != damageableTag.ToString())
+            if (collision.tag == damageableTag.ToString())
+            {
+                collision.GetComponent<IDamageable>().TakeDamage(damage);
                 break;
-            
-            collision.GetComponent<IDamageable>().TakeDamage(damage);
+            }
+
+            if (damageableTag == DamageableTag.All)
+            {
+                collision.GetComponent<IDamageable>().TakeDamage(damage);
+            }
         }
         Destroy(gameObject);
     }

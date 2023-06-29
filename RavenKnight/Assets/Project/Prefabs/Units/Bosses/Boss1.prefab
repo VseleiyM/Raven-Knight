@@ -226,12 +226,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 100
   _gainScore: 12345
   _isBoss: 1
-  startStep: {fileID: 3703864740433641052}
+  startStep:
+  - {fileID: 3703864740433641052}
   dropList: []
+  _parameters:
+  - _parameter: 0
+    current: 0
+    _max: 100
+    _fillAwake: 1
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!114 &3774518901421596482
@@ -246,15 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 3774518901421596485}
   _physicsCollider: {fileID: 3774518901421596481}
   _attackTrigger: {fileID: 6471844199626542967}
-  _rigidbody2D: {fileID: 0}
-  _spriteRenderer: {fileID: 4804545235018760440}
-  _animator: {fileID: 2069867068647452737}
-  _audioSource: {fileID: 2413799393261654351}
-  _mob: {fileID: 6725696061794394773}
-  _typeAttack: 1
   _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
   _pointForProjectile: {fileID: 3774518901421596486}
@@ -267,9 +264,10 @@ AudioSource:
   m_GameObject: {fileID: 3774518901421596487}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7008553581896884548, guid: cc4d9a3ef6d7d2340b4cda21e2c18d7e,
+    type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

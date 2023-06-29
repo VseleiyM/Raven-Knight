@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 1952372156315555365}
   - component: {fileID: 1604902823518373766}
   - component: {fileID: 8745044659563981144}
-  - component: {fileID: 6615306962739717488}
+  - component: {fileID: 3955662020405581682}
   - component: {fileID: 8931929362514007987}
   - component: {fileID: 1604902823518373767}
   - component: {fileID: 1604902823518373761}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _physicsCollider: {fileID: 6615306962739717488}
+  _physicsCollider: {fileID: 3955662020405581682}
   _attackTrigger: {fileID: 8931929362514007987}
   _projectile: {fileID: 0}
   _pointForProjectile: {fileID: 0}
@@ -455,8 +455,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &6615306962739717488
-CapsuleCollider2D:
+--- !u!58 &3955662020405581682
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -469,8 +469,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3, y: 4}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!58 &8931929362514007987
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -486,7 +486,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.8340793
+  m_Radius: 4
 --- !u!50 &1604902823518373767
 Rigidbody2D:
   serializedVersion: 4

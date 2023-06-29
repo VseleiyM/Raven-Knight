@@ -41,85 +41,10 @@ SpriteAtlas:
       enableRotation: 0
       enableTightPacking: 0
     variantMultiplier: 1
-    packables:
-    - {fileID: 2800000, guid: d46ffeabaa2137e4fb5a8af4e2dacd9f, type: 3}
-    - {fileID: 2800000, guid: 01caa88aa60704b45ba352d2d8667aff, type: 3}
-    - {fileID: 2800000, guid: 4c7f7e629c4a9804cbb40a91d74ec5b0, type: 3}
-    - {fileID: 2800000, guid: f3597df290e1db141b6ba3f542eed571, type: 3}
-    - {fileID: 2800000, guid: 82923d3dd051d6144b58e849027fecb5, type: 3}
-    - {fileID: 2800000, guid: ed120f638b206df4589349a064984f4e, type: 3}
-    - {fileID: 2800000, guid: d953278ed5425ac4c82c43066fee286b, type: 3}
-    - {fileID: 2800000, guid: b75bf65e747dd7442962b40cf6c53776, type: 3}
-    - {fileID: 2800000, guid: 5b75679eb0a59054782ec2e3348664a8, type: 3}
-    - {fileID: 2800000, guid: 46fc5131853420749b46feb74c77ada8, type: 3}
-    - {fileID: 2800000, guid: 6c7d58ec2c7e8eb418929ee47451780c, type: 3}
-    - {fileID: 2800000, guid: 0433f019549439d4c8d489e78b0d5ac4, type: 3}
-    - {fileID: 2800000, guid: e8e963f58c54ffc4a9d5afe2ae90fe81, type: 3}
-    - {fileID: 2800000, guid: a2ef8c985a628b8489f000398fc40618, type: 3}
-    - {fileID: 2800000, guid: b3546036a71478f41af0d404350f7943, type: 3}
-    - {fileID: 2800000, guid: 3e643a95250af9b49b77921a68a34a57, type: 3}
-    - {fileID: 2800000, guid: ac01ffcf8d9c5a54cbcdeafd572edd58, type: 3}
-    - {fileID: 2800000, guid: a29bea838a11a554cb736ee485847070, type: 3}
-    - {fileID: 2800000, guid: 39cc517b8d331294b99de7c094122b8e, type: 3}
-    - {fileID: 2800000, guid: 91cb2cb9b7b72c642a5a81844a623ea8, type: 3}
-    - {fileID: 2800000, guid: c3bee75c1fdaa5d4798f11c10a9a5112, type: 3}
-    - {fileID: 2800000, guid: 7bd23905287e8a648a6c73575e85c80c, type: 3}
-    - {fileID: 2800000, guid: 94dd825d12cfdb5429a8476b9b7de33a, type: 3}
-    - {fileID: 2800000, guid: fd7451b6460da7445ba0ca6db47f008d, type: 3}
-    - {fileID: 2800000, guid: 9dadfdf25f4b4c44a818ae1b3d641312, type: 3}
+    packables: []
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 46fc5131853420749b46feb74c77ada8, type: 3}
-  - {fileID: 21300000, guid: 4c7f7e629c4a9804cbb40a91d74ec5b0, type: 3}
-  - {fileID: 21300000, guid: f3597df290e1db141b6ba3f542eed571, type: 3}
-  - {fileID: 21300000, guid: 9dadfdf25f4b4c44a818ae1b3d641312, type: 3}
-  - {fileID: 21300000, guid: ed120f638b206df4589349a064984f4e, type: 3}
-  - {fileID: 21300000, guid: a29bea838a11a554cb736ee485847070, type: 3}
-  - {fileID: 21300000, guid: 7bd23905287e8a648a6c73575e85c80c, type: 3}
-  - {fileID: 21300000, guid: 3e643a95250af9b49b77921a68a34a57, type: 3}
-  - {fileID: 21300000, guid: e8e963f58c54ffc4a9d5afe2ae90fe81, type: 3}
-  - {fileID: 21300000, guid: b3546036a71478f41af0d404350f7943, type: 3}
-  - {fileID: 21300000, guid: fd7451b6460da7445ba0ca6db47f008d, type: 3}
-  - {fileID: 21300000, guid: a2ef8c985a628b8489f000398fc40618, type: 3}
-  - {fileID: 21300000, guid: 0433f019549439d4c8d489e78b0d5ac4, type: 3}
-  - {fileID: 21300000, guid: 91cb2cb9b7b72c642a5a81844a623ea8, type: 3}
-  - {fileID: 21300000, guid: 01caa88aa60704b45ba352d2d8667aff, type: 3}
-  - {fileID: 21300000, guid: 39cc517b8d331294b99de7c094122b8e, type: 3}
-  - {fileID: 21300000, guid: d46ffeabaa2137e4fb5a8af4e2dacd9f, type: 3}
-  - {fileID: 21300000, guid: c3bee75c1fdaa5d4798f11c10a9a5112, type: 3}
-  - {fileID: 21300000, guid: 6c7d58ec2c7e8eb418929ee47451780c, type: 3}
-  - {fileID: 21300000, guid: 82923d3dd051d6144b58e849027fecb5, type: 3}
-  - {fileID: 21300000, guid: 94dd825d12cfdb5429a8476b9b7de33a, type: 3}
-  - {fileID: 21300000, guid: b75bf65e747dd7442962b40cf6c53776, type: 3}
-  - {fileID: 21300000, guid: d953278ed5425ac4c82c43066fee286b, type: 3}
-  - {fileID: 21300000, guid: 5b75679eb0a59054782ec2e3348664a8, type: 3}
-  - {fileID: 21300000, guid: ac01ffcf8d9c5a54cbcdeafd572edd58, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - idle_09
-  - idle_02
-  - idle_03
-  - idle_24
-  - idle_05
-  - idle_17
-  - idle_21
-  - idle_15
-  - idle_12
-  - idle_14
-  - idle_23
-  - idle_13
-  - idle_11
-  - idle_19
-  - idle_01
-  - idle_18
-  - idle_00
-  - idle_20
-  - idle_10
-  - idle_04
-  - idle_22
-  - idle_07
-  - idle_06
-  - idle_08
-  - idle_16
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_Tag: Raven_Idle
   m_IsVariant: 0
