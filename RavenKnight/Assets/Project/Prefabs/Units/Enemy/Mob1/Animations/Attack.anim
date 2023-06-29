@@ -145,6 +145,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.016666668
+    functionName: SoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 1c2536bbbe9dd314dac74f8c6ce35d10,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.33333334
     functionName: AttackVariant
     data: 
