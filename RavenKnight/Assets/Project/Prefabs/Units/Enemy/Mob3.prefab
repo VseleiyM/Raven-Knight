@@ -141,13 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 10
-  _damageableTag: 1
-  _damage: 5
   _gainScore: 10
   _isBoss: 0
-  startStep: {fileID: 2663658042315519862}
+  startStep:
+  - {fileID: 2663658042315519862}
   dropList:
   - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
       type: 3}
@@ -155,6 +152,11 @@ MonoBehaviour:
   - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
       type: 3}
     _dropChance: 50
+  _parameters:
+  - _parameter: 0
+    current: 0
+    _max: 10
+    _fillAwake: 1
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!114 &3760685715564454554
@@ -169,15 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 3760685715564454557}
   _physicsCollider: {fileID: 8771652548400218220}
   _attackTrigger: {fileID: 6449708031344652975}
-  _rigidbody2D: {fileID: 3760685715564454555}
-  _spriteRenderer: {fileID: 4826811126915759392}
-  _animator: {fileID: 678549681874026657}
-  _audioSource: {fileID: 6568995859037654084}
-  _mob: {fileID: 4138061519562879801}
-  _typeAttack: 0
   _projectile: {fileID: 0}
   _pointForProjectile: {fileID: 0}
 --- !u!82 &6568995859037654084
@@ -378,14 +373,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4880753764395285377}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4270901138975635629}
   m_Father: {fileID: 3760685715564454558}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4826811126915759392
 SpriteRenderer:
   m_ObjectHideFlags: 0

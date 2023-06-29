@@ -15,37 +15,36 @@ public class UC_IF_Parameter : UnitCommand
     [SerializeField] private LogicOperators logicOperator;
     [SerializeField] private float value;
 
-    private bool haveValue;
-    private float checkableValue;
+    private UnitParameter checkableValue;
     private bool hasTriggered = false;
 
     public override void RequestData(MobInfo mobInfo)
     {
-        haveValue = mobInfo.Mob.ReturnParameter((int)parameterName, ref checkableValue);
+        checkableValue = mobInfo.Mob.ReturnParameter(parameterName);
     }
 
     public override void Execute()
     {
-        if (haveValue && !hasTriggered)
+        if (checkableValue != null && !hasTriggered)
         {
             bool result = false;
 
             switch (logicOperator)
             {
                 case LogicOperators.Less:
-                    result = checkableValue < value;
+                    result = checkableValue.current < value;
                     break;
                 case LogicOperators.More:
-                    result = checkableValue > value;
+                    result = checkableValue.current > value;
                     break;
                 case LogicOperators.LessOrEqual:
-                    result = checkableValue <= value;
+                    result = checkableValue.current <= value;
                     break;
                 case LogicOperators.MoreOrEqual:
-                    result = checkableValue >= value;
+                    result = checkableValue.current >= value;
                     break;
                 case LogicOperators.Equal:
-                    result = checkableValue == value;
+                    result = checkableValue.current == value;
                     break;
             }
 

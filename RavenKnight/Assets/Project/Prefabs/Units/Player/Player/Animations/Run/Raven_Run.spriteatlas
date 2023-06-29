@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Raven_Run
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 73f13b26c3d4ac54a93a95a546fe78c5, type: 3}
+    - {fileID: 2800000, guid: 5a0c858d382d6dd40bb0f0e677e3b90b, type: 3}
+    - {fileID: 2800000, guid: 47917c35ef21d9a4db6adef84f7ca766, type: 3}
+    - {fileID: 2800000, guid: 28f33e5bb09a3a34e80ba83c5979548a, type: 3}
+    - {fileID: 2800000, guid: 9177d2ee5d6f30545900b65afb50c2d1, type: 3}
+    - {fileID: 2800000, guid: 18dd54714d04bf548bbe5c4824d10345, type: 3}
+    - {fileID: 2800000, guid: 93f241f2ce713374d9aaca6747908b1c, type: 3}
+    - {fileID: 2800000, guid: e23dafacfd9c8514e8ce9760026355e5, type: 3}
+    - {fileID: 2800000, guid: 2e2d2e1e7a78bef4585163143c0b88c6, type: 3}
+    - {fileID: 2800000, guid: 51b34a40df6f38c4a92f6e85e2c182da, type: 3}
+    - {fileID: 2800000, guid: 7e3f2d758e7e6e241ba42ede98d8b8b4, type: 3}
+    - {fileID: 2800000, guid: 2bb3f85b315cafb4580c9c95297dcf27, type: 3}
+    - {fileID: 2800000, guid: 514cef5d51c6c95438dbcccdcadfef35, type: 3}
+    - {fileID: 2800000, guid: 855e7496ad2378e439468a43910c3a58, type: 3}
+    - {fileID: 2800000, guid: 8b74d8c3df3dc3648bd1b0b48a1977dd, type: 3}
+    - {fileID: 2800000, guid: 56549431add07bc4dae33a500d721e92, type: 3}
+    - {fileID: 2800000, guid: d62721fc115d9f8419a1d9371b24e325, type: 3}
+    - {fileID: 2800000, guid: 943ffbf933ce8c948b1ccd543ddf1639, type: 3}
+    - {fileID: 2800000, guid: 9e16cdc38f7aebb4cbe752db3ec556ca, type: 3}
+    - {fileID: 2800000, guid: 45379dab94039ab4aa2e18f21643d6ee, type: 3}
+    - {fileID: 2800000, guid: 236b6d814366a6042b0f3a6dc4ff6bab, type: 3}
+    - {fileID: 2800000, guid: 0220834e525e06d47a4f329509455b68, type: 3}
+    - {fileID: 2800000, guid: 000816b303450bc4ca0fe3cb2d692938, type: 3}
+    - {fileID: 2800000, guid: bb2771bef9a061d41967db34eaa387d8, type: 3}
+    - {fileID: 2800000, guid: 4b2274dda584ce44e8bdeb22581227fc, type: 3}
+    - {fileID: 2800000, guid: cdc53c02a4a0bd046b45a2426158c700, type: 3}
+    - {fileID: 2800000, guid: d92c60392aa79394482d015633c713dd, type: 3}
+    - {fileID: 2800000, guid: e807317b73a481747b4cf01ea800147c, type: 3}
+    - {fileID: 2800000, guid: 86293fcb8ccdc6744b2c4b72ec8ba5b1, type: 3}
+    - {fileID: 2800000, guid: 456d6c680d80cbd4c91a82d38a5100fc, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 51b34a40df6f38c4a92f6e85e2c182da, type: 3}
+  - {fileID: 21300000, guid: 56549431add07bc4dae33a500d721e92, type: 3}
+  - {fileID: 21300000, guid: 18dd54714d04bf548bbe5c4824d10345, type: 3}
+  - {fileID: 21300000, guid: 236b6d814366a6042b0f3a6dc4ff6bab, type: 3}
+  - {fileID: 21300000, guid: cdc53c02a4a0bd046b45a2426158c700, type: 3}
+  - {fileID: 21300000, guid: 93f241f2ce713374d9aaca6747908b1c, type: 3}
+  - {fileID: 21300000, guid: 000816b303450bc4ca0fe3cb2d692938, type: 3}
+  - {fileID: 21300000, guid: 8b74d8c3df3dc3648bd1b0b48a1977dd, type: 3}
+  - {fileID: 21300000, guid: 9e16cdc38f7aebb4cbe752db3ec556ca, type: 3}
+  - {fileID: 21300000, guid: 47917c35ef21d9a4db6adef84f7ca766, type: 3}
+  - {fileID: 21300000, guid: 7e3f2d758e7e6e241ba42ede98d8b8b4, type: 3}
+  - {fileID: 21300000, guid: 73f13b26c3d4ac54a93a95a546fe78c5, type: 3}
+  - {fileID: 21300000, guid: 855e7496ad2378e439468a43910c3a58, type: 3}
+  - {fileID: 21300000, guid: 456d6c680d80cbd4c91a82d38a5100fc, type: 3}
+  - {fileID: 21300000, guid: d92c60392aa79394482d015633c713dd, type: 3}
+  - {fileID: 21300000, guid: 943ffbf933ce8c948b1ccd543ddf1639, type: 3}
+  - {fileID: 21300000, guid: 2bb3f85b315cafb4580c9c95297dcf27, type: 3}
+  - {fileID: 21300000, guid: 28f33e5bb09a3a34e80ba83c5979548a, type: 3}
+  - {fileID: 21300000, guid: e807317b73a481747b4cf01ea800147c, type: 3}
+  - {fileID: 21300000, guid: 45379dab94039ab4aa2e18f21643d6ee, type: 3}
+  - {fileID: 21300000, guid: 86293fcb8ccdc6744b2c4b72ec8ba5b1, type: 3}
+  - {fileID: 21300000, guid: e23dafacfd9c8514e8ce9760026355e5, type: 3}
+  - {fileID: 21300000, guid: d62721fc115d9f8419a1d9371b24e325, type: 3}
+  - {fileID: 21300000, guid: 514cef5d51c6c95438dbcccdcadfef35, type: 3}
+  - {fileID: 21300000, guid: 5a0c858d382d6dd40bb0f0e677e3b90b, type: 3}
+  - {fileID: 21300000, guid: 4b2274dda584ce44e8bdeb22581227fc, type: 3}
+  - {fileID: 21300000, guid: 2e2d2e1e7a78bef4585163143c0b88c6, type: 3}
+  - {fileID: 21300000, guid: 0220834e525e06d47a4f329509455b68, type: 3}
+  - {fileID: 21300000, guid: bb2771bef9a061d41967db34eaa387d8, type: 3}
+  - {fileID: 21300000, guid: 9177d2ee5d6f30545900b65afb50c2d1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - raven_run_09
+  - raven_run_15
+  - raven_run_05
+  - raven_run_20
+  - raven_run_25
+  - raven_run_06
+  - raven_run_22
+  - raven_run_14
+  - raven_run_18
+  - raven_run_02
+  - raven_run_10
+  - raven_run_00
+  - raven_run_13
+  - raven_run_29
+  - raven_run_26
+  - raven_run_17
+  - raven_run_11
+  - raven_run_03
+  - raven_run_27
+  - raven_run_19
+  - raven_run_28
+  - raven_run_07
+  - raven_run_16
+  - raven_run_12
+  - raven_run_01
+  - raven_run_24
+  - raven_run_08
+  - raven_run_21
+  - raven_run_23
+  - raven_run_04
+  m_Tag: Raven_Run
+  m_IsVariant: 0

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Player_TakedHeal
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: c95e1cb7a4b06e64caf754ea5a8a588e, type: 3}
+    - {fileID: 2800000, guid: 0139e98c532abe346b0cf05fa5a41d66, type: 3}
+    - {fileID: 2800000, guid: f27844b0679972e4cae4ef9ffa37a00b, type: 3}
+    - {fileID: 2800000, guid: e7b48c57031e241489f631c4e350e612, type: 3}
+    - {fileID: 2800000, guid: 4820667ce72810041ab5b4b016c36fc1, type: 3}
+    - {fileID: 2800000, guid: b174bcf177239e542ac32bbaf912e53a, type: 3}
+    - {fileID: 2800000, guid: 92cbfcce2ffa91440bbf422ddf17dea0, type: 3}
+    - {fileID: 2800000, guid: 4608d01221b8b174fa69d727c54ea52b, type: 3}
+    - {fileID: 2800000, guid: 7a830819e06daca438f623fde9b7c3fa, type: 3}
+    - {fileID: 2800000, guid: f84c367e1b8af4043a48c25e9f1069d8, type: 3}
+    - {fileID: 2800000, guid: 47644818035ba944086e6bc9a2e688c3, type: 3}
+    - {fileID: 2800000, guid: 30289ff66c134b544b1f397ed5693b58, type: 3}
+    - {fileID: 2800000, guid: 6a5204a6cefc1f743959793373f888db, type: 3}
+    - {fileID: 2800000, guid: 6c9949f17565fc34482798dfa3cdc847, type: 3}
+    - {fileID: 2800000, guid: 50b212e8746dee644ac292f15f89a352, type: 3}
+    - {fileID: 2800000, guid: 03248c33239b66f47a8a84f2f7ee4db9, type: 3}
+    - {fileID: 2800000, guid: 87842814665570b44a3ff49300499dcf, type: 3}
+    - {fileID: 2800000, guid: c874eb936a1196f4d8d6e38d61b5dda0, type: 3}
+    - {fileID: 2800000, guid: 469f0b21d8e852d4290e2774a25f4851, type: 3}
+    - {fileID: 2800000, guid: bcecaf2f4ac7aa344b9f7e599fb66543, type: 3}
+    - {fileID: 2800000, guid: 49037939ebb40bb46b446671c39011ae, type: 3}
+    - {fileID: 2800000, guid: cfc180c5acdae544cab8e1e39310c49f, type: 3}
+    - {fileID: 2800000, guid: ea65e47a3afdf394ea17adafc8c0e252, type: 3}
+    - {fileID: 2800000, guid: e732d932d9248ad4b8268e85aaffc398, type: 3}
+    - {fileID: 2800000, guid: af2d0026402cebc4e90664d32f82c188, type: 3}
+    - {fileID: 2800000, guid: 588d71e830d4c044788db863f541d7b3, type: 3}
+    - {fileID: 2800000, guid: 13f49ba913d5fd048a2b74cb91e8e0e9, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f27844b0679972e4cae4ef9ffa37a00b, type: 3}
+  - {fileID: 21300000, guid: 469f0b21d8e852d4290e2774a25f4851, type: 3}
+  - {fileID: 21300000, guid: 6c9949f17565fc34482798dfa3cdc847, type: 3}
+  - {fileID: 21300000, guid: b174bcf177239e542ac32bbaf912e53a, type: 3}
+  - {fileID: 21300000, guid: 4608d01221b8b174fa69d727c54ea52b, type: 3}
+  - {fileID: 21300000, guid: e732d932d9248ad4b8268e85aaffc398, type: 3}
+  - {fileID: 21300000, guid: 03248c33239b66f47a8a84f2f7ee4db9, type: 3}
+  - {fileID: 21300000, guid: c874eb936a1196f4d8d6e38d61b5dda0, type: 3}
+  - {fileID: 21300000, guid: 87842814665570b44a3ff49300499dcf, type: 3}
+  - {fileID: 21300000, guid: cfc180c5acdae544cab8e1e39310c49f, type: 3}
+  - {fileID: 21300000, guid: af2d0026402cebc4e90664d32f82c188, type: 3}
+  - {fileID: 21300000, guid: 6a5204a6cefc1f743959793373f888db, type: 3}
+  - {fileID: 21300000, guid: 30289ff66c134b544b1f397ed5693b58, type: 3}
+  - {fileID: 21300000, guid: e7b48c57031e241489f631c4e350e612, type: 3}
+  - {fileID: 21300000, guid: c95e1cb7a4b06e64caf754ea5a8a588e, type: 3}
+  - {fileID: 21300000, guid: 47644818035ba944086e6bc9a2e688c3, type: 3}
+  - {fileID: 21300000, guid: 588d71e830d4c044788db863f541d7b3, type: 3}
+  - {fileID: 21300000, guid: 50b212e8746dee644ac292f15f89a352, type: 3}
+  - {fileID: 21300000, guid: 7a830819e06daca438f623fde9b7c3fa, type: 3}
+  - {fileID: 21300000, guid: 49037939ebb40bb46b446671c39011ae, type: 3}
+  - {fileID: 21300000, guid: 13f49ba913d5fd048a2b74cb91e8e0e9, type: 3}
+  - {fileID: 21300000, guid: ea65e47a3afdf394ea17adafc8c0e252, type: 3}
+  - {fileID: 21300000, guid: 4820667ce72810041ab5b4b016c36fc1, type: 3}
+  - {fileID: 21300000, guid: 0139e98c532abe346b0cf05fa5a41d66, type: 3}
+  - {fileID: 21300000, guid: f84c367e1b8af4043a48c25e9f1069d8, type: 3}
+  - {fileID: 21300000, guid: 92cbfcce2ffa91440bbf422ddf17dea0, type: 3}
+  - {fileID: 21300000, guid: bcecaf2f4ac7aa344b9f7e599fb66543, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - heal_fx_00002
+  - heal_fx_00018
+  - heal_fx_00013
+  - heal_fx_00005
+  - heal_fx_00007
+  - heal_fx_00023
+  - heal_fx_00015
+  - heal_fx_00017
+  - heal_fx_00016
+  - heal_fx_00021
+  - heal_fx_00024
+  - heal_fx_00012
+  - heal_fx_00011
+  - heal_fx_00003
+  - heal_fx_00000
+  - heal_fx_00010
+  - heal_fx_00025
+  - heal_fx_00014
+  - heal_fx_00008
+  - heal_fx_00020
+  - heal_fx_00026
+  - heal_fx_00022
+  - heal_fx_00004
+  - heal_fx_00001
+  - heal_fx_00009
+  - heal_fx_00006
+  - heal_fx_00019
+  m_Tag: Player_TakedHeal
+  m_IsVariant: 0

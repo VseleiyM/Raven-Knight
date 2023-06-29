@@ -225,7 +225,7 @@ PrefabInstance:
         type: 3}
       propertyPath: listEnemy.Array.data[0]
       value: 
-      objectReference: {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b,
+      objectReference: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
         type: 3}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -327,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 760217798647119435, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119446, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}

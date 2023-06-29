@@ -8,9 +8,9 @@ public class TentaclesStrike : UnitCommand
     [SerializeField] private UnitCommand _nextStep;
     [Space(10)]
     [SerializeField] private GameObject areaAttack;
+    [SerializeField] private DamageableTag damageableTag;
     [SerializeField] private int damage = 1;
 
-    private DamageableTag damageableTag;
     private Vector3 target;
     private Transform temp;
 
@@ -26,7 +26,6 @@ public class TentaclesStrike : UnitCommand
     public override void RequestData(MobInfo mobInfo)
     {
         target = mobInfo.Mob.target.position;
-        damageableTag = mobInfo.Mob.DamageableTag;
     }
 
     public override void Execute()

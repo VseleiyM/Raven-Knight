@@ -50,14 +50,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 1
-  _damageableTag: 1
-  _damage: 1
   _gainScore: 11
   _isBoss: 0
-  startStep: {fileID: 1715678258332773597}
+  startStep:
+  - {fileID: 1715678258332773597}
   dropList: []
+  _parameters:
+  - _parameter: 0
+    current: 0
+    _max: 5
+    _fillAwake: 1
   target: {fileID: 0}
   targetCollider: {fileID: 0}
 --- !u!114 &506871643399256369
@@ -72,15 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agent: {fileID: 506871643399256374}
   _physicsCollider: {fileID: 506871643399256370}
   _attackTrigger: {fileID: 7690338234648570116}
-  _rigidbody2D: {fileID: 506871643399256368}
-  _spriteRenderer: {fileID: 8197714107943249547}
-  _animator: {fileID: 3445439267889616434}
-  _audioSource: {fileID: 7175248544281983243}
-  _mob: {fileID: 7944196964802036966}
-  _typeAttack: 1
   _projectile: {fileID: 8984344394082757371, guid: 45b992b831763ea429678aa2b5515339,
     type: 3}
   _pointForProjectile: {fileID: 506871643399256373}

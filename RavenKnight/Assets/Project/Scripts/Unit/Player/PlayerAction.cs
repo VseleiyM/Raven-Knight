@@ -21,5 +21,6 @@ public class PlayerAction : MonoBehaviour
     {
         foreach (var comp in playerInfo.Player.DisableComponents)
             comp.enabled = false;
+        GlobalEvents.SendPlayerDead(playerInfo.Player);
     }
 }

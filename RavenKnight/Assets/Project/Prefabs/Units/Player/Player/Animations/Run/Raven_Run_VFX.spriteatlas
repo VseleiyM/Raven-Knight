@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Raven_Run_VFX
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 08204f4ec2ec6b34fa519d2f826aea77, type: 3}
+    - {fileID: 2800000, guid: 08327baffaeccef4e83ed90faa7033fb, type: 3}
+    - {fileID: 2800000, guid: 8b6d4439d9556f44b904c9b9e125409f, type: 3}
+    - {fileID: 2800000, guid: ac003a39338a1894e8aebd32eb65f7d6, type: 3}
+    - {fileID: 2800000, guid: 07f11e1a385cbfb4e94e41bf63402bdc, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8b6d4439d9556f44b904c9b9e125409f, type: 3}
+  - {fileID: 21300000, guid: ac003a39338a1894e8aebd32eb65f7d6, type: 3}
+  - {fileID: 21300000, guid: 07f11e1a385cbfb4e94e41bf63402bdc, type: 3}
+  - {fileID: 21300000, guid: 08204f4ec2ec6b34fa519d2f826aea77, type: 3}
+  - {fileID: 21300000, guid: 08327baffaeccef4e83ed90faa7033fb, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - runvfx_00003
+  - runvfx_00004
+  - runvfx_00005
+  - runvfx_00000
+  - runvfx_00002
+  m_Tag: Raven_Run_VFX
+  m_IsVariant: 0

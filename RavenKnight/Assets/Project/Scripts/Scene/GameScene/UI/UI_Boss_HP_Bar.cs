@@ -30,7 +30,17 @@ public class UI_Boss_HP_Bar : MonoBehaviour
         }
         nameBoss.gameObject.SetActive(true);
 
-        float currentPersentHealth = mob.CurrentHealth / mob.MaxHealth * 100;
+        UnitParameter healthParameter = null;
+        foreach (var parameter in mob.Parameters)
+        {
+            if (parameter.Parameter == ParametersList.Health)
+            {
+                healthParameter = parameter;
+                break;
+            }
+        }
+
+        float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
         foreach (var slider in listSliders)
         {
             slider.value = currentPersentHealth;
@@ -41,7 +51,17 @@ public class UI_Boss_HP_Bar : MonoBehaviour
 
     private void OnBossTakeDamage(Mob mob)
     {
-        float currentPersentHealth = mob.CurrentHealth / mob.MaxHealth * 100;
+        UnitParameter healthParameter = null;
+        foreach (var parameter in mob.Parameters)
+        {
+            if (parameter.Parameter == ParametersList.Health)
+            {
+                healthParameter = parameter;
+                break;
+            }
+        }
+
+        float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
         foreach (var slider in listSliders)
         {
             slider.value = currentPersentHealth;

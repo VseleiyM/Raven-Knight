@@ -44,7 +44,6 @@ public class SceneController : MonoBehaviour
         }
         else
         {
-            Debug.Log("allSubSceneClosed");
             allSubSceneClosed.Invoke();
         }
     }
