@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_mini_boss_2_attack_1_vfx
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 23ec1db3766fffd438a87ca0ee42b8f6, type: 3}
+    - {fileID: 2800000, guid: 13e43dc11a501474c9b0e12c9fe573e2, type: 3}
+    - {fileID: 2800000, guid: 90fcaab78f904994f9f9de6573167b16, type: 3}
+    - {fileID: 2800000, guid: 31c4941df64195242baa8848b0e6bd9a, type: 3}
+    - {fileID: 2800000, guid: 4254de531752e8b499a03d44aba879ad, type: 3}
+    - {fileID: 2800000, guid: 603d01569edee8048a4fb0825620d9e8, type: 3}
+    - {fileID: 2800000, guid: 51770344c2413e641b78ff015ec65b08, type: 3}
+    - {fileID: 2800000, guid: ef4ac5a67539f5c4086344543c41e0dd, type: 3}
+    - {fileID: 2800000, guid: 8260189b861f3244ea9885d5e1c09013, type: 3}
+    - {fileID: 2800000, guid: 78856f614cd55d048979e360b597025c, type: 3}
+    - {fileID: 2800000, guid: ea3890a6189c0f64cb618c1d12e40fc0, type: 3}
+    - {fileID: 2800000, guid: 0bed8a1733d0aaa41883a1ec4ded6761, type: 3}
+    - {fileID: 2800000, guid: d61a523c02c7e90489cb7d262445ad62, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 78856f614cd55d048979e360b597025c, type: 3}
+  - {fileID: 21300000, guid: 13e43dc11a501474c9b0e12c9fe573e2, type: 3}
+  - {fileID: 21300000, guid: 4254de531752e8b499a03d44aba879ad, type: 3}
+  - {fileID: 21300000, guid: 23ec1db3766fffd438a87ca0ee42b8f6, type: 3}
+  - {fileID: 21300000, guid: 51770344c2413e641b78ff015ec65b08, type: 3}
+  - {fileID: 21300000, guid: 603d01569edee8048a4fb0825620d9e8, type: 3}
+  - {fileID: 21300000, guid: ea3890a6189c0f64cb618c1d12e40fc0, type: 3}
+  - {fileID: 21300000, guid: ef4ac5a67539f5c4086344543c41e0dd, type: 3}
+  - {fileID: 21300000, guid: 0bed8a1733d0aaa41883a1ec4ded6761, type: 3}
+  - {fileID: 21300000, guid: 90fcaab78f904994f9f9de6573167b16, type: 3}
+  - {fileID: 21300000, guid: 8260189b861f3244ea9885d5e1c09013, type: 3}
+  - {fileID: 21300000, guid: d61a523c02c7e90489cb7d262445ad62, type: 3}
+  - {fileID: 21300000, guid: 31c4941df64195242baa8848b0e6bd9a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - attack2_fx_09
+  - attack2_fx_01
+  - attack2_fx_04
+  - attack2_fx_00
+  - attack2_fx_06
+  - attack2_fx_05
+  - attack2_fx_10
+  - attack2_fx_07
+  - attack2_fx_11
+  - attack2_fx_02
+  - attack2_fx_08
+  - attack2_fx_12
+  - attack2_fx_03
+  m_Tag: Atlas_mini_boss_2_attack_1_vfx
+  m_IsVariant: 0

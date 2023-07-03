@@ -30,45 +30,45 @@ SpriteAtlas:
       enableTightPacking: 0
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 54eada4e5b456454190e71163fa2102e, type: 3}
-    - {fileID: 2800000, guid: 37436998988f10347bd0cf49b054496b, type: 3}
-    - {fileID: 2800000, guid: 4fe80d26c61c0a64c8c3d9f91d547677, type: 3}
-    - {fileID: 2800000, guid: 731bbc475326ed94697f3198264c0355, type: 3}
-    - {fileID: 2800000, guid: b7e9ad84547bfc84ea87c5420da0f430, type: 3}
-    - {fileID: 2800000, guid: d5911bfef48a27d4d8576e66a632801a, type: 3}
-    - {fileID: 2800000, guid: 3270a950351bdb14abe16d5f690fa3d4, type: 3}
-    - {fileID: 2800000, guid: 36925f909a5195647a109959a80b07ad, type: 3}
-    - {fileID: 2800000, guid: 0a924370337e0964cac6fa763879ecd0, type: 3}
-    - {fileID: 2800000, guid: b5589d7cd3c23114caa66907e5434d23, type: 3}
-    - {fileID: 2800000, guid: 083f9fda11c821147a2a0692a965b761, type: 3}
-    - {fileID: 2800000, guid: a3dc7c2d31a1be249ad13cd226127968, type: 3}
+    - {fileID: 2800000, guid: fa05a6bb0d7be9643bc354eec6b80884, type: 3}
+    - {fileID: 2800000, guid: 6beeb883945964743b123f9d73e0a58f, type: 3}
+    - {fileID: 2800000, guid: 778943e074fe73d4782f0bcc6a7809b9, type: 3}
+    - {fileID: 2800000, guid: 9b54603ebc553fb408f308d7e46f3582, type: 3}
+    - {fileID: 2800000, guid: 1745f1622113f994ea042a0df9d87bb1, type: 3}
+    - {fileID: 2800000, guid: 687195ff8bf19bd4c80bc1b2000a64da, type: 3}
+    - {fileID: 2800000, guid: 370985bd76ce47948abe4e31bcc92955, type: 3}
+    - {fileID: 2800000, guid: 15a00dbd8609e24468c9c17fac5a1a0c, type: 3}
+    - {fileID: 2800000, guid: 956efe289ec17b441890387d98a173c2, type: 3}
+    - {fileID: 2800000, guid: 20970e2f60706b94da53730a36dd0aac, type: 3}
+    - {fileID: 2800000, guid: 315ad8b27b5cc6e44a9e6eff39903363, type: 3}
+    - {fileID: 2800000, guid: f9eeb325a0f988a4fa7da53dd1584e29, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 3270a950351bdb14abe16d5f690fa3d4, type: 3}
-  - {fileID: 21300000, guid: 0a924370337e0964cac6fa763879ecd0, type: 3}
-  - {fileID: 21300000, guid: 36925f909a5195647a109959a80b07ad, type: 3}
-  - {fileID: 21300000, guid: b7e9ad84547bfc84ea87c5420da0f430, type: 3}
-  - {fileID: 21300000, guid: 4fe80d26c61c0a64c8c3d9f91d547677, type: 3}
-  - {fileID: 21300000, guid: 731bbc475326ed94697f3198264c0355, type: 3}
-  - {fileID: 21300000, guid: 37436998988f10347bd0cf49b054496b, type: 3}
-  - {fileID: 21300000, guid: 083f9fda11c821147a2a0692a965b761, type: 3}
-  - {fileID: 21300000, guid: b5589d7cd3c23114caa66907e5434d23, type: 3}
-  - {fileID: 21300000, guid: a3dc7c2d31a1be249ad13cd226127968, type: 3}
-  - {fileID: 21300000, guid: 54eada4e5b456454190e71163fa2102e, type: 3}
-  - {fileID: 21300000, guid: d5911bfef48a27d4d8576e66a632801a, type: 3}
+  - {fileID: 21300000, guid: 778943e074fe73d4782f0bcc6a7809b9, type: 3}
+  - {fileID: 21300000, guid: 1745f1622113f994ea042a0df9d87bb1, type: 3}
+  - {fileID: 21300000, guid: 315ad8b27b5cc6e44a9e6eff39903363, type: 3}
+  - {fileID: 21300000, guid: 6beeb883945964743b123f9d73e0a58f, type: 3}
+  - {fileID: 21300000, guid: f9eeb325a0f988a4fa7da53dd1584e29, type: 3}
+  - {fileID: 21300000, guid: 956efe289ec17b441890387d98a173c2, type: 3}
+  - {fileID: 21300000, guid: fa05a6bb0d7be9643bc354eec6b80884, type: 3}
+  - {fileID: 21300000, guid: 370985bd76ce47948abe4e31bcc92955, type: 3}
+  - {fileID: 21300000, guid: 15a00dbd8609e24468c9c17fac5a1a0c, type: 3}
+  - {fileID: 21300000, guid: 9b54603ebc553fb408f308d7e46f3582, type: 3}
+  - {fileID: 21300000, guid: 20970e2f60706b94da53730a36dd0aac, type: 3}
+  - {fileID: 21300000, guid: 687195ff8bf19bd4c80bc1b2000a64da, type: 3}
   m_PackedSpriteNamesToIndex:
-  - mob1run_18
-  - mob1run_20
-  - mob1run_19
-  - mob1run_16
-  - mob1run_14
-  - mob1run_15
-  - mob1run_13
-  - mob1run_22
-  - mob1run_21
-  - mob1run_23
-  - mob1run_12
-  - mob1run_17
+  - mob1run_02
+  - mob1run_04
+  - mob1run_10
+  - mob1run_01
+  - mob1run_11
+  - mob1run_08
+  - mob1run_00
+  - mob1run_06
+  - mob1run_07
+  - mob1run_03
+  - mob1run_09
+  - mob1run_05
   m_Tag: mob1Run
   m_IsVariant: 0

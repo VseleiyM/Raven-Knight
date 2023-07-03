@@ -49,7 +49,8 @@ namespace UI
         }
         private void SetPersistentValue()
         {
-            slider.value = PlayerPrefs.GetFloat(optionName, defaultValue);
+            float value = PlayerPrefs.GetFloat(optionName, defaultValue);
+            slider.value = value;
         }
         /// <summary>
         /// Сбросить выбор на значение по умолчанию.

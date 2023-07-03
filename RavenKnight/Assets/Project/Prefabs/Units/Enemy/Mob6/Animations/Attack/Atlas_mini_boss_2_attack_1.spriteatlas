@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_mini_boss_2_attack_1
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: f6a0aa08da4dfc140bb65e7f5c1172e4, type: 3}
+    - {fileID: 2800000, guid: e805ffbc173bba0439f7664183fc3d2f, type: 3}
+    - {fileID: 2800000, guid: c76cf717fb32ad24fb0a29d8956f68db, type: 3}
+    - {fileID: 2800000, guid: 27674a3aeffe71d488d32b8380417710, type: 3}
+    - {fileID: 2800000, guid: d3ebb25cbea017744a6626979b05f9ee, type: 3}
+    - {fileID: 2800000, guid: 73024be09cdbd1643837ada1e439c7b8, type: 3}
+    - {fileID: 2800000, guid: aa6ba0b7e5d44ea41aba257d1ee892cf, type: 3}
+    - {fileID: 2800000, guid: 7948e14444a545649826da01be44e08c, type: 3}
+    - {fileID: 2800000, guid: d7f23ea02fe8d5d41bbd8676fe34d653, type: 3}
+    - {fileID: 2800000, guid: d0909cfa26f2d484d8db0c29f6b23c79, type: 3}
+    - {fileID: 2800000, guid: 2275097bfac1a954e93705bdb7d388e4, type: 3}
+    - {fileID: 2800000, guid: 1efaf6aa8516fa34192fd57960a8f1d5, type: 3}
+    - {fileID: 2800000, guid: a6ddd64604063524e99da070abb4f0fa, type: 3}
+    - {fileID: 2800000, guid: dc49e969b76f908428ec9dc8de5ded2e, type: 3}
+    - {fileID: 2800000, guid: 2c79e31a63c408e44a0c6329856bdf4c, type: 3}
+    - {fileID: 2800000, guid: c7a07b18c4a24ca47a83de0deb36d095, type: 3}
+    - {fileID: 2800000, guid: 499cc0ff014e3f648bcd261e48c64127, type: 3}
+    - {fileID: 2800000, guid: 93153e7329acc35479f202a7a8fa0672, type: 3}
+    - {fileID: 2800000, guid: 25cf9e79179dddd40b46dd69fb3124aa, type: 3}
+    - {fileID: 2800000, guid: dd7343cb13aa5764e90ffb974fd7784e, type: 3}
+    - {fileID: 2800000, guid: d6eb526540371a14aa0dedbd2d47f040, type: 3}
+    - {fileID: 2800000, guid: 1cd6676baf447c845af9ea6f88fd02ef, type: 3}
+    - {fileID: 2800000, guid: d096fa8d7f99bdd40bcc8527bc1dc844, type: 3}
+    - {fileID: 2800000, guid: 3e64c216e56fc294c824fd084f59817d, type: 3}
+    - {fileID: 2800000, guid: 4fa1868d7b1586f469d1454110a81640, type: 3}
+    - {fileID: 2800000, guid: fb510ea7dd8905046b1e9484554141e9, type: 3}
+    - {fileID: 2800000, guid: e7e34ae617901154094e38ac8692143b, type: 3}
+    - {fileID: 2800000, guid: b0f45945ca3d93c418bceb3d1dbeb4ec, type: 3}
+    - {fileID: 2800000, guid: 6ec3b897399fc764a9be47cc11cd1821, type: 3}
+    - {fileID: 2800000, guid: 9dac8ca1fda9bd148b0648bd796fd83f, type: 3}
+    - {fileID: 2800000, guid: ad65b2fc4effd72448d75ff1ca05ccb8, type: 3}
+    - {fileID: 2800000, guid: 1ce6efb56f6848d4293f6fdf3d74c6f6, type: 3}
+    - {fileID: 2800000, guid: d60681f2016d54242a047263e7fc841d, type: 3}
+    - {fileID: 2800000, guid: 6edfe89e3f43bee42a02d8abb9d7e3fe, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d7f23ea02fe8d5d41bbd8676fe34d653, type: 3}
+  - {fileID: 21300000, guid: 73024be09cdbd1643837ada1e439c7b8, type: 3}
+  - {fileID: 21300000, guid: 9dac8ca1fda9bd148b0648bd796fd83f, type: 3}
+  - {fileID: 21300000, guid: d60681f2016d54242a047263e7fc841d, type: 3}
+  - {fileID: 21300000, guid: 93153e7329acc35479f202a7a8fa0672, type: 3}
+  - {fileID: 21300000, guid: 7948e14444a545649826da01be44e08c, type: 3}
+  - {fileID: 21300000, guid: b0f45945ca3d93c418bceb3d1dbeb4ec, type: 3}
+  - {fileID: 21300000, guid: d6eb526540371a14aa0dedbd2d47f040, type: 3}
+  - {fileID: 21300000, guid: 1ce6efb56f6848d4293f6fdf3d74c6f6, type: 3}
+  - {fileID: 21300000, guid: 3e64c216e56fc294c824fd084f59817d, type: 3}
+  - {fileID: 21300000, guid: a6ddd64604063524e99da070abb4f0fa, type: 3}
+  - {fileID: 21300000, guid: e7e34ae617901154094e38ac8692143b, type: 3}
+  - {fileID: 21300000, guid: c76cf717fb32ad24fb0a29d8956f68db, type: 3}
+  - {fileID: 21300000, guid: 6ec3b897399fc764a9be47cc11cd1821, type: 3}
+  - {fileID: 21300000, guid: fb510ea7dd8905046b1e9484554141e9, type: 3}
+  - {fileID: 21300000, guid: aa6ba0b7e5d44ea41aba257d1ee892cf, type: 3}
+  - {fileID: 21300000, guid: f6a0aa08da4dfc140bb65e7f5c1172e4, type: 3}
+  - {fileID: 21300000, guid: c7a07b18c4a24ca47a83de0deb36d095, type: 3}
+  - {fileID: 21300000, guid: dc49e969b76f908428ec9dc8de5ded2e, type: 3}
+  - {fileID: 21300000, guid: 25cf9e79179dddd40b46dd69fb3124aa, type: 3}
+  - {fileID: 21300000, guid: 2c79e31a63c408e44a0c6329856bdf4c, type: 3}
+  - {fileID: 21300000, guid: 27674a3aeffe71d488d32b8380417710, type: 3}
+  - {fileID: 21300000, guid: 1efaf6aa8516fa34192fd57960a8f1d5, type: 3}
+  - {fileID: 21300000, guid: d0909cfa26f2d484d8db0c29f6b23c79, type: 3}
+  - {fileID: 21300000, guid: 1cd6676baf447c845af9ea6f88fd02ef, type: 3}
+  - {fileID: 21300000, guid: 2275097bfac1a954e93705bdb7d388e4, type: 3}
+  - {fileID: 21300000, guid: dd7343cb13aa5764e90ffb974fd7784e, type: 3}
+  - {fileID: 21300000, guid: d3ebb25cbea017744a6626979b05f9ee, type: 3}
+  - {fileID: 21300000, guid: e805ffbc173bba0439f7664183fc3d2f, type: 3}
+  - {fileID: 21300000, guid: ad65b2fc4effd72448d75ff1ca05ccb8, type: 3}
+  - {fileID: 21300000, guid: 4fa1868d7b1586f469d1454110a81640, type: 3}
+  - {fileID: 21300000, guid: d096fa8d7f99bdd40bcc8527bc1dc844, type: 3}
+  - {fileID: 21300000, guid: 6edfe89e3f43bee42a02d8abb9d7e3fe, type: 3}
+  - {fileID: 21300000, guid: 499cc0ff014e3f648bcd261e48c64127, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - mini_boss_2_attack_2_08
+  - mini_boss_2_attack_2_05
+  - mini_boss_2_attack_2_29
+  - mini_boss_2_attack_2_32
+  - mini_boss_2_attack_2_17
+  - mini_boss_2_attack_2_07
+  - mini_boss_2_attack_2_27
+  - mini_boss_2_attack_2_20
+  - mini_boss_2_attack_2_31
+  - mini_boss_2_attack_2_23
+  - mini_boss_2_attack_2_12
+  - mini_boss_2_attack_2_26
+  - mini_boss_2_attack_2_02
+  - mini_boss_2_attack_2_28
+  - mini_boss_2_attack_2_25
+  - mini_boss_2_attack_2_06
+  - mini_boss_2_attack_2_00
+  - mini_boss_2_attack_2_15
+  - mini_boss_2_attack_2_13
+  - mini_boss_2_attack_2_18
+  - mini_boss_2_attack_2_14
+  - mini_boss_2_attack_2_03
+  - mini_boss_2_attack_2_11
+  - mini_boss_2_attack_2_09
+  - mini_boss_2_attack_2_21
+  - mini_boss_2_attack_2_10
+  - mini_boss_2_attack_2_19
+  - mini_boss_2_attack_2_04
+  - mini_boss_2_attack_2_01
+  - mini_boss_2_attack_2_30
+  - mini_boss_2_attack_2_24
+  - mini_boss_2_attack_2_22
+  - mini_boss_2_attack_2_33
+  - mini_boss_2_attack_2_16
+  m_Tag: Atlas_mini_boss_2_attack_1
+  m_IsVariant: 0

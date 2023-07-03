@@ -141,11 +141,12 @@ AnimationClip:
   - time: 0
     functionName: SoundEffect
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 8300000, guid: 1c2536bbbe9dd314dac74f8c6ce35d10,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.31666666
+  - time: 0.25
     functionName: AttackVariant
     data: 
     objectReferenceParameter: {fileID: 0}

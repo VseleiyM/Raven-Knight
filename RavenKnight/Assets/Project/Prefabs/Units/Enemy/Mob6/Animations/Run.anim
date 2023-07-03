@@ -87,18 +87,6 @@ AnimationClip:
       value: {fileID: 21300000, guid: 6e3e068c07d4b29418b308eaecf4fc87, type: 3}
     - time: 0.55
       value: {fileID: 21300000, guid: 37283ddb5c4955c4fb3b31c346e19f4b, type: 3}
-    - time: 0.56666666
-      value: {fileID: 21300000, guid: de81dd024991ca740bbd47ef4cbc76d1, type: 3}
-    - time: 0.5833333
-      value: {fileID: 21300000, guid: f702e508bfaff3f4f97aee48682b5f00, type: 3}
-    - time: 0.6
-      value: {fileID: 21300000, guid: b884ae89c33952d419d75e28b86a90a6, type: 3}
-    - time: 0.6166667
-      value: {fileID: 21300000, guid: 613faace56a78be45a387b7991da3392, type: 3}
-    - time: 0.6333333
-      value: {fileID: 21300000, guid: 66ffc9d6ce630e2429a89e417f578ee1, type: 3}
-    - time: 0.65
-      value: {fileID: 21300000, guid: 38f5e12bf795a22469574caac9b7ae22, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -152,18 +140,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 69d03ec42e835d940a9f5cfe3d72da35, type: 3}
     - {fileID: 21300000, guid: 6e3e068c07d4b29418b308eaecf4fc87, type: 3}
     - {fileID: 21300000, guid: 37283ddb5c4955c4fb3b31c346e19f4b, type: 3}
-    - {fileID: 21300000, guid: de81dd024991ca740bbd47ef4cbc76d1, type: 3}
-    - {fileID: 21300000, guid: f702e508bfaff3f4f97aee48682b5f00, type: 3}
-    - {fileID: 21300000, guid: b884ae89c33952d419d75e28b86a90a6, type: 3}
-    - {fileID: 21300000, guid: 613faace56a78be45a387b7991da3392, type: 3}
-    - {fileID: 21300000, guid: 66ffc9d6ce630e2429a89e417f578ee1, type: 3}
-    - {fileID: 21300000, guid: 38f5e12bf795a22469574caac9b7ae22, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.56666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -182,4 +164,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -1,4 +1,5 @@
-﻿using Audio;
+﻿using System.Collections;
+using Audio;
 using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
@@ -26,7 +27,7 @@ namespace UI
             }
             else
             {
-                audioMixer.SetFloat(nameVolume, Mathf.Lerp(-40, 0, volumeValue));
+                audioMixer.SetFloat(nameVolume, Mathf.Lerp(-30, 0, volumeValue));
             }
         }
 
@@ -49,6 +50,15 @@ namespace UI
             masterOption.valueChanged += OnMasterValueChanged;
             soundOption.valueChanged += OnSoundValueChanged;
             musicOption.valueChanged += OnMusicValueChanged;
+
+            Invoke("TestExemple", 0.01f);
+        }
+
+        private void TestExemple()
+        {
+            OnMasterValueChanged(PlayerPrefs.GetFloat("Audio.Master"));
+            OnSoundValueChanged(PlayerPrefs.GetFloat("Audio.Sound"));
+            OnMusicValueChanged(PlayerPrefs.GetFloat("Audio.Music"));
         }
 
         private void OnMasterValueChanged(float value)

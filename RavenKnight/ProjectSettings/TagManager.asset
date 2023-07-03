@@ -42,21 +42,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Back
+  - name: Floor
     uniqueID: 3742716917
+    locked: 0
+  - name: Default -2
+    uniqueID: 3421806271
+    locked: 0
+  - name: Default -1
+    uniqueID: 1361268519
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 3421806271
-    locked: 0
-  - name: Wepon
-    uniqueID: 1361268519
-    locked: 0
-  - name: Up
+  - name: Default +1
     uniqueID: 1075561291
     locked: 0
-  - name: Mobs
+  - name: Default +2
     uniqueID: 1207782759
+    locked: 0
+  - name: Wall
+    uniqueID: 1221184555
     locked: 0
