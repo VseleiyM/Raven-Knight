@@ -28,6 +28,8 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: dcd53e3abd41398488615ce0a97a8c27, type: 3}
@@ -61,6 +63,39 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 92d09f7c68f05f249b5c5c20d20bd15f, type: 3}
     - {fileID: 2800000, guid: 2c012e75b017485429f1dc9f211f9cf0, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 8c6c1631f4869fd4dbe328a76c5595dd: 21300000
+    - f1db25a10a41c634086b43e212bfd96d: 21300000
+    - 42b64e22d54c1f24698833d5f8b90c7e: 21300000
+    - 1b4c09d2a04e23f4599eabdaf671fb75: 21300000
+    - acbff033106b95b47a79f8e70c177194: 21300000
+    - cbfbf644210747e4e8420107b71d2ca7: 21300000
+    - 295b3a948fc5a0e40bee5ab293d9e1b8: 21300000
+    - 5058b5b48ff266a4087ea6fc5505ee3d: 21300000
+    - 8a57d6456a2c95244975b5beaabe5eaa: 21300000
+    - 2c012e75b017485429f1dc9f211f9cf0: 21300000
+    - 4a324c8527bd27c48bae96ce471ae34c: 21300000
+    - 7e9c7f85a0d5a4343b5d0a63b34bf0b7: 21300000
+    - 89d2aa6664370604d8d805439f29c7a2: 21300000
+    - dbb356a70fe38c843bacd2697771fb52: 21300000
+    - 0bcbfae7fb49415489fa0474bdc19533: 21300000
+    - a86864a8b730dfe49a654707f430024a: 21300000
+    - c0e108b8c5d54d64ca853691edad5a38: 21300000
+    - 99bf3f69ed427e449a9a1639d70ad3a5: 21300000
+    - a9f31c990865a5244bedb5de04685676: 21300000
+    - dcd53e3abd41398488615ce0a97a8c27: 21300000
+    - e45e56eb5661e9c44924ee695034d82f: 21300000
+    - 92d09f7c68f05f249b5c5c20d20bd15f: 21300000
+    - f7608f8c209b45e458c5f9bad1ae2ffe: 21300000
+    - 1bc3c2ccd31da3c4ea46aa5321cd82f4: 21300000
+    - bb77845d3ca6df44da0b5b4bf52d6275: 21300000
+    - 0d68037def960a844bfcafdf3585c044: 21300000
+    - cba529dd6a257f54ea7786c9f5b44533: 21300000
+    - da2eedfd9ffca8e4c9076bc9f4626a30: 21300000
+    - 0071bc8edc992524dac260264fdc6909: 21300000
+    - 8947c92f1ce88ab43bdf442ed930a4db: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 8c6c1631f4869fd4dbe328a76c5595dd, type: 3}
@@ -124,5 +159,6 @@ SpriteAtlas:
   - mob3idle_22
   - mob3idle_10
   - mob3idle_23
+  m_RenderDataMap: {}
   m_Tag: Mob3Idle
   m_IsVariant: 0

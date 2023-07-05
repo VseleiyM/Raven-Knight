@@ -28,6 +28,8 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: f112228828f1ccf4a92605155b1f140b, type: 3}
@@ -56,6 +58,34 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 95a95e27dc8f7dc409588757354abc17, type: 3}
     - {fileID: 2800000, guid: a06215c64b56d854e915177f9d1fb3ed, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d11ff3b054349584ea01b80eace856db: 21300000
+    - 8cc7f9e048987b447b6feef40e473a89: 21300000
+    - a5623a1389f17e5439db8de570ee8cad: 21300000
+    - bda1f8a3be7a3fd4080ddea91bba4d2a: 21300000
+    - f31b02c3f8961684e86024c72cace461: 21300000
+    - c488bf348b3bc8c43a8577bf7862a439: 21300000
+    - cdf7af64879fdd34897032384708caf0: 21300000
+    - f981af25aa86a3c45956207231d76531: 21300000
+    - 2cb39d55f30c2004dbaf8050614eb919: 21300000
+    - 3bdfb686b74be294eaaef404011d010b: 21300000
+    - 185f91c6e2a460f41a07a9cd9bab95dd: 21300000
+    - a06215c64b56d854e915177f9d1fb3ed: 21300000
+    - 6166bb077eac50b43b654d99f4c54afd: 21300000
+    - 95a95e27dc8f7dc409588757354abc17: 21300000
+    - 522fb9a77f85d754dafceeff5b292465: 21300000
+    - d1e6c9289b381944cb7ea047f117932a: 21300000
+    - 8852b6385b96bc94781ac23a1a0d62d1: 21300000
+    - 6a7d7e6818976484b9f0654bcf0dc149: 21300000
+    - f112228828f1ccf4a92605155b1f140b: 21300000
+    - 23e2aec81883da7499f1c31c2ca1c8fb: 21300000
+    - e89a134c4293a414783cf721971268c1: 21300000
+    - ee37585ccad3b8048b3b48317fe49284: 21300000
+    - 8c6a639cc985ba64ea2b08df74bc4843: 21300000
+    - 802268adf6d21c848b070554b69b9fa8: 21300000
+    - eab6577e557fd2e418683fbc5ee967a3: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: d11ff3b054349584ea01b80eace856db, type: 3}
@@ -109,5 +139,6 @@ SpriteAtlas:
   - mob2attack_04
   - mob2attack_02
   - mob2attack_09
+  m_RenderDataMap: {}
   m_Tag: mob2Attack
   m_IsVariant: 0

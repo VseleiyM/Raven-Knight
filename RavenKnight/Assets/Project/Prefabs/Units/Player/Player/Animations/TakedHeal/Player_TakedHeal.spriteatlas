@@ -28,6 +28,8 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: c95e1cb7a4b06e64caf754ea5a8a588e, type: 3}
@@ -58,6 +60,36 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 588d71e830d4c044788db863f541d7b3, type: 3}
     - {fileID: 2800000, guid: 13f49ba913d5fd048a2b74cb91e8e0e9, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - f27844b0679972e4cae4ef9ffa37a00b: 21300000
+    - 469f0b21d8e852d4290e2774a25f4851: 21300000
+    - 6c9949f17565fc34482798dfa3cdc847: 21300000
+    - b174bcf177239e542ac32bbaf912e53a: 21300000
+    - 4608d01221b8b174fa69d727c54ea52b: 21300000
+    - e732d932d9248ad4b8268e85aaffc398: 21300000
+    - 03248c33239b66f47a8a84f2f7ee4db9: 21300000
+    - c874eb936a1196f4d8d6e38d61b5dda0: 21300000
+    - 87842814665570b44a3ff49300499dcf: 21300000
+    - cfc180c5acdae544cab8e1e39310c49f: 21300000
+    - af2d0026402cebc4e90664d32f82c188: 21300000
+    - 6a5204a6cefc1f743959793373f888db: 21300000
+    - 30289ff66c134b544b1f397ed5693b58: 21300000
+    - e7b48c57031e241489f631c4e350e612: 21300000
+    - c95e1cb7a4b06e64caf754ea5a8a588e: 21300000
+    - 47644818035ba944086e6bc9a2e688c3: 21300000
+    - 588d71e830d4c044788db863f541d7b3: 21300000
+    - 50b212e8746dee644ac292f15f89a352: 21300000
+    - 7a830819e06daca438f623fde9b7c3fa: 21300000
+    - 49037939ebb40bb46b446671c39011ae: 21300000
+    - 13f49ba913d5fd048a2b74cb91e8e0e9: 21300000
+    - ea65e47a3afdf394ea17adafc8c0e252: 21300000
+    - 4820667ce72810041ab5b4b016c36fc1: 21300000
+    - 0139e98c532abe346b0cf05fa5a41d66: 21300000
+    - f84c367e1b8af4043a48c25e9f1069d8: 21300000
+    - 92cbfcce2ffa91440bbf422ddf17dea0: 21300000
+    - bcecaf2f4ac7aa344b9f7e599fb66543: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: f27844b0679972e4cae4ef9ffa37a00b, type: 3}
@@ -115,5 +147,6 @@ SpriteAtlas:
   - heal_fx_00009
   - heal_fx_00006
   - heal_fx_00019
+  m_RenderDataMap: {}
   m_Tag: Player_TakedHeal
   m_IsVariant: 0

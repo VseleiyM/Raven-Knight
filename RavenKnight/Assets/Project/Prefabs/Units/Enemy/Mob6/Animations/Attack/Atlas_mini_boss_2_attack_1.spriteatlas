@@ -28,6 +28,8 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: f6a0aa08da4dfc140bb65e7f5c1172e4, type: 3}
@@ -65,6 +67,43 @@ SpriteAtlas:
     - {fileID: 2800000, guid: d60681f2016d54242a047263e7fc841d, type: 3}
     - {fileID: 2800000, guid: 6edfe89e3f43bee42a02d8abb9d7e3fe, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d7f23ea02fe8d5d41bbd8676fe34d653: 21300000
+    - 73024be09cdbd1643837ada1e439c7b8: 21300000
+    - 9dac8ca1fda9bd148b0648bd796fd83f: 21300000
+    - d60681f2016d54242a047263e7fc841d: 21300000
+    - 93153e7329acc35479f202a7a8fa0672: 21300000
+    - 7948e14444a545649826da01be44e08c: 21300000
+    - b0f45945ca3d93c418bceb3d1dbeb4ec: 21300000
+    - d6eb526540371a14aa0dedbd2d47f040: 21300000
+    - 1ce6efb56f6848d4293f6fdf3d74c6f6: 21300000
+    - 3e64c216e56fc294c824fd084f59817d: 21300000
+    - a6ddd64604063524e99da070abb4f0fa: 21300000
+    - e7e34ae617901154094e38ac8692143b: 21300000
+    - c76cf717fb32ad24fb0a29d8956f68db: 21300000
+    - 6ec3b897399fc764a9be47cc11cd1821: 21300000
+    - fb510ea7dd8905046b1e9484554141e9: 21300000
+    - aa6ba0b7e5d44ea41aba257d1ee892cf: 21300000
+    - f6a0aa08da4dfc140bb65e7f5c1172e4: 21300000
+    - c7a07b18c4a24ca47a83de0deb36d095: 21300000
+    - dc49e969b76f908428ec9dc8de5ded2e: 21300000
+    - 25cf9e79179dddd40b46dd69fb3124aa: 21300000
+    - 2c79e31a63c408e44a0c6329856bdf4c: 21300000
+    - 27674a3aeffe71d488d32b8380417710: 21300000
+    - 1efaf6aa8516fa34192fd57960a8f1d5: 21300000
+    - d0909cfa26f2d484d8db0c29f6b23c79: 21300000
+    - 1cd6676baf447c845af9ea6f88fd02ef: 21300000
+    - 2275097bfac1a954e93705bdb7d388e4: 21300000
+    - dd7343cb13aa5764e90ffb974fd7784e: 21300000
+    - d3ebb25cbea017744a6626979b05f9ee: 21300000
+    - e805ffbc173bba0439f7664183fc3d2f: 21300000
+    - ad65b2fc4effd72448d75ff1ca05ccb8: 21300000
+    - 4fa1868d7b1586f469d1454110a81640: 21300000
+    - d096fa8d7f99bdd40bcc8527bc1dc844: 21300000
+    - 6edfe89e3f43bee42a02d8abb9d7e3fe: 21300000
+    - 499cc0ff014e3f648bcd261e48c64127: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: d7f23ea02fe8d5d41bbd8676fe34d653, type: 3}
@@ -136,5 +175,6 @@ SpriteAtlas:
   - mini_boss_2_attack_2_22
   - mini_boss_2_attack_2_33
   - mini_boss_2_attack_2_16
+  m_RenderDataMap: {}
   m_Tag: Atlas_mini_boss_2_attack_1
   m_IsVariant: 0

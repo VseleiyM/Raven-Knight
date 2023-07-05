@@ -28,6 +28,8 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 0
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 6b7203d9869ab8842b3948dce6223f51, type: 3}
@@ -38,6 +40,16 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 9c51b7cab387af4419aefd5903980729, type: 3}
     - {fileID: 2800000, guid: 5c5cfb9ca60f2fd44871082f786c95f6, type: 3}
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 4cb59640a552fc44daa4d6df71961318: 21300000
+    - 18e13bd5f89fde24a803b2cdb1cfa4a7: 21300000
+    - 6ad9e7a6ce5b66e45a2474db8b7f5746: 21300000
+    - 6b7203d9869ab8842b3948dce6223f51: 21300000
+    - 9c51b7cab387af4419aefd5903980729: 21300000
+    - 74a0fafbdf446e7488072cb6d50359b1: 21300000
+    - 5c5cfb9ca60f2fd44871082f786c95f6: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 4cb59640a552fc44daa4d6df71961318, type: 3}
@@ -55,5 +67,6 @@ SpriteAtlas:
   - shot_5
   - shot_1
   - shot_6
+  m_RenderDataMap: {}
   m_Tag: Gun1ProjectileShot
   m_IsVariant: 0
