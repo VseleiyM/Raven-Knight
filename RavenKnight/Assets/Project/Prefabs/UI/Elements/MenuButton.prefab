@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 3891145896851708620}
   buttonWithEvents: {fileID: 2995695236190231949}
-  scale: 1.2
+  scale: 1.1
   textFiled: {fileID: 3594860006172963878}
   orginalColor: {r: 0.6431373, g: 0.7490196, b: 0.7372549, a: 1}
   enteredColor: {r: 1, g: 1, b: 1, a: 1}

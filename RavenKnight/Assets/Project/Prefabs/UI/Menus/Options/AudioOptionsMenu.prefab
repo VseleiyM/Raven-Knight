@@ -189,6 +189,7 @@ MonoBehaviour:
   _isRememberForBack: 1
   backButton: {fileID: 2674259335348570122}
   resetButton: {fileID: 141354683513570414}
+  volumeChangeTime: 0.5
   masterOption:
     defaultValue: 1
     slider: {fileID: 4348523847237503617}
