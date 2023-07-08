@@ -10,6 +10,7 @@ namespace UI
         [SerializeField] private Button gameButton = null;
         [SerializeField] private Button audioButton = null;
         [SerializeField] private Button graphicsButton = null;
+        [SerializeField] private Button settingsButton = null;
 
         public override void Init(MenuController menuController)
         {
@@ -18,6 +19,12 @@ namespace UI
             gameButton.onClick.AddListener(OnGameOptionsOpen);
             audioButton.onClick.AddListener(OnAudioOptionsOpen);
             graphicsButton.onClick.AddListener(OnGraphicsOptionsOpen);
+            settingsButton.onClick.AddListener(OnSettingsOptionsOpen);
+        }
+
+        private void OnSettingsOptionsOpen()
+        {
+            OpenMenu(MenuType.settingsOptions);
         }
 
         private void OnGraphicsOptionsOpen()
