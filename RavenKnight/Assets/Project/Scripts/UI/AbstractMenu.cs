@@ -73,7 +73,6 @@ namespace UI
         {
             gameObject.SetActive(isActive);
         }
-
         /// <summary>
         /// Открыть меню заданного типа.
         /// <br/>Все меню прочих типов будут скрыты.
