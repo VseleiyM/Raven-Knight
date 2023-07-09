@@ -22,12 +22,13 @@ public class Player : MonoBehaviour, IDamageable
     public List<MonoBehaviour> DisableComponents { get => _disableComponents; }
     [SerializeField] private List<MonoBehaviour> _disableComponents;
 
-    private PlayerInfo playerInfo;
+    public PlayerInfo PlayerInfo => _playerInfo;
+    private PlayerInfo _playerInfo;
     private Coroutine corTakeDamage;
 
     private void Awake()
     {
-        playerInfo = GetComponent<PlayerInfo>();
+        _playerInfo = GetComponent<PlayerInfo>();
         _currentHealth = _maxHealth;
     }
 
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour, IDamageable
             {
                 if (damage > 0)
                 {
-                    playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", 1);
+                    _playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", 1);
                     if (corTakeDamage != null)
                         StopCoroutine(corTakeDamage);
 
@@ -63,12 +64,12 @@ public class Player : MonoBehaviour, IDamageable
                 }
                 else if (damage < 0)
                 {
-                    playerInfo.Animator.SetTrigger("TakedHeal");
+                    _playerInfo.Animator.SetTrigger("TakedHeal");
                 }
             }
             else
             {
-                playerInfo.Animator.SetTrigger("Dead");
+                _playerInfo.Animator.SetTrigger("Dead");
                 _isDead = true;
             }
         }
@@ -80,7 +81,7 @@ public class Player : MonoBehaviour, IDamageable
         while (takeDamage > 0)
         {
             takeDamage -= Time.deltaTime;
-            playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", takeDamage);
+            _playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", takeDamage);
             yield return new WaitForEndOfFrame();
         }
     }

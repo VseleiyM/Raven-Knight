@@ -5,32 +5,26 @@ using UnityEngine.UI;
 
 public class UI_HealPotion : MonoBehaviour
 {
-    public static UI_HealPotion instance;
-
+    [SerializeField] private TypePickupItem pickupItem;
     [SerializeField] private GameObject healAreaPrefab;
     [SerializeField] private KeyCode keyCode;
     [SerializeField] private Slider slider;
     [SerializeField] private Text text;
     [Space(10)]
-    [SerializeField] private int currentValue;
-    [SerializeField] private int maxValue;
     [SerializeField] private bool isReady;
 
     private Transform spawnPoint;
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     private void OnEnable()
     {
         GlobalEvents.playerInit += OnPlayerInit;
+        GlobalEvents.itemHasPickup += OnItemHasPickup;
     }
 
     private void OnDisable()
     {
         GlobalEvents.playerInit -= OnPlayerInit;
+        GlobalEvents.itemHasPickup -= OnItemHasPickup;
     }
 
     private void Update()
@@ -40,7 +34,6 @@ public class UI_HealPotion : MonoBehaviour
 
         void UseItem()
         {
-            currentValue = 0;
             slider.value = 0;
             isReady = false;
             text.color = new Color(1, 1, 1, 0.39f);
@@ -54,13 +47,13 @@ public class UI_HealPotion : MonoBehaviour
         slider.value = 0;
     }
 
-    public void OnItemPickup(int value)
+    public void OnItemHasPickup(PickupItem item)
     {
-        currentValue += value;
-        slider.value = 100 * currentValue / maxValue;
-        if (currentValue >= maxValue && !isReady)
+        if (item.TypePickupItem != pickupItem) return;
+
+        slider.value += item.Value;
+        if (slider.value >= slider.maxValue && !isReady)
         {
-            currentValue = maxValue;
             isReady = true;
             text.color = new Color(1, 1, 1, 1);
         }

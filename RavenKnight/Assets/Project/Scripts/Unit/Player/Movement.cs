@@ -8,22 +8,22 @@ public class Movement : MonoBehaviour
 {
     private PlayerInfo playerInfo;
     private Rigidbody2D _rigidbody;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
+    private MousePosition mousePosition;
+
+    public bool isFiring;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         playerInfo = GetComponent<PlayerInfo>();
-        animator = playerInfo.Animator;
-        spriteRenderer = playerInfo.SpriteRenderer;
+        mousePosition = GetComponent<MousePosition>();
     }
 
-    public void Move(Vector2 direction)
+    public void Move(Vector2 direction, Vector2 pressDir)
     {
         Init();
         Animation();
-        Flip();
+        FlipLogic();
 
         void Init()
         {
@@ -33,18 +33,22 @@ public class Movement : MonoBehaviour
 
         void Animation()
         {
-            if (direction.magnitude > 0)
-                animator.SetBool("Run", true);
-            else
-                animator.SetBool("Run", false);
+            playerInfo.Animator.SetBool("Run", direction.magnitude > 0);
         }
 
-        void Flip()
+        void FlipLogic()
         {
-            if (direction.x < 0)
-                spriteRenderer.flipX = true;
-            else if (direction.x > 0)
-                spriteRenderer.flipX = false;
+            if (isFiring)
+            {
+                playerInfo.SpriteRenderer.flipX = mousePosition.LookVector.x < 0;
+            }
+            else
+            {
+                if (pressDir.x < 0)
+                    playerInfo.SpriteRenderer.flipX = true;
+                else if (pressDir.x > 0)
+                    playerInfo.SpriteRenderer.flipX = false;
+            }
         }
     }
 }

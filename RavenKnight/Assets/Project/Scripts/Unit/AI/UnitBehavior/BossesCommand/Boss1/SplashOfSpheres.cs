@@ -12,6 +12,7 @@ public class SplashOfSpheres : UnitCommand
     [SerializeField] private int count = 1;
     [SerializeField] private int damage = 1;
 
+    private bool useStepOffset;
     private Transform temp;
 
     private void Awake()
@@ -34,7 +35,17 @@ public class SplashOfSpheres : UnitCommand
         float angleStep = 360f / count;
         for (int i = 0; i < count; i++)
         {
-            var projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i));
+            GameObject projectile;
+            if (useStepOffset)
+            {
+                projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i + angleStep / 2));
+                useStepOffset = false;
+            }
+            else
+            {
+                projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i));
+                useStepOffset = true;
+            }
             projectile.transform.parent = temp;
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.gameObject.layer = gameObject.layer;

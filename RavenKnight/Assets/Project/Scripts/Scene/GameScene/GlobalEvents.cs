@@ -8,8 +8,9 @@ public class GlobalEvents : MonoBehaviour
     public static event Action<Player> playerInit;
     public static event Action<Player> playerTakeDamage;
     public static event Action<Player> playerDead;
+    public static event Action<PickupItem> itemHasPickup;
     public static event Action<int> scoreChanged;
-    public static event Action<Vector3, int> createFlyText;
+    public static event Action<Vector3,int> createScoreText;
     public static event Action<Mob> mobSpawned;
     public static event Action<Mob> mobDead;
     public static event Action<Mob> bossInit;
@@ -35,14 +36,19 @@ public class GlobalEvents : MonoBehaviour
         playerDead?.Invoke(player);
     }
 
-    public static void SendScoreChanged(int value)
+    public static void SendItemHasPickup(PickupItem item)
     {
-        scoreChanged?.Invoke(value);
+        itemHasPickup?.Invoke(item);
     }
 
-    public static void SendCreateScoreText(Vector3 spawnPoint, int value)
+    public static void SendScoreChanged(int score)
     {
-        createFlyText?.Invoke(spawnPoint, value);
+        scoreChanged?.Invoke(score);
+    }
+
+    public static void SendCreateScoreText(Vector3 spawnPoint, int score)
+    {
+        createScoreText?.Invoke(spawnPoint, score);
     }
 
     public static void SendMobSpawned(Mob mob)

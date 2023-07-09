@@ -11,13 +11,14 @@ public class Projectile : MonoBehaviour
 
     public Coroutine coroutine;
 
-    private Animator animator;
+    public Animator Animator => _animator;
+    private Animator _animator;
     private Rigidbody2D _rigidbody;
     private TypeAttackInfo attackInfo;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         attackInfo = GetComponent<TypeAttackInfo>();
     }
@@ -39,7 +40,7 @@ public class Projectile : MonoBehaviour
         if (collision.tag == DamageableTag.PickupItems.ToString()) return;
 
         StopCoroutine(coroutine);
-        animator.SetTrigger("Hit");
+        _animator.SetTrigger("Hit");
 
         if (damageableTag != DamageableTag.All &&
             collision.tag != damageableTag.ToString())

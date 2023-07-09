@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class UI_Score : MonoBehaviour
 {
+    [SerializeField] private TypePickupItem pickupItem;
     [SerializeField] private GameObject textScorePrefab;
     [SerializeField] private Text text_Score;
 
@@ -12,19 +14,25 @@ public class UI_Score : MonoBehaviour
 
     private void OnEnable()
     {
-        GlobalEvents.scoreChanged += OnPlayerScoreChanged;
-        GlobalEvents.createFlyText += OnCreateScoreText;
+        GlobalEvents.itemHasPickup += OnItemHasPickup;
+        GlobalEvents.scoreChanged += OnScoreChanged;
+        GlobalEvents.createScoreText += OnCreateScoreText;
     }
 
     private void OnDisable()
     {
-        GlobalEvents.scoreChanged -= OnPlayerScoreChanged;
-        GlobalEvents.createFlyText -= OnCreateScoreText;
+        GlobalEvents.itemHasPickup -= OnItemHasPickup;
+        GlobalEvents.scoreChanged -= OnScoreChanged;
+        GlobalEvents.createScoreText -= OnCreateScoreText;
     }
 
-    private void OnPlayerScoreChanged(int value)
+    private void OnItemHasPickup(PickupItem item)
     {
-        score += value;
+        if (item.TypePickupItem != pickupItem) return;
+
+        score += item.Value;
+        OnCreateScoreText(item.transform.position, item.Value);
+
         string scoreString = "";
         for (int i = score.ToString().Length; i < 7; i++)
         {
@@ -40,5 +48,17 @@ public class UI_Score : MonoBehaviour
         goScore.transform.position = spawnPoint;
         Text textScore = goScore.GetComponent<Text>();
         textScore.text = $"+{value}";
+    }
+
+    private void OnScoreChanged(int value)
+    {
+        score += value;
+        string scoreString = "";
+        for (int i = score.ToString().Length; i < 7; i++)
+        {
+            scoreString += "0";
+        }
+        scoreString += score.ToString();
+        text_Score.text = $"Score: {scoreString}";
     }
 }

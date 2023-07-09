@@ -50,9 +50,10 @@ public class Rush : UnitCommand
         while (curTime < time)
         {
             curTime += Time.deltaTime;
-            Vector2 self = mobInfo.transform.position;
-            mobInfo.Rigidbody2D.MovePosition(self + direction * Time.deltaTime * speed);
-            yield return new WaitForEndOfFrame();
+            Vector2 self = mobInfo.Rigidbody2D.position;
+            Vector2 offset = direction * Time.fixedDeltaTime * speed;
+            mobInfo.Rigidbody2D.MovePosition(self + offset);
+            yield return new WaitForFixedUpdate();
         }
         isFinish = true;
         isMoving = false;
