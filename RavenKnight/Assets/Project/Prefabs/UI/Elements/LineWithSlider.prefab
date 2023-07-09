@@ -27,11 +27,12 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996208628179441535}
   - {fileID: 1088992041289759634}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -51,6 +52,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4274799724686922133}
     m_Modifications:
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
@@ -91,7 +93,7 @@ PrefabInstance:
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -300
+      value: -425
       objectReference: {fileID: 0}
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
@@ -164,6 +166,9 @@ PrefabInstance:
       value: SimpleTextMeshPro
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd017b9780d36b24cbcc98ca9581f0cb, type: 3}
 --- !u!224 &1996208628179441535 stripped
 RectTransform:
@@ -176,6 +181,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4274799724686922133}
     m_Modifications:
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
@@ -216,12 +222,12 @@ PrefabInstance:
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 470
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
         type: 3}
@@ -261,7 +267,7 @@ PrefabInstance:
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 487584671552124659, guid: 63e8f81215b04e2429acae688d4365bd,
         type: 3}
@@ -314,6 +320,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e8f81215b04e2429acae688d4365bd, type: 3}
 --- !u!224 &1088992041289759634 stripped
 RectTransform:
