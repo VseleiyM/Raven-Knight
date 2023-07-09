@@ -33,19 +33,21 @@ public class SplashOfSpheres : UnitCommand
     {
         Vector3 spawnPoint = new Vector3(transform.position.x, transform.position.y, 0f);
         float angleStep = 360f / count;
+        float offsetZ;
+        if (useStepOffset)
+        {
+            offsetZ = angleStep / 2;
+            useStepOffset = false;
+        }
+        else
+        {
+            offsetZ = 0f;
+            useStepOffset = true;
+        }
+
         for (int i = 0; i < count; i++)
         {
-            GameObject projectile;
-            if (useStepOffset)
-            {
-                projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i + angleStep / 2));
-                useStepOffset = false;
-            }
-            else
-            {
-                projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i));
-                useStepOffset = true;
-            }
+            GameObject projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i + offsetZ));
             projectile.transform.parent = temp;
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.gameObject.layer = gameObject.layer;
