@@ -16,6 +16,8 @@ namespace UI
         [Header("Mixer")]
         [SerializeField] private AudioMixer audioMixer;
 
+        [Inject] AudioController audioController;
+
         /// <summary>
         /// Класс для постепенного изменения громкости.
         /// </summary>
@@ -29,10 +31,12 @@ namespace UI
             /// Наименования параметра в микшере.
             /// </summary>
             public string volumeName { get; private set; }
-            public ValueWithTimeChanger(float volumeChangeTime, float value, string volumeName)
+            private PersistentOptionWithSlider audioOption;
+            public ValueWithTimeChanger(float volumeChangeTime, PersistentOptionWithSlider audioOption, string volumeName)
             {
                 this.volumeChangeTime = volumeChangeTime;
-                lastValue = value;
+                this.audioOption = audioOption;
+                lastValue = audioOption.currentValue;
                 this.volumeName = volumeName;
             }
             /// <summary>
@@ -55,6 +59,14 @@ namespace UI
                 this.targetValue = targetValue;
                 volumeChangeTimeLeft = volumeChangeTime;
                 isNeedChanged = true;
+            }
+            /// <summary>
+            /// Установить новое значение, к которому надо стремиться
+            /// из выданного слайдера.
+            /// </summary>
+            public void SetTargetValue()
+            {
+                SetTargetValue(audioOption.currentValue);
             }
             /// <summary>
             /// Еще надо продолжать изменение громкости.
@@ -91,6 +103,8 @@ namespace UI
         }
 
         private ValueWithTimeChanger masterChanger;
+        private ValueWithTimeChanger soundChanger;
+        private ValueWithTimeChanger musicChanger;
         private ValueWithTimeChanger[] changers;
 
         private string masterVolumeName = "MasterVolume";
@@ -109,7 +123,6 @@ namespace UI
             }
         }
 
-        [Inject] AudioController audioController;
 
         protected override void OnResetOptions()
         {
@@ -122,44 +135,59 @@ namespace UI
             base.Init(menuController);
 
             masterOption.Init();
-            masterChanger = new ValueWithTimeChanger(volumeChangeTime, masterOption.currentValue, masterVolumeName);
+            masterChanger = new ValueWithTimeChanger(volumeChangeTime, masterOption, masterVolumeName);
             soundOption.Init();
+            soundChanger = new ValueWithTimeChanger(volumeChangeTime, soundOption, soundVolumeName);
             musicOption.Init();
+            musicChanger = new ValueWithTimeChanger(volumeChangeTime, musicOption, musicVolumeName);
 
             changers = new ValueWithTimeChanger[]
             {
-                masterChanger
+                masterChanger,
+                soundChanger,
+                musicChanger
             };
 
             masterOption.valueChanged += OnMasterValueChanged;
             soundOption.valueChanged += OnSoundValueChanged;
             musicOption.valueChanged += OnMusicValueChanged;
 
-            Invoke("TestExemple", 0.01f);
+            //Выставить зачение громкости аудио при входе в игру с небольшой задержкой.
+            Invoke(nameof(FirstSetAudioSettigns), 0.01f);
         }
-
-        private void TestExemple()
+        /// <summary>
+        /// Выставить зачение громкости аудио при входе в игру.
+        /// </summary>
+        private void FirstSetAudioSettigns()
         {
-            OnMasterValueChanged(PlayerPrefs.GetFloat("Audio.Master"));
-            OnSoundValueChanged(PlayerPrefs.GetFloat("Audio.Sound"));
-            OnMusicValueChanged(PlayerPrefs.GetFloat("Audio.Music"));
+            ForcedApplyAudioSettings();
         }
-
 
         private void OnMasterValueChanged(float value)
         {
-           // ChangeVolume(masterVolumeName, value);
            masterChanger.SetTargetValue(value);
         }
         private void OnSoundValueChanged(float value)
         {
-            ChangeVolume(soundVolumeName, value);
+            soundChanger.SetTargetValue(value);
         }
         private void OnMusicValueChanged(float value)
         {
-            ChangeVolume(musicVolumeName, value);
+            musicChanger.SetTargetValue(value);
         }
-
+        /// <summary>
+        /// Сразу передать значения ползунков звука в микшер,
+        /// без постепенного увеличения.
+        /// </summary>
+        private void ForcedApplyAudioSettings()
+        {
+            foreach (ValueWithTimeChanger changer in changers)
+            {
+                changer.SetTargetValue();
+                changer.ForcedToComplete();
+                ChangeVolume(changer.volumeName, changer.currentValue);
+            }
+        }
         private void Update()
         {
             float deltaTime = Time.deltaTime;
@@ -171,11 +199,7 @@ namespace UI
         }
         private void OnDisable()
         {
-            foreach (ValueWithTimeChanger changer in changers)
-            {
-                changer.ForcedToComplete();
-                ChangeVolume(changer.volumeName, changer.currentValue);
-            }
+           ForcedApplyAudioSettings();
         }
     }
 }
