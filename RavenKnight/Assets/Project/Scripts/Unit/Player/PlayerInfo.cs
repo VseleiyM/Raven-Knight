@@ -15,5 +15,8 @@ public class PlayerInfo : MonoBehaviour
     public Player Player { get => _player; }
     [SerializeField] private Player _player;
 
+    public Animator ChildAnimator { get => _childAnimator; }
+    [SerializeField] private Animator _childAnimator;
+
     public Weapon weapon;
 }

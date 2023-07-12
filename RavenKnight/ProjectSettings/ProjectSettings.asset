@@ -42,16 +42,6 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
     duration: 2
-  - logo: {fileID: 21300000, guid: 8450f4a13214ab043be9c75fe7e6c050, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: 6cf6a9df00ed3c249a0e5f56fb0c793b, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: b3f110ef908fe6046be9fbf45157619e, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: 1ae7c6ffb9b375449ad84f8db794b96e, type: 3}
-    duration: 2
-  - logo: {fileID: 21300000, guid: a3fd460d664370e40a42afead74fb456, type: 3}
-    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -628,6 +618,7 @@ PlayerSettings:
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0
+  assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
@@ -677,6 +668,7 @@ PlayerSettings:
   XboxOneCapability: []
   XboxOneGameRating: {}
   XboxOneIsContentPackage: 0
+  XboxOneEnhancedXboxCompatibilityMode: 0
   XboxOneEnableGPUVariability: 1
   XboxOneSockets: {}
   XboxOneSplashScreen: {fileID: 0}
