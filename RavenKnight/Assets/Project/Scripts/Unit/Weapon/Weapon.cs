@@ -42,7 +42,7 @@ public class Weapon : MonoBehaviour
         {
             var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
             projectile.transform.parent = temp;
-            projectile.layer = playerInfo.gameObject.layer;
+            projectile.layer = (int)LayerName.PlayerProjectile;
             var compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = playerInfo.Player.DamageableTag;
             compProjectile.damage = damage;

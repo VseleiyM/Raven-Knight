@@ -19,11 +19,10 @@ public class Movement : MonoBehaviour
         mousePosition = GetComponent<MousePosition>();
     }
 
-    public void Move(Vector2 direction, Vector2 pressDir)
+    public void Move(Vector2 direction)
     {
         Init();
         Animation();
-        FlipLogic();
 
         void Init()
         {
@@ -35,20 +34,20 @@ public class Movement : MonoBehaviour
         {
             playerInfo.Animator.SetBool("Run", direction.magnitude > 0);
         }
+    }
 
-        void FlipLogic()
+    public void LookDirection(Vector2 lookDir)
+    {
+        if (isFiring)
         {
-            if (isFiring)
-            {
-                playerInfo.SpriteRenderer.flipX = mousePosition.LookVector.x < 0;
-            }
-            else
-            {
-                if (pressDir.x < 0)
-                    playerInfo.SpriteRenderer.flipX = true;
-                else if (pressDir.x > 0)
-                    playerInfo.SpriteRenderer.flipX = false;
-            }
+            playerInfo.SpriteRenderer.flipX = mousePosition.LookVector.x < 0;
+        }
+        else
+        {
+            if (lookDir.x < 0)
+                playerInfo.SpriteRenderer.flipX = true;
+            else if (lookDir.x > 0)
+                playerInfo.SpriteRenderer.flipX = false;
         }
     }
 }

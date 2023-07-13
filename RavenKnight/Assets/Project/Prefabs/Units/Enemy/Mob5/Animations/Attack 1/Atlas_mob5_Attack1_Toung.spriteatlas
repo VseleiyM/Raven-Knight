@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MiniBoss1_Attack1_Toung
+  m_Name: Atlas_mob5_Attack1_Toung
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -196,5 +196,5 @@ SpriteAtlas:
   - toung_up_13
   - toung_up_37
   m_RenderDataMap: {}
-  m_Tag: MiniBoss1_Attack1_Toung
+  m_Tag: Atlas_mob5_Attack1_Toung
   m_IsVariant: 0

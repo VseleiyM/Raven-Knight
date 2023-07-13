@@ -38,6 +38,8 @@ public class MobAction : MonoBehaviour
 
     public void SoundEffect(AudioClip clip)
     {
+        if (clip == null) return;
+
         mobInfo.AudioSource.clip = clip;
         mobInfo.AudioSource.Play();
     }

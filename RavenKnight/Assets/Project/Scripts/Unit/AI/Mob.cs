@@ -9,7 +9,7 @@ public class Mob : MonoBehaviour, IDamageable
     public bool IsBoss => _isBoss;
     [SerializeField] private bool _isBoss;
 
-    [Space(10)] 
+    [Space(10)]
     [SerializeField] private List<UnitCommand> startStep;
     [SerializeField] private List<DropSlot> dropList;
     public List<UnitParameter> Parameters => _parameters;
@@ -21,6 +21,7 @@ public class Mob : MonoBehaviour, IDamageable
     public Collider2D targetCollider;
     public Coroutine corotine_AI;
 
+    private Coroutine corTakeDamage;
     private MobInfo mobInfo;
     private bool enableAI = false;
     private MobAction mobAction;
@@ -103,8 +104,19 @@ public class Mob : MonoBehaviour, IDamageable
         if (mobAction) mobAction.SendTakeDamage();
 
         if (healthParameter == null) return;
+
         healthParameter.current -= damage;
-        if (healthParameter.current <= 0)
+        if (healthParameter.current > 0)
+        {
+            if (damage > 0)
+            {
+                if (corTakeDamage != null)
+                    StopCoroutine(corTakeDamage);
+
+                corTakeDamage = StartCoroutine(CorTakeDamage());
+            }
+        }
+        else
         {
             StopAllCoroutines();
             mobInfo.Agent.isStopped = true;
@@ -137,5 +149,16 @@ public class Mob : MonoBehaviour, IDamageable
             if (parameter.Parameter == parameterType)
                 return parameter;
         return null;
+    }
+
+    private IEnumerator CorTakeDamage()
+    {
+        float takeDamage = 1;
+        while (takeDamage > 0)
+        {
+            mobInfo.SpriteRenderer.material.SetFloat("_TakeDamage", takeDamage);
+            takeDamage -= Time.deltaTime * 4;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

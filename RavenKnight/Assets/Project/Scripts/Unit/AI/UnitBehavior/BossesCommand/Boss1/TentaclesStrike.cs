@@ -39,7 +39,8 @@ public class TentaclesStrike : UnitCommand
         AreaEffectSingle compAreaEffect = area.GetComponent<AreaEffectSingle>();
         compAreaEffect.damageableTag = damageableTag;
         compAreaEffect.damage = damage;
-        compAreaEffect.Trigger.gameObject.layer = gameObject.layer;
+        if (gameObject.layer == (int)LayerName.Enemy)
+            compAreaEffect.Trigger.gameObject.layer = (int)LayerName.EnemyProjectile;
 
         compAreaEffect.Trigger.transform.localPosition = compAreaEffect.Trigger.transform.localPosition + Vector3.right * length / 2;
         compAreaEffect.Trigger.transform.localScale = compAreaEffect.Trigger.transform.localScale + Vector3.right * length;

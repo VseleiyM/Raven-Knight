@@ -54,13 +54,10 @@ public class Player : MonoBehaviour, IDamageable
             {
                 if (damage > 0)
                 {
-                    _playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", 1);
                     if (corTakeDamage != null)
                         StopCoroutine(corTakeDamage);
 
                     corTakeDamage = StartCoroutine(CorTakeDamage());
-
-                    //playerInfo.Animator.SetTrigger("TakedDamage");
                 }
                 else if (damage < 0)
                 {
@@ -80,8 +77,8 @@ public class Player : MonoBehaviour, IDamageable
         float takeDamage = 1;
         while (takeDamage > 0)
         {
-            takeDamage -= Time.deltaTime;
             _playerInfo.SpriteRenderer.material.SetFloat("_TakeDamage", takeDamage);
+            takeDamage -= Time.deltaTime * 4;
             yield return new WaitForEndOfFrame();
         }
     }

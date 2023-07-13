@@ -29,6 +29,10 @@ public class Rush : UnitCommand
 
         mobInfo.Agent.isStopped = true;
         mobInfo.Animator.SetBool("Run", false);
+        if (transform.position.x > mobInfo.Mob.target.transform.position.x)
+            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        else
+            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
         curStep = this;
         isMoving = true;
 

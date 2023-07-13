@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6390528661053583313}
   - component: {fileID: 406939398369415979}
   - component: {fileID: 5406409374581363928}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3774518901421596483}
   - component: {fileID: 3774518901421596485}
   - component: {fileID: 8845370322990767090}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Boss1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 2069867068647452737}
   - component: {fileID: 5217896816445079018}
   - component: {fileID: 1469578782550001791}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: aa280ae8279292a4191e473c45a6405e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 808044105153170685}
   - component: {fileID: 5816136929351097052}
   - component: {fileID: 3926589139242111874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,10 +105,9 @@ GameObject:
   - component: {fileID: 3760685715564454554}
   - component: {fileID: 6568995859037654084}
   - component: {fileID: 8771652548400218220}
-  - component: {fileID: 6449708031344652975}
   - component: {fileID: 3760685715564454555}
   - component: {fileID: 3760685715564454557}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Mob3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -128,6 +127,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5858160733551046518}
+  - {fileID: 5847057022738534271}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _physicsCollider: {fileID: 8771652548400218220}
-  _attackTrigger: {fileID: 6449708031344652975}
+  _attackTrigger: {fileID: 8805047241055122555}
   _projectile: {fileID: 0}
   _pointForProjectile: {fileID: 0}
 --- !u!82 &6568995859037654084
@@ -312,41 +312,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.5}
   m_Direction: 0
---- !u!58 &6449708031344652975
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3760685715564454559}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.4752162
 --- !u!50 &3760685715564454555
 Rigidbody2D:
   serializedVersion: 4
@@ -408,7 +373,7 @@ GameObject:
   - component: {fileID: 4826811126915759392}
   - component: {fileID: 678549681874026657}
   - component: {fileID: 2771838604569696982}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,10 +413,10 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 3
+  m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c28cf0f9ff50cab40a04278bd1dab73d, type: 2}
+  - {fileID: 2100000, guid: aa280ae8279292a4191e473c45a6405e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -516,3 +481,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe05f76cdd1fd854fa3f2317fdb7b7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7615803309182618052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5847057022738534271}
+  - component: {fileID: 8805047241055122555}
+  m_Layer: 9
+  m_Name: AttackTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5847057022738534271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7615803309182618052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3760685715564454558}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8805047241055122555
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7615803309182618052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4752162

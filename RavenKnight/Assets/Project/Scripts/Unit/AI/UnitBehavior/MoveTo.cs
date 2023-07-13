@@ -8,25 +8,23 @@ public class MoveTo : UnitCommand
     public override UnitCommand NextStep { get { return _nextStep; } }
     [SerializeField] private UnitCommand _nextStep;
 
-    private NavMeshAgent agent;
-    private Transform target;
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
-
+    private MobInfo mobInfo;
 
     public override void RequestData(MobInfo mobInfo)
     {
-        agent = mobInfo.Agent;
-        target = mobInfo.Mob.target;
-        animator = mobInfo.Animator;
-        spriteRenderer = mobInfo.SpriteRenderer;
+        this.mobInfo = mobInfo;
     }
 
     public override void Execute()
     {
-        agent.isStopped = true;
-        animator.SetBool("Run", agent.velocity.magnitude > 0);
-        spriteRenderer.flipX = transform.position.x > target.transform.position.x;
-        agent.SetDestination(target.position);
+        mobInfo.Agent.isStopped = true;
+        mobInfo.Animator.SetBool("Run", true);
+
+        if (transform.position.x > mobInfo.Mob.target.transform.position.x)
+            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        else
+            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+        mobInfo.Agent.SetDestination(mobInfo.Mob.target.position);
     }
 }

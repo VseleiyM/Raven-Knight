@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Atlas_mini_boss_attack_vfx
+  m_Name: Atlas_mob6_attack2_vfx
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -92,5 +92,5 @@ SpriteAtlas:
   - attack2_fx_00
   - attack2_fx_10
   m_RenderDataMap: {}
-  m_Tag: Atlas_mini_boss_attack_vfx
+  m_Tag: Atlas_mob6_attack2_vfx
   m_IsVariant: 0

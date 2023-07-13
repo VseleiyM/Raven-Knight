@@ -50,7 +50,8 @@ public class SplashOfSpheres : UnitCommand
             GameObject projectile = Instantiate(projectilePrefab, spawnPoint, Quaternion.Euler(0f, 0f, angleStep * i + offsetZ));
             projectile.transform.parent = temp;
             var compProjectile = projectile.GetComponent<Projectile>();
-            compProjectile.gameObject.layer = gameObject.layer;
+            if (gameObject.layer == (int)LayerName.Enemy)
+                compProjectile.gameObject.layer = (int)LayerName.EnemyProjectile;
             compProjectile.damageableTag = DamageableTag.All;
             compProjectile.damage = damage;
         }

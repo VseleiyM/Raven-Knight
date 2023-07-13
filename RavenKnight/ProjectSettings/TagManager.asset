@@ -15,12 +15,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - Arsenal
   - Player
-  - Level
+  - PlayerProjectile
   - Enemy
+  - EnemyProjectile
+  - Level
+  - 
   - PickupItem
   - Spawner
   - 

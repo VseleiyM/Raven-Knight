@@ -44,7 +44,8 @@ public class CreateProjectileConus : UnitCommand
         {
             var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));
             projectile.transform.parent = folder;
-            projectile.layer = mobInfo.gameObject.layer;
+            if (gameObject.layer == (int)LayerName.Enemy)
+                projectile.layer = (int)LayerName.EnemyProjectile;
             Projectile compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = damageableTag;
             compProjectile.damage = damage;
