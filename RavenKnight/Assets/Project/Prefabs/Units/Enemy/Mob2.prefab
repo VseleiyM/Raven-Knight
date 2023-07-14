@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gainScore: 10
+  _gainScore: 20
   _isBoss: 0
   startStep:
   - {fileID: 8259647971286872049}
@@ -294,7 +294,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -444,8 +444,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4
+  m_Acceleration: 9
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0.5
@@ -534,6 +534,7 @@ MonoBehaviour:
   _nextStep: {fileID: 6929088147522226949}
   damageableTag: 1
   damage: 5
+  attackTrigger: {fileID: 0}
 --- !u!114 &6929088147522226949
 MonoBehaviour:
   m_ObjectHideFlags: 0

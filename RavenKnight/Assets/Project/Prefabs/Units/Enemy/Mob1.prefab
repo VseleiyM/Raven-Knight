@@ -227,7 +227,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -377,8 +377,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4.5
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0.5
@@ -467,6 +467,7 @@ MonoBehaviour:
   _nextStep: {fileID: 5663901790079783081}
   damageableTag: 1
   damage: 5
+  attackTrigger: {fileID: 0}
 --- !u!114 &5663901790079783081
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gainScore: 12345
+  _gainScore: 5000
   _isBoss: 1
   startStep:
   - {fileID: 3703864740433641052}

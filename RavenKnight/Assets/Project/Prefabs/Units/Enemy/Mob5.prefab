@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 868630139850694547}
   - component: {fileID: 6246152170854997962}
   - component: {fileID: 3772682160524124614}
-  - component: {fileID: 2358977696387706491}
   - component: {fileID: 352496172790407277}
   - component: {fileID: 976319993350607840}
   m_Layer: 8
@@ -65,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 868630139850694547}
+  _nextStep: {fileID: 3772682160524124614}
   time: 1
 --- !u!114 &3772682160524124614
 MonoBehaviour:
@@ -79,27 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7092fc379809b50498d99618ff618b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTrue: {fileID: 2358977696387706491}
+  ifTrue: {fileID: 352496172790407277}
   ifFalse: {fileID: 868630139850694547}
-  singleTriggering: 0
+  singleTriggering: 1
   parameterName: 1
   logicOperator: 3
   value: 100
---- !u!114 &2358977696387706491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761933453979549712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b74f20fffc98643810c4390bc67d43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifTrue: {fileID: 352496172790407277}
-  ifFalse: {fileID: 868630139850694547}
-  triggered: 0
 --- !u!114 &352496172790407277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 976319993350607840}
   paramName: 4
-  value: 2
+  value: 3
 --- !u!114 &976319993350607840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gainScore: 10
+  _gainScore: 100
   _isBoss: 0
   startStep:
   - {fileID: 5330832462869390721}
@@ -499,7 +483,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 129
   DopplerLevel: 1
   MinDistance: 1.5
   MaxDistance: 500
