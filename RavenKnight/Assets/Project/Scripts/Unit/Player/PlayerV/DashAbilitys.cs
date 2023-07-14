@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(PlayerInfo))]
-
 public class DashAbilitys : MonoBehaviour
 {
     private PlayerInfo playerInfo;
@@ -18,8 +16,8 @@ public class DashAbilitys : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        playerInfo = GetComponent<PlayerInfo>();
+        playerInfo = GetComponentInParent<PlayerInfo>();
+        _rigidbody = GetComponentInParent<Rigidbody2D>();
         animator = playerInfo.Animator;
         childAnimator = playerInfo.ChildAnimator;
     } 
