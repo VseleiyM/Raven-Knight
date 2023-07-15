@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6501495198405912394, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Settings.ResolutionButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6535193664640185176, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
         type: 3}
       propertyPath: m_text
@@ -288,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501495198405912394, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Settings.LanguageButton
       objectReference: {fileID: 0}
     - target: {fileID: 6535193664640185176, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
         type: 3}
@@ -454,6 +464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501495198405912394, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Settings.BooldButton
       objectReference: {fileID: 0}
     - target: {fileID: 6535193664640185176, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
         type: 3}
@@ -625,6 +640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501495198405912394, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Settings.WinModeButton
       objectReference: {fileID: 0}
     - target: {fileID: 6535193664640185176, guid: 066e8073e6ffffb4aa87b928d8fb1a59,
         type: 3}

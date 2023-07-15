@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsText
       objectReference: {fileID: 0}
+    - target: {fileID: 3561183255356252212, guid: 7e70a9f0e99ce7f43ac138bbc3cb1602,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.SettingsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3594860006172963878, guid: 7e70a9f0e99ce7f43ac138bbc3cb1602,
         type: 3}
       propertyPath: m_text
@@ -495,6 +500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioText
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561183255356252212, guid: 7e70a9f0e99ce7f43ac138bbc3cb1602,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.AudioButton
       objectReference: {fileID: 0}
     - target: {fileID: 3594860006172963878, guid: 7e70a9f0e99ce7f43ac138bbc3cb1602,
         type: 3}

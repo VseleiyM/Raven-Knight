@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using Zenject;
 
 namespace UI
 {
@@ -13,6 +15,8 @@ namespace UI
         [SerializeField] private HorizontalChooser winModeChooser = null;
         [SerializeField] private HorizontalChooser languageChooser = null;
         [SerializeField] private HorizontalChooser bloodChooser = null;
+
+        [Inject] private LocalizaiotnKeeper localizaiotnKeeper;
 
         private PersistentOptionWithChooser resolutionOption = new PersistentOptionWithChooser();
         private PersistentOptionWithChooser winModeOption = new PersistentOptionWithChooser();
@@ -35,6 +39,28 @@ namespace UI
             int height = resolutions[currentResolutionIndex].y;
             Screen.SetResolution(width, height, isFullScreen);
         }
+
+        #region Localization
+
+        private string[] languageNames;
+        private LanguageID[] languageValues;
+        private void SetLaguagesNames()
+        {
+            LanguageID[] values = (LanguageID[])Enum.GetValues(typeof(LanguageID));
+            languageValues = values;
+
+            languageNames = new string[languageValues.Length];
+            for (int i = 0; i < values.Length; i++)
+            {
+                languageNames[i] = values[i].ToString();
+            }
+        }
+        private void OnLanguageChanged(int index)
+        {
+            localizaiotnKeeper.SetLanguageID(languageValues[index]);
+        }
+
+        #endregion Localization
 
         #region Разрешение экрана.
 
@@ -97,7 +123,11 @@ namespace UI
                 resolutionOption.indexChanged += OnResolutionIndexChanged;
             }
 
-            languageOption.Init(languageChooser, "Game.Language", "Eng", "rus", "chi");
+            SetLaguagesNames();
+            languageOption.Init(languageChooser, "Game.Language", languageNames);
+            languageOption.indexChanged += OnLanguageChanged;
+            OnLanguageChanged(languageOption.currentIndex);
+
             bloodOption.Init(bloodChooser, "Game.Blood", "yes", "no");
 
             winModeOption.Init(winModeChooser, "Graphics.WinMode", FULL_SCREEN_TEXT, WINDOWED_TEXT);

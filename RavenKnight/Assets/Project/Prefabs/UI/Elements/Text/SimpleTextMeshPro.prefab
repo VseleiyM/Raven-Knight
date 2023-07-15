@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1936070213117882155}
   - component: {fileID: 4567207794870302602}
   - component: {fileID: 4045111078913282136}
+  - component: {fileID: 4083428357075174474}
   m_Layer: 0
   m_Name: SimpleTextMeshPro
   m_TagString: Untagged
@@ -66,10 +67,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u535A\u5C14\u5FB7"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7a518ce32c06b64499647ed0e87600e4, type: 2}
-  m_sharedMaterial: {fileID: 2831752816899974786, guid: 7a518ce32c06b64499647ed0e87600e4,
+  m_fontAsset: {fileID: 11400000, guid: 648a919c7030cfd488cf57701ba029f0, type: 2}
+  m_sharedMaterial: {fileID: -5181964880848134700, guid: 648a919c7030cfd488cf57701ba029f0,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -136,3 +137,17 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4083428357075174474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2632292031554010842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b94507b5930b4f9811f0dd90cbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  isLocalized: 1

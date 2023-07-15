@@ -243,6 +243,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Master
       objectReference: {fileID: 0}
+    - target: {fileID: 4163288437322333214, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Audio.MasterButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4274799724686922133, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -419,6 +424,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Sound
       objectReference: {fileID: 0}
+    - target: {fileID: 4163288437322333214, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Audio.SoundButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4274799724686922133, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -594,6 +604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163288437322333214, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
+        type: 3}
+      propertyPath: key
+      value: Menu.Options.Audio.MusicButton
       objectReference: {fileID: 0}
     - target: {fileID: 4274799724686922133, guid: 4a0e2f1674ff15f4fa3bdf4085c9666c,
         type: 3}
