@@ -9,6 +9,7 @@ public class HitTarget : UnitCommand
     [SerializeField] private DamageableTag damageableTag;
     [SerializeField] private float damage;
     [SerializeField] private Collider2D attackTrigger;
+    [SerializeField] private bool triggerEnter;
 
     private MobInfo mobInfo;
 
@@ -16,10 +17,18 @@ public class HitTarget : UnitCommand
 
     public override void Execute()
     {
-        if (attackTrigger) return;
+        if (triggerEnter) return;
 
-        if (mobInfo.AttackTrigger.IsTouching(mobInfo.Mob.targetCollider))
-            mobInfo.Mob.targetCollider.GetComponent<IDamageable>().TakeDamage(damage);
+        Collider2D trigger;
+        Collider2D target = mobInfo.Mob.targetCollider;
+
+        if (attackTrigger)
+            trigger = attackTrigger;
+        else
+            trigger = mobInfo.AttackTrigger;
+
+        if (trigger.IsTouching(target))
+            target.GetComponent<IDamageable>().TakeDamage(damage);
     }
 
     public override void RequestData(MobInfo mobInfo)
@@ -29,7 +38,7 @@ public class HitTarget : UnitCommand
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!attackTrigger) return;
+        if (!triggerEnter) return;
         if (collision.isTrigger) return;
 
         if (collision.tag == TagName.Player.ToString())

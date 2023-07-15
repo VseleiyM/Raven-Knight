@@ -17,7 +17,7 @@ public class MoveTo : UnitCommand
 
     public override void Execute()
     {
-        mobInfo.Agent.isStopped = true;
+        mobInfo.Agent.isStopped = false;
         mobInfo.Animator.SetBool("Run", true);
 
         if (transform.position.x > mobInfo.Mob.target.transform.position.x)

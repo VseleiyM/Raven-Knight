@@ -515,7 +515,7 @@ MonoBehaviour:
   prefabProjectile: {fileID: 8984344394082757371, guid: 5220b7139e995c94e9b08b4811dc3d30,
     type: 3}
   damageableTag: 1
-  damage: 5
+  damage: 10
 --- !u!114 &9169617924457285863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   projectileCount: 2
   corner: 20
   damageableTag: 1
-  damage: 5
+  damage: 10
 --- !u!114 &8576077912780188487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   projectileCount: 5
   corner: 45
   damageableTag: 1
-  damage: 5
+  damage: 10
 --- !u!114 &694089403913461069
 MonoBehaviour:
   m_ObjectHideFlags: 0

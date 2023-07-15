@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_mob2_VFX_bait
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 459d3dfbf448a3b44bcca339be881253, type: 3}
+    - {fileID: 2800000, guid: 6e74b363e18bedf42a4afb3252e319aa, type: 3}
+    - {fileID: 2800000, guid: fe0e10818affc164cb39c644c554f458, type: 3}
+    - {fileID: 2800000, guid: 807c34e9a02907c4689b9297e02b13bd, type: 3}
+    - {fileID: 2800000, guid: 7483b756fc7254d43a6986ae57701b44, type: 3}
+    - {fileID: 2800000, guid: 7f61c9e4f794abc44842b0b40f8c6ef2, type: 3}
+    - {fileID: 2800000, guid: c40ffb8018ccacd43ba634443fe28114, type: 3}
+    - {fileID: 2800000, guid: f12bfee261c4a33488df76850534e295, type: 3}
+    - {fileID: 2800000, guid: d9fe4c52414adc14c85764827489dea6, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - c40ffb8018ccacd43ba634443fe28114: 21300000
+    - fe0e10818affc164cb39c644c554f458: 21300000
+    - d9fe4c52414adc14c85764827489dea6: 21300000
+    - f12bfee261c4a33488df76850534e295: 21300000
+    - 6e74b363e18bedf42a4afb3252e319aa: 21300000
+    - 7f61c9e4f794abc44842b0b40f8c6ef2: 21300000
+    - 7483b756fc7254d43a6986ae57701b44: 21300000
+    - 807c34e9a02907c4689b9297e02b13bd: 21300000
+    - 459d3dfbf448a3b44bcca339be881253: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: c40ffb8018ccacd43ba634443fe28114, type: 3}
+  - {fileID: 21300000, guid: fe0e10818affc164cb39c644c554f458, type: 3}
+  - {fileID: 21300000, guid: d9fe4c52414adc14c85764827489dea6, type: 3}
+  - {fileID: 21300000, guid: f12bfee261c4a33488df76850534e295, type: 3}
+  - {fileID: 21300000, guid: 6e74b363e18bedf42a4afb3252e319aa, type: 3}
+  - {fileID: 21300000, guid: 7f61c9e4f794abc44842b0b40f8c6ef2, type: 3}
+  - {fileID: 21300000, guid: 7483b756fc7254d43a6986ae57701b44, type: 3}
+  - {fileID: 21300000, guid: 807c34e9a02907c4689b9297e02b13bd, type: 3}
+  - {fileID: 21300000, guid: 459d3dfbf448a3b44bcca339be881253, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - fx_for_mob1and2_21
+  - fx_for_mob1and2_17
+  - fx_for_mob1and2_23
+  - fx_for_mob1and2_22
+  - fx_for_mob1and2_16
+  - fx_for_mob1and2_20
+  - fx_for_mob1and2_19
+  - fx_for_mob1and2_18
+  - fx_for_mob1and2_15
+  m_RenderDataMap: {}
+  m_Tag: Atlas_mob2_VFX
+  m_IsVariant: 0

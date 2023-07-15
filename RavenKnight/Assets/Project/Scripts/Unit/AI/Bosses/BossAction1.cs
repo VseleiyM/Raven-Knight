@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BossAction1 : MonoBehaviour
 {
-    [SerializeField] private MobInfo mobInfo;
     [Header("Предсмертное разделение")]
     [SerializeField] private GameObject deathSpawn;
-    [Min(0f)]
-    [SerializeField] private float spawnRadius = 0f;
-    [Min(1)]
-    [SerializeField] private int count = 1;
+    [SerializeField, Min(0f)] private float spawnRadius = 0f;
+    [SerializeField, Min(1)] private int count = 1;
 
     private Transform units;
+    private MobInfo mobInfo;
 
     private void Awake()
     {
@@ -21,12 +19,7 @@ public class BossAction1 : MonoBehaviour
             units = new GameObject("Units").transform;
         else
             units = goUnits.transform;
-    }
-
-    public void SoundEffect(AudioClip clip)
-    {
-        mobInfo.AudioSource.clip = clip;
-        mobInfo.AudioSource.Play();
+        mobInfo = GetComponentInParent<MobInfo>();
     }
 
     public void SendBossDead()
@@ -37,7 +30,7 @@ public class BossAction1 : MonoBehaviour
         Destroy(mobInfo.gameObject);
     }
 
-    public void Dead()
+    public void BossDead()
     {
         for (int i = 0; i < count; i++)
         {
@@ -49,11 +42,5 @@ public class BossAction1 : MonoBehaviour
             var mobInfo = enemy.GetComponent<MobInfo>();
             mobInfo.Animator.SetFloat("SpawnDelay", 6);
         }
-    }
-
-    public void MobSpawned()
-    {
-        mobInfo.PhysicsCollider.enabled = true;
-        mobInfo.Mob.EnableAI();
     }
 }

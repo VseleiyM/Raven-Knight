@@ -7,5 +7,6 @@ public enum LayerName
     Player = 6,
     PlayerProjectile = 7,
     Enemy = 8,
-    EnemyProjectile = 9
+    EnemyProjectile = 9,
+    Level = 10
 }
