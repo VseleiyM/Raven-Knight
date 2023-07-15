@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UI.ButtonWithEvents;
 
 namespace UI
 {
@@ -41,6 +42,18 @@ namespace UI
         {
             rectTransform.localScale = originScale;
             textFiled.color = orginalColor;
+        }
+        private void OnEnable()
+        {
+            PublicSelectionState state = buttonWithEvents.GetCurrentSelectionState();
+            if (state == PublicSelectionState.Normal)
+            {
+                OnExited(null);
+            }
+            else
+            {
+                OnEntered(null);
+            }
         }
         private void Awake()
         {
