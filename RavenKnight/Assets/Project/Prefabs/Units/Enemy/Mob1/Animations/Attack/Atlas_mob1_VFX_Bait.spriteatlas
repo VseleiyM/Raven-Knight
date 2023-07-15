@@ -76,5 +76,5 @@ SpriteAtlas:
   - fx_for_mob1and2_15
   - fx_for_mob1and2_21
   m_RenderDataMap: {}
-  m_Tag: Atlas_VFX_Bait
+  m_Tag: Atlas_mob1_VFX_Bait
   m_IsVariant: 0

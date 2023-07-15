@@ -860,9 +860,9 @@ GameObject:
   - component: {fileID: 8567183161258639509}
   - component: {fileID: 4269628938912218564}
   - component: {fileID: 5862863250711814790}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: DropItemMagnet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

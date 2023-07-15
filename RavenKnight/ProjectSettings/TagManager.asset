@@ -20,7 +20,7 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - Level
-  - 
+  - PlayerMagnet
   - PickupItem
   - Spawner
   - 

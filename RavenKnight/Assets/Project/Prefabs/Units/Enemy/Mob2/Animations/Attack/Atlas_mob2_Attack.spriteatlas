@@ -40,5 +40,5 @@ SpriteAtlas:
   m_PackedSprites: []
   m_PackedSpriteNamesToIndex: []
   m_RenderDataMap: {}
-  m_Tag: mob2Attack
+  m_Tag: Atlas_mob2_Attack
   m_IsVariant: 0
