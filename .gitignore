@@ -9,6 +9,7 @@
 /RavenKnight/[Bb]uilds/
 /RavenKnight/[Ll]ogs/
 /RavenKnight/[Mm]emoryCaptures/
+/RavenKnight/[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/RavenKnight/[Aa]ssets/**/*.meta
