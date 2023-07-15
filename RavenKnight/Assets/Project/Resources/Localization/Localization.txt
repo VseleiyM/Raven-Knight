@@ -1,0 +1,15 @@
+Название(описание, пояснение)	Ключ	Английский	Китайский	Русский
+Меню кнопка	Menu.Main.NewGameButton	New game	新游戏	Новая игра
+Меню кнопка	Menu.Main.OptionsButton	Options	选项	Опции
+Меню кнопка	Menu.Main.ExitButton	Exit	出口	Выход
+Меню кнопка	Menu.Options.SettingsButton	Settings	设置	Настройки
+Меню кнопка	Menu.Options.AudioButton	Audio	音频	Аудио
+Меню кнопка	Menu.Main.BackButton	Back	返回	Назад
+Меню кнопка	Menu.Main.ResetButton	Reset to default	重置为默认值	По умолчанию
+Меню кнопка	Menu.Options.Audio.MasterButton	Master	主	Общая громкость
+Меню кнопка	Menu.Options.Audio.SoundButton	Sound	声音	Звук
+Меню кнопка	Menu.Options.Audio.MusicButton	Music	音乐	Музыка
+Меню кнопка	Menu.Options.Settings.ResolutionButton	Resolution	分辨率	Разрешение
+Меню кнопка	Menu.Options.Settings.WinModeButton	WinMode	窗口模式	Оконный режим
+Меню кнопка	Menu.Options.Settings.LanguageButton	Language	语言	Язык
+Меню кнопка	Menu.Options.Settings.BooldButton	Boold	博尔德	Кровь
