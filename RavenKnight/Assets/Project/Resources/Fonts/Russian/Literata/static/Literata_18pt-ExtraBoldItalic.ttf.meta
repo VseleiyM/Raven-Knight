@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: a314f903c46a1aa4181d0c3541c57b34
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Literata 18pt
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9173c148f9cc49449a49fd2bd68e1cfa, type: 3}
+  - {fileID: 12800000, guid: 9315e1afac7cd0a43b9d09f77c97ed7f, type: 3}
+  - {fileID: 12800000, guid: a0471a7f339a2e84491da42e3fa8491a, type: 3}
+  - {fileID: 12800000, guid: 60684535e28836441b46986b2b0ed3dc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

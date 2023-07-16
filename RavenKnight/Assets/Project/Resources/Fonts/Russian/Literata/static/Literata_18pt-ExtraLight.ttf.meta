@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: e83137d305e86b74fb524e6659631e64
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Literata 18pt
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9173c148f9cc49449a49fd2bd68e1cfa, type: 3}
+  - {fileID: 12800000, guid: 9315e1afac7cd0a43b9d09f77c97ed7f, type: 3}
+  - {fileID: 12800000, guid: a314f903c46a1aa4181d0c3541c57b34, type: 3}
+  - {fileID: 12800000, guid: 154015687f98cb74781345f3cc54dc8f, type: 3}
+  - {fileID: 12800000, guid: a0471a7f339a2e84491da42e3fa8491a, type: 3}
+  - {fileID: 12800000, guid: 60684535e28836441b46986b2b0ed3dc, type: 3}
+  - {fileID: 12800000, guid: a5eeae03c13fcfa41b527a17bbbf3636, type: 3}
+  - {fileID: 12800000, guid: 75ec98e653c03334ea55123d73cee950, type: 3}
+  - {fileID: 12800000, guid: 583f4a5ed03ad8d41a189a3458dfe675, type: 3}
+  - {fileID: 12800000, guid: 146eb1debb7ab284dae3accfd1b1d8df, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

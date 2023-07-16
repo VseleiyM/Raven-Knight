@@ -67,10 +67,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u535A\u5C14\u5FB7"
+  m_text: "\u041F\u0440\u0438\u0432\u0435\u0442!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 648a919c7030cfd488cf57701ba029f0, type: 2}
-  m_sharedMaterial: {fileID: -5181964880848134700, guid: 648a919c7030cfd488cf57701ba029f0,
+  m_fontAsset: {fileID: 11400000, guid: 15370bb63cb6bbe42beaab2682ecb97f, type: 2}
+  m_sharedMaterial: {fileID: -1827211641245347554, guid: 15370bb63cb6bbe42beaab2682ecb97f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
