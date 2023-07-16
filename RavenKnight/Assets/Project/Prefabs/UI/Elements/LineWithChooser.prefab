@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 6276641810810431662}
   buttonWithEvents: {fileID: 8523386041469909412}
-  scale: 1.1
+  scale: 1
   textFields:
   - {fileID: 6535193664640185176}
   - {fileID: 8926392583679266562}
