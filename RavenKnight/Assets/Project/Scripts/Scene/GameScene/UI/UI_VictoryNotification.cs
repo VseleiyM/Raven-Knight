@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_DefeatNotification : MonoBehaviour
+public class UI_VictoryNotification : MonoBehaviour
 {
     private void Update()
     {
@@ -14,12 +14,12 @@ public class UI_DefeatNotification : MonoBehaviour
 
     private void Awake()
     {
-        GlobalEvents.playerDead += OnPlayerDead;
+        GlobalEvents.bossRoomClear += OnBossRoomClear;
     }
 
     private void OnDestroy()
     {
-        GlobalEvents.playerDead -= OnPlayerDead;
+        GlobalEvents.bossRoomClear -= OnBossRoomClear;
     }
 
     private void Start()
@@ -27,7 +27,7 @@ public class UI_DefeatNotification : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnPlayerDead(Player player)
+    private void OnBossRoomClear()
     {
         gameObject.SetActive(true);
     }

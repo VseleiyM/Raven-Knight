@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalEvents : MonoBehaviour
+public class GlobalEvents
 {
     public static event Action<Player> playerInit;
     public static event Action<Player> playerTakeDamage;
@@ -19,7 +19,10 @@ public class GlobalEvents : MonoBehaviour
     public static event Action closeRoom;
     public static event Action openRoom;
     public static event Action waveClear;
+    public static event Action bossRoomClear;
     public static event Action<int> nextWave;
+    public static event Action<bool> pauseStatus;
+    public static event Action returnMenu;
 
     public static void SendPlayerInit(Player player)
     {
@@ -91,8 +94,23 @@ public class GlobalEvents : MonoBehaviour
         waveClear?.Invoke();
     }
 
+    public static void SendBossRoomClear()
+    {
+        bossRoomClear?.Invoke();
+    }
+
     public static void SendNextWave(int index)
     {
         nextWave?.Invoke(index);
+    }
+
+    public static void SendPauseStatus(bool status)
+    {
+        pauseStatus?.Invoke(status);
+    }
+
+    public static void SendReturnMenu()
+    {
+        returnMenu?.Invoke();
     }
 }

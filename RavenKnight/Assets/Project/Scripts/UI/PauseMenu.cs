@@ -11,6 +11,11 @@ namespace UI
         [SerializeField] private Button optionsButton = null;
         [SerializeField] private Button mainMenuButton = null;
 
+        private void OnDestroy()
+        {
+            GlobalEvents.returnMenu -= OpenMainMenu;
+        }
+
         private void OpenOptions()
         {
             OpenMenu(MenuType.options);
@@ -49,11 +54,13 @@ namespace UI
             isPause = !isPause;
             Time.timeScale = isPause ? 0 : 1;
             SetActive(isPause);
+            GlobalEvents.SendPauseStatus(isPause);
         }
 
         public override void Init(MenuController menuController)
         {
             base.Init(menuController);
+            GlobalEvents.returnMenu += OpenMainMenu;
             menuController.pauseKeyDowned += () => PauseChange();
             continueButton.onClick.AddListener(()=> PauseChange());
             optionsButton.onClick.AddListener(OpenOptions);

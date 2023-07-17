@@ -101,6 +101,10 @@ public class EnemySpawner : MonoBehaviour
 
                 isClear = true;
                 GlobalEvents.SendOpenRoom();
+                if (bossRoom)
+                {
+                    GlobalEvents.SendBossRoomClear();
+                }
             }
         }
     }
