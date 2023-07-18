@@ -48,8 +48,11 @@ MonoBehaviour:
   id: 4
   fonts:
   - isDefault: 1
-    id: 4
+    id: 2
     font: {fileID: 11400000, guid: 648a919c7030cfd488cf57701ba029f0, type: 2}
   - isDefault: 0
     id: 3
     font: {fileID: 11400000, guid: d7db8945e5644c643bdd5b160b4e5b9f, type: 2}
+  - isDefault: 0
+    id: 4
+    font: {fileID: 11400000, guid: 15370bb63cb6bbe42beaab2682ecb97f, type: 2}
