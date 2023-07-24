@@ -490,6 +490,7 @@ MonoBehaviour:
     type: 3}
   damageableTag: 1
   damage: 5
+  projectileSpeed: 10
 --- !u!114 &3305659195289445607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +537,7 @@ MonoBehaviour:
     type: 3}
   damageableTag: 1
   damage: 10
+  projectileSpeed: 10
 --- !u!114 &9169617924457285863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +637,7 @@ MonoBehaviour:
   corner: 20
   damageableTag: 1
   damage: 10
+  projectileSpeed: 10
 --- !u!114 &8576077912780188487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +657,7 @@ MonoBehaviour:
   corner: 45
   damageableTag: 1
   damage: 10
+  projectileSpeed: 10
 --- !u!114 &694089403913461069
 MonoBehaviour:
   m_ObjectHideFlags: 0

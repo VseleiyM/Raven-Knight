@@ -188,12 +188,14 @@ namespace UI
                 ChangeVolume(changer.volumeName, changer.currentValue);
             }
         }
-        private void Update()
+
+        private float fixedDeltaTime = 0.017f;
+
+        private void LateUpdate()
         {
-            float deltaTime = Time.deltaTime;
             foreach(ValueWithTimeChanger changer in changers)
             {
-                changer.Update(deltaTime);
+                changer.Update(Time.unscaledDeltaTime);
                 ChangeVolume(changer.volumeName, changer.currentValue);
             }
         }

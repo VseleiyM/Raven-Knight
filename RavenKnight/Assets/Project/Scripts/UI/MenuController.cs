@@ -110,7 +110,14 @@ namespace UI
             if (Input.GetKeyDown(pauseButtonKey))
             {
                 if (gameMode == EnumScenes.GameScene)
+                {
                     pauseKeyDowned?.Invoke();
+                    if (currentMenu.GetType() != typeof(PauseMenu))
+                    {
+                        currentMenu.SetActive(false);
+                    }
+                }
+
             }
         }
     }

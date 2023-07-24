@@ -449,6 +449,7 @@ MonoBehaviour:
     type: 3}
   count: 10
   damage: 10
+  projectileSpeed: 10
 --- !u!1 &3774518901421596487
 GameObject:
   m_ObjectHideFlags: 0

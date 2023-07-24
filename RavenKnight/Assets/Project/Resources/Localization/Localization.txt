@@ -1,15 +1,28 @@
-Название(описание, пояснение)	Ключ	Английский	Китайский	Русский
-Меню кнопка	Menu.Main.NewGameButton	New game	新游戏	Новая игра
-Меню кнопка	Menu.Main.OptionsButton	Options	选项	Опции
-Меню кнопка	Menu.Main.ExitButton	Exit	出口	Выход
-Меню кнопка	Menu.Options.SettingsButton	Settings	设置	Настройки
-Меню кнопка	Menu.Options.AudioButton	Audio	音频	Аудио
-Меню кнопка	Menu.Main.BackButton	Back	返回	Назад
-Меню кнопка	Menu.Main.ResetButton	Reset to default	重置为默认值	По умолчанию
-Меню кнопка	Menu.Options.Audio.MasterButton	Master	主	Общая громкость
-Меню кнопка	Menu.Options.Audio.SoundButton	Sound	声音	Звук
-Меню кнопка	Menu.Options.Audio.MusicButton	Music	音乐	Музыка
-Меню кнопка	Menu.Options.Settings.ResolutionButton	Resolution	分辨率	Разрешение
-Меню кнопка	Menu.Options.Settings.WinModeButton	WinMode	窗口模式	Оконный режим
-Меню кнопка	Menu.Options.Settings.LanguageButton	Language	语言	Язык
-Меню кнопка	Menu.Options.Settings.BooldButton	Boold	博尔德	Кровь
+Description	Localization key	English	Chinese	Russian
+Кнопка «Новая игра» в меню	Menu.Main.NewGameButton	New game	新游戏	Новая игра
+Кнопка «Настройки» в меню	Menu.Main.OptionsButton	Options	选项	Настройки
+Кнопка «Выход» в меню	Menu.Main.ExitButton	Exit	出口	Выход
+Кнопка «Игра и видео» в настройках	Menu.Options.SettingsButton	Game and video	游戏和视频	Игра и видео
+Кнопка «Аудио» в настройках	Menu.Options.AudioButton	Audio	音频	Аудио
+Кнопка «Назад» в настройках	Menu.Main.BackButton	Back	返回	Назад
+Кнопка «Сбросить настройки» в настройках	Menu.Main.ResetButton	Reset to default	重置为默认值	По умолчанию
+Подпись ползунка «Мастер» в аудио	Menu.Options.Audio.MasterButton	Master	主	Общая громкость
+Подпись ползунка «Звуки» в аудио	Menu.Options.Audio.SoundButton	Sound	声音	Звук
+Подпись ползунка «Музыка» в аудио	Menu.Options.Audio.MusicButton	Music	音乐	Музыка
+Настройка разрешения экрана в «Игра и видео»	Menu.Options.Settings.ResolutionButton	Resolution	分辨率	Разрешение
+Настройка режима окна в «Игра и видео»	Menu.Options.Settings.WinModeButton	Window mode	窗口模式	Режим окна
+Режим окна «Полный экран»	Menu.Options.Settings.FullScreen	Full screen	全屏	Полный экран
+Режим окна «Окнонный режим»	Menu.Options.Settings.Window	Window	窗户	Оконный
+Настройка языка в «Игра и видео»	Menu.Options.Settings.LanguageButton	Language	语言	Язык
+Кнопка продолжить игру из паузы	Menu.PauseMenu.ContinueButton	Continue	继续	Продолжить
+Кнопка возврата в главное меню из паузы	Menu.PauseMenu.MainMenuButton	Main menu	主菜单	Главное меню
+«Нажмите любую кнопку» на экране загрузки	Menu.LoadScreen.PressAnyButton	Press any button	按任何按钮	Нажмите на любую кнопку
+Сопроводительный текст на экране загрузки	Menu.LoadScreen.Discription	The world has been overtaken by an epidemic of Pestilence. The disease affects people and animals, turning them into hideous monsters and depriving them of their sanity. The protagonist is infected, but managed to keep his senses. He tries to save his daughter and for this he goes into a dangerous dungeon to find a cure.	一场瘟疫席卷了整个世界。人和动物都会感染这种疾病，变成狰狞的怪物，丧失理智。主人公被感染了，但他还能保持理智。他试图拯救自己的女儿，并为此进入危险的地牢寻找解药。	Мир охватила эпидемия моровой язвы. Болезнь поражает людей и животных, превращая их в отвратительных монстров и лишая рассудка. Главный герой заражен, но сумел сохранить рассудок. Он пытается спасти свою дочь и для этого отправляется в опасное подземелье, чтобы найти лекарство.
+Счет очков в углу HUD	GameMenu.UI.Score	Score	得分	Счёт
+Объявление волны, перед ключем должен быть ее номер	GameMenu.UI.Wave	wave	浪头	волна
+Объявление волны с боссом	GameMunu.UI.BossWave	boss wave	老板波	битва с боссом
+Объявление, что комната зачищена	GameMenu.UI.RoomCleared	room cleared	房间清空	комната зачищена
+Название для внутриигровых очков	GameMenu.UI.Points	points	积分	очки
+Объявление победы	GameMenu.UI.Victory	Victory	胜利	Победа
+Объявление поражения	GameMenu.UI.Defeat	Defeat	失败	Поражение
+Возврат в Главное меню	GameMenu.UI.ReturnMainMenu	Press "Space" to return Menu	按"空格"返回菜单	Нажмите "Пробел" чтобы вернуться в Главное меню

@@ -11,6 +11,7 @@ public class SplashOfSpheres : UnitCommand
     [Min(1)]
     [SerializeField] private int count = 1;
     [SerializeField] private int damage = 1;
+    [SerializeField] private float projectileSpeed;
 
     private bool useStepOffset;
     private Transform temp;
@@ -54,6 +55,7 @@ public class SplashOfSpheres : UnitCommand
                 compProjectile.gameObject.layer = (int)LayerName.EnemyProjectile;
             compProjectile.damageableTag = DamageableTag.All;
             compProjectile.damage = damage;
+            compProjectile.speed = projectileSpeed;
         }
     }
 }

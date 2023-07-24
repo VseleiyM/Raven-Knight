@@ -46,6 +46,8 @@ namespace UI
         {
             GameSceneClose();
             menuController.gameMode = EnumScenes.MenuScene;
+            Time.timeScale = 1;
+            isPause = false;
             OpenMenu(MenuType.mainMenu);
         }
         private bool isPause = false;

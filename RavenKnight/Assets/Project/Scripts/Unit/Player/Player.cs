@@ -30,11 +30,28 @@ public class Player : MonoBehaviour, IDamageable
     {
         _playerInfo = GetComponent<PlayerInfo>();
         _currentHealth = _maxHealth;
+        GlobalEvents.bossRoomClear += OnBossRoomClear;
     }
 
     private void Start()
     {
         GlobalEvents.SendPlayerInit(this);
+    }
+
+    private void OnDestroy()
+    {
+        GlobalEvents.bossRoomClear -= OnBossRoomClear;
+    }
+
+    public void ChangeInvincible()
+    {
+        _isInvincible = !_isInvincible;
+    }
+
+    private void OnBossRoomClear()
+    {
+        foreach (var comp in _disableComponents)
+            comp.enabled = false;
     }
 
     public void TakeDamage(float damage)

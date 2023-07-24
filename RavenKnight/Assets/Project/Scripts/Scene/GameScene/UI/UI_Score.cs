@@ -1,28 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security;
+using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class UI_Score : MonoBehaviour
 {
     [SerializeField] private TypePickupItem pickupItem;
     [SerializeField] private GameObject textScorePrefab;
-    [SerializeField] private Text text_Score;
+    [SerializeField] private TextMeshProUGUI text_Score;
 
+    private LocalizaiotnKeeper keeper;
     private int score = 0;
+    private string scoreTranslate;
+
+    private void Awake()
+    {
+        keeper = LocalizaiotnKeeper.instance;
+    }
+
+    private void Start()
+    {
+        scoreTranslate = keeper.GetLocalization("GameMenu.UI.Score");
+        text_Score.text = $"{scoreTranslate} : 0000000";
+        text_Score.font = keeper.currentFont;
+    }
 
     private void OnEnable()
     {
         GlobalEvents.itemHasPickup += OnItemHasPickup;
         GlobalEvents.scoreChanged += OnScoreChanged;
         GlobalEvents.createScoreText += OnCreateScoreText;
+        keeper.languageChanged += OnLangaugeChanged;
     }
-
+    
     private void OnDisable()
     {
         GlobalEvents.itemHasPickup -= OnItemHasPickup;
         GlobalEvents.scoreChanged -= OnScoreChanged;
         GlobalEvents.createScoreText -= OnCreateScoreText;
+        keeper.languageChanged -= OnLangaugeChanged;
+
     }
 
     private void OnItemHasPickup(PickupItem item)
@@ -38,7 +59,7 @@ public class UI_Score : MonoBehaviour
             scoreString += "0";
         }
         scoreString += score.ToString();
-        text_Score.text = $"Score: {scoreString}";
+        text_Score.text = $"{scoreTranslate}: {scoreString}";
     }
 
     private void OnCreateScoreText(Vector3 spawnPoint, int value)
@@ -58,6 +79,19 @@ public class UI_Score : MonoBehaviour
             scoreString += "0";
         }
         scoreString += score.ToString();
-        text_Score.text = $"Score: {scoreString}";
+        text_Score.text = $"{scoreTranslate}: {scoreString}";
+    }
+
+    private void OnLangaugeChanged()
+    {
+        scoreTranslate = keeper.GetLocalization("GameMenu.UI.Score");
+        string scoreString = "";
+        for (int i = score.ToString().Length; i < 7; i++)
+        {
+            scoreString += "0";
+        }
+        scoreString += score.ToString();
+        text_Score.text = $"{scoreTranslate}: {scoreString}";
+        text_Score.font = keeper.currentFont;
     }
 }

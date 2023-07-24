@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (!isReady) return;
+        if (!isReady || Time.timeScale == 0) return;
 
         Init();
         ChangeData();

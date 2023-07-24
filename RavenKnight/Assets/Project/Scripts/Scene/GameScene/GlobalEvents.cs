@@ -20,7 +20,7 @@ public class GlobalEvents
     public static event Action openRoom;
     public static event Action waveClear;
     public static event Action bossRoomClear;
-    public static event Action<int> nextWave;
+    public static event Action<int, bool> nextWave;
     public static event Action<bool> pauseStatus;
     public static event Action returnMenu;
 
@@ -99,9 +99,9 @@ public class GlobalEvents
         bossRoomClear?.Invoke();
     }
 
-    public static void SendNextWave(int index)
+    public static void SendNextWave(int index, bool bossRoom)
     {
-        nextWave?.Invoke(index);
+        nextWave?.Invoke(index, bossRoom);
     }
 
     public static void SendPauseStatus(bool status)

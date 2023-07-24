@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
 
         triggered = true;
         GlobalEvents.SendCloseRoom();
-        GlobalEvents.SendNextWave(currentWave + 1);
+        GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
         SpawnWave();
     }
 
@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
             currentWave++;
             if (currentWave < listWave.Count)
             {
-                GlobalEvents.SendNextWave(currentWave + 1);
+                GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
                 SpawnWave();
             }
             else

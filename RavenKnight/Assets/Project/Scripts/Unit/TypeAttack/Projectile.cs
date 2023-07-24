@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float speed = 1f;
-
     public DamageableTag damageableTag;
     public float damage;
+    public float speed = 1f;
 
     public Coroutine coroutine;
 

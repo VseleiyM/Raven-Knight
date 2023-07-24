@@ -3,6 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
@@ -17,6 +18,8 @@ namespace UI
         [SerializeField] private TextMeshProUGUI chooseName = null;
 
         [SerializeField] private string[] namesForChoose = new string[0];
+
+        [Inject] private LocalizaiotnKeeper keeper;
 
         /// <summary>
         /// Проверить зполненость наименований.
@@ -124,6 +127,17 @@ namespace UI
                 leftButton.onClick.AddListener(() => OnIndexChanged(true));
                 rightButton.onClick.AddListener(() => OnIndexChanged(false));
             }
+            keeper.languageChanged += OnLangaugeChanged;
+        }
+
+        private void OnDestroy()
+        {
+            keeper.languageChanged -= OnLangaugeChanged;
+        }
+
+        private void OnLangaugeChanged()
+        {
+            chooseName.font = keeper.currentFont;
         }
     }
 }

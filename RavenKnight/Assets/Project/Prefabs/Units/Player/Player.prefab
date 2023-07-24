@@ -205,8 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 4956987304918000159}
+  player: {fileID: 1260171339008213050}
   dashAbilitys: {fileID: 1745739676752534188}
   abilityKey: 32
+  invincible: 105
 --- !u!114 &4110047189124146463
 MonoBehaviour:
   m_ObjectHideFlags: 0

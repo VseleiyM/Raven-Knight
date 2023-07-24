@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace UI
@@ -13,6 +15,7 @@ namespace UI
 
         void ParseCsvFile(string csvText)
         {
+            csvText = csvText.Replace("\r", "");
             string[] lines = csvText.Split('\n');
 
             for (int i = 0; i < lines.Length; i++)

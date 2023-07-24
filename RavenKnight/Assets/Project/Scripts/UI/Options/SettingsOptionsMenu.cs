@@ -16,7 +16,7 @@ namespace UI
         [SerializeField] private HorizontalChooser languageChooser = null;
         [SerializeField] private HorizontalChooser bloodChooser = null;
 
-        [Inject] private LocalizaiotnKeeper localizaiotnKeeper;
+        [Inject] private LocalizaiotnKeeper localizationKeeper;
 
         private PersistentOptionWithChooser resolutionOption = new PersistentOptionWithChooser();
         private PersistentOptionWithChooser winModeOption = new PersistentOptionWithChooser();
@@ -57,7 +57,7 @@ namespace UI
         }
         private void OnLanguageChanged(int index)
         {
-            localizaiotnKeeper.SetLanguageID(languageValues[index]);
+            localizationKeeper.SetLanguageID(languageValues[index]);
         }
 
         #endregion Localization
@@ -85,11 +85,11 @@ namespace UI
         #region Полноэкранный режим.
 
         private bool isFullScreen = true;
-        private const string FULL_SCREEN_TEXT = "Full screen";
-        private const string WINDOWED_TEXT = "Windowed";
+        private const string FULL_SCREEN_TEXT = "Menu.Options.Settings.FullScreen";
+        private const string WINDOWED_TEXT = "Menu.Options.Settings.Window";
         private void OnWindowedModeChanged()
         {
-            isFullScreen = winModeOption.currentName == FULL_SCREEN_TEXT;
+            isFullScreen = winModeOption.currentName == localizationKeeper.GetLocalization(FULL_SCREEN_TEXT);
             SetSreenSettins();
         }
 
@@ -130,11 +130,26 @@ namespace UI
 
             bloodOption.Init(bloodChooser, "Game.Blood", "yes", "no");
 
-            winModeOption.Init(winModeChooser, "Graphics.WinMode", FULL_SCREEN_TEXT, WINDOWED_TEXT);
+            winModeOption.Init(winModeChooser, "Graphics.WinMode", localizationKeeper.GetLocalization(FULL_SCREEN_TEXT), localizationKeeper.GetLocalization(WINDOWED_TEXT));
             winModeOption.valueChanged += OnWindowedModeChanged;
 
             OnResolutionIndexChanged(resolutionOption.currentIndex);
             OnWindowedModeChanged();
+        }
+
+        private void Awake()
+        {
+            localizationKeeper.languageChanged += OnLangaugeChanged;
+        }
+
+        private void OnDestroy()
+        {
+            localizationKeeper.languageChanged -= OnLangaugeChanged;
+        }
+
+        private void OnLangaugeChanged()
+        {
+            winModeOption.Init(winModeChooser, "Graphics.WinMode", localizationKeeper.GetLocalization(FULL_SCREEN_TEXT), localizationKeeper.GetLocalization(WINDOWED_TEXT));
         }
     }
 }

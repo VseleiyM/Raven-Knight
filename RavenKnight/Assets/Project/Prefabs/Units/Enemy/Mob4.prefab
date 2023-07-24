@@ -369,6 +369,7 @@ MonoBehaviour:
     type: 3}
   damageableTag: 1
   damage: 5
+  projectileSpeed: 10
 --- !u!114 &646654120481133589
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class CreateProjectile : UnitCommand
     [SerializeField] private GameObject prefabProjectile;
     [SerializeField] private DamageableTag damageableTag;
     [SerializeField] private float damage;
+    [SerializeField] private float projectileSpeed;
 
     public override UnitCommand NextStep => _nextStep;
 
@@ -42,5 +43,6 @@ public class CreateProjectile : UnitCommand
         Projectile compProjectile = projectile.GetComponent<Projectile>();
         compProjectile.damageableTag = damageableTag;
         compProjectile.damage = damage;
+        compProjectile.speed = projectileSpeed;
     }
 }

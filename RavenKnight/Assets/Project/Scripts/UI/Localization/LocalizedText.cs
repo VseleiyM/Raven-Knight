@@ -23,6 +23,7 @@ namespace UI
         }
         private void Awake()
         {
+            keeper = LocalizaiotnKeeper.instance;
             if (isLocalized)
             {
                 textField = GetComponent<TextMeshProUGUI>();

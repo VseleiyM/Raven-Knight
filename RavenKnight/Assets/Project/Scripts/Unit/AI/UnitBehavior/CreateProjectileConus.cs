@@ -12,6 +12,7 @@ public class CreateProjectileConus : UnitCommand
     [SerializeField] private float corner;
     [SerializeField] private DamageableTag damageableTag;
     [SerializeField] private float damage;
+    [SerializeField] private float projectileSpeed;
 
     private MobInfo mobInfo;
     private Transform folder;
@@ -49,6 +50,7 @@ public class CreateProjectileConus : UnitCommand
             Projectile compProjectile = projectile.GetComponent<Projectile>();
             compProjectile.damageableTag = damageableTag;
             compProjectile.damage = damage;
+            compProjectile.speed = projectileSpeed;
             angle -= corner / (projectileCount - 1);
         }
     }
