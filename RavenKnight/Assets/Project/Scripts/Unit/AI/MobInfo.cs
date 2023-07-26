@@ -21,6 +21,8 @@ public class MobInfo : MonoBehaviour
     private AudioSource _audioSource;
     public Mob Mob => _mob;
     private Mob _mob;
+    public Vector2 Normal => _normal;
+    private Vector2 _normal;
 
     public GameObject Projectile => _projectile;
     [Space(10)]
@@ -39,5 +41,28 @@ public class MobInfo : MonoBehaviour
 
         Agent.updateUpAxis = false;
         Agent.updateRotation = false;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        _normal = collision.contacts[collision.contacts.Length - 1].normal;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _normal = Vector2.zero;
+    }
+
+    public Vector2 Project(Vector2 direction)
+    {
+
+        if (Vector2.Dot(direction, _normal) > 0)
+        {
+            return direction;
+        }
+        else
+        {
+            return (direction - Vector2.Dot(direction, _normal) * _normal).normalized;
+        }
     }
 }

@@ -119,6 +119,7 @@ public class Mob : MonoBehaviour, IDamageable
         else
         {
             StopAllCoroutines();
+            mobInfo.Agent.enabled = true;
             mobInfo.Agent.isStopped = true;
             mobInfo.PhysicsCollider.enabled = false;
             DropItemLogic();

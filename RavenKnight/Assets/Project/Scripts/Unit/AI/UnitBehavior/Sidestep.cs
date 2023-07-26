@@ -52,14 +52,16 @@ public class Sidestep : UnitCommand
     private IEnumerator MoveSidestep(Vector2 direction)
     {
         float curTime = 0;
+        mobInfo.Agent.enabled = false;
         while (curTime < time)
         {
-            curTime += Time.deltaTime;
+            curTime += Time.fixedDeltaTime;
             Vector2 self = mobInfo.Rigidbody2D.position;
-            Vector2 offset = direction * Time.fixedDeltaTime * speed;
+            Vector2 offset = mobInfo.Project(direction) * Time.fixedDeltaTime * speed;
             mobInfo.Rigidbody2D.MovePosition(self + offset);
             yield return new WaitForFixedUpdate();
         }
+        mobInfo.Agent.enabled = true;
         isFinish = true;
         isMoving = false;
     }

@@ -37,7 +37,10 @@ public class Projectile : MonoBehaviour
     {
         if (collision.isTrigger) return;
 
-        StopCoroutine(coroutine);
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
         _animator.SetTrigger("Hit");
 
         if (damageableTag != DamageableTag.All &&

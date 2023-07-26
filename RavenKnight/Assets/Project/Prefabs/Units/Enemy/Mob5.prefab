@@ -123,15 +123,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1814995540589108657}
-  - component: {fileID: 5330832462869390721}
-  - component: {fileID: 7692584874171448573}
-  - component: {fileID: 1257373223161876295}
-  - component: {fileID: 8102959975645644697}
   - component: {fileID: 469033822027731562}
   - component: {fileID: 943390361182360034}
   - component: {fileID: 2973465317479524833}
   - component: {fileID: 3796829676599270681}
   - component: {fileID: 6907781545069344021}
+  - component: {fileID: 5330832462869390721}
+  - component: {fileID: 7692584874171448573}
+  - component: {fileID: 1257373223161876295}
+  - component: {fileID: 8102959975645644697}
   - component: {fileID: 1444368100406441630}
   - component: {fileID: 6378281723848286735}
   m_Layer: 9
@@ -156,69 +156,6 @@ Transform:
   m_Father: {fileID: 8302736661070793322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5330832462869390721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066963244661264433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7092fc379809b50498d99618ff618b24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifTrue: {fileID: 7692584874171448573}
-  ifFalse: {fileID: 1257373223161876295}
-  singleTriggering: 0
-  parameterName: 1
-  logicOperator: 3
-  value: 100
---- !u!114 &7692584874171448573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066963244661264433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb2b9c48e5a366f4d8dfeccdacf4c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifReady: {fileID: 8102959975645644697}
-  IfNot: {fileID: 469033822027731562}
-  cooldown: 5
---- !u!114 &1257373223161876295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066963244661264433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb2b9c48e5a366f4d8dfeccdacf4c9c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifReady: {fileID: 8102959975645644697}
-  IfNot: {fileID: 469033822027731562}
-  cooldown: 10
---- !u!114 &8102959975645644697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066963244661264433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1138fc9b75954a84d80c64d27f3c8bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nextStep: {fileID: 943390361182360034}
-  speed: 30
-  time: 1
 --- !u!114 &469033822027731562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ifTrue: {fileID: 6907781545069344021}
-  ifFalse: {fileID: 1444368100406441630}
+  ifFalse: {fileID: 5330832462869390721}
   attackVariant: 1
 --- !u!114 &3796829676599270681
 MonoBehaviour:
@@ -279,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ifTrue: {fileID: 6907781545069344021}
-  ifFalse: {fileID: 1444368100406441630}
+  ifFalse: {fileID: 5330832462869390721}
   attackVariant: 2
 --- !u!114 &6907781545069344021
 MonoBehaviour:
@@ -298,6 +235,69 @@ MonoBehaviour:
   damage: 10
   attackTrigger: {fileID: 6378281723848286735}
   triggerEnter: 1
+--- !u!114 &5330832462869390721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066963244661264433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7092fc379809b50498d99618ff618b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ifTrue: {fileID: 7692584874171448573}
+  ifFalse: {fileID: 1257373223161876295}
+  singleTriggering: 0
+  parameterName: 1
+  logicOperator: 3
+  value: 100
+--- !u!114 &7692584874171448573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066963244661264433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2b9c48e5a366f4d8dfeccdacf4c9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ifReady: {fileID: 8102959975645644697}
+  IfNot: {fileID: 6907781545069344021}
+  cooldown: 5
+--- !u!114 &1257373223161876295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066963244661264433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb2b9c48e5a366f4d8dfeccdacf4c9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ifReady: {fileID: 8102959975645644697}
+  IfNot: {fileID: 6907781545069344021}
+  cooldown: 10
+--- !u!114 &8102959975645644697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066963244661264433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1138fc9b75954a84d80c64d27f3c8bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 943390361182360034}
+  speed: 30
+  time: 0.5
 --- !u!114 &1444368100406441630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 5330832462869390721}
+  _nextStep: {fileID: 469033822027731562}
   time: 0.5
 --- !u!70 &6378281723848286735
 CapsuleCollider2D:
@@ -632,7 +632,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1604902823518373763}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 0.5
+  m_Radius: 2
   m_Speed: 5
   m_Acceleration: 10
   avoidancePriority: 50

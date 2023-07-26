@@ -10,9 +10,9 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Awake()
     {
-        var goFolder = GameObject.Find("Units");
+        var goFolder = GameObject.Find("PlayerUnits");
         if (!goFolder)
-            folder = new GameObject("Units").transform;
+            folder = new GameObject("PlayerUnits").transform;
         else
             folder = goFolder.transform;
     }

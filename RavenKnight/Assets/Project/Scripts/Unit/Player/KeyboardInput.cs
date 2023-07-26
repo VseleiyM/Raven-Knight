@@ -32,6 +32,6 @@ public class KeyboardInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.Move(_direction);
+        movement.Move(_direction.normalized);
     }
 }
