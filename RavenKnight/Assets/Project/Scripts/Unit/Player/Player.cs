@@ -14,17 +14,18 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private float _speed = 1;
     public DamageableTag DamageableTag { get => _damageableTag; }
     [SerializeField] private DamageableTag _damageableTag;
-    public bool IsInvincible { get => _isInvincible; }
-    [SerializeField] private bool _isInvincible;
+    [SerializeField, Min(0.01f)] private float _invincibleDuration = 0.2f;
 
     public bool IsDead { get => _isDead; }
     [Space(10)] [SerializeField] private bool _isDead;
     public List<MonoBehaviour> DisableComponents { get => _disableComponents; }
     [SerializeField] private List<MonoBehaviour> _disableComponents;
-
     public PlayerInfo PlayerInfo => _playerInfo;
     private PlayerInfo _playerInfo;
-    private Coroutine corTakeDamage;
+
+    private bool _offTakeDamage;
+    private Coroutine takeDamageEffect;
+    private Coroutine offCollider;
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void ChangeInvincible()
     {
-        _isInvincible = !_isInvincible;
+        _offTakeDamage = !_offTakeDamage;
     }
 
     private void OnBossRoomClear()
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        if (_isInvincible) return;
+        if (_offTakeDamage) return;
 
         if (!_isDead)
         {
@@ -71,25 +72,26 @@ public class Player : MonoBehaviour, IDamageable
             {
                 if (damage > 0)
                 {
-                    if (corTakeDamage != null)
-                        StopCoroutine(corTakeDamage);
+                    if (takeDamageEffect != null)
+                        StopCoroutine(takeDamageEffect);
+                    takeDamageEffect = StartCoroutine(TakeDamageEffect());
 
-                    corTakeDamage = StartCoroutine(CorTakeDamage());
+                    ActiveInvincibleEffect(_invincibleDuration);
                 }
                 else if (damage < 0)
                 {
-                    _playerInfo.Animator.SetTrigger("TakedHeal");
+                    _playerInfo.Animator.SetTrigger(AnimatorParameter.TakedHeal.ToString());
                 }
             }
             else
             {
-                _playerInfo.Animator.SetTrigger("Dead");
+                _playerInfo.Animator.SetTrigger(AnimatorParameter.Dead.ToString());
                 _isDead = true;
             }
         }
     }
 
-    private IEnumerator CorTakeDamage()
+    private IEnumerator TakeDamageEffect()
     {
         float takeDamage = 1;
         while (takeDamage > 0)
@@ -98,5 +100,24 @@ public class Player : MonoBehaviour, IDamageable
             takeDamage -= Time.deltaTime * 4;
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void ActiveInvincibleEffect(float duration)
+    {
+        if (offCollider != null)
+            StopCoroutine(offCollider);
+
+        offCollider = StartCoroutine(OffCollider(duration));
+    }
+
+    private IEnumerator OffCollider(float duration)
+    {
+        _playerInfo.PhysycCollider.enabled = false;
+        while (duration > 0)
+        {
+            duration -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _playerInfo.PhysycCollider.enabled = true;
     }
 }

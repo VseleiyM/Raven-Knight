@@ -6,7 +6,7 @@ public class KeyboardInput : MonoBehaviour
 {
     [SerializeField] private Movement movement;
     [SerializeField] private Player player;
-    [SerializeField] private DashAbilitys dashAbilitys;
+    [SerializeField] private DashAbilityNew dashAbility;
     [SerializeField] private KeyCode abilityKey = KeyCode.Space;
     [SerializeField] private KeyCode invincible = KeyCode.I;
 
@@ -20,11 +20,12 @@ public class KeyboardInput : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         _direction.Set(horizontal, vertical);
+        _direction = _direction.normalized;
 
         movement.LookDirection(_direction);
 
         if (Input.GetKeyDown(abilityKey))
-            dashAbilitys.TakeDash(_direction);
+            dashAbility.ActiveDash(_direction);
 
         if (Input.GetKeyDown(invincible))
             player.ChangeInvincible();
@@ -32,6 +33,6 @@ public class KeyboardInput : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movement.Move(_direction.normalized);
+        movement.Move(_direction);
     }
 }

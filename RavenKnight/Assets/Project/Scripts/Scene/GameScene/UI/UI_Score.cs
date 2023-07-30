@@ -13,14 +13,9 @@ public class UI_Score : MonoBehaviour
     [SerializeField] private GameObject textScorePrefab;
     [SerializeField] private TextMeshProUGUI text_Score;
 
-    private LocalizaiotnKeeper keeper;
+    [Inject] private LocalizaiotnKeeper keeper;
     private int score = 0;
     private string scoreTranslate;
-
-    private void Awake()
-    {
-        keeper = LocalizaiotnKeeper.instance;
-    }
 
     private void Start()
     {

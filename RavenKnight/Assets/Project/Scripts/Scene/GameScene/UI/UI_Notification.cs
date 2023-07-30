@@ -22,11 +22,6 @@ public class UI_Notification : MonoBehaviour
     private string textWave;
     private string textBossWave;
 
-    private void Awake()
-    {
-        keeper = LocalizaiotnKeeper.instance;
-    }
-
     private void Start()
     {
         textRoomCleared = keeper.GetLocalization("GameMenu.UI.RoomCleared");

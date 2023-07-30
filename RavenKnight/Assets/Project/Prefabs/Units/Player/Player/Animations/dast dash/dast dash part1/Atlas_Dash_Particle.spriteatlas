@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_Dash_Particle
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 5d6ecafe1eea06842b3eed2f441242c5, type: 3}
+    - {fileID: 2800000, guid: 1123a5489abbd704db24043f2424e8cb, type: 3}
+    - {fileID: 2800000, guid: 56e8881e19ee8e84cb61405635fa09ef, type: 3}
+    - {fileID: 2800000, guid: 1c68671f002ba6a44847cd63fa94d5f6, type: 3}
+    - {fileID: 2800000, guid: 6b3c4122c0500dd4d83dd1e92566a960, type: 3}
+    - {fileID: 2800000, guid: 233de882880afcc4e8e249474dc4d606, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 6b3c4122c0500dd4d83dd1e92566a960: 21300000
+    - 233de882880afcc4e8e249474dc4d606: 21300000
+    - 1123a5489abbd704db24043f2424e8cb: 21300000
+    - 56e8881e19ee8e84cb61405635fa09ef: 21300000
+    - 5d6ecafe1eea06842b3eed2f441242c5: 21300000
+    - 1c68671f002ba6a44847cd63fa94d5f6: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6b3c4122c0500dd4d83dd1e92566a960, type: 3}
+  - {fileID: 21300000, guid: 233de882880afcc4e8e249474dc4d606, type: 3}
+  - {fileID: 21300000, guid: 1123a5489abbd704db24043f2424e8cb, type: 3}
+  - {fileID: 21300000, guid: 56e8881e19ee8e84cb61405635fa09ef, type: 3}
+  - {fileID: 21300000, guid: 5d6ecafe1eea06842b3eed2f441242c5, type: 3}
+  - {fileID: 21300000, guid: 1c68671f002ba6a44847cd63fa94d5f6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - dast_dash_00005
+  - dast_dash_00006
+  - dast_dash_00002
+  - dast_dash_00003
+  - dast_dash_00000
+  - dast_dash_00004
+  m_RenderDataMap: {}
+  m_Tag: Atlas_Dash_Particle
+  m_IsVariant: 0

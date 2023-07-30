@@ -30,18 +30,12 @@ public class Movement : MonoBehaviour
         normal = Vector2.zero;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)normal * 3);
-    }
-
     public void Move(Vector2 direction)
     {
         Vector2 offset = Project(direction) * Time.fixedDeltaTime * playerInfo.Player.Speed;
         _rigidbody.MovePosition(_rigidbody.position + offset);
-
-        playerInfo.Animator.SetBool("Run", direction.magnitude > 0);
+        
+        playerInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), direction.magnitude > 0);
     }
 
     public void LookDirection(Vector2 lookDir)
@@ -61,14 +55,9 @@ public class Movement : MonoBehaviour
 
     private Vector2 Project(Vector2 direction)
     {
-        
         if (Vector2.Dot(direction, normal) > 0)
-        {
             return direction;
-        }
         else
-        {
             return (direction - Vector2.Dot(direction, normal) * normal).normalized;
-        }
     }
 }

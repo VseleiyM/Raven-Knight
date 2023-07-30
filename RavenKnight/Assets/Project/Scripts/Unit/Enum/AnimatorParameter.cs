@@ -9,5 +9,8 @@ public enum AnimatorParameter
     Attack,
     SpawnDelay,
     AttackSpeed,
-    Rage
+    Rage,
+    ParticleFlip,
+    Dash,
+    TakedHeal
 }

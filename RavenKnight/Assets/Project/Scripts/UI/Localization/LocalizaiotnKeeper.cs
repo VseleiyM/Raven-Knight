@@ -8,8 +8,6 @@ namespace UI
 {
     public class LocalizaiotnKeeper : MonoBehaviour
     {
-        public static LocalizaiotnKeeper instance;
-
         [SerializeField] private TextAsset csvFile = null;
         [SerializeField] private LanguageID id = LanguageID.russian;
         [SerializeField] private LanguageFont[] fonts = new LanguageFont[0];
@@ -71,7 +69,6 @@ namespace UI
         }
         private void Awake()
         {
-            instance = this;
             parser = new SVCParser(csvFile);
             SetLanguageID(id);
         }
