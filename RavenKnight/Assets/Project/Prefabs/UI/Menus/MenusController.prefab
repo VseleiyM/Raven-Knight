@@ -72,6 +72,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6996301840778685288}
     m_Modifications:
+    - target: {fileID: 812782449294952479, guid: 32d42fc2cf9a9814b9ce33d8a269761b,
+        type: 3}
+      propertyPath: key
+      value: Menu.LoadScreen.Discription
+      objectReference: {fileID: 0}
+    - target: {fileID: 851121197658889229, guid: 32d42fc2cf9a9814b9ce33d8a269761b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034195501671679014, guid: 32d42fc2cf9a9814b9ce33d8a269761b,
+        type: 3}
+      propertyPath: key
+      value: Menu.LoadScreen.PressAnyButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6475104209345731274, guid: 32d42fc2cf9a9814b9ce33d8a269761b,
         type: 3}
       propertyPath: m_Name
@@ -186,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199024380194631495, guid: 32d42fc2cf9a9814b9ce33d8a269761b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -314,6 +334,11 @@ PrefabInstance:
       value: SettingsOptionsMenu
       objectReference: {fileID: 0}
     - target: {fileID: 4619442129367960110, guid: 665f550b3cf3e6c4c966db37c4d264d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062206656706230927, guid: 665f550b3cf3e6c4c966db37c4d264d8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -494,6 +519,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6996301840778685288}
     m_Modifications:
+    - target: {fileID: 1336673111663371673, guid: 0cfd26087565f96418d71a2215090ec7,
+        type: 3}
+      propertyPath: key
+      value: Menu.Main.OptionsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1400584649192863158, guid: 0cfd26087565f96418d71a2215090ec7,
         type: 3}
       propertyPath: m_Pivot.x
@@ -624,6 +654,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -390
       objectReference: {fileID: 0}
+    - target: {fileID: 1737950859536645646, guid: 0cfd26087565f96418d71a2215090ec7,
+        type: 3}
+      propertyPath: key
+      value: Menu.PauseMenu.ContinueButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2266872775778010358, guid: 0cfd26087565f96418d71a2215090ec7,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -658,6 +693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741320650317956163, guid: 0cfd26087565f96418d71a2215090ec7,
+        type: 3}
+      propertyPath: key
+      value: Menu.PauseMenu.MainMenuButton
       objectReference: {fileID: 0}
     - target: {fileID: 9089553840964484795, guid: 0cfd26087565f96418d71a2215090ec7,
         type: 3}
