@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3606505436892175551}
-  speed: 10
-  time: 0.1
+  distance: 0.5
+  duration: 0.1
 --- !u!114 &3606505436892175551
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -339,7 +339,6 @@ MonoBehaviour:
   _damageableTag: 0
   _invincibleDuration: 0.2
   _isDead: 0
-  _offTakeDamage: 0
   _disableComponents:
   - {fileID: 1833224057568819247}
   - {fileID: 3696760822266238380}

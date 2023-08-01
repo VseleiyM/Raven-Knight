@@ -35,21 +35,22 @@ public class DashAbilityNew : MonoBehaviour
         if (isReady)
         {
             isReady = false;
-            StartCoroutine(Init(direction, duration));
+            StartCoroutine(Init(direction));
             StartCoroutine(Cooldown(cooldown));
         }
     }
 
-    public IEnumerator Init(Vector3 direction, float duration)
+    public IEnumerator Init(Vector3 direction)
     {
         DashStart();
+        float curDuration = duration;
         float speed = distance / duration;
-        while (duration > 0)
+        while (curDuration > 0)
         {
             ParticleEffect();
             Vector2 offset = direction * (speed * Time.fixedDeltaTime);
             _rigidbody2D.MovePosition(_rigidbody2D.position + offset);
-            duration -= Time.fixedDeltaTime;
+            curDuration -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
         DashExit();

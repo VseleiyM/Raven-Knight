@@ -6,8 +6,8 @@ public class Rush : UnitCommand
 {
     [SerializeField] private UnitCommand _nextStep;
     [Space(10)]
-    [SerializeField, Min(1f)] private float distance = 1;
-    [SerializeField, Min(0.01f)] private float time = 1;
+    [SerializeField, Min(0.01f)] private float distance = 1;
+    [SerializeField, Min(0.01f)] private float duration = 1;
 
     private MobInfo mobInfo;
     private UnitCommand curStep;
@@ -50,12 +50,12 @@ public class Rush : UnitCommand
 
     private IEnumerator MoveRush(Vector2 direction)
     {
-        float curTime = 0;
-        float speed = distance / time;
+        float curDuration = duration;
+        float speed = distance / duration;
         mobInfo.Agent.enabled = false;
-        while (curTime < time)
+        while (curDuration > 0)
         {
-            curTime += Time.fixedDeltaTime;
+            curDuration -= Time.fixedDeltaTime;
             Vector2 self = mobInfo.Rigidbody2D.position;
             Vector2 offset = mobInfo.Project(direction) * Time.fixedDeltaTime * speed;
             mobInfo.Rigidbody2D.MovePosition(self + offset);

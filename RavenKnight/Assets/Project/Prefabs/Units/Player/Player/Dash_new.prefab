@@ -5084,7 +5084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   duration: 0.2
-  speed: 20
+  distance: 4
+  invincibleDuration: 0.2
 --- !u!95 &643027248494805342
 Animator:
   serializedVersion: 5
