@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4270901138975635629}
   - component: {fileID: 2663658042315519862}
   - component: {fileID: 808044105153170685}
+  - component: {fileID: 8928968952310357097}
   - component: {fileID: 5816136929351097052}
   - component: {fileID: 3926589139242111874}
   m_Layer: 8
@@ -60,9 +61,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401f359cfbf39b84998472ae8348707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTrue: {fileID: 5816136929351097052}
+  ifTrue: {fileID: 8928968952310357097}
   ifFalse: {fileID: 3926589139242111874}
   attackVariant: 1
+--- !u!114 &8928968952310357097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3223447369590879533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1138fc9b75954a84d80c64d27f3c8bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 5816136929351097052}
+  distance: 1
+  time: 0.1
 --- !u!114 &5816136929351097052
 MonoBehaviour:
   m_ObjectHideFlags: 0

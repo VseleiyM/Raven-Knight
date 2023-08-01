@@ -6,7 +6,7 @@ public class Rush : UnitCommand
 {
     [SerializeField] private UnitCommand _nextStep;
     [Space(10)]
-    [SerializeField, Min(1f)] private float speed = 1;
+    [SerializeField, Min(1f)] private float distance = 1;
     [SerializeField, Min(0.01f)] private float time = 1;
 
     private MobInfo mobInfo;
@@ -51,6 +51,7 @@ public class Rush : UnitCommand
     private IEnumerator MoveRush(Vector2 direction)
     {
         float curTime = 0;
+        float speed = distance / time;
         mobInfo.Agent.enabled = false;
         while (curTime < time)
         {

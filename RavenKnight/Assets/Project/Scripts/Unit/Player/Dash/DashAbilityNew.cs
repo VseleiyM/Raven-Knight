@@ -6,7 +6,7 @@ public class DashAbilityNew : MonoBehaviour
 {
     [SerializeField] private float cooldown = 1f;
     [SerializeField, Min(0.01f)] private float duration = 0.2f;
-    [SerializeField] private float speed = 20f;
+    [SerializeField] private float distance = 2;
     [SerializeField] private float invincibleDuration = 0.2f;
 
     private PlayerInfo playerInfo;
@@ -43,6 +43,7 @@ public class DashAbilityNew : MonoBehaviour
     public IEnumerator Init(Vector3 direction, float duration)
     {
         DashStart();
+        float speed = distance / duration;
         while (duration > 0)
         {
             ParticleEffect();
