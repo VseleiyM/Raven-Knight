@@ -24,6 +24,7 @@ public class Player : MonoBehaviour, IDamageable
     private PlayerInfo _playerInfo;
 
     private bool _offTakeDamage;
+    private bool invincible;
     private Coroutine takeDamageEffect;
     private Coroutine offCollider;
 
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (_offTakeDamage) return;
+        if (invincible) return;
 
         if (!_isDead)
         {
@@ -107,17 +109,17 @@ public class Player : MonoBehaviour, IDamageable
         if (offCollider != null)
             StopCoroutine(offCollider);
 
-        offCollider = StartCoroutine(OffCollider(duration));
+        offCollider = StartCoroutine(InvincibleOn(duration));
     }
 
-    private IEnumerator OffCollider(float duration)
+    private IEnumerator InvincibleOn(float duration)
     {
-        _playerInfo.PhysycCollider.enabled = false;
+        invincible = true;
         while (duration > 0)
         {
             duration -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
-        _playerInfo.PhysycCollider.enabled = true;
+        invincible = false;
     }
 }

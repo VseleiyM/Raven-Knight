@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DashAbilitys : MonoBehaviour
+public class DashAbility : MonoBehaviour
 {
     [SerializeField] private Transform tailTransform;
     [SerializeField] private float cooldown = 1f;
@@ -36,7 +36,7 @@ public class DashAbilitys : MonoBehaviour
         }
     }
 
-    public IEnumerator Init(Vector3 direction, float duration)
+    public IEnumerator Init(Vector2 direction, float duration)
     {
         DashStart();
         while (duration > 0)

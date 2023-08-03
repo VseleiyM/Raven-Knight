@@ -40,14 +40,15 @@ public class DashAbilityNew : MonoBehaviour
         }
     }
 
-    public IEnumerator Init(Vector3 direction)
+    private IEnumerator Init(Vector2 direction)
     {
         DashStart();
         float curDuration = duration;
         float speed = distance / duration;
+        Debug.Log(speed);
+        ParticleEffect();
         while (curDuration > 0)
         {
-            ParticleEffect();
             Vector2 offset = direction * (speed * Time.fixedDeltaTime);
             _rigidbody2D.MovePosition(_rigidbody2D.position + offset);
             curDuration -= Time.fixedDeltaTime;

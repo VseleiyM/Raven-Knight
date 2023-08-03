@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyboardInput1 : MonoBehaviour
 {
     [SerializeField] private Movement movement;
-    [SerializeField] private DashAbilitys dashAbilitys;
+    [SerializeField] private DashAbility dashAbilitys;
 
     private float horizontal;
     private float vertical;
