@@ -961,6 +961,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: durationWave
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: useDurationWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: listWave.Array.size
       value: 3
       objectReference: {fileID: 0}

@@ -14,7 +14,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private BoxCollider2D trigger;
     [SerializeField] private List<GameObject> listEnemy;
     [SerializeField] private List<WaveSettings> listWave;
-    [SerializeField] [Min(0.01f)] private float spawnDelay = 1;
+    [SerializeField, Min(0.01f)] private float spawnDelay = 1;
+    [SerializeField, Min(0)] private float durationWave = 60;
+    [SerializeField] private bool useDurationWave;
     [SerializeField] private bool bossRoom;
 
     [SerializeField] private bool isClear = false;
@@ -24,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> listLifeEnemy = new List<GameObject>();
 
     private Transform folder;
+    private Coroutine timeToNextWave;
 
     private void Awake()
     {
@@ -46,6 +49,8 @@ public class EnemySpawner : MonoBehaviour
         GlobalEvents.SendCloseRoom();
         GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
         SpawnWave();
+        if (useDurationWave)
+            timeToNextWave = StartCoroutine(TimeToNextWave(durationWave));
     }
 
     private void SpawnWave()
@@ -87,25 +92,43 @@ public class EnemySpawner : MonoBehaviour
         listLifeEnemy.Remove(mob.gameObject);
         if (listLifeEnemy.Count == 0)
         {
-            currentWave++;
-            if (currentWave < listWave.Count)
-            {
-                GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
-                SpawnWave();
-            }
-            else
-            {
-                GlobalEvents.mobSpawned -= OnMobSpawned;
-                GlobalEvents.bossDead -= OnMobDead;
-                GlobalEvents.mobDead -= OnMobDead;
-
-                isClear = true;
-                GlobalEvents.SendOpenRoom();
-                if (bossRoom)
-                {
-                    GlobalEvents.SendBossRoomClear();
-                }
-            }
+            NextWave();
         }
+    }
+
+    private void NextWave()
+    {
+        currentWave++;
+        if (currentWave < listWave.Count)
+        {
+            GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
+            SpawnWave();
+        }
+        else
+        {
+            GlobalEvents.mobSpawned -= OnMobSpawned;
+            GlobalEvents.bossDead -= OnMobDead;
+            GlobalEvents.mobDead -= OnMobDead;
+
+            isClear = true;
+            GlobalEvents.SendOpenRoom();
+            if (bossRoom)
+                GlobalEvents.SendBossRoomClear();
+        }
+
+        if (useDurationWave)
+            timeToNextWave = StartCoroutine(TimeToNextWave(durationWave));
+    }
+
+    private IEnumerator TimeToNextWave(float duration)
+    {
+        while (duration > 0)
+        {
+            duration -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (currentWave < listWave.Count - 1)
+            NextWave();
     }
 }
