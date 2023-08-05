@@ -34,7 +34,6 @@ RectTransform:
   - {fileID: 2968603026904310654}
   - {fileID: 8199024380194631495}
   m_Father: {fileID: 7561905263756656873}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -110,7 +109,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 249441490426895112}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -188,7 +186,6 @@ RectTransform:
   m_Children:
   - {fileID: 249441490426895112}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -296,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 130.0959
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
@@ -341,7 +338,7 @@ PrefabInstance:
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 68
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1936070213117882155, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
@@ -385,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
       propertyPath: m_fontSize
-      value: 33.2
+      value: 38.3
       objectReference: {fileID: 0}
     - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
@@ -560,6 +557,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Press any button
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4045111078913282136, guid: dd017b9780d36b24cbcc98ca9581f0cb,
         type: 3}
