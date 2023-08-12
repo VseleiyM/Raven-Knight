@@ -10,7 +10,7 @@ public class MobInfo : MonoBehaviour
     public Collider2D AttackTrigger => _attackTrigger;
     [SerializeField] private Collider2D _attackTrigger;
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     public Animator Animator => _animator;
     private Animator _animator;
     public NavMeshAgent Agent => _agent;
@@ -24,9 +24,6 @@ public class MobInfo : MonoBehaviour
     public Vector2 Normal => _normal;
     private Vector2 _normal;
 
-    public GameObject Projectile => _projectile;
-    [Space(10)]
-    [SerializeField] private GameObject _projectile;
     public Transform PointForProjectile => _pointForProjectile;
     [SerializeField] private Transform _pointForProjectile;
 
@@ -37,7 +34,6 @@ public class MobInfo : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _mob = GetComponent<Mob>();
         _animator = GetComponentInChildren<Animator>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         Agent.updateUpAxis = false;
         Agent.updateRotation = false;

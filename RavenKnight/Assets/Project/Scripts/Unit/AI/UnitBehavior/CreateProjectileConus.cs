@@ -43,7 +43,7 @@ public class CreateProjectileConus : UnitCommand
 
         for (int i = 0; i < projectileCount; i++)
         {
-            var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));
+            var projectile = Instantiate(prefabProjectile, spawnPoint, Quaternion.Euler(0, 0, angle));
             projectile.transform.parent = folder;
             if (gameObject.layer == (int)LayerName.Enemy)
                 projectile.layer = (int)LayerName.EnemyProjectile;

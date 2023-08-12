@@ -69,7 +69,7 @@ namespace UI
             new Vector2Int(1280, 720),
             new Vector2Int(1366, 768),
             new Vector2Int(1920, 1080),
-            new Vector2Int(2560, 1140),
+            new Vector2Int(2560, 1440),
             new Vector2Int(1920*2, 1080*2)
         };
         private int currentResolutionIndex;

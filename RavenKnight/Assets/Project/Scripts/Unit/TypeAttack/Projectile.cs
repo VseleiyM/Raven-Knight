@@ -12,19 +12,19 @@ public class Projectile : MonoBehaviour
 
     public Animator Animator => _animator;
     private Animator _animator;
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D _rigidbody2D;
     private TypeAttackInfo attackInfo;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         attackInfo = GetComponent<TypeAttackInfo>();
     }
 
     private void Start()
     {
-        coroutine = StartCoroutine(MoveRight());
+        coroutine = StartCoroutine(MoveProjectile());
     }
 
     public void SoundEffect(AudioClip clip)
@@ -38,13 +38,11 @@ public class Projectile : MonoBehaviour
         if (collision.isTrigger) return;
 
         if (coroutine != null)
-        {
             StopCoroutine(coroutine);
-        }
         _animator.SetTrigger("Hit");
 
-        if (damageableTag != DamageableTag.All &&
-            collision.tag != damageableTag.ToString())
+        if (damageableTag != DamageableTag.All
+            && !collision.CompareTag(damageableTag.ToString()))
             return;
         
         IDamageable target = collision.GetComponent<IDamageable>();
@@ -52,14 +50,20 @@ public class Projectile : MonoBehaviour
             target.TakeDamage(damage);
     }
 
-    public IEnumerator MoveRight()
+    public IEnumerator MoveProjectile()
     {
         while (true)
         {
+            Vector2 offset = transform.right * Time.fixedDeltaTime * speed;
+            _rigidbody2D.MovePosition(_rigidbody2D.position + offset);
+            yield return new WaitForFixedUpdate();
+        }
+
+        void Old()
+        {
             Vector3 moveVector = transform.position + transform.right * Time.fixedDeltaTime * speed;
             Vector2 offset = new Vector2(moveVector.x, moveVector.y);
-            _rigidbody.MovePosition(offset);
-            yield return new WaitForFixedUpdate();
+            _rigidbody2D.MovePosition(offset);
         }
     }
 

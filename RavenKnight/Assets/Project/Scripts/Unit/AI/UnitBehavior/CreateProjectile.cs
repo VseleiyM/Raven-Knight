@@ -36,7 +36,7 @@ public class CreateProjectile : UnitCommand
         Vector3 target = mobInfo.Mob.target.position;
         float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
 
-        var projectile = Instantiate(mobInfo.Projectile, spawnPoint, Quaternion.Euler(0, 0, angle));
+        var projectile = Instantiate(prefabProjectile, spawnPoint, Quaternion.Euler(0, 0, angle));
         projectile.transform.parent = folder;
         if (gameObject.layer == (int)LayerName.Enemy)
             projectile.layer = (int)LayerName.EnemyProjectile;

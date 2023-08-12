@@ -45,7 +45,6 @@ public class DashAbilityNew : MonoBehaviour
         DashStart();
         float curDuration = duration;
         float speed = distance / duration;
-        Debug.Log(speed);
         ParticleEffect();
         while (curDuration > 0)
         {
