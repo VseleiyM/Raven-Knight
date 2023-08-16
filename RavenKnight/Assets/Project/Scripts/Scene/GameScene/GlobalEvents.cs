@@ -17,7 +17,7 @@ public class GlobalEvents
     public static event Action<Mob> bossTakeDamage;
     public static event Action<Mob> bossDead;
     public static event Action closeRoom;
-    public static event Action openRoom;
+    public static event Action<EnemySpawner> openRoom;
     public static event Action waveClear;
     public static event Action bossRoomClear;
     public static event Action<int, bool> nextWave;
@@ -84,9 +84,9 @@ public class GlobalEvents
         closeRoom?.Invoke();
     }
 
-    public static void SendOpenRoom()
+    public static void SendOpenRoom(EnemySpawner spawner)
     {
-        openRoom?.Invoke();
+        openRoom?.Invoke(spawner);
     }
 
     public static void SendWaveClear()

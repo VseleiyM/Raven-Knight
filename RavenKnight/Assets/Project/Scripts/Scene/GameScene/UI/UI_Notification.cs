@@ -9,7 +9,7 @@ using Zenject;
 public class UI_Notification : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI notification;
-    [SerializeField] private Text gainPoints;
+    [SerializeField] private TextMeshProUGUI gainPoints;
     [SerializeField] private CanvasGroup canvasGroup;
     [Header("Настройки")]
     [SerializeField] [Min(0.01f)] private float fadeTime = 1;
@@ -29,6 +29,7 @@ public class UI_Notification : MonoBehaviour
         textWave = keeper.GetLocalization("GameMenu.UI.Wave");
         textBossWave = keeper.GetLocalization("GameMunu.UI.BossWave");
         notification.font = keeper.currentFont;
+        gainPoints.font = keeper.currentFont;
     }
 
     private void OnEnable()
@@ -45,11 +46,11 @@ public class UI_Notification : MonoBehaviour
         keeper.languageChanged -= OnLangaugeChanged;
     }
 
-    private void OnRoomOpen()
+    private void OnRoomOpen(EnemySpawner spawner)
     {
-        GlobalEvents.SendScoreChanged(5000);
+        GlobalEvents.SendScoreChanged(spawner.ScoreForRoom);
         notification.text = $"{textRoomCleared}";
-        gainPoints.text = $"+5000 {textPoints}";
+        gainPoints.text = $"+{spawner.ScoreForRoom} {textPoints}";
         if (coroutine == null)
             coroutine = StartCoroutine(AnimationNotification());
     }
@@ -91,5 +92,6 @@ public class UI_Notification : MonoBehaviour
         textWave = keeper.GetLocalization("GameMenu.UI.Wave");
         textBossWave = keeper.GetLocalization("GameMunu.UI.BossWave");
         notification.font = keeper.currentFont;
+        gainPoints.font = keeper.currentFont;
     }
 }
