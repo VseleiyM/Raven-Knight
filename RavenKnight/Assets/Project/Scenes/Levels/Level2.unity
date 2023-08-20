@@ -139,6 +139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: _scoreForRoom
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: useDurationWave
       value: 0
       objectReference: {fileID: 0}
@@ -754,6 +759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: _scoreForRoom
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: useDurationWave
       value: 0
       objectReference: {fileID: 0}
@@ -1170,6 +1180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: durationWave
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: _scoreForRoom
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -7294,6 +7309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
+      propertyPath: _scoreForRoom
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
       propertyPath: useDurationWave
       value: 0
       objectReference: {fileID: 0}
@@ -7520,6 +7540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnDelay
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
+        type: 3}
+      propertyPath: _scoreForRoom
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}

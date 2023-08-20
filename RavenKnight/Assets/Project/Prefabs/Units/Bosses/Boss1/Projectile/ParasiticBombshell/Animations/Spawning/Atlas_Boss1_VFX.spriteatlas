@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_Boss1_VFX
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 5c65e26b852283f429b2f6e00a5b5c8c, type: 3}
+    - {fileID: 2800000, guid: ee3de1a311b7e0c42b642fe806dbc830, type: 3}
+    - {fileID: 2800000, guid: f6c9545b121224b44a492a0d159c828e, type: 3}
+    - {fileID: 2800000, guid: 08c4d3e9c9cae2744a46f6dc4a53eb28, type: 3}
+    - {fileID: 2800000, guid: 294aa1815c1b2bd4689dac5115503069, type: 3}
+    - {fileID: 2800000, guid: 2a626745797defa498529ac9aed1d3d2, type: 3}
+    - {fileID: 2800000, guid: f817562119d95364ea9263dcd84324b4, type: 3}
+    - {fileID: 2800000, guid: 750c1bf51ab4b7a4bb027d4ece5bd32b, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - f817562119d95364ea9263dcd84324b4: 21300000
+    - 294aa1815c1b2bd4689dac5115503069: 21300000
+    - ee3de1a311b7e0c42b642fe806dbc830: 21300000
+    - 2a626745797defa498529ac9aed1d3d2: 21300000
+    - 750c1bf51ab4b7a4bb027d4ece5bd32b: 21300000
+    - 08c4d3e9c9cae2744a46f6dc4a53eb28: 21300000
+    - f6c9545b121224b44a492a0d159c828e: 21300000
+    - 5c65e26b852283f429b2f6e00a5b5c8c: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f817562119d95364ea9263dcd84324b4, type: 3}
+  - {fileID: 21300000, guid: 294aa1815c1b2bd4689dac5115503069, type: 3}
+  - {fileID: 21300000, guid: ee3de1a311b7e0c42b642fe806dbc830, type: 3}
+  - {fileID: 21300000, guid: 2a626745797defa498529ac9aed1d3d2, type: 3}
+  - {fileID: 21300000, guid: 750c1bf51ab4b7a4bb027d4ece5bd32b, type: 3}
+  - {fileID: 21300000, guid: 08c4d3e9c9cae2744a46f6dc4a53eb28, type: 3}
+  - {fileID: 21300000, guid: f6c9545b121224b44a492a0d159c828e, type: 3}
+  - {fileID: 21300000, guid: 5c65e26b852283f429b2f6e00a5b5c8c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - soplya_00006
+  - soplya_00004
+  - soplya_00001
+  - soplya_00005
+  - soplya_00007
+  - soplya_00003
+  - soplya_00002
+  - soplya_00000
+  m_RenderDataMap: {}
+  m_Tag: Atlas_Boss1_VFX
+  m_IsVariant: 0

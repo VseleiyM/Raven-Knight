@@ -28,7 +28,7 @@ public class Level : MonoBehaviour
         gate.SetActive(true);
     }
 
-    private void OnRoomOpen()
+    private void OnRoomOpen(EnemySpawner spawner)
     {
         gate.SetActive(false);
     }

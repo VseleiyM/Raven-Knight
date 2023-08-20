@@ -30,16 +30,9 @@ public class AreaEffectDuration : MonoBehaviour
         _trigger.GetContacts(results);
         foreach (var collision in results)
         {
-            if (collision.tag == damageableTag.ToString())
-            {
+            if (damageableTag == DamageableTag.All
+                || collision.CompareTag(damageableTag.ToString()))
                 collision.GetComponent<IDamageable>().TakeDamage(damage);
-                break;
-            }
-
-            if (damageableTag == DamageableTag.All)
-            {
-                collision.GetComponent<IDamageable>().TakeDamage(damage);
-            }
         }
     }
 

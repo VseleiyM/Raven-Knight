@@ -44,7 +44,8 @@ Material:
     m_Floats:
     - _FogStrength: 0.5
     - _NoiseStep: 0.4
-    - _Speed: 0.1
+    - _Scale: 1
+    - _Speed: 1
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &4742449464880221738

@@ -8,7 +8,8 @@ public class AttackTarget : UnitCommand
     [SerializeField] private UnitCommand ifTrue;
     [SerializeField] private UnitCommand ifFalse;
     [Space(10)]
-    [Min(1)][SerializeField] private int attackVariant = 1;
+    [SerializeField, Min(1)] private int attackVariant = 1;
+    [SerializeField] private bool lookAtTarget;
 
     private bool attack = false;
     private bool attackReady = true;
@@ -59,10 +60,11 @@ public class AttackTarget : UnitCommand
             attackReady = false;
             _nextStep = this;
 
-            if (transform.position.x > mobInfo.Mob.target.transform.position.x)
-                mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
-            else
-                mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+            if (lookAtTarget)
+                if (transform.position.x > mobInfo.Mob.target.transform.position.x)
+                    mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                else
+                    mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
 
             mobInfo.Animator.SetInteger("AttackVariant", attackVariant);
             mobInfo.Animator.SetBool("Attack", true);

@@ -18,6 +18,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField, Min(0)] private float durationWave = 60;
     [SerializeField] private bool useDurationWave;
     [SerializeField] private bool bossRoom;
+    public int ScoreForRoom => _scoreForRoom;
+    [SerializeField] private int _scoreForRoom;
 
     [SerializeField] private bool isClear = false;
     [SerializeField] private bool triggered = false;
@@ -111,7 +113,7 @@ public class EnemySpawner : MonoBehaviour
             GlobalEvents.mobDead -= OnMobDead;
 
             isClear = true;
-            GlobalEvents.SendOpenRoom();
+            GlobalEvents.SendOpenRoom(this);
             if (bossRoom)
                 GlobalEvents.SendBossRoomClear();
         }
