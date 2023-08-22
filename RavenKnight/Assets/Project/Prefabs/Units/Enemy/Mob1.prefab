@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 5663901790079783081}
   damageableTag: 1
-  damage: 3
+  damage: 5
   attackTrigger: {fileID: 0}
   triggerEnter: 0
 --- !u!114 &5663901790079783081
