@@ -85,7 +85,8 @@ public class Mob : MonoBehaviour, IDamageable
         enableAI = false;
         mobInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), false);
         mobInfo.Animator.SetBool(AnimatorParameter.Attack.ToString(), false);
-        mobInfo.Agent.isStopped = true;
+        if (!mobInfo.Agent.isStopped)
+            mobInfo.Agent.isStopped = true;
     }
 
     public void TakeDamage(float damage)
