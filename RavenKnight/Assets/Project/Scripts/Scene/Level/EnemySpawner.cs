@@ -48,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
         GlobalEvents.mobDead += OnMobDead;
 
         triggered = true;
+        currentWave = 0;
         GlobalEvents.SendCloseRoom();
         GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
         SpawnWave();

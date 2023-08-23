@@ -12,5 +12,7 @@ public enum AnimatorParameter
     Rage,
     ParticleFlip,
     Dash,
-    TakedHeal
+    TakedHeal,
+    Hit,
+    ProjectileSplash
 }

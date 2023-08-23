@@ -57,39 +57,12 @@ MonoBehaviour:
   - {fileID: 4890648544588420582}
   - {fileID: 4582932911747216701}
   dropList:
-  - _dropItemPrefab: {fileID: 7488771080196396190, guid: 827332dd9b1c84246be4000a9ec8101c,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: a651444e33b3bda4e906ef1d62290bcd,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: 5a55b60eea7b2cf47a3eb8066f206cae,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: 5a55b60eea7b2cf47a3eb8066f206cae,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: 5a55b60eea7b2cf47a3eb8066f206cae,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: 5a55b60eea7b2cf47a3eb8066f206cae,
-      type: 3}
-    _dropChance: 50
-  - _dropItemPrefab: {fileID: 7786844833636159494, guid: 5a55b60eea7b2cf47a3eb8066f206cae,
-      type: 3}
-    _dropChance: 50
+  - _dropItemPrefab:
+    - {fileID: 7488771080196396190, guid: 7da19ecd6ba993d4cb244cb58d22a1e7, type: 3}
+    - {fileID: 7488771080196396190, guid: df9189d76343ccc499fba7951ad432a1, type: 3}
+    _min: 1
+    _max: 1
+    _oneItem: 1
   _parameters:
   - _parameter: 0
     current: 0

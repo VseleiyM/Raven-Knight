@@ -45,8 +45,8 @@ public class UI_Score : MonoBehaviour
     {
         if (item.TypePickupItem != pickupItem) return;
 
-        score += item.Value;
-        OnCreateScoreText(item.transform.position, item.Value);
+        score += (int)item.Value;
+        OnCreateScoreText(item.transform.position, (int)item.Value);
 
         string scoreString = "";
         for (int i = score.ToString().Length; i < 7; i++)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8443521900955384937}
   - component: {fileID: 2982187008042392801}
+  - component: {fileID: 8597140225070727678}
   - component: {fileID: 7918505661223966020}
   - component: {fileID: 7258549735485371234}
   - component: {fileID: 3081827009970269313}
@@ -51,6 +52,21 @@ MonoBehaviour:
   damageableTag: 0
   damage: 0
   speed: 5
+  splashRadius: 0
+  splashDamage: 0
+--- !u!114 &8597140225070727678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984344394082757371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3e25b113a920e45ae68d897d9b1102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _splash: {fileID: 0}
 --- !u!212 &7918505661223966020
 SpriteRenderer:
   m_ObjectHideFlags: 0

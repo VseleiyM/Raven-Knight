@@ -26,6 +26,7 @@ public class Mob : MonoBehaviour, IDamageable
     private bool enableAI = false;
     private MobAction mobAction;
     private Transform folder;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -119,6 +120,8 @@ public class Mob : MonoBehaviour, IDamageable
         }
         else
         {
+            if (isDead) return;
+            isDead = true;
             StopAllCoroutines();
             mobInfo.Agent.enabled = true;
             mobInfo.Agent.isStopped = true;
@@ -130,14 +133,33 @@ public class Mob : MonoBehaviour, IDamageable
             {
                 foreach (var dropSlot in dropList)
                 {
-                    if (!dropSlot.DropItemPrefab & dropSlot.DropChance == 0) continue;
-
-                    int random = Random.Range(1, 100);
-                    if (random < dropSlot.DropChance)
+                    int min = dropSlot.Min;
+                    int max = dropSlot.Max;
+                    if (min > max) { max = min; }
+                    if (max == 0) continue;
+                    max++;
+                    
+                    if (!dropSlot.OneItem)
                     {
-                        Vector3 spawnPoint = transform.position + (Vector3)Random.insideUnitCircle * 0.125f;
-                        var item = Instantiate(dropSlot.DropItemPrefab, spawnPoint, Quaternion.identity);
-                        item.transform.parent = folder;
+                        foreach (var itemPrefab in dropSlot.DropItemPrefab)
+                        {
+                            int random = Random.Range(min, max);
+                            for (int i = 0; i < random; i++)
+                            {
+                                Vector3 spawnPoint = transform.position + (Vector3)Random.insideUnitCircle * 0.125f;
+                                Instantiate(itemPrefab, spawnPoint, Quaternion.identity, folder);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int random = Random.Range(min, max);
+                        int randomItem = Random.Range(0, dropSlot.DropItemPrefab.Count);
+                        for (int i = 0; i < random; i++)
+                        {
+                            Vector3 spawnPoint = transform.position + (Vector3)Random.insideUnitCircle * 0.125f;
+                            Instantiate(dropSlot.DropItemPrefab[randomItem], spawnPoint, Quaternion.identity, folder);
+                        }
                     }
                 }
             }

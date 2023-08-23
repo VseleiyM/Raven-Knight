@@ -6,8 +6,8 @@ public class PickupItem : MonoBehaviour
 {
     public TypePickupItem TypePickupItem => _typePickupItem;
     [SerializeField] private TypePickupItem _typePickupItem;
-    public int Value => _value;
-    [SerializeField] private int _value;
+    public float Value => _value;
+    [SerializeField] private float _value;
 
     private Animator animator;
 

@@ -6,5 +6,9 @@ public enum TypePickupItem
 {
     Coin,
     PartHealPotion,
-    PartDamagePotion
+    PartDamagePotion,
+    MultiShot,
+    RateOfFire,
+    SplashShot,
+    DamageBoost
 }

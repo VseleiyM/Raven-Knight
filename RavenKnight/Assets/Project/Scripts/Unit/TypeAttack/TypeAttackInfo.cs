@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class TypeAttackInfo : MonoBehaviour
 {
-    public Animator Animator { get => _animator; }
-    [SerializeField] private Animator _animator;
-    public AudioSource AudioSource { get => _audioSource; }
-    [SerializeField] private AudioSource _audioSource;
+    public Animator Animator => _animator;
+    private Animator _animator;
+    public AudioSource AudioSource => _audioSource;
+    private AudioSource _audioSource;
+    public Splash Splash => _splash;
+    [SerializeField] private Splash _splash;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
+    }
 }
