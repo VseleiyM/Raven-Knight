@@ -9,14 +9,16 @@ public class Projectile : MonoBehaviour
     public float speed = 1f;
     [Min(0)] public float splashRadius = 0;
     public float splashDamage;
-
-    public Coroutine coroutine;
+    [SerializeField] private AnimationCurve fluctuation;
+    [SerializeField, Min(0.1f)] private float durationFluctuation = 1f;
 
     public Animator Animator => _animator;
     private Animator _animator;
     public TypeAttackInfo AttackInfo => _attackInfo;
     private TypeAttackInfo _attackInfo;
     private Rigidbody2D _rigidbody2D;
+
+    public Coroutine coroutine;
 
     private void Awake()
     {
@@ -64,18 +66,24 @@ public class Projectile : MonoBehaviour
 
     public IEnumerator MoveProjectile()
     {
+        float expiredTime = 0;
+        float progress = 0;
+        Vector2 currentPosition = transform.position;
+
         while (true)
         {
-            Vector2 offset = transform.right * Time.fixedDeltaTime * speed;
-            _rigidbody2D.MovePosition(_rigidbody2D.position + offset);
-            yield return new WaitForFixedUpdate();
-        }
+            expiredTime += Time.fixedDeltaTime;
 
-        void Old()
-        {
-            Vector3 moveVector = transform.position + transform.right * Time.fixedDeltaTime * speed;
-            Vector2 offset = new Vector2(moveVector.x, moveVector.y);
-            _rigidbody2D.MovePosition(offset);
+            if (expiredTime > durationFluctuation)
+                expiredTime = 0;
+
+            progress = expiredTime / durationFluctuation;
+
+            Vector2 offsetRight = transform.right * Time.fixedDeltaTime * speed;
+            currentPosition += offsetRight;
+            Vector2 offsetUp = transform.up * fluctuation.Evaluate(progress);
+            _rigidbody2D.MovePosition(currentPosition + offsetUp);
+            yield return new WaitForFixedUpdate();
         }
     }
 

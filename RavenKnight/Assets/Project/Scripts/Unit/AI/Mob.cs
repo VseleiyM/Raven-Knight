@@ -79,6 +79,11 @@ public class Mob : MonoBehaviour, IDamageable
     {
         enableAI = true;
         mobInfo.Agent.isStopped = false;
+
+        foreach (var component in mobInfo.Colliders2D)
+        {
+            component.enabled = true;
+        }
     }
 
     public void OnPlayerDead(Player player)

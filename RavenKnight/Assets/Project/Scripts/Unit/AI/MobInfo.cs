@@ -26,6 +26,8 @@ public class MobInfo : MonoBehaviour
 
     public Transform PointForProjectile => _pointForProjectile;
     [SerializeField] private Transform _pointForProjectile;
+    public List<Collider2D> Colliders2D => _colliders2D;
+    [SerializeField] private List<Collider2D> _colliders2D;
 
     private void Awake()
     {
