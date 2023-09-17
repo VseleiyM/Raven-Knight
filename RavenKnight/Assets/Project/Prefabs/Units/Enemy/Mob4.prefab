@@ -66,7 +66,7 @@ MonoBehaviour:
   _parameters:
   - _parameter: 0
     current: 0
-    _max: 3
+    _max: 2
     _fillAwake: 1
   target: {fileID: 0}
   targetCollider: {fileID: 0}
