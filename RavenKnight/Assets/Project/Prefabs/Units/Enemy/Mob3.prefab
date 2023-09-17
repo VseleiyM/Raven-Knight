@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 5816136929351097052}
-  distance: 0.5
-  duration: 0.1
+  distance: 1.5
+  duration: 0.2
 --- !u!114 &5816136929351097052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3926589139242111874}
   damageableTag: 1
-  damage: 10
+  damage: 20
   attackTrigger: {fileID: 0}
   triggerEnter: 0
 --- !u!114 &3926589139242111874
@@ -177,7 +177,7 @@ MonoBehaviour:
   _parameters:
   - _parameter: 0
     current: 0
-    _max: 7
+    _max: 5
     _fillAwake: 1
   target: {fileID: 0}
   targetCollider: {fileID: 0}
@@ -192,7 +192,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 4
-  m_Acceleration: 4
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1
