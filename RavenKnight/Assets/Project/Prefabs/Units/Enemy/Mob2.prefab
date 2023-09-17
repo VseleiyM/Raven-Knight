@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 5675408672363177785}
-  distance: 1.2
+  distance: 1
   duration: 0.1
 --- !u!114 &5675408672363177785
 MonoBehaviour:

@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: bossRoom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -13227,7 +13227,7 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: bossRoom
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
