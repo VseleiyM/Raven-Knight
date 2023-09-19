@@ -8,9 +8,7 @@ public class DropItemMagnet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "PickupItems") return;
-
-        StartCoroutine(Magnet(collision.transform));
+        StartCoroutine(Magnet(collision.transform.parent.transform));
     }
 
     private IEnumerator Magnet(Transform target)

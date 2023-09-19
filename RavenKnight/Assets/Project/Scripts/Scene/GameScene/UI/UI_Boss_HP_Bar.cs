@@ -22,7 +22,7 @@ public class UI_Boss_HP_Bar : MonoBehaviour
         GlobalEvents.bossDead -= OnBossDead;
     }
 
-    private void OnBossInit(Mob mob)
+    private void OnBossInit(Target target)
     {
         foreach (var slider in listSliders)
         {
@@ -30,36 +30,20 @@ public class UI_Boss_HP_Bar : MonoBehaviour
         }
         nameBoss.gameObject.SetActive(true);
 
-        UnitParameter healthParameter = null;
-        foreach (var parameter in mob.Parameters)
-        {
-            if (parameter.Parameter == ParametersList.Health)
-            {
-                healthParameter = parameter;
-                break;
-            }
-        }
-
+        UnitParameter healthParameter = target.ReturnParameter(ParametersList.Health);
+        
         float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
         foreach (var slider in listSliders)
         {
             slider.value = currentPersentHealth;
         }
 
-        nameBoss.text = mob.gameObject.name;
+        nameBoss.text = target.gameObject.name;
     }
 
-    private void OnBossTakeDamage(Mob mob)
+    private void OnBossTakeDamage(Target target)
     {
-        UnitParameter healthParameter = null;
-        foreach (var parameter in mob.Parameters)
-        {
-            if (parameter.Parameter == ParametersList.Health)
-            {
-                healthParameter = parameter;
-                break;
-            }
-        }
+        UnitParameter healthParameter = target.ReturnParameter(ParametersList.Health);
 
         float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
         foreach (var slider in listSliders)
@@ -68,7 +52,7 @@ public class UI_Boss_HP_Bar : MonoBehaviour
         }
     }
 
-    private void OnBossDead(Mob mob)
+    private void OnBossDead(Target target)
     {
         foreach (var slider in listSliders)
         {

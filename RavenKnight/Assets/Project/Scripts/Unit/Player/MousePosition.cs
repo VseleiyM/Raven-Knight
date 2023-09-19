@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MousePosition : MonoBehaviour
 {
-
+    /*
     public Vector3 LookVector => _lookVector;
     private Vector3 _lookVector;
 
@@ -35,5 +35,5 @@ public class MousePosition : MonoBehaviour
         {
             compWeapon.SpriteRenderer.flipY = true;
         }
-    }
+    }*/
 }

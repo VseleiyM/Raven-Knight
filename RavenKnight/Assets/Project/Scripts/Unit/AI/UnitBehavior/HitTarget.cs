@@ -20,7 +20,7 @@ public class HitTarget : UnitCommand
         if (triggerEnter) return;
 
         Collider2D trigger;
-        Collider2D target = mobInfo.Mob.targetCollider;
+        Collider2D target = mobInfo.targetCollider;
 
         if (attackTrigger)
             trigger = attackTrigger;
@@ -28,7 +28,7 @@ public class HitTarget : UnitCommand
             trigger = mobInfo.AttackTrigger;
 
         if (trigger.IsTouching(target))
-            target.GetComponent<IDamageable>().TakeDamage(damage);
+            target.GetComponent<Target>().TakeDamage(damage);
     }
 
     public override void RequestData(MobInfo mobInfo)
@@ -41,9 +41,9 @@ public class HitTarget : UnitCommand
         if (!triggerEnter) return;
         if (collision.isTrigger) return;
 
-        if (collision.tag == TagName.Player.ToString())
+        if (collision.tag == damageableTag.ToString())
         {
-            collision.GetComponent<IDamageable>().TakeDamage(damage);
+            collision.GetComponent<Target>().TakeDamage(damage);
         }
     }
 }

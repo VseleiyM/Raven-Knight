@@ -461,8 +461,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3774518901421596486}
-  - component: {fileID: 6725696061794394773}
+  - component: {fileID: 3671150003670177499}
   - component: {fileID: 3774518901421596485}
+  - component: {fileID: 740080290078010535}
   - component: {fileID: 3774518901421596482}
   - component: {fileID: 2413799393261654351}
   - component: {fileID: 3774518901421596481}
@@ -492,7 +493,7 @@ Transform:
   - {fileID: 1249832927883492620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6725696061794394773
+--- !u!114 &3671150003670177499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,22 +502,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3774518901421596487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408ce385a14a24d4da37af037a08956b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ec0bc14b4c078b48bbd549b63627539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gainScore: 5000
-  _isBoss: 1
-  startStep:
-  - {fileID: 3703864740433641052}
-  - {fileID: 2413577295747591741}
-  dropList: []
   _parameters:
-  - _parameter: 0
+  - name: Health
+    _parameter: 1
     current: 0
     _max: 100
     _fillAwake: 1
-  target: {fileID: 0}
-  targetCollider: {fileID: 0}
+  - name: IsBoss
+    _parameter: 4
+    current: 0
+    _max: 0
+    _fillAwake: 0
+  - name: GainScore
+    _parameter: 3
+    current: 0
+    _max: 1000
+    _fillAwake: 0
+  dropList: []
+  invincibleDuration: 0
 --- !u!195 &3774518901421596485
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -539,6 +545,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &740080290078010535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774518901421596487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45854960c929bc140a6dbd11e76689d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 3991465360124030715}
+  _pointForProjectile: {fileID: 0}
+  _colliders2D:
+  - {fileID: 4867593923573936518}
 --- !u!114 &3774518901421596482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,12 +573,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83745433f01fe6e4f862995e7081d047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _physicsCollider: {fileID: 3774518901421596481}
   _attackTrigger: {fileID: 4051740818239659997}
-  _spriteRenderer: {fileID: 3991465360124030715}
-  _pointForProjectile: {fileID: 3774518901421596486}
-  _colliders2D:
-  - {fileID: 4867593923573936518}
+  startStep:
+  - {fileID: 3703864740433641052}
+  - {fileID: 2413577295747591741}
+  target: {fileID: 0}
+  targetCollider: {fileID: 0}
 --- !u!82 &2413799393261654351
 AudioSource:
   m_ObjectHideFlags: 0

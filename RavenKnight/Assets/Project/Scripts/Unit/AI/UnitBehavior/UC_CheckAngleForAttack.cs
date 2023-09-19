@@ -14,7 +14,7 @@ public class UC_CheckAngleForAttack : UnitCommand
     public override void Execute()
     {
         Vector3 startPoint = mobInfo.transform.position;
-        Vector3 target = mobInfo.Mob.target.position;
+        Vector3 target = mobInfo.target.position;
         float angle = Mathf.Atan2(target.y - startPoint.y, target.x - startPoint.x) * Mathf.Rad2Deg;
         
         _nextStep = this;

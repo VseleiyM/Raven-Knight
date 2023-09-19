@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class GlobalEvents
 {
-    public static event Action<Player> playerInit;
-    public static event Action<Player> playerTakeDamage;
-    public static event Action<Player> playerDead;
+    public static event Action<Target> playerInit;
+    public static event Action<Target, string> targetTakeDamage;
+    public static event Action<Target> playerDead;
     public static event Action<PickupItem> itemHasPickup;
     public static event Action<int> scoreChanged;
     public static event Action<Vector3,int> createScoreText;
-    public static event Action<Mob> mobSpawned;
-    public static event Action<Mob> mobDead;
-    public static event Action<Mob> bossInit;
-    public static event Action<Mob> bossTakeDamage;
-    public static event Action<Mob> bossDead;
+    public static event Action<Target> mobSpawned;
+    public static event Action<Target> mobDead;
+    public static event Action<Target> bossInit;
+    public static event Action<Target> bossTakeDamage;
+    public static event Action<Target> bossDead;
     public static event Action closeRoom;
     public static event Action<EnemySpawner> openRoom;
     public static event Action waveClear;
@@ -24,17 +24,17 @@ public class GlobalEvents
     public static event Action<bool> pauseStatus;
     public static event Action returnMenu;
 
-    public static void SendPlayerInit(Player player)
+    public static void SendPlayerInit(Target player)
     {
         playerInit?.Invoke(player);
     }
 
-    public static void SendPlayerTakeDamage(Player player)
+    public static void SendTargetTakeDamage(Target target, string tag)
     {
-        playerTakeDamage?.Invoke(player);
+        targetTakeDamage?.Invoke(target, tag);
     }
 
-    public static void SendPlayerDead(Player player)
+    public static void SendPlayerDead(Target player)
     {
         playerDead?.Invoke(player);
     }
@@ -54,29 +54,29 @@ public class GlobalEvents
         createScoreText?.Invoke(spawnPoint, score);
     }
 
-    public static void SendMobSpawned(Mob mob)
+    public static void SendMobSpawned(Target target)
     {
-        mobSpawned?.Invoke(mob);
+        mobSpawned?.Invoke(target);
     }
 
-    public static void SendMobDead(Mob mob)
+    public static void SendMobDead(Target target)
     {
-        mobDead?.Invoke(mob);
+        mobDead?.Invoke(target);
     }
 
-    public static void SendBossInit(Mob mob)
+    public static void SendBossInit(Target target)
     {
-        bossInit?.Invoke(mob);
+        bossInit?.Invoke(target);
     }
 
-    public static void SendBossTakeDamage(Mob mob)
+    public static void SendBossTakeDamage(Target target)
     {
-        bossTakeDamage?.Invoke(mob);
+        bossTakeDamage?.Invoke(target);
     }
 
-    public static void SendBossDead(Mob mob)
+    public static void SendBossDead(Target target)
     {
-        bossDead?.Invoke(mob);
+        bossDead?.Invoke(target);
     }
 
     public static void SendCloseRoom()

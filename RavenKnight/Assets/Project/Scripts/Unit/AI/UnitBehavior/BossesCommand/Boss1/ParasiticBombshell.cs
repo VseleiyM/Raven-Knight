@@ -66,7 +66,7 @@ public class ParasiticBombshell : UnitCommand
             area.transform.parent = temp;
             var compAreaEffect = area.GetComponent<AreaEffectSingle>();
             if (gameObject.layer == (int)LayerName.Enemy)
-                compAreaEffect.gameObject.layer = (int)LayerName.EnemyProjectile;
+                compAreaEffect.gameObject.layer = (int)LayerName.EnemyTrigger;
             compAreaEffect.damageableTag = damageableTag;
             compAreaEffect.damage = damage;
         }

@@ -55,11 +55,11 @@ public class Weapon : MonoBehaviour
         void CreateProjectile(Quaternion angle)
         {
             var projectile = Instantiate(projectilePrefab, transform.position, angle, temp);
-            projectile.layer = (int)LayerName.PlayerProjectile;
+            projectile.layer = (int)LayerName.PlayerTrigger;
             var compProjectile = projectile.GetComponent<Projectile>();
             if (compProjectile.AttackInfo.Splash)
-                compProjectile.AttackInfo.Splash.gameObject.layer = (int)LayerName.PlayerProjectile;
-            compProjectile.damageableTag = playerInfo.Player.DamageableTag;
+                compProjectile.AttackInfo.Splash.gameObject.layer = (int)LayerName.PlayerTrigger;
+            compProjectile.damageableTag = playerInfo.DamageableTag;
             compProjectile.damage = damage;
             compProjectile.splashRadius = splashRadius;
             compProjectile.splashDamage = splashDamage;

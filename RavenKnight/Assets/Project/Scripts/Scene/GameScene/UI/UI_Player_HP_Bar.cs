@@ -10,24 +10,29 @@ public class UI_Player_HP_Bar : MonoBehaviour
     private void OnEnable()
     {
         GlobalEvents.playerInit += OnPlayerInit;
-        GlobalEvents.playerTakeDamage += OnPlayerTakeDamage;
+        GlobalEvents.targetTakeDamage += OnPlayerTakeDamage;
     }
 
     private void OnDisable()
     {
         GlobalEvents.playerInit -= OnPlayerInit;
-        GlobalEvents.playerTakeDamage -= OnPlayerTakeDamage;
+        GlobalEvents.targetTakeDamage -= OnPlayerTakeDamage;
     }
-    private void OnPlayerInit(Player player)
+    private void OnPlayerInit(Target player)
     {
-        float currentPersentHealth = player.CurrentHealth / player.MaxHealth * 100;
+        UnitParameter healthParameter = player.ReturnParameter(ParametersList.Health);
+        float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
         slider.value = currentPersentHealth;
     }
 
-    private void OnPlayerTakeDamage(Player player)
+    private void OnPlayerTakeDamage(Target player, string tag)
     {
-        float currentPersentHealth = player.CurrentHealth / player.MaxHealth * 100;
-        slider.value = currentPersentHealth;
+        if (tag == GameObjectTag.Player.ToString())
+        {
+            UnitParameter healthParameter = player.ReturnParameter(ParametersList.Health);
+            float currentPersentHealth = healthParameter.current / healthParameter.Max * 100;
+            slider.value = currentPersentHealth;
+        }
     }
 
 }

@@ -3,64 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Target))]
 public class MobInfo : MonoBehaviour
 {
-    public Collider2D PhysicsCollider => _physicsCollider;
-    [SerializeField] private Collider2D _physicsCollider;
-    public Collider2D AttackTrigger => _attackTrigger;
-    [SerializeField] private Collider2D _attackTrigger;
-    public SpriteRenderer SpriteRenderer => _spriteRenderer;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    public Animator Animator => _animator;
-    private Animator _animator;
+    public TargetInfo TargetInfo => _targetInfo;
+    private TargetInfo _targetInfo;
     public NavMeshAgent Agent => _agent;
     private NavMeshAgent _agent;
-    public Rigidbody2D Rigidbody2D => _rigidbody2D;
-    private Rigidbody2D _rigidbody2D;
-    public AudioSource AudioSource => _audioSource;
-    private AudioSource _audioSource;
-    public Mob Mob => _mob;
-    private Mob _mob;
-    public Vector2 Normal => _normal;
-    private Vector2 _normal;
-
-    public Transform PointForProjectile => _pointForProjectile;
-    [SerializeField] private Transform _pointForProjectile;
-    public List<Collider2D> Colliders2D => _colliders2D;
-    [SerializeField] private List<Collider2D> _colliders2D;
+    public Collider2D AttackTrigger => _attackTrigger;
+    [SerializeField] private Collider2D _attackTrigger;
+    [Space(10)]
+    [SerializeField] private List<UnitCommand> startStep;
+    [Space(10)]
+    public Transform target;
+    public Collider2D targetCollider;
+    private bool enableAI = false;
+    public Coroutine corotine_AI;
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _audioSource = GetComponent<AudioSource>();
-        _mob = GetComponent<Mob>();
-        _animator = GetComponentInChildren<Animator>();
+        _targetInfo = GetComponent<TargetInfo>();
 
         Agent.updateUpAxis = false;
         Agent.updateRotation = false;
+
+        GlobalEvents.SendMobSpawned(TargetInfo.Target);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void Start()
     {
-        _normal = collision.contacts[collision.contacts.Length - 1].normal;
+        target = GameObject.FindGameObjectWithTag(GameObjectTag.Player.ToString()).transform;
+        targetCollider = target.GetComponent<Collider2D>();
+        GlobalEvents.playerDead += OnPlayerDead;
+
+        if (TargetInfo.Target.ReturnParameter(ParametersList.IsBoss) != null)
+            GlobalEvents.SendBossInit(this.TargetInfo.Target);
+    }
+    private void OnDestroy()
+    {
+        GlobalEvents.playerDead -= OnPlayerDead;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void FixedUpdate()
     {
-        _normal = Vector2.zero;
-    }
+        if (!enableAI) return;
 
-    public Vector2 Project(Vector2 direction)
-    {
-
-        if (Vector2.Dot(direction, _normal) > 0)
+        for (int i = 0; i < startStep.Count; i++)
         {
-            return direction;
+            startStep[i].RequestData(this);
+            startStep[i].Execute();
+            startStep[i] = startStep[i].NextStep;
         }
-        else
+    }
+
+    public void EnableAI()
+    {
+        enableAI = true;
+        Agent.isStopped = false;
+
+        foreach (var component in TargetInfo.Colliders2D)
         {
-            return (direction - Vector2.Dot(direction, _normal) * _normal).normalized;
+            component.enabled = true;
         }
+    }
+
+    public void OnPlayerDead(Target player)
+    {
+        enableAI = false;
+        TargetInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), false);
+        TargetInfo.Animator.SetBool(AnimatorParameter.Attack.ToString(), false);
+        if (Agent.isActiveAndEnabled)
+            Agent.SetDestination(this.transform.position);
     }
 }

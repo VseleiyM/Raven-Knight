@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInfo))]
 
 public class MouseInput : MonoBehaviour
-{
+{/*
     private PlayerInfo playerInfo;
     private Movement movement;
 
@@ -26,5 +26,5 @@ public class MouseInput : MonoBehaviour
         {
             movement.isFiring = false;
         }
-    }
+    }*/
 }

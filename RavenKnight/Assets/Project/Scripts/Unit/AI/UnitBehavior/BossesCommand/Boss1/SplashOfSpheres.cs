@@ -52,7 +52,7 @@ public class SplashOfSpheres : UnitCommand
             projectile.transform.parent = temp;
             var compProjectile = projectile.GetComponent<Projectile>();
             if (gameObject.layer == (int)LayerName.Enemy)
-                compProjectile.gameObject.layer = (int)LayerName.EnemyProjectile;
+                compProjectile.gameObject.layer = (int)LayerName.EnemyTrigger;
             compProjectile.damageableTag = DamageableTag.All;
             compProjectile.damage = damage;
             compProjectile.speed = projectileSpeed;

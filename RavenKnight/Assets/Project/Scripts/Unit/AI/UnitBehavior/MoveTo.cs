@@ -18,13 +18,19 @@ public class MoveTo : UnitCommand
     public override void Execute()
     {
         mobInfo.Agent.isStopped = false;
-        mobInfo.Animator.SetBool("Run", true);
-
-        if (transform.position.x > mobInfo.Mob.target.transform.position.x)
-            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        mobInfo.TargetInfo.Animator.SetBool("Run", true);
+        Vector3 newScale = mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale;
+        if (transform.position.x > mobInfo.target.transform.position.x)
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
+            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
         else
-            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
+            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
 
-        mobInfo.Agent.SetDestination(mobInfo.Mob.target.position);
+        mobInfo.Agent.SetDestination(mobInfo.target.position);
     }
 }

@@ -17,7 +17,7 @@ public class Splash : MonoBehaviour
         if (damageableTag != DamageableTag.All &&
             collision.tag != damageableTag.ToString()) return;
 
-        IDamageable target = collision.GetComponent<IDamageable>();
+        Target target = collision.GetComponent<Target>();
         if (target != null)
             target.TakeDamage(damage);
     }

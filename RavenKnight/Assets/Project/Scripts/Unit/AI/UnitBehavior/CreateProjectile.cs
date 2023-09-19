@@ -32,14 +32,14 @@ public class CreateProjectile : UnitCommand
 
     public override void Execute()
     {
-        Vector3 spawnPoint = mobInfo.PointForProjectile.transform.position;
-        Vector3 target = mobInfo.Mob.target.position;
+        Vector3 spawnPoint = mobInfo.TargetInfo.PointForProjectile.transform.position;
+        Vector3 target = mobInfo.target.position;
         float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
 
         var projectile = Instantiate(prefabProjectile, spawnPoint, Quaternion.Euler(0, 0, angle));
         projectile.transform.parent = folder;
         if (gameObject.layer == (int)LayerName.Enemy)
-            projectile.layer = (int)LayerName.EnemyProjectile;
+            projectile.layer = (int)LayerName.EnemyTrigger;
         Projectile compProjectile = projectile.GetComponent<Projectile>();
         compProjectile.damageableTag = damageableTag;
         compProjectile.damage = damage;

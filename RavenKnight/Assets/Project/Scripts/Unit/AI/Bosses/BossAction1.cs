@@ -24,9 +24,13 @@ public class BossAction1 : MonoBehaviour
 
     public void SendBossDead()
     {
-        GlobalEvents.SendBossDead(mobInfo.Mob);
-        GlobalEvents.SendScoreChanged(mobInfo.Mob.GainScore);
-        GlobalEvents.SendCreateScoreText(mobInfo.transform.position, mobInfo.Mob.GainScore);
+        GlobalEvents.SendBossDead(mobInfo.TargetInfo.Target);
+        UnitParameter scoreParam = mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore);
+        if (scoreParam != null)
+        {
+            GlobalEvents.SendScoreChanged((int)scoreParam.Max);
+            GlobalEvents.SendCreateScoreText(mobInfo.transform.position, (int)scoreParam.Max);
+        }
         Destroy(mobInfo.gameObject);
     }
 
@@ -40,7 +44,7 @@ public class BossAction1 : MonoBehaviour
             var enemy = Instantiate(deathSpawn, spawnPointV3, Quaternion.identity);
             enemy.transform.parent = units;
             var mobInfo = enemy.GetComponent<MobInfo>();
-            mobInfo.Animator.SetFloat("SpawnDelay", 6);
+            mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 6);
         }
     }
 }

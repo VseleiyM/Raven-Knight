@@ -7,6 +7,7 @@
         options = 2,
         menuPause = 3,
         loadScreen = 4,
+        credits = 5,
 
         gameOptions = 100,
         soundOptions = 101,

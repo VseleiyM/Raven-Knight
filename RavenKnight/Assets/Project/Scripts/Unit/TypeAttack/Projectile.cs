@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
             && !collision.CompareTag(damageableTag.ToString()))
             return;
         
-        IDamageable target = collision.GetComponent<IDamageable>();
+        Target target = collision.GetComponent<Target>();
         if (target != null)
             target.TakeDamage(damage);
     }

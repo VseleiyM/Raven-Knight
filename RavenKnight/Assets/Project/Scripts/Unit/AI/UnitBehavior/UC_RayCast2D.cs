@@ -11,6 +11,8 @@ public class UC_RayCast2D : UnitCommand
     [SerializeField] private DamageableTag damageableTag;
 
     private MobInfo mobInfo;
+    private Vector3 targetGizmo;
+
 
     public override UnitCommand NextStep => _nextStep;
     private UnitCommand _nextStep;
@@ -18,7 +20,8 @@ public class UC_RayCast2D : UnitCommand
     public override void Execute()
     {
         Vector2 self = mobInfo.transform.position;
-        Vector2 target = mobInfo.Mob.target.transform.position;
+        Vector2 target = mobInfo.target.transform.position;
+        targetGizmo = target;
         Vector2 direction = target - self;
 
         RaycastHit2D hit = Physics2D.Raycast(self, direction.normalized, 100f, layerMask);

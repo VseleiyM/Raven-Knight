@@ -27,16 +27,24 @@ public class Rush : UnitCommand
 
         if (isMoving) return;
 
-        mobInfo.Agent.isStopped = true;
-        mobInfo.Animator.SetBool("Run", false);
-        if (transform.position.x > mobInfo.Mob.target.transform.position.x)
-            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        mobInfo.TargetInfo.Animator.SetBool("Run", false);
+
+        Vector3 newScale = mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale;
+        if (transform.position.x > mobInfo.target.transform.position.x)
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
+            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
         else
-            mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
+            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
+
         curStep = this;
         isMoving = true;
 
-        Vector2 target = mobInfo.Mob.target.position;
+        Vector2 target = mobInfo.target.position;
         Vector2 self = mobInfo.transform.position;
         Vector2 direction = target - self;
 
@@ -52,16 +60,16 @@ public class Rush : UnitCommand
     {
         float curDuration = duration;
         float speed = distance / duration;
-        mobInfo.Agent.enabled = false;
+        mobInfo.Agent.autoBraking = false;
         while (curDuration > 0)
         {
             curDuration -= Time.fixedDeltaTime;
-            Vector2 self = mobInfo.Rigidbody2D.position;
-            Vector2 offset = mobInfo.Project(direction) * Time.fixedDeltaTime * speed;
-            mobInfo.Rigidbody2D.MovePosition(self + offset);
+            Vector2 self = mobInfo.TargetInfo.Rigidbody2D.position;
+            Vector2 offset = mobInfo.TargetInfo.Project(direction) * Time.fixedDeltaTime * speed;
+            mobInfo.TargetInfo.Rigidbody2D.MovePosition(self + offset);
             yield return new WaitForFixedUpdate();
         }
-        mobInfo.Agent.enabled = true;
+        mobInfo.Agent.autoBraking = true;
         isFinish = true;
         isMoving = false;
     }

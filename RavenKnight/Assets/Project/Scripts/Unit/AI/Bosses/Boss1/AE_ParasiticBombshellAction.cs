@@ -24,6 +24,6 @@ public class AE_ParasiticBombshellAction : MonoBehaviour
         var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         enemy.transform.parent = units;
         var mobInfo = enemy.GetComponent<MobInfo>();
-        mobInfo.Animator.SetFloat("SpawnDelay", 6);
+        mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 6);
     }
 }

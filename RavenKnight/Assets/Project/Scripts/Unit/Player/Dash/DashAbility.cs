@@ -19,8 +19,8 @@ public class DashAbility : MonoBehaviour
     private void Awake()
     {
         playerInfo = GetComponentInParent<PlayerInfo>();
-        _rigidbody2D = playerInfo.Rigidbody2D;
-        animator = playerInfo.Animator;
+        _rigidbody2D = playerInfo.TargetInfo.Rigidbody2D;
+        animator = playerInfo.TargetInfo.Animator;
         dashAnimator = GetComponentInChildren<Animator>();
     }
 
@@ -54,7 +54,7 @@ public class DashAbility : MonoBehaviour
         {
             animator.SetBool(AnimatorParameter.Dash.ToString(), true);
             dashAnimator.SetBool(AnimatorParameter.Dash.ToString(), true);
-            foreach (var comp in playerInfo.Player.DisableComponents)
+            foreach (var comp in playerInfo.DisableComponents)
                 comp.enabled = false;
         }
 
@@ -68,8 +68,8 @@ public class DashAbility : MonoBehaviour
         {
             dashAnimator.SetBool(AnimatorParameter.Dash.ToString(), false);
             animator.SetBool(AnimatorParameter.Dash.ToString(), false);
-            if (!playerInfo.Player.IsDead)
-                foreach (var comp in playerInfo.Player.DisableComponents)
+            if (!playerInfo.IsDead)
+                foreach (var comp in playerInfo.DisableComponents)
                     comp.enabled = true;
         }
     }

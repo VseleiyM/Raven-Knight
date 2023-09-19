@@ -80,19 +80,19 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.transform.parent = folder;
                 var mobInfo = enemyGO.GetComponent<MobInfo>();
 
-                mobInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
+                mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
             }
         }
     }
 
-    private void OnMobSpawned(Mob mob)
+    private void OnMobSpawned(Target target)
     {
-        listLifeEnemy.Add(mob.gameObject);
+        listLifeEnemy.Add(target.gameObject);
     }
 
-    private void OnMobDead(Mob mob)
+    private void OnMobDead(Target target)
     {
-        listLifeEnemy.Remove(mob.gameObject);
+        listLifeEnemy.Remove(target.gameObject);
         if (listLifeEnemy.Count == 0)
         {
             NextWave();

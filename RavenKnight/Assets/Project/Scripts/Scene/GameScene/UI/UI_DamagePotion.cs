@@ -16,7 +16,7 @@ public class UI_DamagePotion : MonoBehaviour
     [SerializeField] private bool isReady;
 
     private Camera _mainCamera;
-    private PlayerInfo playerInfo;
+    private Transform player;
     private Transform folder;
 
     private void Awake()
@@ -50,20 +50,20 @@ public class UI_DamagePotion : MonoBehaviour
         void UseItem()
         {
             Vector3 lookPoint = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 lookingVector = lookPoint - playerInfo.transform.position;
+            Vector3 lookingVector = lookPoint - player.transform.position;
             float angle = Mathf.Atan2(lookingVector.y, lookingVector.x) * Mathf.Rad2Deg;
 
             slider.value = 0;
             isReady = false;
             text.color = new Color(1, 1, 1, 0.39f);
-            var projectile = Instantiate(projectilePrefab, playerInfo.transform.position, Quaternion.Euler(0, 0, angle));
+            var projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
             projectile.transform.parent = folder;
         }
     }
 
-    private void OnPlayerInit(Player player)
+    private void OnPlayerInit(Target target)
     {
-        playerInfo = player.PlayerInfo;
+        player = target.transform;
         slider.value = 0;
     }
 

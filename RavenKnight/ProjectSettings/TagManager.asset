@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Spawen
   - Enemy
+  - PickUpItem
   - PickupItems
   layers:
   - Default
@@ -16,31 +16,31 @@ TagManager:
   - Water
   - UI
   - Player
-  - PlayerProjectile
+  - PlayerTrigger
   - Enemy
-  - EnemyProjectile
+  - EnemyTrigger
+  - Object
+  - ObjectTrigger
+  - PickUpItem
+  - PickUpItemTrigger
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - Level
   - PlayerMagnet
-  - PickupItem
   - Spawner
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Floor
     uniqueID: 3742716917

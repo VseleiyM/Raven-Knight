@@ -21,8 +21,8 @@ public class DashAbilityNew : MonoBehaviour
     private void Awake()
     {
         playerInfo = GetComponentInParent<PlayerInfo>();
-        _rigidbody2D = playerInfo.Rigidbody2D;
-        animator = playerInfo.Animator;
+        _rigidbody2D = playerInfo.TargetInfo.Rigidbody2D;
+        animator = playerInfo.TargetInfo.Animator;
         dashAnimator = GetComponent<Animator>();
         particle = GetComponentInChildren<ParticleSystem>();
         trailRenderer = GetComponentInChildren<TrailRenderer>();
@@ -59,8 +59,8 @@ public class DashAbilityNew : MonoBehaviour
         void DashStart()
         {
             animator.SetBool(AnimatorParameter.Dash.ToString(), true);
-            playerInfo.Player.ActiveInvincibleEffect(invincibleDuration);
-            foreach (var comp in playerInfo.Player.DisableComponents)
+            playerInfo.TargetInfo.Target.ActiveInvincibleEffect(invincibleDuration);
+            foreach (var comp in playerInfo.DisableComponents)
                 comp.enabled = false;
         }
 
@@ -86,8 +86,8 @@ public class DashAbilityNew : MonoBehaviour
             particle.Stop();
             trailRenderer.emitting = false;
 
-            if (!playerInfo.Player.IsDead)
-                foreach (var comp in playerInfo.Player.DisableComponents)
+            if (!playerInfo.IsDead)
+                foreach (var comp in playerInfo.DisableComponents)
                     comp.enabled = true;
         }
     }

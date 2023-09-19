@@ -9,6 +9,7 @@ namespace UI
         [Header("Buttons")]
         [SerializeField] private Button newGameButton = null;
         [SerializeField] private Button optionsButton = null;
+        [SerializeField] private Button creditsButton = null;
         [SerializeField] private Button exitButton = null;
 
         private void CloseApplication()
@@ -26,11 +27,16 @@ namespace UI
         {
             OpenMenu(MenuType.options);
         }
+        private void OpenCredits()
+        {
+
+        }
         public override void Init(MenuController menuController)
         {
             base.Init(menuController);
             newGameButton.onClick.AddListener(StartNewGame);
             optionsButton.onClick.AddListener(OpenOptions);
+            creditsButton.onClick.AddListener(OpenCredits);
             exitButton.onClick.AddListener(CloseApplication);
         }
     }

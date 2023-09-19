@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4789930585871188309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 946212809657037884, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d5b41fc16d27da149aa1b226661896ed, type: 2}
+    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a140269d76d4b6549aa74180d51d750e,
+        type: 3}
+    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b185bd88ff05694f86e27d8987cf06b,
+        type: 3}
+    - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401741575246017905, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7488771080196396190, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: m_Name
+      value: DamageBoost
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596424050444902810, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: _value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8596424050444902810, guid: 95b12e8dc07fc534cb1b74091debce7b,
+        type: 3}
+      propertyPath: _typePickupItem
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95b12e8dc07fc534cb1b74091debce7b, type: 3}

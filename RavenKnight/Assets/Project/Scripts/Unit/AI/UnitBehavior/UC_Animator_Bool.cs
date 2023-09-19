@@ -15,7 +15,7 @@ public class UC_Animator_Bool : UnitCommand
 
     public override void Execute()
     {
-        mobInfo.Animator.SetBool(paramName.ToString(), value);
+        mobInfo.TargetInfo.Animator.SetBool(paramName.ToString(), value);
     }
 
     public override void RequestData(MobInfo mobInfo)

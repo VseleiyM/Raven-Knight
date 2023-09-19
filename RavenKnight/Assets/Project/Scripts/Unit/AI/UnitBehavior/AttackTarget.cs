@@ -46,7 +46,7 @@ public class AttackTarget : UnitCommand
             {
                 _nextStep = ifTrue;
                 attack = false;
-                mobInfo.Animator.SetBool("Attack", false);
+                mobInfo.TargetInfo.Animator.SetBool("Attack", false);
             }
             else
             {
@@ -55,26 +55,32 @@ public class AttackTarget : UnitCommand
             return;
         }
 
-        if (mobInfo.AttackTrigger.IsTouching(mobInfo.Mob.targetCollider))
+        if (mobInfo.AttackTrigger.IsTouching(mobInfo.targetCollider))
         {
             attackReady = false;
             _nextStep = this;
-
+            Vector3 newScale = mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale;
             if (lookAtTarget)
-                if (transform.position.x > mobInfo.Mob.target.transform.position.x)
-                    mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                if (transform.position.x > mobInfo.target.transform.position.x)
+                {
+                    newScale = new Vector3 (Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
+                    mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+                }
                 else
-                    mobInfo.SpriteRenderer.gameObject.transform.localScale = new Vector3(1, 1, 1);
+                {
+                    newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
+                    mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
+                }
 
-            mobInfo.Animator.SetInteger("AttackVariant", attackVariant);
-            mobInfo.Animator.SetBool("Attack", true);
-            mobInfo.Animator.SetBool("Run", false);
-            mobInfo.Agent.isStopped = true;
+            mobInfo.TargetInfo.Animator.SetInteger("AttackVariant", attackVariant);
+            mobInfo.TargetInfo.Animator.SetBool("Attack", true);
+            mobInfo.TargetInfo.Animator.SetBool("Run", false);
+            mobInfo.Agent.SetDestination(this.transform.position);
         }
         else
         {
             _nextStep = ifFalse;
-            mobInfo.Animator.SetBool("Attack", false);
+            mobInfo.TargetInfo.Animator.SetBool("Attack", false);
             mobInfo.Agent.isStopped = false;
         }
     }

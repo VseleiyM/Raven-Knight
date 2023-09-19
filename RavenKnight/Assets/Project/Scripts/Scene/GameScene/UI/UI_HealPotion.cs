@@ -41,7 +41,7 @@ public class UI_HealPotion : MonoBehaviour
         }
     }
 
-    private void OnPlayerInit(Player player)
+    private void OnPlayerInit(Target player)
     {
         spawnPoint = player.transform;
         slider.value = 0;

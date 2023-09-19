@@ -42,6 +42,6 @@ public class UC_ChangeParameter : UnitCommand
     public override void RequestData(MobInfo mobInfo)
     {
         this.mobInfo = mobInfo;
-        parameter = mobInfo.Mob.ReturnParameter(parameterName);
+        parameter = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
     }
 }

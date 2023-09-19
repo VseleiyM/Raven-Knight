@@ -32,7 +32,7 @@ public class AreaEffectDuration : MonoBehaviour
         {
             if (damageableTag == DamageableTag.All
                 || collision.CompareTag(damageableTag.ToString()))
-                collision.GetComponent<IDamageable>().TakeDamage(damage);
+                collision.GetComponent<Target>().TakeDamage(damage);
         }
     }
 

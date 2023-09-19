@@ -15,7 +15,7 @@ public class ProjectileSplash : MonoBehaviour
         if (damageableTag != DamageableTag.All &&
             other.tag != damageableTag.ToString()) return;
 
-        IDamageable target = other.GetComponent<IDamageable>();
+        Target target = other.GetComponent<Target>();
         if (target != null)
             target.TakeDamage(damage);
     }

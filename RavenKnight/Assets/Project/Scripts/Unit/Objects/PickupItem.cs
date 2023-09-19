@@ -18,7 +18,7 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player") return;
+        if (other.isTrigger) return;
 
         GlobalEvents.SendItemHasPickup(this);
         animator.SetTrigger("Picked");

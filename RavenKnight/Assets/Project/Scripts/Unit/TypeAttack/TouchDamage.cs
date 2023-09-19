@@ -7,16 +7,16 @@ public class TouchDamage : MonoBehaviour
     [SerializeField] private DamageableTag damageableTag;
     [SerializeField] private float damage;
 
-    private Collider2D collider2D;
+    private Collider2D col2D;
 
     private void Awake()
     {
-        collider2D = GetComponent<Collider2D>();
+        col2D = GetComponent<Collider2D>();
     }
 
     private void Start()
     {
-        collider2D.enabled = false;
+        col2D.enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -27,6 +27,6 @@ public class TouchDamage : MonoBehaviour
             && !collision.CompareTag(damageableTag.ToString()))
             return;
 
-        collision.GetComponent<IDamageable>().TakeDamage(damage);
+        collision.gameObject.GetComponent<Target>().TakeDamage(damage);
     }
 }

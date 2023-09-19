@@ -15,7 +15,7 @@ public class UC_Animator_Float : UnitCommand
 
     public override void Execute()
     {
-        mobInfo.Animator.SetFloat(paramName.ToString(), value);
+        mobInfo.TargetInfo.Animator.SetFloat(paramName.ToString(), value);
     }
 
     public override void RequestData(MobInfo mobInfo)

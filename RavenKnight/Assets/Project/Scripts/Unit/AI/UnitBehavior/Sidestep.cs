@@ -27,12 +27,11 @@ public class Sidestep : UnitCommand
 
         if (isMoving) return;
 
-        mobInfo.Agent.isStopped = true;
-        mobInfo.Animator.SetBool("Run", false);
+        mobInfo.TargetInfo.Animator.SetBool("Run", false);
         curStep = this;
         isMoving = true;
 
-        Vector2 target = mobInfo.Mob.target.position;
+        Vector2 target = mobInfo.target.position;
         Vector2 self = mobInfo.transform.position;
         Vector2 ray = self - target;
         Vector2 direction;
@@ -52,17 +51,17 @@ public class Sidestep : UnitCommand
     private IEnumerator MoveSidestep(Vector2 direction)
     {
         float curDuration = duration;
-        mobInfo.Agent.enabled = false;
         float speed = distance / duration;
+        mobInfo.Agent.autoBraking = false;
         while (curDuration > 0)
         {
             curDuration -= Time.fixedDeltaTime;
-            Vector2 self = mobInfo.Rigidbody2D.position;
-            Vector2 offset = mobInfo.Project(direction) * Time.fixedDeltaTime * speed;
-            mobInfo.Rigidbody2D.MovePosition(self + offset);
+            Vector2 self = mobInfo.TargetInfo.Rigidbody2D.position;
+            Vector2 offset = mobInfo.TargetInfo.Project(direction) * Time.fixedDeltaTime * speed;
+            mobInfo.TargetInfo.Rigidbody2D.MovePosition(self + offset);
             yield return new WaitForFixedUpdate();
         }
-        mobInfo.Agent.enabled = true;
+        mobInfo.Agent.autoBraking = true;
         isFinish = true;
         isMoving = false;
     }

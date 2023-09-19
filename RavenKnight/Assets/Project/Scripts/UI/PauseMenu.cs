@@ -53,10 +53,23 @@ namespace UI
         private bool isPause = false;
         private void PauseChange()
         {
-            isPause = !isPause;
-            Time.timeScale = isPause ? 0 : 1;
-            SetActive(isPause);
-            GlobalEvents.SendPauseStatus(isPause);
+            if (!gameObject.activeSelf)
+            {
+                isPause = true;
+                Time.timeScale = 0;
+                OpenMenu(MenuType.menuPause);
+                //SetActive(isPause);
+                GlobalEvents.SendPauseStatus(isPause);
+            }
+            else
+            {
+                if (menuController.CurrentMenu.GetType() != typeof(PauseMenu)) return;
+
+                isPause = false;
+                Time.timeScale = 1;
+                SetActive(isPause);
+                GlobalEvents.SendPauseStatus(isPause);
+            }
         }
 
         public override void Init(MenuController menuController)
@@ -64,7 +77,7 @@ namespace UI
             base.Init(menuController);
             GlobalEvents.returnMenu += OpenMainMenu;
             menuController.pauseKeyDowned += () => PauseChange();
-            continueButton.onClick.AddListener(()=> PauseChange());
+            continueButton.onClick.AddListener(() => PauseChange());
             optionsButton.onClick.AddListener(OpenOptions);
             mainMenuButton.onClick.AddListener(OpenMainMenu);
         }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class KeyboardInput : MonoBehaviour
 {
+    /*
     [SerializeField] private Movement movement;
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerInfo playerInfo;
     [SerializeField] private DashAbilityNew dashAbility;
     [SerializeField] private KeyCode abilityKey = KeyCode.Space;
     [SerializeField] private KeyCode invincible = KeyCode.I;
@@ -28,11 +29,11 @@ public class KeyboardInput : MonoBehaviour
             dashAbility.ActiveDash(_direction);
 
         if (Input.GetKeyDown(invincible))
-            player.ChangeInvincible();
+            playerInfo.TargetInfo.Target.ChangeInvincible();
     }
 
     private void FixedUpdate()
     {
         movement.Move(_direction);
-    }
+    }*/
 }

@@ -26,9 +26,13 @@ public class MobAction : MonoBehaviour
 
     public void SendMobDead()
     {
-        GlobalEvents.SendMobDead(mobInfo.Mob);
-        GlobalEvents.SendScoreChanged(mobInfo.Mob.GainScore);
-        GlobalEvents.SendCreateScoreText(mobInfo.transform.position, mobInfo.Mob.GainScore);
+        GlobalEvents.SendMobDead(mobInfo.TargetInfo.Target);
+        UnitParameter scoreParam = mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore);
+        if (scoreParam != null)
+        {
+            GlobalEvents.SendScoreChanged((int)scoreParam.Max);
+            GlobalEvents.SendCreateScoreText(mobInfo.transform.position, (int)scoreParam.Max);
+        }
     }
 
     public void DestroyUnit()
@@ -40,8 +44,8 @@ public class MobAction : MonoBehaviour
     {
         if (clip == null) return;
 
-        mobInfo.AudioSource.clip = clip;
-        mobInfo.AudioSource.Play();
+        mobInfo.TargetInfo.AudioSource.clip = clip;
+        mobInfo.TargetInfo.AudioSource.Play();
     }
 
     public void SendTakeDamage()
@@ -61,7 +65,7 @@ public class MobAction : MonoBehaviour
 
     public void MobSpawned()
     {
-        mobInfo.PhysicsCollider.enabled = true;
-        mobInfo.Mob.EnableAI();
+        mobInfo.TargetInfo.PhysicsCollider.enabled = true;
+        mobInfo.EnableAI();
     }
 }

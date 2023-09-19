@@ -9,7 +9,8 @@ namespace UI
         [SerializeField] private KeyCode pauseButtonKey = KeyCode.Escape;
         [SerializeField] private AbstractMenu[] menus = new AbstractMenu[0];
         private Stack<AbstractMenu> openedMenus = new Stack<AbstractMenu>();
-        private AbstractMenu currentMenu;
+        public AbstractMenu CurrentMenu => _currentMenu;
+        private AbstractMenu _currentMenu;
         [HideInInspector] public EnumScenes gameMode;
         private AbstractMenu GetMenu(MenuType type)
         {
@@ -26,9 +27,9 @@ namespace UI
         /// </summary>
         private void HideAllMenuAndActiveCurrent()
         {
-            foreach(AbstractMenu menu in menus)
+            foreach (AbstractMenu menu in menus)
             {
-                menu.SetActive(menu == currentMenu);
+                menu.SetActive(menu == _currentMenu);
             }
         }
         /// <summary>
@@ -40,11 +41,11 @@ namespace UI
         /// <param name="type"></param>
         public void OpenMenu(MenuType type)
         {
-            if (currentMenu != null && currentMenu.isRememberForBack)
+            if (_currentMenu != null && _currentMenu.isRememberForBack)
             {
-                openedMenus.Push(currentMenu);
+                openedMenus.Push(_currentMenu);
             }
-            currentMenu = GetMenu(type);
+            _currentMenu = GetMenu(type);
             HideAllMenuAndActiveCurrent();
         }
         /// <summary>
@@ -56,22 +57,22 @@ namespace UI
             {
                 if (gameMode == EnumScenes.MenuScene)
                 {
-                    currentMenu = GetMenu(MenuType.mainMenu);
+                    _currentMenu = GetMenu(MenuType.mainMenu);
                 }
                 else
                 {
-                    currentMenu = GetMenu(MenuType.menuPause);
+                    _currentMenu = GetMenu(MenuType.menuPause);
                 }
             }
             else
             {
-                currentMenu = openedMenus.Pop();
+                _currentMenu = openedMenus.Pop();
             }
             HideAllMenuAndActiveCurrent();
         }
         public void GoToMainMenu()
         {
-            currentMenu = GetMenu(MenuType.mainMenu);
+            _currentMenu = GetMenu(MenuType.mainMenu);
             openedMenus.Clear();
             HideAllMenuAndActiveCurrent();
         }
@@ -80,10 +81,10 @@ namespace UI
         /// </summary>
         private void CheckMenuTypes()
         {
-            HashSet<MenuType> menuTypes= new HashSet<MenuType>();
+            HashSet<MenuType> menuTypes = new HashSet<MenuType>();
             foreach (AbstractMenu menu in menus)
             {
-                if(menuTypes.Contains(menu.type))
+                if (menuTypes.Contains(menu.type))
                 {
                     Debug.LogError($"Menu with type {menu.type} more then 1!");
                 }
@@ -95,7 +96,7 @@ namespace UI
         }
         private void Awake()
         {
-            foreach(AbstractMenu menu in menus)
+            foreach (AbstractMenu menu in menus)
             {
                 menu.Init(this);
             }
@@ -109,15 +110,11 @@ namespace UI
         {
             if (Input.GetKeyDown(pauseButtonKey))
             {
-                if (gameMode == EnumScenes.GameScene)
-                {
-                    pauseKeyDowned?.Invoke();
-                    if (currentMenu.GetType() != typeof(PauseMenu))
-                    {
-                        currentMenu.SetActive(false);
-                    }
-                }
+                if (gameMode != EnumScenes.GameScene) return;
 
+                pauseKeyDowned?.Invoke();
+                //if (_currentMenu.GetType() != typeof(PauseMenu))
+                //    _currentMenu.SetActive(false);
             }
         }
     }

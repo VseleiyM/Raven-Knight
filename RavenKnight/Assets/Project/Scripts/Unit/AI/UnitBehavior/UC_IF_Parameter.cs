@@ -20,7 +20,7 @@ public class UC_IF_Parameter : UnitCommand
 
     public override void RequestData(MobInfo mobInfo)
     {
-        checkableValue = mobInfo.Mob.ReturnParameter(parameterName);
+        checkableValue = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
     }
 
     public override void Execute()

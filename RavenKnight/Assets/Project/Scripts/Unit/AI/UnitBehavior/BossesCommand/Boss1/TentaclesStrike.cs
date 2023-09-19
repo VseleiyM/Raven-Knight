@@ -17,7 +17,7 @@ public class TentaclesStrike : UnitCommand
 
     public override void RequestData(MobInfo mobInfo)
     {
-        target = mobInfo.Mob.target.position;
+        target = mobInfo.target.position;
     }
 
     public override void Execute()

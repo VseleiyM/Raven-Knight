@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 252744585}
   - component: {fileID: 252744584}
   - component: {fileID: 252744583}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Tilemap EmptySpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 253418051}
   - component: {fileID: 253418053}
   - component: {fileID: 253418052}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: TileMap SideWall (Out)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 596967767}
   - component: {fileID: 596967769}
   - component: {fileID: 596967768}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: TileMap SideWall (In)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 1013820172}
   - component: {fileID: 1013820174}
   - component: {fileID: 1013820173}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: NavMesh Surface (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 1374621169}
   - component: {fileID: 1374621171}
   - component: {fileID: 1374621170}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: NavMesh Surface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 1775283831}
   - component: {fileID: 1775283833}
   - component: {fileID: 1775283832}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: Tilemap Decoration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1151,7 @@ GameObject:
   - component: {fileID: 617583767388599078}
   - component: {fileID: 617583767388599077}
   - component: {fileID: 617583767388599076}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Tilemap Gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1457,7 @@ GameObject:
   - component: {fileID: 617583767649761492}
   - component: {fileID: 617583767649761499}
   - component: {fileID: 617583767649761504}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Tilemap Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 617583768356997526}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 617583768957259113}
   - component: {fileID: 617583768957259112}
   - component: {fileID: 617583768957259120}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Tilemap Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1831,7 +1831,7 @@ GameObject:
   - component: {fileID: 617583769207134944}
   - component: {fileID: 617583769207134945}
   - component: {fileID: 617583769207134952}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617583769207569408}
   - component: {fileID: 617583769207569415}
-  m_Layer: 10
+  m_Layer: 29
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

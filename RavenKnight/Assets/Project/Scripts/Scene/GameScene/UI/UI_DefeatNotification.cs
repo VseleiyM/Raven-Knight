@@ -27,7 +27,7 @@ public class UI_DefeatNotification : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnPlayerDead(Player player)
+    private void OnPlayerDead(Target player)
     {
         gameObject.SetActive(true);
     }

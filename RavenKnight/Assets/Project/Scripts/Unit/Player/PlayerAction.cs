@@ -13,14 +13,14 @@ public class PlayerAction : MonoBehaviour
 
     public void SoundEffect(AudioClip clip)
     {
-        playerInfo.AudioSource.clip = clip;
-        playerInfo.AudioSource.Play();
+        playerInfo.TargetInfo.AudioSource.clip = clip;
+        playerInfo.TargetInfo.AudioSource.Play();
     }
 
     public void Dead()
     {
-        foreach (var comp in playerInfo.Player.DisableComponents)
+        foreach (var comp in playerInfo.DisableComponents)
             comp.enabled = false;
-        GlobalEvents.SendPlayerDead(playerInfo.Player);
+        GlobalEvents.SendPlayerDead(playerInfo.TargetInfo.Target);
     }
 }
