@@ -461,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7092fc379809b50498d99618ff618b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTrue: {fileID: 7119482269213279229}
-  ifFalse: {fileID: 875744784973677634}
+  ifTrue: {fileID: 875744784973677634}
+  ifFalse: {fileID: 7119482269213279229}
   singleTriggering: 0
   parameterName: 2
   logicOperator: 3
@@ -577,7 +577,7 @@ MonoBehaviour:
   ifFalse: {fileID: 694089403913461069}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 536870976
   damageableTag: 1
 --- !u!114 &5798074928790638452
 MonoBehaviour:
@@ -607,12 +607,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7092fc379809b50498d99618ff618b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ifTrue: {fileID: 6725501909874752811}
-  ifFalse: {fileID: 8576077912780188487}
+  ifTrue: {fileID: 8576077912780188487}
+  ifFalse: {fileID: 6725501909874752811}
   singleTriggering: 0
-  parameterName: 1
-  logicOperator: 0
-  value: 100
+  parameterName: 2
+  logicOperator: 3
+  value: 15
 --- !u!114 &6725501909874752811
 MonoBehaviour:
   m_ObjectHideFlags: 0

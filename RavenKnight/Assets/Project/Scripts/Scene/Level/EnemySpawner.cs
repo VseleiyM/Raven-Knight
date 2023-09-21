@@ -11,7 +11,7 @@ public class WaveSettings
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D trigger;
+    private BoxCollider2D[] listZones;
     [SerializeField] private List<GameObject> listEnemy;
     [SerializeField] private List<WaveSettings> listWave;
     [SerializeField, Min(0.01f)] private float spawnDelay = 1;
@@ -37,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
             folder = new GameObject("Units").transform;
         else
             folder = goFolder.transform;
+
+        listZones = GetComponents<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,9 +75,10 @@ public class EnemySpawner : MonoBehaviour
 
             for (int i1 = 0; i1 < currentSettings.Settings[i]; i1++)
             {
-                Vector3 spawnPoint = transform.position + (Vector3)trigger.offset;
+                int randZone = Random.Range(0, listZones.Length);
+                Vector3 spawnPoint = transform.position + (Vector3)listZones[randZone].offset;
                 if (!bossRoom)
-                    spawnPoint += (Vector3)(trigger.size * Random.insideUnitCircle) / 2;
+                    spawnPoint += (Vector3)(listZones[randZone].size * Random.insideUnitCircle) / 2;
                 var enemyGO = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
                 enemyGO.transform.parent = folder;
                 var mobInfo = enemyGO.GetComponent<MobInfo>();

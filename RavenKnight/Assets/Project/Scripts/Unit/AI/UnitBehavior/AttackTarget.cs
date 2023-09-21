@@ -61,16 +61,7 @@ public class AttackTarget : UnitCommand
             _nextStep = this;
             Vector3 newScale = mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale;
             if (lookAtTarget)
-                if (transform.position.x > mobInfo.target.transform.position.x)
-                {
-                    newScale = new Vector3 (Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
-                    mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
-                }
-                else
-                {
-                    newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
-                    mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
-                }
+                mobInfo.TargetInfo.FlipModel(transform.position.x > mobInfo.target.transform.position.x);
 
             mobInfo.TargetInfo.Animator.SetInteger("AttackVariant", attackVariant);
             mobInfo.TargetInfo.Animator.SetBool("Attack", true);

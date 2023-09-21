@@ -28,19 +28,8 @@ public class Rush : UnitCommand
         if (isMoving) return;
 
         mobInfo.TargetInfo.Animator.SetBool("Run", false);
-
-        Vector3 newScale = mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale;
-        if (transform.position.x > mobInfo.target.transform.position.x)
-        {
-            newScale = new Vector3(Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
-            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
-        }
-        else
-        {
-            newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
-            mobInfo.TargetInfo.SpriteRenderer.gameObject.transform.localScale = newScale;
-        }
-
+        mobInfo.TargetInfo.FlipModel(transform.position.x > mobInfo.target.transform.position.x);
+        
         curStep = this;
         isMoving = true;
 
@@ -60,7 +49,7 @@ public class Rush : UnitCommand
     {
         float curDuration = duration;
         float speed = distance / duration;
-        mobInfo.Agent.autoBraking = false;
+        mobInfo.Agent.enabled = false;
         while (curDuration > 0)
         {
             curDuration -= Time.fixedDeltaTime;
@@ -69,7 +58,7 @@ public class Rush : UnitCommand
             mobInfo.TargetInfo.Rigidbody2D.MovePosition(self + offset);
             yield return new WaitForFixedUpdate();
         }
-        mobInfo.Agent.autoBraking = true;
+        mobInfo.Agent.enabled = true;
         isFinish = true;
         isMoving = false;
     }

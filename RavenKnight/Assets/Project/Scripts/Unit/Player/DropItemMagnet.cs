@@ -13,9 +13,10 @@ public class DropItemMagnet : MonoBehaviour
 
     private IEnumerator Magnet(Transform target)
     {
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         while (target)
         {
-            target.position = Vector3.Lerp(target.position, transform.position, Time.fixedDeltaTime * speed);
+            target.position = Vector3.Lerp(target.position, pos, Time.fixedDeltaTime * speed);
             yield return new WaitForFixedUpdate();
         }
     }

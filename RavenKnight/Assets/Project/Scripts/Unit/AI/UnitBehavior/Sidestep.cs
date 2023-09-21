@@ -52,7 +52,7 @@ public class Sidestep : UnitCommand
     {
         float curDuration = duration;
         float speed = distance / duration;
-        mobInfo.Agent.autoBraking = false;
+        mobInfo.Agent.enabled = false;
         while (curDuration > 0)
         {
             curDuration -= Time.fixedDeltaTime;
@@ -61,7 +61,7 @@ public class Sidestep : UnitCommand
             mobInfo.TargetInfo.Rigidbody2D.MovePosition(self + offset);
             yield return new WaitForFixedUpdate();
         }
-        mobInfo.Agent.autoBraking = true;
+        mobInfo.Agent.enabled = true;
         isFinish = true;
         isMoving = false;
     }

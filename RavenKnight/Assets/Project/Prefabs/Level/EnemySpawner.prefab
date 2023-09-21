@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760217798647119446}
-  - component: {fileID: 760217798647119433}
   - component: {fileID: 760217798647119432}
+  - component: {fileID: 760217798647119433}
   m_Layer: 31
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -33,6 +33,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760217798647119432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760217798647119435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7aa86d87a36b546a334ebba866710a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 760217798647119433}
+  listEnemy: []
+  listWave: []
+  spawnDelay: 1
+  durationWave: 60
+  useDurationWave: 0
+  bossRoom: 0
+  _scoreForRoom: 0
+  isClear: 0
+  triggered: 0
 --- !u!61 &760217798647119433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78,25 +100,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &760217798647119432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760217798647119435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7aa86d87a36b546a334ebba866710a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 760217798647119433}
-  listEnemy: []
-  listWave: []
-  spawnDelay: 1
-  durationWave: 60
-  useDurationWave: 0
-  bossRoom: 0
-  _scoreForRoom: 0
-  isClear: 0
-  triggered: 0

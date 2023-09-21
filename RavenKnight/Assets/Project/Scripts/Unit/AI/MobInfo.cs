@@ -10,6 +10,8 @@ public class MobInfo : MonoBehaviour
     private TargetInfo _targetInfo;
     public NavMeshAgent Agent => _agent;
     private NavMeshAgent _agent;
+    public MobAction MobAction => _mobAction;
+    private MobAction _mobAction;
     public Collider2D AttackTrigger => _attackTrigger;
     [SerializeField] private Collider2D _attackTrigger;
     [Space(10)]
@@ -24,6 +26,7 @@ public class MobInfo : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _targetInfo = GetComponent<TargetInfo>();
+        _mobAction = GetComponentInChildren<MobAction>();
 
         Agent.updateUpAxis = false;
         Agent.updateRotation = false;

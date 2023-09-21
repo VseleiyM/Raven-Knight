@@ -55,4 +55,19 @@ public class TargetInfo : MonoBehaviour
         else
             return (direction - Vector2.Dot(direction, _normal) * _normal).normalized;
     }
+
+    public void FlipModel(bool value)
+    {
+        Vector3 newScale = SpriteRenderer.gameObject.transform.localScale;
+        if (value)
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x) * -1, newScale.y, newScale.z);
+            SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
+        else
+        {
+            newScale = new Vector3(Mathf.Abs(newScale.x), newScale.y, newScale.z);
+            SpriteRenderer.gameObject.transform.localScale = newScale;
+        }
+    }
 }

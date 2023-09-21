@@ -5,5 +5,5 @@ public enum MathOperator
     [InspectorName("+")] Plus,
     [InspectorName("-")] Minus,
     [InspectorName("*")] Multiplay,
-    [InspectorName("/")] Divaded
+    [InspectorName(":")] Divaded
 }
