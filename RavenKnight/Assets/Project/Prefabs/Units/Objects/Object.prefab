@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7352496511965430098}
   - component: {fileID: 6424155415699884709}
   - component: {fileID: 289751137500749452}
-  - component: {fileID: 4639009219097212220}
+  - component: {fileID: 670031147902375451}
   - component: {fileID: 8397637038876094941}
   - component: {fileID: 9062566095485975589}
   m_Layer: 10
@@ -72,7 +72,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 7170359839831560725}
   _pointForProjectile: {fileID: 7352496511965430098}
   _colliders2D: []
---- !u!114 &4639009219097212220
+--- !u!114 &670031147902375451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

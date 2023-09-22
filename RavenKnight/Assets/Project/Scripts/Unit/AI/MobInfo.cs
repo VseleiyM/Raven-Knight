@@ -28,9 +28,12 @@ public class MobInfo : MonoBehaviour
         _targetInfo = GetComponent<TargetInfo>();
         _mobAction = GetComponentInChildren<MobAction>();
 
-        Agent.updateUpAxis = false;
-        Agent.updateRotation = false;
-
+        if (Agent != null)
+        {
+            Agent.updateUpAxis = false;
+            Agent.updateRotation = false;
+        }
+        
         GlobalEvents.SendMobSpawned(TargetInfo.Target);
     }
 
