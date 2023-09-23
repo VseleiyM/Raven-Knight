@@ -29,7 +29,7 @@ namespace UI
         }
         private void OpenCredits()
         {
-
+            OpenMenu(MenuType.credits);
         }
         public override void Init(MenuController menuController)
         {
