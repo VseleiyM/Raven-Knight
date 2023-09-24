@@ -63,7 +63,10 @@ public class Target : MonoBehaviour
             {
                 TakeDamageEffect();
                 if (targetInfo.MobInfo != null)
+                {
                     targetInfo.MobInfo.MobAction.SendTakeDamage();
+                    targetInfo.MobInfo.TakeDamage();
+                }
                 ActiveInvincibleEffect(invincibleDuration);
             }
         }

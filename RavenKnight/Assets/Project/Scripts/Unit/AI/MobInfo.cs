@@ -17,8 +17,9 @@ public class MobInfo : MonoBehaviour
     [Space(10)]
     [SerializeField] private List<UnitCommand> startStep;
     [Space(10)]
-    public Transform target;
-    public Collider2D targetCollider;
+    [HideInInspector] public Transform target;
+    [HideInInspector] public Collider2D targetCollider;
+    [SerializeField] private bool isBoss = false;
     private bool enableAI = false;
     public Coroutine corotine_AI;
 
@@ -81,5 +82,13 @@ public class MobInfo : MonoBehaviour
         TargetInfo.Animator.SetBool(AnimatorParameter.Attack.ToString(), false);
         if (Agent.isActiveAndEnabled)
             Agent.SetDestination(this.transform.position);
+    }
+
+    public void TakeDamage()
+    {
+        if (isBoss)
+        {
+            GlobalEvents.SendBossTakeDamage(TargetInfo.Target);
+        }
     }
 }

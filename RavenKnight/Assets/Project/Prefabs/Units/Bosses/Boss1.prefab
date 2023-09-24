@@ -350,7 +350,7 @@ MonoBehaviour:
   ifTrue: {fileID: 7669065534175453379}
   ifFalse: {fileID: 406939398369415979}
   singleTriggering: 0
-  parameterName: 0
+  parameterName: 1
   logicOperator: 1
   value: 75
 --- !u!114 &406939398369415979
@@ -579,6 +579,7 @@ MonoBehaviour:
   - {fileID: 2413577295747591741}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
+  isBoss: 1
 --- !u!82 &2413799393261654351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1073,7 +1074,7 @@ MonoBehaviour:
   ifTrue: {fileID: 1540694716670045049}
   ifFalse: {fileID: 1310201724169198316}
   singleTriggering: 1
-  parameterName: 0
+  parameterName: 1
   logicOperator: 2
   value: 50
 --- !u!114 &1310201724169198316
@@ -1091,7 +1092,7 @@ MonoBehaviour:
   ifTrue: {fileID: 1540694716670045049}
   ifFalse: {fileID: 2413577295747591741}
   singleTriggering: 1
-  parameterName: 0
+  parameterName: 1
   logicOperator: 2
   value: 25
 --- !u!114 &1540694716670045049
