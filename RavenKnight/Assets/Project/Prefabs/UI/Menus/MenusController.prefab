@@ -1524,6 +1524,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 917510005508646162, guid: b96305a4ac52db94b95fdd74d10c104f,
+        type: 3}
+      propertyPath: key
+      value: Menu.Main.CreditsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3372821807858421363, guid: b96305a4ac52db94b95fdd74d10c104f,
         type: 3}
       propertyPath: m_SizeDelta.x

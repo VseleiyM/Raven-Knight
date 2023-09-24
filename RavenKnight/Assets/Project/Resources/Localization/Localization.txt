@@ -1,6 +1,7 @@
 Description	Localization key	English	Chinese	Russian
 Кнопка «Новая игра» в меню	Menu.Main.NewGameButton	New game	新游戏	Новая игра
 Кнопка «Настройки» в меню	Menu.Main.OptionsButton	Options	选项	Настройки
+Кнопка "Авторы" в меню	Menu.Main.CreditsButton	Credits	学分	Авторы
 Кнопка «Выход» в меню	Menu.Main.ExitButton	Exit	出口	Выход
 Кнопка «Игра и видео» в настройках	Menu.Options.SettingsButton	Game and video	游戏和视频	Игра и видео
 Кнопка «Аудио» в настройках	Menu.Options.AudioButton	Audio	音频	Аудио
@@ -25,4 +26,5 @@ Description	Localization key	English	Chinese	Russian
 Название для внутриигровых очков	GameMenu.UI.Points	points	积分	очки
 Объявление победы	GameMenu.UI.Victory	Victory	胜利	Победа
 Объявление поражения	GameMenu.UI.Defeat	Defeat	失败	Поражение
+Текст "Эпилога"	GameMenu.UI.Epilogue	The world has been overtaken by an epidemic of Pestilence. The disease affects people and animals, turning them into hideous monsters and depriving them of their sanity. The protagonist is infected, but managed to keep his senses. He tries to save his daughter and for this he goes into a dangerous dungeon to find a cure.	一场瘟疫席卷了整个世界。人和动物都会感染这种疾病，变成狰狞的怪物，丧失理智。主人公被感染了，但他还能保持理智。他试图拯救自己的女儿，并为此进入危险的地牢寻找解药。	Мир охватила эпидемия моровой язвы. Болезнь поражает людей и животных, превращая их в отвратительных монстров и лишая рассудка. Главный герой заражен, но сумел сохранить рассудок. Он пытается спасти свою дочь и для этого отправляется в опасное подземелье, чтобы найти лекарство.
 Возврат в Главное меню	GameMenu.UI.ReturnMainMenu	Press "Space" to return Menu	按"空格"返回菜单	Нажмите "Пробел" чтобы вернуться в Главное меню
