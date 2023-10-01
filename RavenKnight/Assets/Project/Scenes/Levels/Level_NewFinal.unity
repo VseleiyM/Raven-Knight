@@ -13162,13 +13162,13 @@ PrefabInstance:
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
       propertyPath: listEnemy.Array.data[0]
       value: 
-      objectReference: {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4,
+      objectReference: {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c,
         type: 3}
     - target: {fileID: 760217798647119432, guid: 3d8bde66652aaad488d5ceafa6a15f9a,
         type: 3}
@@ -39193,8 +39193,8 @@ Transform:
   m_Children:
   - {fileID: 1359918551}
   - {fileID: 989303659}
-  - {fileID: 1347188104}
   - {fileID: 1763298937}
+  - {fileID: 1347188104}
   - {fileID: 496155409}
   - {fileID: 1926806464}
   - {fileID: 223639934}
