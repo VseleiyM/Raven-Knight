@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 352496172790407277}
-  speed: 8
+  speed: 12
   angularSpeed: 240
-  acceleration: 16
+  acceleration: 24
 --- !u!114 &352496172790407277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 976319993350607840}
   paramName: 4
-  value: 1.25
+  value: 1.5
 --- !u!114 &976319993350607840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3580022883237323537}
-  speed: 5
+  speed: 7
   angularSpeed: 120
-  acceleration: 10
+  acceleration: 14
 --- !u!114 &3580022883237323537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 943390361182360034}
-  distance: 6
+  distance: 8
   duration: 0.5
 --- !u!114 &7585665977811082133
 MonoBehaviour:
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 943390361182360034}
-  distance: 6
+  distance: 8
   duration: 0.25
 --- !u!114 &1444368100406441630
 MonoBehaviour:
@@ -551,8 +551,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 2
-  m_Speed: 6
-  m_Acceleration: 12
+  m_Speed: 7
+  m_Acceleration: 14
   avoidancePriority: 49
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5
@@ -597,6 +597,7 @@ MonoBehaviour:
   - {fileID: 868630139850694547}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
+  isBoss: 0
 --- !u!82 &8745044659563981144
 AudioSource:
   m_ObjectHideFlags: 0
