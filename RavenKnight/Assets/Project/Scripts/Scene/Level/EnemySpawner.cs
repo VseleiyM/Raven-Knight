@@ -21,8 +21,7 @@ public class EnemySpawner : MonoBehaviour
     public int ScoreForRoom => _scoreForRoom;
     [SerializeField] private int _scoreForRoom;
 
-    [SerializeField] private bool isClear = false;
-    [SerializeField] private bool triggered = false;
+    [SerializeField] private bool isTriggered = false;
 
     private int currentWave;
     private List<GameObject> listLifeEnemy = new List<GameObject>();
@@ -43,17 +42,19 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Player" || triggered) return;
+        if (collision.tag != "Player" || isTriggered) return;
 
-        GlobalEvents.mobSpawned += OnMobSpawned;
         GlobalEvents.bossDead += OnMobDead;
         GlobalEvents.mobDead += OnMobDead;
 
-        triggered = true;
+        isTriggered = true;
         currentWave = 0;
+
         GlobalEvents.SendCloseRoom();
         GlobalEvents.SendNextWave(currentWave + 1, bossRoom);
+
         SpawnWave();
+
         if (useDurationWave)
             timeToNextWave = StartCoroutine(TimeToNextWave(durationWave));
     }
@@ -79,18 +80,13 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 spawnPoint = transform.position + (Vector3)listZones[randZone].offset;
                 if (!bossRoom)
                     spawnPoint += (Vector3)(listZones[randZone].size * Random.insideUnitCircle) / 2;
-                var enemyGO = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
-                enemyGO.transform.parent = folder;
+                var enemyGO = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity, folder);
                 var mobInfo = enemyGO.GetComponent<MobInfo>();
 
                 mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
+                listLifeEnemy.Add(enemyGO);
             }
         }
-    }
-
-    private void OnMobSpawned(Target target)
-    {
-        listLifeEnemy.Add(target.gameObject);
     }
 
     private void OnMobDead(Target target)
@@ -112,12 +108,10 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            GlobalEvents.mobSpawned -= OnMobSpawned;
             GlobalEvents.bossDead -= OnMobDead;
             GlobalEvents.mobDead -= OnMobDead;
 
-            isClear = true;
-            GlobalEvents.SendOpenRoom(this);
+            GlobalEvents.SendOpenRoom(_scoreForRoom);
             if (bossRoom)
                 GlobalEvents.SendBossRoomClear();
         }

@@ -16,13 +16,15 @@ public class GlobalEvents
     public static event Action<Target> bossInit;
     public static event Action<Target> bossTakeDamage;
     public static event Action<Target> bossDead;
+    public static event Action victoryNotification;
     public static event Action closeRoom;
-    public static event Action<EnemySpawner> openRoom;
+    public static event Action<int> openRoom;
     public static event Action waveClear;
     public static event Action bossRoomClear;
     public static event Action<int, bool> nextWave;
     public static event Action<bool> pauseStatus;
     public static event Action returnMenu;
+    public static event Action loadNextLevel;
 
     public static void SendPlayerInit(Target player)
     {
@@ -84,9 +86,9 @@ public class GlobalEvents
         closeRoom?.Invoke();
     }
 
-    public static void SendOpenRoom(EnemySpawner spawner)
+    public static void SendOpenRoom(int scoreForRoom)
     {
-        openRoom?.Invoke(spawner);
+        openRoom?.Invoke(scoreForRoom);
     }
 
     public static void SendWaveClear()
@@ -97,6 +99,11 @@ public class GlobalEvents
     public static void SendBossRoomClear()
     {
         bossRoomClear?.Invoke();
+    }
+
+    public static void SendVictoryNotification()
+    {
+        victoryNotification?.Invoke();
     }
 
     public static void SendNextWave(int index, bool bossRoom)
@@ -112,5 +119,10 @@ public class GlobalEvents
     public static void SendReturnMenu()
     {
         returnMenu?.Invoke();
+    }
+
+    public static void SendLoadNextLevel()
+    {
+        loadNextLevel?.Invoke();
     }
 }

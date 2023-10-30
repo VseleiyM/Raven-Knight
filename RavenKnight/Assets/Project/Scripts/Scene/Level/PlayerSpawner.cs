@@ -7,6 +7,7 @@ public class PlayerSpawner : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
 
     private Transform folder;
+    private Transform player;
 
     private void Awake()
     {
@@ -15,11 +16,21 @@ public class PlayerSpawner : MonoBehaviour
             folder = new GameObject("PlayerUnits").transform;
         else
             folder = goFolder.transform;
+
+        PlayerInfo playerInfo = folder.GetComponentInChildren<PlayerInfo>();
+        if (playerInfo != null) player = playerInfo.transform;
     }
 
     private void Start()
     {
-        var player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
-        player.transform.parent = folder;
+        if (this.player == null)
+        {
+            var player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+            player.transform.parent = folder;
+        }
+        else
+        {
+            player.position = transform.position;
+        }
     }
 }

@@ -1,0 +1,158 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Project.GenerateLevel
+{
+    public class GenerateEnemySpawner : MonoBehaviour
+    {
+        public BoxCollider2D spawnZone;
+        [Space(10)]
+        [Min(0)] public int roomID = 0;
+        public int maxWave;
+        public int roomDifficult;
+        public List<GameObject> enemyList;
+        public float spawnDelay = 3;
+        public bool bossRoom = false;
+        public bool useDurationWave = false;
+        [SerializeField, Min(0)] private float durationWave = 60;
+
+        private int currentWaveID;
+        private List<GameObject> listLifeEnemy = new List<GameObject>();
+
+        private Transform folder;
+        private bool isTriggered = false;
+        private Coroutine timeToNextWave;
+
+        private void Awake()
+        {
+            var goFolder = GameObject.Find("Units");
+            if (!goFolder)
+                folder = new GameObject("Units").transform;
+            else
+                folder = goFolder.transform;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag != "Player" || isTriggered) return;
+
+            GlobalEvents.mobSpawned += OnMobSpawned;
+            GlobalEvents.bossDead += OnMobDead;
+            GlobalEvents.mobDead += OnMobDead;
+
+            isTriggered = true;
+            currentWaveID = 0;
+
+            GlobalEvents.SendCloseRoom();
+            GlobalEvents.SendNextWave(currentWaveID + 1, bossRoom);
+
+            SpawnWave();
+
+            if (useDurationWave)
+                timeToNextWave = StartCoroutine(TimeToNextWave(durationWave));
+        }
+
+        private void SpawnWave()
+        {
+            List<GameObject> spawnList = new List<GameObject>();
+            foreach (var enemy in enemyList)
+            {
+                spawnList.Add(enemy);
+            }
+
+            int waveDifficult = GetWaveDifficult(currentWaveID + 1);
+            while (true)
+            {
+                if (spawnList.Count == 0) break;
+
+                int mobID = Random.Range(0, spawnList.Count);
+
+                Vector3 spawnPoint = transform.position + (Vector3)spawnZone.offset;
+                if (!bossRoom)
+                    spawnPoint += (Vector3)(spawnZone.size * Random.insideUnitCircle) / 2;
+                var mobGO = Instantiate(spawnList[mobID], spawnPoint, Quaternion.identity, folder);
+                var mobInfo = mobGO.GetComponent<MobInfo>();
+
+                int mobCost = (int)mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore).Max;
+                int remainsDifficult = waveDifficult - mobCost;
+
+                if (bossRoom)
+                {
+                    spawnList.Remove(spawnList[mobID]);
+                    mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
+                    listLifeEnemy.Add(mobGO);
+                }
+                else if (remainsDifficult < 0)
+                {
+                    spawnList.Remove(spawnList[mobID]);
+                    Destroy(mobGO);
+                }
+                else
+                {
+                    waveDifficult = remainsDifficult;
+                    mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
+                    listLifeEnemy.Add(mobGO);
+                }
+            }
+        }
+
+        private int GetWaveDifficult(int wave)
+        {
+            int divider = 0;
+            for (int i = 1; i <= maxWave; i++)
+                divider += i;
+
+            int result = (roomDifficult / divider) * wave;
+
+            return result;
+        }
+
+        private void NextWave()
+        {
+            currentWaveID++;
+            if (currentWaveID < maxWave)
+            {
+                GlobalEvents.SendNextWave(currentWaveID + 1, bossRoom);
+                SpawnWave();
+            }
+            else
+            {
+                GlobalEvents.mobSpawned -= OnMobSpawned;
+                GlobalEvents.bossDead -= OnMobDead;
+                GlobalEvents.mobDead -= OnMobDead;
+
+                GlobalEvents.SendOpenRoom(0);
+                if (bossRoom)
+                    GlobalEvents.SendBossRoomClear();
+            }
+
+            if (useDurationWave)
+                timeToNextWave = StartCoroutine(TimeToNextWave(durationWave));
+        }
+
+        private void OnMobSpawned(Target target)
+        {
+            listLifeEnemy.Add(target.gameObject);
+        }
+
+        private void OnMobDead(Target target)
+        {
+            listLifeEnemy.Remove(target.gameObject);
+            if (listLifeEnemy.Count == 0)
+                NextWave();
+        }
+
+        private IEnumerator TimeToNextWave(float duration)
+        {
+            while (duration > 0)
+            {
+                duration -= Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            if (currentWaveID < maxWave - 1)
+                NextWave();
+        }
+    }
+}

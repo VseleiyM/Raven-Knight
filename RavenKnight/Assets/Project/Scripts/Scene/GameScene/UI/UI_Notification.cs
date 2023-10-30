@@ -46,11 +46,11 @@ public class UI_Notification : MonoBehaviour
         keeper.languageChanged -= OnLangaugeChanged;
     }
 
-    private void OnRoomOpen(EnemySpawner spawner)
+    private void OnRoomOpen(int score)
     {
-        GlobalEvents.SendScoreChanged(spawner.ScoreForRoom);
+        GlobalEvents.SendScoreChanged(score);
         notification.text = $"{textRoomCleared}";
-        gainPoints.text = $"+{spawner.ScoreForRoom} {textPoints}";
+        gainPoints.text = $"+{score} {textPoints}";
         if (coroutine == null)
             coroutine = StartCoroutine(AnimationNotification());
     }

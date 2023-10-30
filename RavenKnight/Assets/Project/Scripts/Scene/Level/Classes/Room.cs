@@ -8,6 +8,7 @@ namespace Project.GenerateLevel
     {
         public Vector2Int position;
         public int size;
+        public RoomTypes roomType = RoomTypes.Empty;
 
         public bool corridorUp = false;
         public bool corridorRight = false;

@@ -25,7 +25,7 @@ public class PlayerInfo : MonoBehaviour
     private void Awake()
     {
         _targetInfo = GetComponent<TargetInfo>();
-        GlobalEvents.bossRoomClear += OnBossRoomClear;
+        GlobalEvents.victoryNotification += OnVictoryNotification;
     }
 
     private void Start()
@@ -35,10 +35,10 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnDestroy()
     {
-        GlobalEvents.bossRoomClear -= OnBossRoomClear;
+        GlobalEvents.victoryNotification -= OnVictoryNotification;
     }
 
-    private void OnBossRoomClear()
+    private void OnVictoryNotification()
     {
         foreach (var comp in _disableComponents)
             comp.enabled = false;

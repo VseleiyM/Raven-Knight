@@ -770,12 +770,57 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 696ea1039f550864bb9f5b640462f5ff, type: 2}
   - {fileID: 11400000, guid: ae530e3c476026e4283b6d1016a7a20c, type: 2}
   - {fileID: 11400000, guid: d348771e21b2c144484fb4e6403dffcf, type: 2}
+  enemyList:
+  - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
+  - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+  - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
+  - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
+  minibossList:
+  - {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b, type: 3}
+  - {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b, type: 3}
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
   tilemapSidewallIn: {fileID: 596967769}
   tilemapSidewallOut: {fileID: 253418053}
-  spacingRoom: 20
-  lenghtMaze: 20
+  tilemapGate: {fileID: 617583767388599083}
+  navSurface1: {fileID: 1374621171}
+  navSurface2: {fileID: 1013820174}
+  parentSpawners: {fileID: 617583768356997526}
+  playerSpawner: {fileID: 2543793839112336363, guid: bfe99f49d22be6e4e86c199e8c406b90,
+    type: 3}
+  enemySpawner: {fileID: 2067872678123497197, guid: de683aaa971466f449dff915adf7b3e7,
+    type: 3}
+  prefabLoadNextLevel: {fileID: 2724825222959882951, guid: f9986f99deba3164f8e8db86f4dcd771,
+    type: 3}
+  spacingRoom: 30
+  levelsList:
+  - name: Level - 1
+    lengthMaze: 3
+    difficultScore: 1000
+    enemyList:
+    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
+    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+    levelBoss: {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b,
+      type: 3}
+  - name: Level - 2
+    lengthMaze: 4
+    difficultScore: 2000
+    enemyList:
+    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
+    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+    - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
+    levelBoss: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
+      type: 3}
+  - name: Level - 3
+    lengthMaze: 5
+    difficultScore: 4000
+    enemyList:
+    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
+    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+    - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
+    - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
+    levelBoss: {fileID: 3774518901421596487, guid: 85394c16a2fdb724e9e352cac3b44fe4,
+      type: 3}
 --- !u!1 &1013820171
 GameObject:
   m_ObjectHideFlags: 0

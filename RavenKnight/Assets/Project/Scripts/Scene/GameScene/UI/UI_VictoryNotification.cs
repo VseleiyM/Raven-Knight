@@ -30,12 +30,12 @@ public class UI_VictoryNotification : MonoBehaviour
         epiloguePanel.SetActive(false);
         epilogueExitText.SetActive(false);
 
-        GlobalEvents.bossRoomClear += OnBossRoomClear;
+        GlobalEvents.victoryNotification += OnVictoryNotification;
     }
 
     private void OnDestroy()
     {
-        GlobalEvents.bossRoomClear -= OnBossRoomClear;
+        GlobalEvents.victoryNotification -= OnVictoryNotification;
     }
 
     private void Start()
@@ -43,7 +43,7 @@ public class UI_VictoryNotification : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnBossRoomClear()
+    private void OnVictoryNotification()
     {
         gameObject.SetActive(true);
         victoryPanel.SetActive(true);

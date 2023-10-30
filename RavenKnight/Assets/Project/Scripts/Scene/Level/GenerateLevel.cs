@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Project.GenerateLevel;
+using NavMeshPlus.Components;
 
 public class GenerateLevel : MonoBehaviour
 {
@@ -10,21 +11,79 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private List<TileBase> tilesWall;
     [SerializeField] private List<TileBase> tilesSidewall;
     [Space(10)]
+    [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] private List<GameObject> minibossList;
+    [Space(10)]
     [SerializeField] private Tilemap tilemapFloor;
     [SerializeField] private Tilemap tilemapWall;
     [SerializeField] private Tilemap tilemapSidewallIn;
     [SerializeField] private Tilemap tilemapSidewallOut;
+    [SerializeField] private Tilemap tilemapGate;
+    [Space(10)]
+    [SerializeField] private NavMeshSurface navSurface1;
+    [SerializeField] private NavMeshSurface navSurface2;
+    [Space(10)]
+    [SerializeField] private Transform parentSpawners;
+    [SerializeField] private GameObject playerSpawner;
+    [SerializeField] private GenerateEnemySpawner enemySpawner;
+    [SerializeField] private GameObject prefabLoadNextLevel;
     [Space(10)]
     [SerializeField, Min(1)] private int spacingRoom = 20;
-    [SerializeField, Min(1)] private int lenghtMaze = 1;
+    [SerializeField] private LevelDifficult[] levelsList;
+
+    private int currLevel = 0;
+    private Room[] currRooms;
 
     void Start()
     {
-        Room[] rooms = CreateMaze(lenghtMaze);
+        GlobalEvents.bossRoomClear += OnBossRoomClear;
+        GlobalEvents.loadNextLevel += OnLoadNextLevel;
+
+        currRooms = CreateLevel();
+    }
+
+    private void OnDestroy()
+    {
+        GlobalEvents.bossRoomClear -= OnBossRoomClear;
+        GlobalEvents.loadNextLevel -= OnLoadNextLevel;
+    }
+
+    private void OnValidate()
+    {
+        if (levelsList.Length == 0) return;
+        int index = 1;
+        foreach (var level in levelsList)
+        {
+            level.name = $"Level - {index}";
+            index++;
+        }
+    }
+
+    public int GetRoomDifficult(int roomID)
+    {
+        int divider = 0;
+        for (int i = 1; i <= levelsList[currLevel].lengthMaze; i++)
+            divider += i;
+
+        int result = (levelsList[currLevel].difficultScore / divider) * roomID;
+
+        return result;
+    }
+
+    private Room[] CreateLevel()
+    {
+        parentSpawners.gameObject.SetActive(false);
+
+        Room[] rooms = CreateMaze(levelsList[currLevel].lengthMaze);
+        int currRoom = 1;
         foreach (Room room in rooms)
         {
-            CreateRoom(room);
+            CreateRoom(room, currRoom);
+            currRoom++;
         }
+
+        parentSpawners.gameObject.SetActive(true);
+        return rooms;
 
 
         Room[] CreateMaze(int lenghtMaze)
@@ -32,117 +91,165 @@ public class GenerateLevel : MonoBehaviour
             if (lenghtMaze < 1) lenghtMaze = 1;
             List<Room> rooms = new List<Room>();
 
+            int minSizeRoom = spacingRoom / 4;
+            int maxSizeRoom = (spacingRoom / 2) - 1;
             Vector2Int startPosition = new Vector2Int(0, 0);
-            Room currRoom = new Room();
-            currRoom.position = startPosition;
-            currRoom.size = Random.Range(spacingRoom / 4, spacingRoom / 2);
-            rooms.Add(currRoom);
+            Room currRoom;
+            AddStartRoom();
+            AddEnemyRoom();
 
-            Room nextRoom;
-            int currLenghtMaze = 0;
-            while (currLenghtMaze < lenghtMaze)
+            return rooms.ToArray();
+
+            void AddStartRoom()
             {
-                nextRoom = new Room();
-                bool repeat = true;
-                bool finish = false;
+                currRoom = new Room();
+                currRoom.position = startPosition;
+                currRoom.size = minSizeRoom;
+                currRoom.roomType = RoomTypes.PlayerRoom;
+                rooms.Add(currRoom);
+            }
 
-                List<int> checkingDir = new List<int>();
-                while (repeat)
+            void AddEnemyRoom()
+            {
+                Room nextRoom;
+                lenghtMaze++;
+                int currLenghtMaze = 0;
+                while (currLenghtMaze < lenghtMaze)
                 {
-                    repeat = false;
+                    nextRoom = new Room();
+                    bool repeat = true;
+                    bool finish = false;
 
-                    int direction = Random.Range(0, 4);
-                    int countDir = 0;
-                    foreach (int dir in checkingDir) 
+                    int direction = 0;
+                    int[] checkingDir = new int[4] { -1, -1, -1, -1 };
+                    while (repeat)
                     {
-                        if (dir == direction) direction++;
-                        if (direction >= 4) direction = 0;
-                        countDir++;
-                        if (countDir >= 4) break;
-                    }
-                    checkingDir.Add(direction);
+                        direction = Random.Range(0, 4);
+                        CheckDirection();
+                        SetRoomPosition();
+                        CheckLogic();
 
-                    switch (direction)
-                    {
-                        case 0: // Up
-                            nextRoom.position = currRoom.position + Vector2Int.up;
-                            break;
-                        case 1: // Right
-                            nextRoom.position = currRoom.position + Vector2Int.right;
-                            break;
-                        case 2: // Down
-                            nextRoom.position = currRoom.position + Vector2Int.down;
-                            break;
-                        case 3: // Left
-                            nextRoom.position = currRoom.position + Vector2Int.left;
-                            break;
-                    }
-
-                    if (checkingDir.Count >= 5) finish = true;
-                    if (!finish)
-                    {
-                        foreach (Room room in rooms)
+                        void CheckDirection()
                         {
-                            if (room.position == nextRoom.position)
+                            foreach (int dir in checkingDir)
                             {
-                                repeat = true;
-                                break;
+                                if (direction == dir) direction++;
+                                if (direction >= 4) direction = 0;
                             }
                         }
 
-                        if (!repeat)
+                        void SetRoomPosition()
+                        {
                             switch (direction)
                             {
                                 case 0: // Up
-                                    currRoom.corridorUp = true;
-                                    nextRoom.corridorDown = true;
+                                    nextRoom.position = currRoom.position + Vector2Int.up;
                                     break;
                                 case 1: // Right
-                                    currRoom.corridorRight = true;
-                                    nextRoom.corridorLeft = true;
+                                    nextRoom.position = currRoom.position + Vector2Int.right;
                                     break;
                                 case 2: // Down
-                                    currRoom.corridorDown = true;
-                                    nextRoom.corridorUp = true;
+                                    nextRoom.position = currRoom.position + Vector2Int.down;
                                     break;
                                 case 3: // Left
-                                    currRoom.corridorLeft = true;
-                                    nextRoom.corridorRight = true;
+                                    nextRoom.position = currRoom.position + Vector2Int.left;
                                     break;
                             }
+                        }
+
+                        void CheckLogic()
+                        {
+                            repeat = false;
+                            foreach (Room room in rooms)
+                            {
+                                if (room.position == nextRoom.position)
+                                {
+                                    repeat = true;
+                                    checkingDir[direction] = direction;
+                                    break;
+                                }
+                            }
+
+                            finish = true;
+                            foreach (int dir in checkingDir)
+                            {
+                                if (dir == -1)
+                                {
+                                    finish = false;
+                                    break;
+                                }
+                            }
+
+                            if (finish) repeat = false;
+                        }
+                    }
+
+                    if (finish)
+                    {
+                        AddBossRoom();
+                        break;
+                    }
+
+
+                    currLenghtMaze++;
+                    SetData();
+                    currRoom = nextRoom;
+                    if (currLenghtMaze >= lenghtMaze)
+                        AddBossRoom();
+
+                    void SetData()
+                    {
+                        nextRoom.roomType = RoomTypes.EnemyRoom;
+                        nextRoom.size = Random.Range(minSizeRoom, maxSizeRoom);
+                        switch (direction)
+                        {
+                            case 0: // Up
+                                currRoom.corridorUp = true;
+                                nextRoom.corridorDown = true;
+                                break;
+                            case 1: // Right
+                                currRoom.corridorRight = true;
+                                nextRoom.corridorLeft = true;
+                                break;
+                            case 2: // Down
+                                currRoom.corridorDown = true;
+                                nextRoom.corridorUp = true;
+                                break;
+                            case 3: // Left
+                                currRoom.corridorLeft = true;
+                                nextRoom.corridorRight = true;
+                                break;
+                        }
+                        rooms.Add(nextRoom);
+                    }
+
+                    void AddBossRoom()
+                    {
+                        currRoom.roomType = RoomTypes.FinalRoom;
+                        currRoom.size = maxSizeRoom;
                     }
                 }
-
-                if (!finish)
-                {
-                    currLenghtMaze++;
-                    nextRoom.size = Random.Range(spacingRoom / 4, spacingRoom / 2);
-                    currRoom = nextRoom;
-                    rooms.Add(currRoom);
-                }
-                else
-                {
-                    break;
-                }
             }
-
-            return rooms.ToArray();
         }
 
-        void CreateRoom(Room room)
+        void CreateRoom(Room room, int index)
         {
             Vector2Int offset = new Vector2Int(spacingRoom * room.position.x, spacingRoom * room.position.y);
 
-            CreateFloor(room.size, offset);
-            CreateWall(room.size, offset);
-            CreateCorridor(room, offset);
+            CreateFloor();
+            CreateWall();
+            DeleteSegmentWall();
+            CreateCorridor();
+            CreateGate();
+            BakeNavMesh();
+            CreateSpawner();
 
 
-            void CreateFloor(int size, Vector2Int offset)
+            void CreateFloor()
             {
-                for (int y = size; y >= -size; y--)
+                for (int y = room.size - 1; y > -room.size; y--)
                 {
-                    for (int x = -size; x <= size; x++)
+                    for (int x = -room.size + 1; x < room.size; x++)
                     {
                         TileBase tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                         tilemapFloor.SetTile(new Vector3Int(x + offset.x, y + offset.y, 0), tile);
@@ -150,75 +257,247 @@ public class GenerateLevel : MonoBehaviour
                 }
             }
 
-            void CreateWall(int size, Vector2Int offset)
+            void CreateWall()
             {
-                for (int x = -size; x <= size; x++)
+                TileBase tile;
+
+                for (int x = -room.size; x <= room.size; x++)
                 {
-                    TileBase tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(x + offset.x, size + offset.y, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(x + offset.x, room.size + offset.y, 0), tile);
                 }
-                for (int x = -size; x <= size; x++)
+                for (int x = -room.size; x <= room.size; x++)
                 {
-                    TileBase tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(x + offset.x, -size + offset.y, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(x + offset.x, -room.size + offset.y, 0), tile);
                 }
-                for (int y = -size; y <= size; y++)
+                for (int y = -room.size; y <= room.size; y++)
                 {
-                    TileBase tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(-size + offset.x, y + offset.y, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(-room.size + offset.x, y + offset.y, 0), tile);
                 }
-                for (int y = -size; y <= size; y++)
+                for (int y = -room.size; y <= room.size; y++)
                 {
-                    TileBase tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(size + offset.x, y + offset.y, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(room.size + offset.x, y + offset.y, 0), tile);
                 }
             }
 
-            void CreateCorridor(Room room, Vector2Int offset)
+            void DeleteSegmentWall()
             {
                 if (room.corridorUp)
                 {
-                    for (int y = 0; y <= spacingRoom; y++)
+                    int y = room.size;
+                    for (int x = -1; x <= 1; x++)
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), null);
+                }
+                if (room.corridorDown)
+                {
+                    int y = -room.size;
+                    for (int x = -1; x <= 1; x++)
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), null);
+                }
+                if (room.corridorRight)
+                {
+                    int x = room.size;
+                    for (int y = -1; y <= 1; y++)
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), null);
+                }
+                if (room.corridorLeft)
+                {
+                    int x = -room.size;
+                    for (int y = -1; y <= 1; y++)
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), null);
+                }
+            }
+
+            void CreateCorridor()
+            {
+                TileBase tile;
+
+                if (room.corridorUp)
+                {
+                    for (int y = room.size; y <= spacingRoom / 2; y++)
                     {
                         for (int x = -1; x <= 1; x++)
                         {
-                            TileBase tile = tilesFloor[Random.Range(0, tilesWall.Count)];
+                            tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
                         }
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x - 2, offset.y + y, 0), tile);
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + 2, offset.y + y, 0), tile);
                     }
                 }
                 if (room.corridorDown)
                 {
-                    for (int y = 0; y >= -spacingRoom; y--)
+                    for (int y = -room.size; y >= -spacingRoom / 2; y--)
                     {
                         for (int x = -1; x <= 1; x++)
                         {
-                            TileBase tile = tilesFloor[Random.Range(0, tilesWall.Count)];
+                            tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
                         }
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x - 2, offset.y + y, 0), tile);
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + 2, offset.y + y, 0), tile);
                     }
                 }
                 if (room.corridorRight)
                 {
-                    for (int x = 0; x <= spacingRoom; x++)
+                    for (int x = room.size; x <= spacingRoom / 2; x++)
                     {
                         for (int y = -1; y <= 1; y++)
                         {
-                            TileBase tile = tilesFloor[Random.Range(0, tilesWall.Count)];
+                            tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
                         }
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y - 2, 0), tile);
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + 2, 0), tile);
                     }
                 }
                 if (room.corridorLeft)
                 {
-                    for (int x = 0; x >= -spacingRoom; x--)
+                    for (int x = -room.size; x >= -spacingRoom / 2; x--)
                     {
                         for (int y = -1; y <= 1; y++)
                         {
-                            TileBase tile = tilesFloor[Random.Range(0, tilesWall.Count)];
+                            tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
                         }
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y - 2, 0), tile);
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offset.x + x, offset.y + 2, 0), tile);
                     }
+                }
+            }
+
+            void CreateGate()
+            {
+                TileBase tile;
+
+                if (room.corridorUp)
+                {
+                    int y = room.size + 1;
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapGate.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
+                    }
+                }
+                if (room.corridorDown)
+                {
+                    int y = -room.size - 1;
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapGate.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
+                    }
+                }
+                if (room.corridorRight)
+                {
+                    int x = room.size + 1;
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapGate.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
+                    }
+                }
+                if (room.corridorLeft)
+                {
+                    int x = -room.size - 1;
+                    for (int y = -1; y <= 1; y++)
+                    {
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapGate.SetTile(new Vector3Int(offset.x + x, offset.y + y, 0), tile);
+                    }
+                }
+            }
+
+            void BakeNavMesh()
+            {
+                navSurface1.BuildNavMesh();
+                navSurface2.BuildNavMesh();
+            }
+
+            void CreateSpawner()
+            {
+                Vector3 pointV3 = new Vector3(offset.x, offset.y, 0);
+                Vector3 offsetV3 = new Vector3(0.5f, 0.5f, 0);
+                GameObject playerSpawner;
+                GenerateEnemySpawner enemySpawner;
+                switch (room.roomType)
+                {
+                    case RoomTypes.PlayerRoom:
+                        playerSpawner = Instantiate(this.playerSpawner, parentSpawners);
+                        playerSpawner.transform.position = pointV3 + offsetV3;
+                        break;
+                    case RoomTypes.EnemyRoom:
+                        enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
+                        enemySpawner.transform.position = pointV3 + offsetV3;
+                        enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
+                        enemySpawner.roomID = index;
+                        enemySpawner.maxWave = 3;
+                        enemySpawner.roomDifficult = GetRoomDifficult(index);
+                        enemySpawner.enemyList = levelsList[currLevel].enemyList;
+                        break;
+                    case RoomTypes.FinalRoom:
+                        enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
+                        enemySpawner.transform.position = pointV3 + offsetV3;
+                        enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
+                        enemySpawner.roomID = index;
+                        enemySpawner.maxWave = 1;
+                        enemySpawner.roomDifficult = GetRoomDifficult(index);
+                        enemySpawner.bossRoom = true;
+                        enemySpawner.enemyList.Add(levelsList[currLevel].levelBoss);
+                        break;
+                }
+            }
+        }
+    }
+
+    private void OnBossRoomClear()
+    {
+        if (currLevel == levelsList.Length - 1)
+            GlobalEvents.SendVictoryNotification();
+
+        Room lastRoom = currRooms[currRooms.Length - 1];
+        Vector3 offset = new Vector3(spacingRoom * lastRoom.position.x, spacingRoom * lastRoom.position.y);
+        Instantiate(prefabLoadNextLevel, offset, Quaternion.identity, parentSpawners);
+    }
+
+    private void OnLoadNextLevel()
+    {
+        DeleteOldLevel();
+
+        void DeleteOldLevel()
+        {
+            ClearTilemaps();
+            ClearAllSpawners();
+
+            currLevel++;
+            if (currLevel > levelsList.Length - 1) currLevel = levelsList.Length - 1;
+            currRooms = CreateLevel();
+
+            void ClearTilemaps()
+            {
+                tilemapFloor.ClearAllTiles();
+                tilemapWall.ClearAllTiles();
+                tilemapGate.ClearAllTiles();
+                tilemapSidewallIn.ClearAllTiles();
+                tilemapSidewallOut.ClearAllTiles();
+            }
+
+            void ClearAllSpawners()
+            {
+                for (int i = parentSpawners.childCount - 1; i > -1; i--)
+                {
+                    Destroy(parentSpawners.transform.GetChild(i).gameObject);
                 }
             }
         }
