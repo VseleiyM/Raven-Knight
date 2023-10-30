@@ -81,18 +81,17 @@ namespace Project.GenerateLevel
                 {
                     spawnList.Remove(spawnList[mobID]);
                     mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
-                    listLifeEnemy.Add(mobGO);
                 }
                 else if (remainsDifficult < 0)
                 {
                     spawnList.Remove(spawnList[mobID]);
+                    listLifeEnemy.Remove(mobGO);
                     Destroy(mobGO);
                 }
                 else
                 {
                     waveDifficult = remainsDifficult;
                     mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 1 / spawnDelay);
-                    listLifeEnemy.Add(mobGO);
                 }
             }
         }
