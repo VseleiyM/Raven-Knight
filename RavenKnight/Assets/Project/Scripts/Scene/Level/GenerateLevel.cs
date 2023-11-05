@@ -11,9 +11,6 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private List<TileBase> tilesWall;
     [SerializeField] private List<TileBase> tilesSidewall;
     [Space(10)]
-    [SerializeField] private List<GameObject> enemyList;
-    [SerializeField] private List<GameObject> minibossList;
-    [Space(10)]
     [SerializeField] private Tilemap tilemapFloor;
     [SerializeField] private Tilemap tilemapWall;
     [SerializeField] private Tilemap tilemapSidewallIn;
@@ -118,9 +115,10 @@ public class GenerateLevel : MonoBehaviour
                 {
                     nextRoom = new Room();
                     bool repeat = true;
-                    bool finish = false;
+                    bool allDirBlocked = false;
 
                     int direction = 0;
+                    int j = 1;
                     int[] checkingDir = new int[4] { -1, -1, -1, -1 };
                     while (repeat)
                     {
@@ -170,21 +168,26 @@ public class GenerateLevel : MonoBehaviour
                                 }
                             }
 
-                            finish = true;
+                            allDirBlocked = true;
                             foreach (int dir in checkingDir)
                             {
                                 if (dir == -1)
                                 {
-                                    finish = false;
+                                    allDirBlocked = false;
                                     break;
                                 }
                             }
 
-                            if (finish) repeat = false;
+                            if (allDirBlocked)
+                            {
+                                j++;
+                                currRoom = rooms[rooms.Count - j];
+                                for (int i = 0; i < checkingDir.Length; i++) checkingDir[i] = -1;
+                            }
                         }
                     }
 
-                    if (finish)
+                    if (allDirBlocked)
                     {
                         AddBossRoom();
                         break;

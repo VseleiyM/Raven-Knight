@@ -770,14 +770,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 696ea1039f550864bb9f5b640462f5ff, type: 2}
   - {fileID: 11400000, guid: ae530e3c476026e4283b6d1016a7a20c, type: 2}
   - {fileID: 11400000, guid: d348771e21b2c144484fb4e6403dffcf, type: 2}
-  enemyList:
-  - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
-  - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
-  - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
-  - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
-  minibossList:
-  - {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b, type: 3}
-  - {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b, type: 3}
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
   tilemapSidewallIn: {fileID: 596967769}
