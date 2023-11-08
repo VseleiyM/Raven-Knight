@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Project.GenerateLevel;
 using NavMeshPlus.Components;
+using System.Linq;
 
 public class GenerateLevel : MonoBehaviour
 {
     [SerializeField] private List<TileBase> tilesFloor;
     [SerializeField] private List<TileBase> tilesWall;
     [SerializeField] private List<TileBase> tilesSidewall;
+    [Space(10)]
+    [SerializeField] private List<GameObject> boostersList;
     [Space(10)]
     [SerializeField] private Tilemap tilemapFloor;
     [SerializeField] private Tilemap tilemapWall;
@@ -29,7 +32,7 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private LevelDifficult[] levelsList;
 
     private int currLevel = 0;
-    private Room[] currRooms;
+    private List<Room> currRooms;
 
     void Start()
     {
@@ -37,6 +40,13 @@ public class GenerateLevel : MonoBehaviour
         GlobalEvents.loadNextLevel += OnLoadNextLevel;
 
         currRooms = CreateLevel();
+        BakeNavMesh();
+
+        void BakeNavMesh()
+        {
+            navSurface1.BuildNavMesh();
+            navSurface2.BuildNavMesh();
+        }
     }
 
     private void OnDestroy()
@@ -67,23 +77,27 @@ public class GenerateLevel : MonoBehaviour
         return result;
     }
 
-    private Room[] CreateLevel()
+    private List<Room> CreateLevel()
     {
         parentSpawners.gameObject.SetActive(false);
 
-        Room[] rooms = CreateMaze(levelsList[currLevel].lengthMaze);
-        int currRoom = 1;
+        List<Room> rooms = CreateMaze(levelsList[currLevel].lengthMaze);
+
+
+        int currRoom = 0;
         foreach (Room room in rooms)
         {
             CreateRoom(room, currRoom);
             currRoom++;
         }
 
+
+
         parentSpawners.gameObject.SetActive(true);
         return rooms;
 
 
-        Room[] CreateMaze(int lenghtMaze)
+        List<Room> CreateMaze(int lenghtMaze)
         {
             if (lenghtMaze < 1) lenghtMaze = 1;
             List<Room> rooms = new List<Room>();
@@ -94,8 +108,9 @@ public class GenerateLevel : MonoBehaviour
             Room currRoom;
             AddStartRoom();
             AddEnemyRoom();
+            AddAdditionalRoom();
 
-            return rooms.ToArray();
+            return rooms;
 
             void AddStartRoom()
             {
@@ -233,6 +248,121 @@ public class GenerateLevel : MonoBehaviour
                     }
                 }
             }
+
+            void AddAdditionalRoom()
+            {
+                for (int i = 0; i < levelsList[currLevel].additionalRoom; i++)
+                {
+                    int randomID = Random.Range(1, levelsList.Length - 2);
+                    Room nextRoom = new Room();
+                    bool repeat = true;
+                    bool allDirBlocked = false;
+                    int direction = 0;
+                    int[] checkingDir = new int[4] { -1, -1, -1, -1 };
+                    if (rooms[randomID].corridorUp) checkingDir[0] = 0;
+                    if (rooms[randomID].corridorRight) checkingDir[1] = 1;
+                    if (rooms[randomID].corridorDown) checkingDir[2] = 2;
+                    if (rooms[randomID].corridorLeft) checkingDir[3] = 3;
+
+                    while (repeat)
+                    {
+                        direction = Random.Range(0, 4);
+                        CheckDirection();
+                        SetRoomPosition();
+                        CheckLogic();
+
+                        void CheckDirection()
+                        {
+                            foreach (int dir in checkingDir)
+                            {
+                                if (direction == dir) direction++;
+                                if (direction >= 4) direction = 0;
+                            }
+                        }
+
+                        void SetRoomPosition()
+                        {
+                            switch (direction)
+                            {
+                                case 0: // Up
+                                    nextRoom.position = rooms[randomID].position + Vector2Int.up;
+                                    break;
+                                case 1: // Right
+                                    nextRoom.position = rooms[randomID].position + Vector2Int.right;
+                                    break;
+                                case 2: // Down
+                                    nextRoom.position = rooms[randomID].position + Vector2Int.down;
+                                    break;
+                                case 3: // Left
+                                    nextRoom.position = rooms[randomID].position + Vector2Int.left;
+                                    break;
+                            }
+                        }
+
+                        void CheckLogic()
+                        {
+                            repeat = false;
+                            foreach (Room room in rooms)
+                            {
+                                if (room.position == nextRoom.position)
+                                {
+                                    repeat = true;
+                                    checkingDir[direction] = direction;
+                                    break;
+                                }
+                            }
+
+                            allDirBlocked = true;
+                            foreach (int dir in checkingDir)
+                            {
+                                if (dir == -1)
+                                {
+                                    allDirBlocked = false;
+                                    break;
+                                }
+                            }
+
+                            if (allDirBlocked)
+                            {
+                                randomID = Random.Range(1, levelsList.Length - 2);
+                                for (int i = 0; i < checkingDir.Length; i++) checkingDir[i] = -1;
+                                if (rooms[randomID].corridorUp) checkingDir[0] = 0;
+                                if (rooms[randomID].corridorRight) checkingDir[1] = 1;
+                                if (rooms[randomID].corridorDown) checkingDir[2] = 2;
+                                if (rooms[randomID].corridorLeft) checkingDir[3] = 3;
+                            }
+                        }
+                    }
+
+                    SetData();
+
+                    void SetData()
+                    {
+                        nextRoom.roomType = RoomTypes.AdditionalRoom;
+                        nextRoom.size = minSizeRoom;
+                        switch (direction)
+                        {
+                            case 0: // Up
+                                rooms[randomID].corridorUp = true;
+                                nextRoom.corridorDown = true;
+                                break;
+                            case 1: // Right
+                                rooms[randomID].corridorRight = true;
+                                nextRoom.corridorLeft = true;
+                                break;
+                            case 2: // Down
+                                rooms[randomID].corridorDown = true;
+                                nextRoom.corridorUp = true;
+                                break;
+                            case 3: // Left
+                                rooms[randomID].corridorLeft = true;
+                                nextRoom.corridorRight = true;
+                                break;
+                        }
+                        rooms.Add(nextRoom);
+                    }
+                }
+            }
         }
 
         void CreateRoom(Room room, int index)
@@ -244,7 +374,6 @@ public class GenerateLevel : MonoBehaviour
             DeleteSegmentWall();
             CreateCorridor();
             CreateGate();
-            BakeNavMesh();
             CreateSpawner();
 
 
@@ -422,18 +551,13 @@ public class GenerateLevel : MonoBehaviour
                 }
             }
 
-            void BakeNavMesh()
-            {
-                navSurface1.BuildNavMesh();
-                navSurface2.BuildNavMesh();
-            }
-
             void CreateSpawner()
             {
                 Vector3 pointV3 = new Vector3(offset.x, offset.y, 0);
                 Vector3 offsetV3 = new Vector3(0.5f, 0.5f, 0);
                 GameObject playerSpawner;
                 GenerateEnemySpawner enemySpawner;
+                GameObject boosterGO;
                 switch (room.roomType)
                 {
                     case RoomTypes.PlayerRoom:
@@ -444,7 +568,7 @@ public class GenerateLevel : MonoBehaviour
                         enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
                         enemySpawner.transform.position = pointV3 + offsetV3;
                         enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
-                        enemySpawner.roomID = index;
+                        enemySpawner.roomIndex = index;
                         enemySpawner.maxWave = 3;
                         enemySpawner.roomDifficult = GetRoomDifficult(index);
                         enemySpawner.enemyList = levelsList[currLevel].enemyList;
@@ -453,11 +577,16 @@ public class GenerateLevel : MonoBehaviour
                         enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
                         enemySpawner.transform.position = pointV3 + offsetV3;
                         enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
-                        enemySpawner.roomID = index;
+                        enemySpawner.roomIndex = index;
                         enemySpawner.maxWave = 1;
                         enemySpawner.roomDifficult = GetRoomDifficult(index);
                         enemySpawner.bossRoom = true;
                         enemySpawner.enemyList.Add(levelsList[currLevel].levelBoss);
+                        break;
+                    case RoomTypes.AdditionalRoom:
+                        if (boostersList.Count == 0) break;
+                        boosterGO = Instantiate(boostersList[Random.Range(0, boostersList.Count - 1)], parentSpawners);
+                        boosterGO.transform.position = pointV3 + offsetV3;
                         break;
                 }
             }
@@ -469,7 +598,7 @@ public class GenerateLevel : MonoBehaviour
         if (currLevel == levelsList.Length - 1)
             GlobalEvents.SendVictoryNotification();
 
-        Room lastRoom = currRooms[currRooms.Length - 1];
+        Room lastRoom = currRooms[currRooms.Count - 1];
         Vector3 offset = new Vector3(spacingRoom * lastRoom.position.x, spacingRoom * lastRoom.position.y);
         Instantiate(prefabLoadNextLevel, offset, Quaternion.identity, parentSpawners);
     }

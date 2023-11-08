@@ -770,6 +770,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 696ea1039f550864bb9f5b640462f5ff, type: 2}
   - {fileID: 11400000, guid: ae530e3c476026e4283b6d1016a7a20c, type: 2}
   - {fileID: 11400000, guid: d348771e21b2c144484fb4e6403dffcf, type: 2}
+  boostersList:
+  - {fileID: 2707848527629948363, guid: 5bbbfa020dafa5841bbc67f5529d0edd, type: 3}
+  - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
+  - {fileID: 2707848527629948363, guid: e532139b04528b04099de54416b2a105, type: 3}
+  - {fileID: 2707848527629948363, guid: a211ddf032617b54a97e7ebb325fffc0, type: 3}
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
   tilemapSidewallIn: {fileID: 596967769}
@@ -788,6 +793,7 @@ MonoBehaviour:
   levelsList:
   - name: Level - 1
     lengthMaze: 3
+    additionalRoom: 1
     difficultScore: 1000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
@@ -796,6 +802,7 @@ MonoBehaviour:
       type: 3}
   - name: Level - 2
     lengthMaze: 4
+    additionalRoom: 1
     difficultScore: 2000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
@@ -805,6 +812,7 @@ MonoBehaviour:
       type: 3}
   - name: Level - 3
     lengthMaze: 5
+    additionalRoom: 2
     difficultScore: 4000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}

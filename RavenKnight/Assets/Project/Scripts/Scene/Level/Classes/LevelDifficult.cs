@@ -9,6 +9,7 @@ namespace Project.GenerateLevel
     {
         [HideInInspector] public string name;
         public int lengthMaze;
+        public int additionalRoom;
         public int difficultScore;
         public List<GameObject> enemyList;
         public GameObject levelBoss;

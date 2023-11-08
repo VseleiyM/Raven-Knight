@@ -8,7 +8,7 @@ namespace Project.GenerateLevel
     {
         public BoxCollider2D spawnZone;
         [Space(10)]
-        [Min(0)] public int roomID = 0;
+        [Min(0)] public int roomIndex = 0;
         public int maxWave;
         public int roomDifficult;
         public List<GameObject> enemyList;

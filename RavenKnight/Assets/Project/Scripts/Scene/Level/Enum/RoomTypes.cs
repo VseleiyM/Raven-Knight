@@ -10,5 +10,6 @@ namespace Project.GenerateLevel
         PlayerRoom = 1,
         EnemyRoom = 2,
         FinalRoom = 3,
+        AdditionalRoom = 100,
     }
 }
