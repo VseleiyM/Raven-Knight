@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +9,11 @@ public class UI_DamagePotion : MonoBehaviour
     [SerializeField] private TypePickupItem pickupItem;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private KeyCode keyCode;
-    [SerializeField] private Slider slider;
     [SerializeField] private Text text;
     [Space(10)]
     [SerializeField] private bool isReady;
+    [Header("Filler image")]
+    [SerializeField] private FilledIcon filledIcon;
 
     private Camera _mainCamera;
     private Transform player;
@@ -41,7 +41,6 @@ public class UI_DamagePotion : MonoBehaviour
         GlobalEvents.playerInit -= OnPlayerInit;
         GlobalEvents.itemHasPickup -= OnItemHasPickup;
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(keyCode) && isReady)
@@ -53,7 +52,7 @@ public class UI_DamagePotion : MonoBehaviour
             Vector3 lookingVector = lookPoint - player.transform.position;
             float angle = Mathf.Atan2(lookingVector.y, lookingVector.x) * Mathf.Rad2Deg;
 
-            slider.value = 0;
+            filledIcon.ToMinValue();
             isReady = false;
             text.color = new Color(1, 1, 1, 0.39f);
             var projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
@@ -64,15 +63,15 @@ public class UI_DamagePotion : MonoBehaviour
     private void OnPlayerInit(Target target)
     {
         player = target.transform;
-        slider.value = 0;
+        filledIcon.ToMinValue();
     }
 
     public void OnItemHasPickup(PickupItem item)
     {
         if (item.TypePickupItem != pickupItem) return;
 
-        slider.value += item.Value;
-        if (slider.value >= slider.maxValue && !isReady)
+        filledIcon.value += item.Value;
+        if (filledIcon.isMax && !isReady)
         {
             isReady = true;
             text.color = new Color(1, 1, 1, 1);
