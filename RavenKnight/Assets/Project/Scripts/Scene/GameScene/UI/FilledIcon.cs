@@ -10,8 +10,20 @@ namespace UI
     public class FilledIcon : MonoBehaviour
     {
         [SerializeField] private Image icon = null;
-        [SerializeField] private float minValue = 0;
-        [SerializeField] private float maxValue = 100;
+        [SerializeField] private Image[] additionIcons = new Image[0];
+        [SerializeField] private float _minValue = 0;
+        [SerializeField] private float _maxValue = 100;
+
+        public float minValue
+        {
+            get => _minValue;
+            set => _minValue = value;
+        }
+        public float maxValue
+        {
+            get => _maxValue;
+            set => _maxValue = value;
+        }
 
         /// <summary>
         /// Задать значение заполненности для иконки.
@@ -21,7 +33,12 @@ namespace UI
             //float relativeMin = 0; <- из-за сдвига в последствии надо отнять минимум.
             float relativeMax = maxValue - minValue;
             float relativeCurrent = value - minValue;
-            icon.fillAmount = relativeCurrent / relativeMax;
+            float result = relativeCurrent / relativeMax; 
+            icon.fillAmount = result;
+            foreach (Image icon in additionIcons)
+            {
+                icon.fillAmount = result;
+            }
         }
 
         public event Action<float> valueChanged;
