@@ -775,6 +775,9 @@ MonoBehaviour:
   - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
   - {fileID: 2707848527629948363, guid: e532139b04528b04099de54416b2a105, type: 3}
   - {fileID: 2707848527629948363, guid: a211ddf032617b54a97e7ebb325fffc0, type: 3}
+  obstacleList:
+  - {fileID: 5546963084189059680, guid: 30461021fd83331479b72d203d0204a3, type: 3}
+  fillObstaclePercent: 5
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
   tilemapSidewallIn: {fileID: 596967769}

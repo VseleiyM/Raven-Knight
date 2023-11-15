@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 670031147902375451}
   - component: {fileID: 8397637038876094941}
   - component: {fileID: 9062566095485975589}
+  - component: {fileID: -7536048713424496143}
   m_Layer: 10
   m_Name: Object
   m_TagString: Untagged
@@ -88,6 +89,7 @@ MonoBehaviour:
   startStep: []
   target: {fileID: 0}
   targetCollider: {fileID: 0}
+  isBoss: 0
 --- !u!58 &8397637038876094941
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,6 +152,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!208 &-7536048713424496143
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6815304766959827313}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7626831013995025585
 GameObject:
   m_ObjectHideFlags: 0

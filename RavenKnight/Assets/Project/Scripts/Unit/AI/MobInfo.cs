@@ -34,14 +34,17 @@ public class MobInfo : MonoBehaviour
             Agent.updateUpAxis = false;
             Agent.updateRotation = false;
         }
-        
+
         GlobalEvents.SendMobSpawned(TargetInfo.Target);
     }
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag(GameObjectTag.Player.ToString()).transform;
-        targetCollider = target.GetComponent<Collider2D>();
+        if (GameObject.FindGameObjectWithTag(GameObjectTag.Player.ToString()))
+        {
+            target = GameObject.FindGameObjectWithTag(GameObjectTag.Player.ToString()).transform;
+            targetCollider = target.GetComponent<Collider2D>();
+        }
         GlobalEvents.playerDead += OnPlayerDead;
 
         if (TargetInfo.Target.ReturnParameter(ParametersList.IsBoss) != null)

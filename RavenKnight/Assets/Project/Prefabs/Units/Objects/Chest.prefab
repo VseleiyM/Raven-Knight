@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 6815304766959827313, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: m_Name
-      value: Object Variant
+      value: Chest
       objectReference: {fileID: 0}
     - target: {fileID: 7170359839831560725, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
@@ -22,12 +22,12 @@ PrefabInstance:
     - target: {fileID: 7352496511965430098, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.681824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352496511965430098, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.6686242
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7352496511965430098, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
