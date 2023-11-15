@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class DashAbilityNew : MonoBehaviour
@@ -94,11 +95,16 @@ public class DashAbilityNew : MonoBehaviour
 
     private IEnumerator Cooldown(float duration)
     {
+        DashProgressView dashView = DashProgressView.instance;
+        dashView.SetReady(false);
         while (duration > 0)
         {
+            dashView.filledValue = (cooldown - duration) / cooldown;
             duration -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        dashView.filledValue = 1;
+        dashView.SetReady(true);
         isReady = true;
     }
 }
