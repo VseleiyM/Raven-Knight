@@ -66,57 +66,55 @@ namespace Project.GenerateLevel
             while (true)
             {
                 if (spawnList.Count == 0) break;
-                
-                Vector2Int point = new Vector2Int();
-                point.Set(Random.Range(0, roomInfo.size * 2 - 1), Random.Range(0, roomInfo.size * 2 - 1));
-                if (roomInfo.mapObstacle[point.x, point.y])
-                {
-                    checkingPoints.Clear();
-                    CollectCheckablePoints(point);
-                    for (int j = 0; j < checkingPoints.Count; j++)
-                    {
-                        if (!roomInfo.mapObstacle[checkingPoints[j].x, checkingPoints[j].y])
-                        {
-                            point.Set(checkingPoints[j].x, checkingPoints[j].y);
-                            break;
-                        }
-                        else
-                        {
-                            CollectCheckablePoints(checkingPoints[j]);
-                        }
-                    }
-
-                    void CollectCheckablePoints(Vector2Int point)
-                    {
-                        Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
-                        if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
-                            if (!checkingPoints.Contains(newPoint))
-                                checkingPoints.Add(newPoint);
-
-                        newPoint = new Vector2Int(point.x + 1, point.y);
-                        if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
-                            if (!checkingPoints.Contains(newPoint))
-                                checkingPoints.Add(newPoint);
-
-                        newPoint = new Vector2Int(point.x, point.y - 1);
-                        if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
-                            if (!checkingPoints.Contains(newPoint))
-                                checkingPoints.Add(newPoint);
-
-                        newPoint = new Vector2Int(point.x - 1, point.y);
-                        if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
-                            if (!checkingPoints.Contains(newPoint))
-                                checkingPoints.Add(newPoint);
-                    }
-                }
-
-                /*Vector3 spawnPoint = transform.position + (Vector3)spawnZone.offset;
-                if (!bossRoom)
-                    spawnPoint += (Vector3)(spawnZone.size * Random.insideUnitCircle) / 2;*/
 
                 Vector3 spawnPoint = transform.position + (Vector3)spawnZone.offset;
                 if (!bossRoom)
+                {
+                    Vector2Int point = new Vector2Int();
+                    point.Set(Random.Range(0, roomInfo.size * 2 - 1), Random.Range(0, roomInfo.size * 2 - 1));
+                    if (roomInfo.mapObstacle[point.x, point.y])
+                    {
+                        checkingPoints.Clear();
+                        CollectCheckablePoints(point);
+                        for (int j = 0; j < checkingPoints.Count; j++)
+                        {
+                            if (!roomInfo.mapObstacle[checkingPoints[j].x, checkingPoints[j].y])
+                            {
+                                point.Set(checkingPoints[j].x, checkingPoints[j].y);
+                                break;
+                            }
+                            else
+                            {
+                                CollectCheckablePoints(checkingPoints[j]);
+                            }
+                        }
+
+                        void CollectCheckablePoints(Vector2Int point)
+                        {
+                            Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
+                            if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
+                                if (!checkingPoints.Contains(newPoint))
+                                    checkingPoints.Add(newPoint);
+
+                            newPoint = new Vector2Int(point.x + 1, point.y);
+                            if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
+                                if (!checkingPoints.Contains(newPoint))
+                                    checkingPoints.Add(newPoint);
+
+                            newPoint = new Vector2Int(point.x, point.y - 1);
+                            if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
+                                if (!checkingPoints.Contains(newPoint))
+                                    checkingPoints.Add(newPoint);
+
+                            newPoint = new Vector2Int(point.x - 1, point.y);
+                            if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
+                                if (!checkingPoints.Contains(newPoint))
+                                    checkingPoints.Add(newPoint);
+                        }
+                    }
+
                     spawnPoint += new Vector3(point.x, point.y, 0) + offset;
+                }
 
                 int mobID = Random.Range(0, spawnList.Count);
                 var mobGO = Instantiate(spawnList[mobID], spawnPoint, Quaternion.identity, folder);

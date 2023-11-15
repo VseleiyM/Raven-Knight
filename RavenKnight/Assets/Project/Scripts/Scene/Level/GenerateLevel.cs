@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using NavMeshPlus.Components;
 using Project.GenerateLevel;
-using UnityEngine.WSA;
 
 public class GenerateLevel : MonoBehaviour
 {
@@ -39,27 +38,29 @@ public class GenerateLevel : MonoBehaviour
 
 
     private Transform obstacleFolder;
+    private Transform tempFolder;
 
     void Start()
     {
         GlobalEvents.bossRoomClear += OnBossRoomClear;
         GlobalEvents.loadNextLevel += OnLoadNextLevel;
 
-
-        var goFolder = GameObject.Find("Obstacles");
-        if (!goFolder)
+        var goObstacleFolder = GameObject.Find("Obstacles");
+        if (!goObstacleFolder)
             obstacleFolder = new GameObject("Obstacles").transform;
         else
-            obstacleFolder = goFolder.transform;
+            obstacleFolder = goObstacleFolder.transform;
+
+        var goTempFolder = GameObject.Find("Temp");
+        if (!goTempFolder)
+            tempFolder = new GameObject("Temp").transform;
+        else
+            tempFolder = goTempFolder.transform;
 
         currRooms = CreateLevel();
-        BakeNavMesh();
+        
 
-        void BakeNavMesh()
-        {
-            navSurface1.BuildNavMesh();
-            navSurface2.BuildNavMesh();
-        }
+        
     }
 
     private void OnDestroy()
@@ -94,8 +95,6 @@ public class GenerateLevel : MonoBehaviour
     {
         parentSpawners.gameObject.SetActive(false);
 
-        
-
         List<Room> rooms = CreateMaze(levelsList[currLevel].lengthMaze);
         int currRoom = 0;
         foreach (Room room in rooms)
@@ -103,11 +102,11 @@ public class GenerateLevel : MonoBehaviour
             CreateRoom(room, currRoom);
             currRoom++;
         }
-
-
+        BakeNavMesh();
 
         parentSpawners.gameObject.SetActive(true);
         return rooms;
+
 
 
         List<Room> CreateMaze(int lenghtMaze)
@@ -601,7 +600,7 @@ public class GenerateLevel : MonoBehaviour
                         break;
                     case RoomTypes.AdditionalRoom:
                         if (boostersList.Count == 0) break;
-                        boosterGO = Instantiate(boostersList[Random.Range(0, boostersList.Count - 1)], parentSpawners);
+                        boosterGO = Instantiate(boostersList[Random.Range(0, boostersList.Count - 1)], tempFolder);
                         boosterGO.transform.position = pointV3 + offsetV3;
                         break;
                 }
@@ -672,16 +671,34 @@ public class GenerateLevel : MonoBehaviour
                 room.mapObstacle = mapObstacle;
             }
         }
+
+        void BakeNavMesh()
+        {
+            navSurface1.BuildNavMesh();
+            navSurface2.BuildNavMesh();
+        }
     }
 
     private void OnBossRoomClear()
     {
         if (currLevel == levelsList.Length - 1)
+        {
             GlobalEvents.SendVictoryNotification();
-
-        Room lastRoom = currRooms[currRooms.Count - 1];
-        Vector3 offset = new Vector3(spacingRoom * lastRoom.position.x, spacingRoom * lastRoom.position.y);
-        Instantiate(prefabLoadNextLevel, offset, Quaternion.identity, parentSpawners);
+        }
+        else
+        {
+            Room lastRoom = currRooms[currRooms.Count - 1];
+            foreach (var room in currRooms)
+            {
+                if (room.roomType == RoomTypes.FinalRoom)
+                {
+                    lastRoom = room;
+                    break;
+                }
+            }
+            Vector3 offset = new Vector3(spacingRoom * lastRoom.position.x, spacingRoom * lastRoom.position.y);
+            Instantiate(prefabLoadNextLevel, offset, Quaternion.identity, parentSpawners);
+        }
     }
 
     private void OnLoadNextLevel()
@@ -692,10 +709,13 @@ public class GenerateLevel : MonoBehaviour
         {
             ClearTilemaps();
             ClearAllSpawners();
+            ClearAllTrash();
 
             currLevel++;
             if (currLevel > levelsList.Length - 1) currLevel = levelsList.Length - 1;
             currRooms = CreateLevel();
+
+
 
             void ClearTilemaps()
             {
@@ -712,6 +732,23 @@ public class GenerateLevel : MonoBehaviour
                 {
                     Destroy(parentSpawners.transform.GetChild(i).gameObject);
                 }
+            }
+
+            void ClearAllTrash()
+            {
+                Transform obstacles = GameObject.Find("Obstacles").transform;
+                List<GameObject> obstacleList = new List<GameObject>();
+                for (int i = 0; i < obstacles.childCount; i++)
+                    obstacleList.Add(obstacles.GetChild(i).gameObject);
+                foreach (GameObject obstacle in obstacleList)
+                    Destroy(obstacle.gameObject);
+
+                Transform tempTransform = GameObject.Find("Temp").transform;
+                List<GameObject> tempList = new List<GameObject>();
+                for (int i = 0; i < tempTransform.childCount; i++)
+                    tempList.Add(tempTransform.GetChild(i).gameObject);
+                foreach (GameObject temp in tempList)
+                    Destroy(temp.gameObject);
             }
         }
     }

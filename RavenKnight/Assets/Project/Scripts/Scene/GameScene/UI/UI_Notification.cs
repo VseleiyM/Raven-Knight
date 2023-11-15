@@ -22,6 +22,20 @@ public class UI_Notification : MonoBehaviour
     private string textWave;
     private string textBossWave;
 
+    private void Awake()
+    {
+        GlobalEvents.openRoom += OnRoomOpen;
+        GlobalEvents.nextWave += OnNextWave;
+        keeper.languageChanged += OnLangaugeChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GlobalEvents.openRoom -= OnRoomOpen;
+        GlobalEvents.nextWave -= OnNextWave;
+        keeper.languageChanged -= OnLangaugeChanged;
+    }
+
     private void Start()
     {
         textRoomCleared = keeper.GetLocalization("GameMenu.UI.RoomCleared");
@@ -30,20 +44,6 @@ public class UI_Notification : MonoBehaviour
         textBossWave = keeper.GetLocalization("GameMunu.UI.BossWave");
         notification.font = keeper.currentFont;
         gainPoints.font = keeper.currentFont;
-    }
-
-    private void OnEnable()
-    {
-        GlobalEvents.openRoom += OnRoomOpen;
-        GlobalEvents.nextWave += OnNextWave;
-        keeper.languageChanged += OnLangaugeChanged;
-    }
-
-    private void OnDisable()
-    {
-        GlobalEvents.openRoom -= OnRoomOpen;
-        GlobalEvents.nextWave -= OnNextWave;
-        keeper.languageChanged -= OnLangaugeChanged;
     }
 
     private void OnRoomOpen(int score)
