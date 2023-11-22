@@ -13,37 +13,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ecb9ee8dc80baa743bbf2573a8353a98, type: 2}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e29c07c039b860a438b92b1600fd0407,
-        type: 3}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524909014529197375, guid: 95b12e8dc07fc534cb1b74091debce7b,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3689001887889979128, guid: 95b12e8dc07fc534cb1b74091debce7b,
         type: 3}
       propertyPath: m_Size.x
