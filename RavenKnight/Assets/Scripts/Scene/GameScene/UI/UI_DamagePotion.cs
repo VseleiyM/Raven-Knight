@@ -68,13 +68,14 @@ public class UI_DamagePotion : MonoBehaviour
 
     public void OnItemHasPickup(PickupItem item)
     {
-        if (item.TypePickupItem != pickupItem) return;
-
-        filledIcon.value += item.Value;
-        if (filledIcon.isMax && !isReady)
+        if (item.TypePickupItem == pickupItem)
         {
-            isReady = true;
-            text.color = new Color(1, 1, 1, 1);
+            filledIcon.value += item.Value;
+            if (filledIcon.isMax && !isReady)
+            {
+                isReady = true;
+                text.color = new Color(1, 1, 1, 1);
+            }
         }
     }
 }
