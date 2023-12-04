@@ -14,6 +14,7 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private List<GameObject> boostersList;
     [Space(10)]
     [SerializeField] private List<GameObject> obstacleList;
+    [SerializeField] private List<GameObject> obstacleNearWallList;
     [SerializeField, Range(0, 100)] private int fillObstaclePercent;
     [Space(10)]
     [SerializeField] private Tilemap tilemapFloor;
@@ -58,9 +59,9 @@ public class GenerateLevel : MonoBehaviour
             tempFolder = goTempFolder.transform;
 
         currRooms = CreateLevel();
-        
 
-        
+
+
     }
 
     private void OnDestroy()
@@ -124,6 +125,7 @@ public class GenerateLevel : MonoBehaviour
 
             return rooms;
 
+            // Local Methots
             void AddStartRoom()
             {
                 currRoom = new Room();
@@ -383,13 +385,14 @@ public class GenerateLevel : MonoBehaviour
 
             CreateFloor();
             CreateWall();
+            CreateSideWall();
             DeleteSegmentWall();
             CreateCorridor();
             CreateGate();
             CreateSpawner();
             FillObstacle();
 
-
+            // Local Methods
             void CreateFloor()
             {
                 for (int y = room.size - 1; y > -room.size; y--)
@@ -409,22 +412,32 @@ public class GenerateLevel : MonoBehaviour
                 for (int x = -room.size; x <= room.size; x++)
                 {
                     tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(x + offsetRoom.x, room.size + offsetRoom.y, 0), tile);
+                    tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.size, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.size, 0), tile);
                 }
+                for (int y = -room.size; y <= room.size; y++)
+                {
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(offsetRoom.x - room.size, offsetRoom.y + y, 0), tile);
+                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                    tilemapWall.SetTile(new Vector3Int(offsetRoom.x + room.size, offsetRoom.y + y, 0), tile);
+                }
+            }
+
+            void CreateSideWall()
+            {
+                TileBase tile;
+
                 for (int x = -room.size; x <= room.size; x++)
                 {
-                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(x + offsetRoom.x, -room.size + offsetRoom.y, 0), tile);
-                }
-                for (int y = -room.size; y <= room.size; y++)
-                {
-                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(-room.size + offsetRoom.x, y + offsetRoom.y, 0), tile);
-                }
-                for (int y = -room.size; y <= room.size; y++)
-                {
-                    tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                    tilemapWall.SetTile(new Vector3Int(room.size + offsetRoom.x, y + offsetRoom.y, 0), tile);
+                    if (x != -room.size && x != room.size)
+                    {
+                        tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                        tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.size - 1, 0), tile);
+                    }
+                    tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                    tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.size - 1, 0), tile);
                 }
             }
 
@@ -434,13 +447,19 @@ public class GenerateLevel : MonoBehaviour
                 {
                     int y = room.size;
                     for (int x = -1; x <= 1; x++)
+                    {
                         tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
+                        tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y - 1, 0), null);
+                    }
                 }
                 if (room.corridorDown)
                 {
                     int y = -room.size;
                     for (int x = -1; x <= 1; x++)
+                    {
                         tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
+                        tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y - 1, 0), null);
+                    }
                 }
                 if (room.corridorRight)
                 {
@@ -500,9 +519,16 @@ public class GenerateLevel : MonoBehaviour
                             tilemapFloor.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), tile);
                         }
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 2, 0), tile);
-                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
                         tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 2, 0), tile);
+                        tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                        tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 1, 0), tile);
+                        tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 2, 0), tile);
+                        if (x != -room.size && x != room.size)
+                        {
+                            tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                            tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 3, 0), tile);
+                        }
                     }
                 }
                 if (room.corridorLeft)
@@ -516,8 +542,15 @@ public class GenerateLevel : MonoBehaviour
                         }
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
                         tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 2, 0), tile);
+                        tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                        tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 1, 0), tile);
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
                         tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 2, 0), tile);
+                        if (x != -room.size && x != room.size)
+                        {
+                            tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
+                            tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 3, 0), tile);
+                        }
                     }
                 }
             }
@@ -636,6 +669,7 @@ public class GenerateLevel : MonoBehaviour
                             }
                         }
 
+                        // Local Methots
                         void CollectCheckablePoints(Vector2Int point)
                         {
                             Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
@@ -663,9 +697,13 @@ public class GenerateLevel : MonoBehaviour
                     mapObstacle[point.x, point.y] = true;
                     Vector3 spawnPoint = new Vector3(offsetRoom.x, offsetRoom.y, 0);
                     spawnPoint += new Vector3(point.x, point.y, 0);
-                    var obstaclePrefab = obstacleList[Random.Range(0, obstacleList.Count)];
+                    GameObject obstaclePrefab;
+                    if (point.x == 0 || point.y == 0 || point.x == room.size * 2 - 2 || point.y == room.size * 2 - 2)
+                        obstaclePrefab = obstacleNearWallList[Random.Range(0, obstacleNearWallList.Count)];
+                    else
+                        obstaclePrefab = obstacleList[Random.Range(0, obstacleList.Count)];
 
-                    var obstacle = Instantiate(obstaclePrefab, spawnPoint + offset, Quaternion.identity, obstacleFolder);
+                    Instantiate(obstaclePrefab, spawnPoint + offset, Quaternion.identity, obstacleFolder);
                 }
 
                 room.mapObstacle = mapObstacle;
