@@ -33,10 +33,11 @@ public class GenerateLevel : MonoBehaviour
     [Space(10)]
     [SerializeField, Min(1)] private int spacingRoom = 20;
     [SerializeField] private LevelDifficult[] levelsList;
+    [SerializeField, Min(0.01f)] private float minPercentDifficult;
+    [SerializeField] private AnimationCurve difficultCurve;
 
     private int currLevel = 0;
     private List<Room> currRooms;
-
 
     private Transform obstacleFolder;
     private Transform tempFolder;
@@ -87,7 +88,8 @@ public class GenerateLevel : MonoBehaviour
         for (int i = 1; i <= levelsList[currLevel].lengthMaze; i++)
             divider += i;
 
-        int result = (levelsList[currLevel].difficultScore / divider) * roomID;
+        float difficultModifier = difficultCurve.Evaluate((float)roomID / divider);
+        int result = (int)(levelsList[currLevel].difficultScore * difficultModifier);
 
         return result;
     }
@@ -617,6 +619,8 @@ public class GenerateLevel : MonoBehaviour
                         enemySpawner.roomIndex = index;
                         enemySpawner.maxWave = 3;
                         enemySpawner.roomDifficult = GetRoomDifficult(index);
+                        if (enemySpawner.roomDifficult < levelsList[currLevel].difficultScore * minPercentDifficult)
+                            enemySpawner.roomDifficult = (int)(levelsList[currLevel].difficultScore * minPercentDifficult);
                         enemySpawner.enemyList = levelsList[currLevel].enemyList;
                         enemySpawner.roomInfo = room;
                         break;
@@ -647,7 +651,7 @@ public class GenerateLevel : MonoBehaviour
                 int countCells = (room.size * 2 - 1) * (room.size * 2 - 1);
                 int mustFillCells = countCells * fillObstaclePercent / 100;
 
-                Vector3 offset = new Vector3(-room.size + (float)1.5, -room.size + (float)1.5, 0);
+                Vector3 offset = new Vector3(-room.size + 1.5f, -room.size + 1.5f, 0);
                 for (int i = 0; i < mustFillCells; i++)
                 {
                     Vector2Int point = new Vector2Int();
