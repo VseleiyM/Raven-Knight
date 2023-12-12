@@ -89,6 +89,7 @@ namespace Project.GenerateLevel
                             }
                         }
 
+                        // Local Methods
                         void CollectCheckablePoints(Vector2Int point)
                         {
                             Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
@@ -147,6 +148,19 @@ namespace Project.GenerateLevel
             int divider = 0;
             for (int i = 1; i <= maxWave; i++)
                 divider += i;
+
+            switch (wave)
+            {
+                case 1:
+                    divider += GenerateLevel.Instance.Wave1Diff; 
+                    break;
+                case 2:
+                    divider += GenerateLevel.Instance.Wave2Diff; 
+                    break;
+                case 3:
+                    divider += GenerateLevel.Instance.Wave3Diff; 
+                    break;
+            }
 
             int result = (roomDifficult / divider) * wave;
 

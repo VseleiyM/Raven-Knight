@@ -872,6 +872,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wave1Diff: 0
+  wave2Diff: 0
+  wave3Diff: 0
 --- !u!1 &1013820171
 GameObject:
   m_ObjectHideFlags: 0
