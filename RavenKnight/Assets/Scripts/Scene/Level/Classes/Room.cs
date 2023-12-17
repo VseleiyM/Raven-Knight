@@ -7,7 +7,8 @@ namespace Project.GenerateLevel
     public class Room
     {
         public Vector2Int position;
-        public int size;
+        public int sizeX;
+        public int sizeY;
         public RoomTypes roomType = RoomTypes.Empty;
         public bool[,] mapObstacle;
 

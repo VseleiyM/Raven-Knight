@@ -35,6 +35,12 @@ namespace Project.GenerateLevel
         [SerializeField] private GameObject prefabLoadNextLevel;
         [Space(10)]
         [SerializeField, Min(1)] private int spacingRoom = 20;
+        [SerializeField, Min(3)] private int minLenghtHalfWall = 3;
+        [Space(10)]
+        [SerializeField, Min(0)] private float startScore;
+        [SerializeField, Min(0)] private float stepScore;
+        [SerializeField, Min(0)] private float bossScore;
+        [Space(10)]
         [SerializeField] private LevelDifficult[] levelsList;
         [SerializeField, Min(0.01f)] private float minPercentDifficult;
         [SerializeField] private AnimationCurve difficultCurve;
@@ -91,6 +97,9 @@ namespace Project.GenerateLevel
                 level.name = $"Level - {index}";
                 index++;
             }
+
+            if (minLenghtHalfWall > (spacingRoom / 2) - 1)
+                minLenghtHalfWall = (spacingRoom / 2) - 1;
         }
 
         public int GetRoomDifficult(int roomID)
@@ -128,7 +137,6 @@ namespace Project.GenerateLevel
                 if (lenghtMaze < 1) lenghtMaze = 1;
                 List<Room> rooms = new List<Room>();
 
-                int minSizeRoom = spacingRoom / 4;
                 int maxSizeRoom = (spacingRoom / 2) - 1;
                 Vector2Int startPosition = new Vector2Int(0, 0);
                 Room currRoom;
@@ -143,7 +151,8 @@ namespace Project.GenerateLevel
                 {
                     currRoom = new Room();
                     currRoom.position = startPosition;
-                    currRoom.size = minSizeRoom;
+                    currRoom.sizeX = minLenghtHalfWall;
+                    currRoom.sizeY = minLenghtHalfWall;
                     currRoom.roomType = RoomTypes.PlayerRoom;
                     rooms.Add(currRoom);
                 }
@@ -245,7 +254,8 @@ namespace Project.GenerateLevel
                         void SetData()
                         {
                             nextRoom.roomType = RoomTypes.EnemyRoom;
-                            nextRoom.size = Random.Range(minSizeRoom, maxSizeRoom);
+                            nextRoom.sizeX = Random.Range(minLenghtHalfWall, maxSizeRoom);
+                            nextRoom.sizeY = Random.Range(minLenghtHalfWall, maxSizeRoom);
                             switch (direction)
                             {
                                 case 0: // Up
@@ -271,7 +281,8 @@ namespace Project.GenerateLevel
                         void AddBossRoom()
                         {
                             currRoom.roomType = RoomTypes.FinalRoom;
-                            currRoom.size = maxSizeRoom;
+                            currRoom.sizeX = maxSizeRoom;
+                            currRoom.sizeY = maxSizeRoom;
                         }
                     }
                 }
@@ -363,10 +374,12 @@ namespace Project.GenerateLevel
 
                         SetData();
 
+                        // Local Methods
                         void SetData()
                         {
                             nextRoom.roomType = RoomTypes.AdditionalRoom;
-                            nextRoom.size = minSizeRoom;
+                            nextRoom.sizeX = minLenghtHalfWall;
+                            nextRoom.sizeY = minLenghtHalfWall;
                             switch (direction)
                             {
                                 case 0: // Up
@@ -408,9 +421,9 @@ namespace Project.GenerateLevel
                 // Local Methods
                 void CreateFloor()
                 {
-                    for (int y = room.size - 1; y > -room.size; y--)
+                    for (int y = room.sizeY - 1; y > -room.sizeY; y--)
                     {
-                        for (int x = -room.size + 1; x < room.size; x++)
+                        for (int x = -room.sizeX + 1; x < room.sizeX; x++)
                         {
                             TileBase tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(x + offsetRoom.x, y + offsetRoom.y, 0), tile);
@@ -422,19 +435,19 @@ namespace Project.GenerateLevel
                 {
                     TileBase tile;
 
-                    for (int x = -room.size; x <= room.size; x++)
+                    for (int x = -room.sizeX; x <= room.sizeX; x++)
                     {
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.size, 0), tile);
+                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.sizeY, 0), tile);
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.size, 0), tile);
+                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.sizeY, 0), tile);
                     }
-                    for (int y = -room.size; y <= room.size; y++)
+                    for (int y = -room.sizeY; y <= room.sizeY; y++)
                     {
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x - room.size, offsetRoom.y + y, 0), tile);
+                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x - room.sizeX, offsetRoom.y + y, 0), tile);
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
-                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + room.size, offsetRoom.y + y, 0), tile);
+                        tilemapWall.SetTile(new Vector3Int(offsetRoom.x + room.sizeX, offsetRoom.y + y, 0), tile);
                     }
                 }
 
@@ -442,15 +455,15 @@ namespace Project.GenerateLevel
                 {
                     TileBase tile;
 
-                    for (int x = -room.size; x <= room.size; x++)
+                    for (int x = -room.sizeX; x <= room.sizeX; x++)
                     {
-                        if (x != -room.size && x != room.size)
+                        if (x != -room.sizeX && x != room.sizeX)
                         {
                             tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
-                            tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.size - 1, 0), tile);
+                            tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + room.sizeY - 1, 0), tile);
                         }
                         tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
-                        tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.size - 1, 0), tile);
+                        tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - room.sizeY - 1, 0), tile);
                     }
                 }
 
@@ -458,7 +471,7 @@ namespace Project.GenerateLevel
                 {
                     if (room.corridorUp)
                     {
-                        int y = room.size;
+                        int y = room.sizeY;
                         for (int x = -1; x <= 1; x++)
                         {
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
@@ -467,7 +480,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorDown)
                     {
-                        int y = -room.size;
+                        int y = -room.sizeY;
                         for (int x = -1; x <= 1; x++)
                         {
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
@@ -476,13 +489,13 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorRight)
                     {
-                        int x = room.size;
+                        int x = room.sizeX;
                         for (int y = -1; y <= 1; y++)
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
                     }
                     if (room.corridorLeft)
                     {
-                        int x = -room.size;
+                        int x = -room.sizeX;
                         for (int y = -1; y <= 1; y++)
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), null);
                     }
@@ -494,7 +507,7 @@ namespace Project.GenerateLevel
 
                     if (room.corridorUp)
                     {
-                        for (int y = room.size; y <= spacingRoom / 2; y++)
+                        for (int y = room.sizeY; y <= spacingRoom / 2; y++)
                         {
                             for (int x = -1; x <= 1; x++)
                             {
@@ -509,7 +522,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorDown)
                     {
-                        for (int y = -room.size; y >= -spacingRoom / 2; y--)
+                        for (int y = -room.sizeY; y >= -spacingRoom / 2; y--)
                         {
                             for (int x = -1; x <= 1; x++)
                             {
@@ -524,7 +537,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorRight)
                     {
-                        for (int x = room.size; x <= spacingRoom / 2; x++)
+                        for (int x = room.sizeX; x <= spacingRoom / 2; x++)
                         {
                             for (int y = -1; y <= 1; y++)
                             {
@@ -537,7 +550,7 @@ namespace Project.GenerateLevel
                             tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 1, 0), tile);
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 2, 0), tile);
-                            if (x != -room.size && x != room.size)
+                            if (x != -room.sizeX && x != room.sizeX)
                             {
                                 tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
                                 tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 3, 0), tile);
@@ -546,7 +559,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorLeft)
                     {
-                        for (int x = -room.size; x >= -spacingRoom / 2; x--)
+                        for (int x = -room.sizeX; x >= -spacingRoom / 2; x--)
                         {
                             for (int y = -1; y <= 1; y++)
                             {
@@ -559,7 +572,7 @@ namespace Project.GenerateLevel
                             tilemapSidewallIn.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 1, 0), tile);
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + 2, 0), tile);
-                            if (x != -room.size && x != room.size)
+                            if (x != -room.sizeX && x != room.sizeX)
                             {
                                 tile = tilesSidewall[Random.Range(0, tilesSidewall.Count)];
                                 tilemapSidewallOut.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y - 3, 0), tile);
@@ -574,7 +587,7 @@ namespace Project.GenerateLevel
 
                     if (room.corridorUp)
                     {
-                        int y = room.size + 1;
+                        int y = room.sizeY + 1;
                         for (int x = -1; x <= 1; x++)
                         {
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
@@ -583,7 +596,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorDown)
                     {
-                        int y = -room.size - 1;
+                        int y = -room.sizeY - 1;
                         for (int x = -1; x <= 1; x++)
                         {
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
@@ -592,7 +605,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorRight)
                     {
-                        int x = room.size + 1;
+                        int x = room.sizeX + 1;
                         for (int y = -1; y <= 1; y++)
                         {
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
@@ -601,7 +614,7 @@ namespace Project.GenerateLevel
                     }
                     if (room.corridorLeft)
                     {
-                        int x = -room.size - 1;
+                        int x = -room.sizeX - 1;
                         for (int y = -1; y <= 1; y++)
                         {
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
@@ -626,8 +639,9 @@ namespace Project.GenerateLevel
                         case RoomTypes.EnemyRoom:
                             enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
                             enemySpawner.transform.position = pointV3 + offsetV3;
-                            enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
+                            enemySpawner.spawnZone.size = new Vector2(room.sizeX * 2 - 3, room.sizeY * 2 - 3);
                             enemySpawner.roomIndex = index;
+                            enemySpawner.roomScore = (int)(startScore + stepScore * index);
                             enemySpawner.maxWave = 3;
                             enemySpawner.roomDifficult = GetRoomDifficult(index);
                             if (enemySpawner.roomDifficult < levelsList[currLevel].difficultScore * minPercentDifficult)
@@ -638,8 +652,9 @@ namespace Project.GenerateLevel
                         case RoomTypes.FinalRoom:
                             enemySpawner = Instantiate(this.enemySpawner, parentSpawners);
                             enemySpawner.transform.position = pointV3 + offsetV3;
-                            enemySpawner.spawnZone.size = new Vector2(room.size * 2 - 3, room.size * 2 - 3);
+                            enemySpawner.spawnZone.size = new Vector2(room.sizeX * 2 - 3, room.sizeY * 2 - 3);
                             enemySpawner.roomIndex = index;
+                            enemySpawner.roomScore = (int)(bossScore);
                             enemySpawner.maxWave = 1;
                             enemySpawner.roomDifficult = GetRoomDifficult(index);
                             enemySpawner.bossRoom = true;
@@ -659,14 +674,14 @@ namespace Project.GenerateLevel
                     if (room.roomType != RoomTypes.EnemyRoom) return;
 
                     bool[,] mapObstacle = new bool[spacingRoom, spacingRoom];
-                    int countCells = (room.size * 2 - 1) * (room.size * 2 - 1);
+                    int countCells = (room.sizeX * 2 - 1) * (room.sizeY * 2 - 1);
                     int mustFillCells = countCells * fillObstaclePercent / 100;
 
-                    Vector3 offset = new Vector3(-room.size + 1.5f, -room.size + 1.5f, 0);
+                    Vector3 offset = new Vector3(-room.sizeX + 1.5f, -room.sizeY + 1.5f, 0);
                     for (int i = 0; i < mustFillCells; i++)
                     {
                         Vector2Int point = new Vector2Int();
-                        point.Set(Random.Range(0, room.size * 2 - 1), Random.Range(0, room.size * 2 - 1));
+                        point.Set(Random.Range(0, room.sizeX * 2 - 1), Random.Range(0, room.sizeY * 2 - 1));
                         if (mapObstacle[point.x, point.y])
                         {
                             List<Vector2Int> checkingPoints = new List<Vector2Int>();
@@ -688,22 +703,22 @@ namespace Project.GenerateLevel
                             void CollectCheckablePoints(Vector2Int point)
                             {
                                 Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
-                                if (0 <= newPoint.y && newPoint.y < room.size * 2 - 1)
+                                if (0 <= newPoint.y && newPoint.y < room.sizeY * 2 - 1)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x + 1, point.y);
-                                if (0 <= newPoint.x && newPoint.x < room.size * 2 - 1)
+                                if (0 <= newPoint.x && newPoint.x < room.sizeX * 2 - 1)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x, point.y - 1);
-                                if (0 <= newPoint.y && newPoint.y < room.size * 2 - 1)
+                                if (0 <= newPoint.y && newPoint.y < room.sizeY * 2 - 1)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x - 1, point.y);
-                                if (0 <= newPoint.x && newPoint.x < room.size * 2 - 1)
+                                if (0 <= newPoint.x && newPoint.x < room.sizeX * 2 - 1)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
                             }
@@ -713,7 +728,7 @@ namespace Project.GenerateLevel
                         Vector3 spawnPoint = new Vector3(offsetRoom.x, offsetRoom.y, 0);
                         spawnPoint += new Vector3(point.x, point.y, 0);
                         GameObject obstaclePrefab;
-                        if (point.x == 0 || point.y == 0 || point.x == room.size * 2 - 2 || point.y == room.size * 2 - 2)
+                        if (point.x == 0 || point.y == 0 || point.x == room.sizeX * 2 - 2 || point.y == room.sizeY * 2 - 2)
                             obstaclePrefab = obstacleNearWallList[Random.Range(0, obstacleNearWallList.Count)];
                         else
                             obstaclePrefab = obstacleList[Random.Range(0, obstacleList.Count)];

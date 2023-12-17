@@ -800,6 +800,7 @@ MonoBehaviour:
   - {fileID: 8715073157950547314, guid: 32ddfde002f0ff940b384cf7216c5403, type: 3}
   - {fileID: 8715073157950547314, guid: 25c46f81b9e2ef84e9db1593006b6981, type: 3}
   - {fileID: 8715073157950547314, guid: 2505d979415102144a1443ab3eb7794e, type: 3}
+  - {fileID: 8715073157950547314, guid: 29ee65d493dd5cf4c9bce721e5d4a8ba, type: 3}
   fillObstaclePercent: 5
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
@@ -816,6 +817,10 @@ MonoBehaviour:
   prefabLoadNextLevel: {fileID: 2724825222959882951, guid: f9986f99deba3164f8e8db86f4dcd771,
     type: 3}
   spacingRoom: 30
+  minLenghtHalfWall: 3
+  startScore: 300
+  stepScore: 50
+  bossScore: 5000
   levelsList:
   - name: Level - 1
     lengthMaze: 3
@@ -872,9 +877,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  wave1Diff: 0
-  wave2Diff: 0
-  wave3Diff: 0
+  _wave1Diff: 0
+  _wave2Diff: 0
+  _wave3Diff: 0
 --- !u!1 &1013820171
 GameObject:
   m_ObjectHideFlags: 0

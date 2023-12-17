@@ -9,6 +9,7 @@ namespace Project.GenerateLevel
         public BoxCollider2D spawnZone;
         [Space(10)]
         [Min(0)] public int roomIndex = 0;
+        public int roomScore;
         public int maxWave;
         public int roomDifficult;
         public List<GameObject> enemyList;
@@ -62,7 +63,7 @@ namespace Project.GenerateLevel
 
             int waveDifficult = GetWaveDifficult(currentWaveID + 1);
             List<Vector2Int> checkingPoints = new List<Vector2Int>();
-            Vector3 offset = new Vector3(-roomInfo.size + 1, -roomInfo.size + 1, 0);
+            Vector3 offset = new Vector3(-roomInfo.sizeX + 1, -roomInfo.sizeY + 1, 0);
             while (true)
             {
                 if (spawnList.Count == 0) break;
@@ -71,7 +72,7 @@ namespace Project.GenerateLevel
                 if (!bossRoom)
                 {
                     Vector2Int point = new Vector2Int();
-                    point.Set(Random.Range(0, roomInfo.size * 2 - 1), Random.Range(0, roomInfo.size * 2 - 1));
+                    point.Set(Random.Range(0, roomInfo.sizeX * 2 - 1), Random.Range(0, roomInfo.sizeY * 2 - 1));
                     if (roomInfo.mapObstacle[point.x, point.y])
                     {
                         checkingPoints.Clear();
@@ -93,22 +94,22 @@ namespace Project.GenerateLevel
                         void CollectCheckablePoints(Vector2Int point)
                         {
                             Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
-                            if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
+                            if (0 <= newPoint.y && newPoint.y < roomInfo.sizeY * 2 - 1)
                                 if (!checkingPoints.Contains(newPoint))
                                     checkingPoints.Add(newPoint);
 
                             newPoint = new Vector2Int(point.x + 1, point.y);
-                            if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
+                            if (0 <= newPoint.x && newPoint.x < roomInfo.sizeX * 2 - 1)
                                 if (!checkingPoints.Contains(newPoint))
                                     checkingPoints.Add(newPoint);
 
                             newPoint = new Vector2Int(point.x, point.y - 1);
-                            if (0 <= newPoint.y && newPoint.y < roomInfo.size * 2 - 1)
+                            if (0 <= newPoint.y && newPoint.y < roomInfo.sizeY * 2 - 1)
                                 if (!checkingPoints.Contains(newPoint))
                                     checkingPoints.Add(newPoint);
 
                             newPoint = new Vector2Int(point.x - 1, point.y);
-                            if (0 <= newPoint.x && newPoint.x < roomInfo.size * 2 - 1)
+                            if (0 <= newPoint.x && newPoint.x < roomInfo.sizeX * 2 - 1)
                                 if (!checkingPoints.Contains(newPoint))
                                     checkingPoints.Add(newPoint);
                         }
@@ -181,7 +182,7 @@ namespace Project.GenerateLevel
                 GlobalEvents.bossDead -= OnMobDead;
                 GlobalEvents.mobDead -= OnMobDead;
 
-                GlobalEvents.SendOpenRoom(0);
+                GlobalEvents.SendOpenRoom(roomScore);
                 if (bossRoom)
                     GlobalEvents.SendBossRoomClear();
             }
