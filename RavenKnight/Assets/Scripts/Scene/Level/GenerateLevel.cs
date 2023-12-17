@@ -100,6 +100,8 @@ namespace Project.GenerateLevel
 
             if (minLenghtHalfWall > (spacingRoom / 2) - 1)
                 minLenghtHalfWall = (spacingRoom / 2) - 1;
+            if (minLenghtHalfWall < 3)
+                minLenghtHalfWall = 3;
         }
 
         public int GetRoomDifficult(int roomID)
