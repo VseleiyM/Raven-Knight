@@ -42,10 +42,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FogStrength: 0.5
+    - _FogStrength: 0.7
     - _NoiseStep: 0.4
     - _Scale: 1
-    - _Speed: 1
+    - _Speed: 2
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &4742449464880221738
