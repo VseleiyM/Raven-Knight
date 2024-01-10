@@ -770,6 +770,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 696ea1039f550864bb9f5b640462f5ff, type: 2}
   - {fileID: 11400000, guid: ae530e3c476026e4283b6d1016a7a20c, type: 2}
   - {fileID: 11400000, guid: d348771e21b2c144484fb4e6403dffcf, type: 2}
+  tilesGateHorizontal:
+  - {fileID: 11400000, guid: 833e811dbfde1b5449a546d1839a246f, type: 2}
+  tilesGateVertical:
+  - {fileID: 11400000, guid: fc81a0c29bcdbd542993c56d82660bf6, type: 2}
   boostersList:
   - {fileID: 2707848527629948363, guid: 5bbbfa020dafa5841bbc67f5529d0edd, type: 3}
   - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
@@ -788,10 +792,6 @@ MonoBehaviour:
   - {fileID: 8715073157950547314, guid: 63dd2011c66f8e543b61cf66cb50f317, type: 3}
   - {fileID: 8715073157950547314, guid: cb23d539260d05043b673405202d76e0, type: 3}
   - {fileID: 8715073157950547314, guid: 3aac41e4d64a9224494969094f3b0a2a, type: 3}
-  - {fileID: 8715073157950547314, guid: 842f1423250093e45bcc3f0f0c5b2390, type: 3}
-  - {fileID: 8715073157950547314, guid: 9de3563574cd7454e8d0dc681828a5b2, type: 3}
-  - {fileID: 8715073157950547314, guid: 107d18d25534e634a8e8533d60c340f7, type: 3}
-  - {fileID: 8715073157950547314, guid: 4a303dc5c3785ca4f980bccb2a897502, type: 3}
   - {fileID: 8715073157950547314, guid: 75f444c780546c746890f5a6062b053c, type: 3}
   - {fileID: 8715073157950547314, guid: 0b6ec5c3be1de804a960cd93bd7189ed, type: 3}
   - {fileID: 8715073157950547314, guid: cbc68098404f27847bd74be2ec71e38a, type: 3}

@@ -13,6 +13,8 @@ namespace Project.GenerateLevel
         [SerializeField] private List<TileBase> tilesFloor;
         [SerializeField] private List<TileBase> tilesWall;
         [SerializeField] private List<TileBase> tilesSidewall;
+        [SerializeField] private List<TileBase> tilesGateHorizontal;
+        [SerializeField] private List<TileBase> tilesGateVertical;
         [Space(10)]
         [SerializeField] private List<GameObject> boostersList;
         [Space(10)]
@@ -410,6 +412,7 @@ namespace Project.GenerateLevel
             void CreateRoom(Room room, int index)
             {
                 Vector2Int offsetRoom = new Vector2Int(spacingRoom * room.position.x, spacingRoom * room.position.y);
+                TileBase tile;
 
                 CreateFloor();
                 CreateWall();
@@ -427,7 +430,7 @@ namespace Project.GenerateLevel
                     {
                         for (int x = -room.sizeX + 1; x < room.sizeX; x++)
                         {
-                            TileBase tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
+                            tile = tilesFloor[Random.Range(0, tilesFloor.Count)];
                             tilemapFloor.SetTile(new Vector3Int(x + offsetRoom.x, y + offsetRoom.y, 0), tile);
                         }
                     }
@@ -435,8 +438,6 @@ namespace Project.GenerateLevel
 
                 void CreateWall()
                 {
-                    TileBase tile;
-
                     for (int x = -room.sizeX; x <= room.sizeX; x++)
                     {
                         tile = tilesWall[Random.Range(0, tilesWall.Count)];
@@ -455,8 +456,6 @@ namespace Project.GenerateLevel
 
                 void CreateSideWall()
                 {
-                    TileBase tile;
-
                     for (int x = -room.sizeX; x <= room.sizeX; x++)
                     {
                         if (x != -room.sizeX && x != room.sizeX)
@@ -505,8 +504,6 @@ namespace Project.GenerateLevel
 
                 void CreateCorridor()
                 {
-                    TileBase tile;
-
                     if (room.corridorUp)
                     {
                         for (int y = room.sizeY; y <= spacingRoom / 2; y++)
@@ -585,14 +582,12 @@ namespace Project.GenerateLevel
 
                 void CreateGate()
                 {
-                    TileBase tile;
-
                     if (room.corridorUp)
                     {
                         int y = room.sizeY + 1;
                         for (int x = -1; x <= 1; x++)
                         {
-                            tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                            tile = tilesGateHorizontal[Random.Range(0, tilesGateHorizontal.Count)];
                             tilemapGate.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), tile);
                         }
                     }
@@ -601,7 +596,7 @@ namespace Project.GenerateLevel
                         int y = -room.sizeY - 1;
                         for (int x = -1; x <= 1; x++)
                         {
-                            tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                            tile = tilesGateHorizontal[Random.Range(0, tilesGateHorizontal.Count)];
                             tilemapGate.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), tile);
                         }
                     }
@@ -610,7 +605,7 @@ namespace Project.GenerateLevel
                         int x = room.sizeX + 1;
                         for (int y = -1; y <= 1; y++)
                         {
-                            tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                            tile = tilesGateVertical[Random.Range(0, tilesGateVertical.Count)];
                             tilemapGate.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), tile);
                         }
                     }
@@ -619,7 +614,7 @@ namespace Project.GenerateLevel
                         int x = -room.sizeX - 1;
                         for (int y = -1; y <= 1; y++)
                         {
-                            tile = tilesWall[Random.Range(0, tilesWall.Count)];
+                            tile = tilesGateVertical[Random.Range(0, tilesGateVertical.Count)];
                             tilemapGate.SetTile(new Vector3Int(offsetRoom.x + x, offsetRoom.y + y, 0), tile);
                         }
                     }
