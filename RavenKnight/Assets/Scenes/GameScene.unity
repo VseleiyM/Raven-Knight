@@ -831,6 +831,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: fd3b9435c7e5cdd478fc4357a227c8af,
         type: 3}
+    - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: healAreaPrefab
+      value: 
+      objectReference: {fileID: 1907517497685749461, guid: 3b49d97888d117a4ea6a07abe8eb4709,
+        type: 3}
     - target: {fileID: 3647906740120127879, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_AnchorMax.x
