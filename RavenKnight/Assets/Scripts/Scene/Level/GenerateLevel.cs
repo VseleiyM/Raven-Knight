@@ -18,8 +18,7 @@ namespace Project.GenerateLevel
         [Space(10)]
         [SerializeField] private List<GameObject> boostersList;
         [Space(10)]
-        [SerializeField] private List<GameObject> obstacleList;
-        [SerializeField] private List<GameObject> obstacleNearWallList;
+        [SerializeField] private List<RuleForObject> objectsWithRule;
         [SerializeField, Range(0, 100)] private int fillObstaclePercent;
         [Space(10)]
         [SerializeField] private Tilemap tilemapFloor;
@@ -55,6 +54,8 @@ namespace Project.GenerateLevel
 
         private int currLevel = 0;
         private List<Room> currRooms;
+        private List<RuleForObject> anyObjects = new List<RuleForObject>();
+        private List<RuleForObject> reqObjects = new List<RuleForObject>();
 
         private Transform obstacleFolder;
         private Transform tempFolder;
@@ -62,6 +63,13 @@ namespace Project.GenerateLevel
         private void Awake()
         {
             Instance = this;
+            foreach (var obj in objectsWithRule)
+            {
+                if (obj.requirements.Length == 0)
+                    anyObjects.Add(obj);
+                else
+                    reqObjects.Add(obj);
+            }
         }
 
         void Start()
@@ -134,13 +142,13 @@ namespace Project.GenerateLevel
             parentSpawners.gameObject.SetActive(true);
             return rooms;
 
-
-
+            // Local Methods
             List<Room> CreateMaze(int lenghtMaze)
             {
                 if (lenghtMaze < 1) lenghtMaze = 1;
                 List<Room> rooms = new List<Room>();
 
+                int minSizeRoom = (spacingRoom / 4) - 1;
                 int maxSizeRoom = (spacingRoom / 2) - 1;
                 Vector2Int startPosition = new Vector2Int(0, 0);
                 Room currRoom;
@@ -258,8 +266,8 @@ namespace Project.GenerateLevel
                         void SetData()
                         {
                             nextRoom.roomType = RoomTypes.EnemyRoom;
-                            nextRoom.sizeX = Random.Range(minLenghtHalfWall, maxSizeRoom);
-                            nextRoom.sizeY = Random.Range(minLenghtHalfWall, maxSizeRoom);
+                            nextRoom.sizeX = Random.Range(minSizeRoom, maxSizeRoom);
+                            nextRoom.sizeY = Random.Range(minSizeRoom, maxSizeRoom);
                             switch (direction)
                             {
                                 case 0: // Up
@@ -671,14 +679,17 @@ namespace Project.GenerateLevel
                     if (room.roomType != RoomTypes.EnemyRoom) return;
 
                     bool[,] mapObstacle = new bool[spacingRoom, spacingRoom];
-                    int countCells = (room.sizeX * 2 - 1) * (room.sizeY * 2 - 1);
+                    int rSizeX = room.sizeX * 2 - 1;
+                    int rSizeY = room.sizeY * 2 - 1;
+                    int countCells = rSizeX * rSizeY;
                     int mustFillCells = countCells * fillObstaclePercent / 100;
-
                     Vector3 offset = new Vector3(-room.sizeX + 1.5f, -room.sizeY + 1.5f, 0);
+
                     for (int i = 0; i < mustFillCells; i++)
                     {
                         Vector2Int point = new Vector2Int();
-                        point.Set(Random.Range(0, room.sizeX * 2 - 1), Random.Range(0, room.sizeY * 2 - 1));
+                        point.Set(Random.Range(0, rSizeX), Random.Range(0, rSizeY));
+
                         if (mapObstacle[point.x, point.y])
                         {
                             List<Vector2Int> checkingPoints = new List<Vector2Int>();
@@ -690,32 +701,30 @@ namespace Project.GenerateLevel
                                     point.Set(checkingPoints[j].x, checkingPoints[j].y);
                                     break;
                                 }
-                                else
-                                {
-                                    CollectCheckablePoints(checkingPoints[j]);
-                                }
+
+                                CollectCheckablePoints(checkingPoints[j]);
                             }
 
                             // Local Methots
                             void CollectCheckablePoints(Vector2Int point)
                             {
                                 Vector2Int newPoint = new Vector2Int(point.x, point.y + 1);
-                                if (0 <= newPoint.y && newPoint.y < room.sizeY * 2 - 1)
+                                if (0 <= newPoint.y && newPoint.y < rSizeY)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x + 1, point.y);
-                                if (0 <= newPoint.x && newPoint.x < room.sizeX * 2 - 1)
+                                if (0 <= newPoint.x && newPoint.x < rSizeX)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x, point.y - 1);
-                                if (0 <= newPoint.y && newPoint.y < room.sizeY * 2 - 1)
+                                if (0 <= newPoint.y && newPoint.y < rSizeY)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
 
                                 newPoint = new Vector2Int(point.x - 1, point.y);
-                                if (0 <= newPoint.x && newPoint.x < room.sizeX * 2 - 1)
+                                if (0 <= newPoint.x && newPoint.x < rSizeX)
                                     if (!checkingPoints.Contains(newPoint))
                                         checkingPoints.Add(newPoint);
                             }
@@ -724,13 +733,46 @@ namespace Project.GenerateLevel
                         mapObstacle[point.x, point.y] = true;
                         Vector3 spawnPoint = new Vector3(offsetRoom.x, offsetRoom.y, 0);
                         spawnPoint += new Vector3(point.x, point.y, 0);
-                        GameObject obstaclePrefab;
-                        if (point.x == 0 || point.y == 0 || point.x == room.sizeX * 2 - 2 || point.y == room.sizeY * 2 - 2)
-                            obstaclePrefab = obstacleNearWallList[Random.Range(0, obstacleNearWallList.Count)];
-                        else
-                            obstaclePrefab = obstacleList[Random.Range(0, obstacleList.Count)];
 
-                        Instantiate(obstaclePrefab, spawnPoint + offset, Quaternion.identity, obstacleFolder);
+                        GameObject obstaclePrefab = null;
+                        List<GameObject> prefabs = new List<GameObject>();
+
+                        foreach (var obj in reqObjects)
+                        {
+                            int reqDone = 0;
+                            Vector2Int checkingPoint = new Vector2Int();
+                            TileStatus checkingTileStatus = new TileStatus();
+
+                            foreach (var req in obj.requirements)
+                            {
+                                checkingPoint.Set(point.x + req.position.x, point.y + req.position.y);
+
+                                if (checkingPoint.x < 0 || checkingPoint.y < 0 ||
+                                    checkingPoint.x > rSizeX - 1 || checkingPoint.y > rSizeY - 1)
+                                    checkingTileStatus = TileStatus.Wall;
+                                else
+                                    checkingTileStatus = TileStatus.Empty;
+
+                                if (checkingTileStatus == req.tileStatus)
+                                    if (obj.oneRequirement)
+                                    {
+                                        prefabs.Add(obj.prefab);
+                                        break;
+                                    }
+                                    else
+                                        reqDone += 1;
+                            }
+                            if (reqDone == obj.requirements.Length)
+                                prefabs.Add(obj.prefab);
+                        }
+
+                        if (prefabs.Count > 0)
+                            obstaclePrefab = prefabs[Random.Range(0, prefabs.Count)];
+
+                        if (obstaclePrefab == null)
+                            obstaclePrefab = anyObjects[Random.Range(0, anyObjects.Count)].prefab;
+
+                        Instantiate(obstaclePrefab, offset + spawnPoint, Quaternion.identity, obstacleFolder);
                     }
 
                     room.mapObstacle = mapObstacle;

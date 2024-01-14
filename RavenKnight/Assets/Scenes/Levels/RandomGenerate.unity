@@ -801,6 +801,27 @@ MonoBehaviour:
   - {fileID: 8715073157950547314, guid: 25c46f81b9e2ef84e9db1593006b6981, type: 3}
   - {fileID: 8715073157950547314, guid: 2505d979415102144a1443ab3eb7794e, type: 3}
   - {fileID: 8715073157950547314, guid: 29ee65d493dd5cf4c9bce721e5d4a8ba, type: 3}
+  objectsWithRule:
+  - {fileID: 11400000, guid: b0ff9d6e95e905d49bc37ecdcba45574, type: 2}
+  - {fileID: 11400000, guid: 86a6a15c2cdd8a44f85a6ca8512e4652, type: 2}
+  - {fileID: 11400000, guid: eaadbf267be7bba44b759108dfc41076, type: 2}
+  - {fileID: 11400000, guid: db467a7b257935941abd9c121d5f0785, type: 2}
+  - {fileID: 11400000, guid: 86353632c53b8c847a3cbf49c67bd088, type: 2}
+  - {fileID: 11400000, guid: 8e75b329f01d0774caa5a3176de338d8, type: 2}
+  - {fileID: 11400000, guid: fe2d0dfde44390e4da62e2b5916e717b, type: 2}
+  - {fileID: 11400000, guid: 1e3afed713c59b348bc84ad9b596c4cd, type: 2}
+  - {fileID: 11400000, guid: b1dcd1f8c6d998e4ca3d2506da602c7f, type: 2}
+  - {fileID: 11400000, guid: 3e88fff4d9720fe48ad7d24b8a0fa7a9, type: 2}
+  - {fileID: 11400000, guid: c4dd29ed524f6f54ba252e9bca8d2663, type: 2}
+  - {fileID: 11400000, guid: a95bcbbd676556a40bfe4cbbd51a05ee, type: 2}
+  - {fileID: 11400000, guid: 6a25248aa3afe194ea7955a07e07817c, type: 2}
+  - {fileID: 11400000, guid: 250bd6b01442e604fa47e759d6efa1b8, type: 2}
+  - {fileID: 11400000, guid: 7bb5c84fefd53614fa154752344592ab, type: 2}
+  - {fileID: 11400000, guid: b13da4cf9c6228e49929f466dc44fbba, type: 2}
+  - {fileID: 11400000, guid: b6f99625fda86be40a2e9172fd484f69, type: 2}
+  - {fileID: 11400000, guid: f4cf0bd57e7223f4aac3a7f37ec2fedb, type: 2}
+  - {fileID: 11400000, guid: 25bc62d04d2e9c1478d39a6cad5bb59e, type: 2}
+  - {fileID: 11400000, guid: a7c9649ac84e8ed408a29df4c8d25b12, type: 2}
   fillObstaclePercent: 5
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
