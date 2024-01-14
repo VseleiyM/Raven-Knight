@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadNextLevel : MonoBehaviour
+namespace Project
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class LoadNextLevel : MonoBehaviour
     {
-        if (collision.tag == "Player")
-            GlobalEvents.SendLoadNextLevel();
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Player")
+                GlobalEvents.SendLoadNextLevel();
+        }
     }
 }

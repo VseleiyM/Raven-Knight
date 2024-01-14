@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.GameScene.UI
+namespace Project.UI
 {
     public class UI_GameSceneInit : MonoBehaviour
     {

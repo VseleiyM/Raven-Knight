@@ -1,4 +1,4 @@
-using UI;
+using Project.UI;
 using UnityEngine;
 
 namespace Zenject.Installers

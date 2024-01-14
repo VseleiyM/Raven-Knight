@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 5590174953221140528}
-  _pointForProjectile: {fileID: 0}
+  _pointForProjectile: {fileID: 2534778835487802848}
   _colliders2D: []
 --- !u!114 &5085090709085001757
 MonoBehaviour:

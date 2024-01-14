@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_DefeatNotification : MonoBehaviour
+namespace Project
 {
-    private void Update()
+    public class UI_DefeatNotification : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        private void Update()
         {
-            GlobalEvents.SendReturnMenu();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GlobalEvents.SendReturnMenu();
+            }
         }
-    }
 
-    private void Awake()
-    {
-        GlobalEvents.playerDead += OnPlayerDead;
-    }
+        private void Awake()
+        {
+            GlobalEvents.playerDead += OnPlayerDead;
+        }
 
-    private void OnDestroy()
-    {
-        GlobalEvents.playerDead -= OnPlayerDead;
-    }
+        private void OnDestroy()
+        {
+            GlobalEvents.playerDead -= OnPlayerDead;
+        }
 
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
 
-    private void OnPlayerDead(Target player)
-    {
-        gameObject.SetActive(true);
+        private void OnPlayerDead(Target player)
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

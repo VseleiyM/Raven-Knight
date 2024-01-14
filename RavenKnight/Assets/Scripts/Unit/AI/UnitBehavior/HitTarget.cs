@@ -2,48 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitTarget : UnitCommand
+namespace Project
 {
-    [SerializeField] private UnitCommand _nextStep;
-    [Space(10)]
-    [SerializeField] private DamageableTag damageableTag;
-    [SerializeField] private float damage;
-    [SerializeField] private Collider2D attackTrigger;
-    [SerializeField] private bool triggerEnter;
-
-    private MobInfo mobInfo;
-
-    public override UnitCommand NextStep => _nextStep;
-
-    public override void Execute()
+    public class HitTarget : UnitCommand
     {
-        if (triggerEnter) return;
+        [SerializeField] private UnitCommand _nextStep;
+        [Space(10)]
+        [SerializeField] private DamageableTag damageableTag;
+        [SerializeField] private float damage;
+        [SerializeField] private Collider2D attackTrigger;
+        [SerializeField] private bool triggerEnter;
 
-        Collider2D trigger;
-        Collider2D target = mobInfo.targetCollider;
+        private MobInfo mobInfo;
 
-        if (attackTrigger)
-            trigger = attackTrigger;
-        else
-            trigger = mobInfo.AttackTrigger;
+        public override UnitCommand NextStep => _nextStep;
 
-        if (trigger.IsTouching(target))
-            target.GetComponent<Target>().TakeDamage(damage);
-    }
-
-    public override void RequestData(MobInfo mobInfo)
-    {
-        this.mobInfo = mobInfo;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!triggerEnter) return;
-        if (collision.isTrigger) return;
-
-        if (collision.tag == damageableTag.ToString())
+        public override void Execute()
         {
-            collision.GetComponent<Target>().TakeDamage(damage);
+            if (triggerEnter) return;
+
+            Collider2D trigger;
+            Collider2D target = mobInfo.targetCollider;
+
+            if (attackTrigger)
+                trigger = attackTrigger;
+            else
+                trigger = mobInfo.AttackTrigger;
+
+            if (trigger.IsTouching(target))
+                target.GetComponent<Target>().TakeDamage(damage);
+        }
+
+        public override void RequestData(MobInfo mobInfo)
+        {
+            this.mobInfo = mobInfo;
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!triggerEnter) return;
+            if (collision.isTrigger) return;
+
+            if (collision.tag == damageableTag.ToString())
+            {
+                collision.GetComponent<Target>().TakeDamage(damage);
+            }
         }
     }
 }

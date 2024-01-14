@@ -2,46 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UC_ChangeParameter : UnitCommand
+namespace Project
 {
-    [SerializeField] private UnitCommand _nextStep;
-    [Space(10)]
-    [SerializeField] private ParametersList parameterName;
-    [SerializeField] private MathOperator mathOperator;
-    [SerializeField] private float value;
-
-    private UnitParameter parameter;
-    private MobInfo mobInfo;
-
-    public override UnitCommand NextStep => _nextStep;
-
-    public override void Execute()
+    public class UC_ChangeParameter : UnitCommand
     {
-        if (parameter != null)
+        [SerializeField] private UnitCommand _nextStep;
+        [Space(10)]
+        [SerializeField] private ParametersList parameterName;
+        [SerializeField] private MathOperator mathOperator;
+        [SerializeField] private float value;
+
+        private UnitParameter parameter;
+        private MobInfo mobInfo;
+
+        public override UnitCommand NextStep => _nextStep;
+
+        public override void Execute()
         {
-            switch (mathOperator)
+            if (parameter != null)
             {
-                case MathOperator.Plus:
-                    parameter.current += value;
-                    break;
-                case MathOperator.Minus:
-                    parameter.current -= value;
-                    break;
-                case MathOperator.Multiplay:
-                    parameter.current *= value;
-                    break;
-                case MathOperator.Divaded:
-                    parameter.current /= value;
-                    break;
+                switch (mathOperator)
+                {
+                    case MathOperator.Plus:
+                        parameter.current += value;
+                        break;
+                    case MathOperator.Minus:
+                        parameter.current -= value;
+                        break;
+                    case MathOperator.Multiplay:
+                        parameter.current *= value;
+                        break;
+                    case MathOperator.Divaded:
+                        parameter.current /= value;
+                        break;
+                }
+                if (parameter.current > parameter.Max)
+                    parameter.current = parameter.Max;
             }
-            if (parameter.current > parameter.Max)
-                parameter.current = parameter.Max;
         }
-    }
 
-    public override void RequestData(MobInfo mobInfo)
-    {
-        this.mobInfo = mobInfo;
-        parameter = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
+        public override void RequestData(MobInfo mobInfo)
+        {
+            this.mobInfo = mobInfo;
+            parameter = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
+        }
     }
 }

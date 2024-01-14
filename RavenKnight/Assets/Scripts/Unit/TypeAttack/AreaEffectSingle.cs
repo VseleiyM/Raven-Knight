@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaEffectSingle : MonoBehaviour
+namespace Project
 {
-    public Collider2D Trigger { get => _trigger; }
-    [SerializeField] private Collider2D _trigger;
-
-    public DamageableTag damageableTag;
-    public float damage;
-
-    public void HitArea()
+    public class AreaEffectSingle : MonoBehaviour
     {
-        List<Collider2D> results = new List<Collider2D>();
-        _trigger.GetContacts(results);
-        foreach (var collision in results)
+        public Collider2D Trigger { get => _trigger; }
+        [SerializeField] private Collider2D _trigger;
+
+        public DamageableTag damageableTag;
+        public float damage;
+
+        public void HitArea()
         {
-            if (damageableTag == DamageableTag.All
-                || collision.CompareTag(damageableTag.ToString()))
-                collision.GetComponent<Target>().TakeDamage(damage);
+            List<Collider2D> results = new List<Collider2D>();
+            _trigger.GetContacts(results);
+            foreach (var collision in results)
+            {
+                if (damageableTag == DamageableTag.All
+                    || collision.CompareTag(damageableTag.ToString()))
+                    collision.GetComponent<Target>().TakeDamage(damage);
+            }
         }
-    }
 
-    public void AreaEffectDestroy()
-    {
-        Destroy(gameObject);
+        public void AreaEffectDestroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

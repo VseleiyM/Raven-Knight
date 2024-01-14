@@ -2,73 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParasiticBombshell : UnitCommand
+namespace Project
 {
-    public override UnitCommand NextStep => _nextStep;
-    [SerializeField] private UnitCommand _nextStep;
-    [Space(10)]
-    [SerializeField] private BoxCollider2D areaAttack;
-    [SerializeField, Min(0)] private float deadZoneBox;
-    [SerializeField] private GameObject areaEffectPrefab;
-    [SerializeField, Min(1)] private int count = 1;
-    [SerializeField] private DamageableTag damageableTag;
-    [SerializeField] private int damage = 1;
-
-    private Transform temp;
-
-    private void Awake()
+    public class ParasiticBombshell : UnitCommand
     {
-        var goTemp = GameObject.Find("Temp");
-        if (!goTemp)
-            temp = new GameObject("Temp").transform;
-        else
-            temp = goTemp.transform;
-    }
+        public override UnitCommand NextStep => _nextStep;
+        [SerializeField] private UnitCommand _nextStep;
+        [Space(10)]
+        [SerializeField] private BoxCollider2D areaAttack;
+        [SerializeField, Min(0)] private float deadZoneBox;
+        [SerializeField] private GameObject areaEffectPrefab;
+        [SerializeField, Min(1)] private int count = 1;
+        [SerializeField] private DamageableTag damageableTag;
+        [SerializeField] private int damage = 1;
 
-    public override void RequestData(MobInfo mobInfo)
-    {
+        private Transform temp;
 
-    }
-
-    public override void Execute()
-    {
-        for (int i = 0; i < count; i++)
+        private void Awake()
         {
-            float minX = areaAttack.size.x * -0.5f;
-            float maxX = areaAttack.size.x * 0.5f;
-            float minY = areaAttack.size.y * -0.5f;
-            float maxY = areaAttack.size.y * 0.5f;
+            var goTemp = GameObject.Find("Temp");
+            if (!goTemp)
+                temp = new GameObject("Temp").transform;
+            else
+                temp = goTemp.transform;
+        }
 
-            float spawnX = transform.position.x + Random.Range(minX, maxX);
-            float spawnY = transform.position.y + Random.Range(minY, maxY);
+        public override void RequestData(MobInfo mobInfo)
+        {
 
-            bool pointIn = true;
-            while (pointIn)
+        }
+
+        public override void Execute()
+        {
+            for (int i = 0; i < count; i++)
             {
-                bool checkIn = 
-                    spawnX < (transform.position.x + deadZoneBox) &&
-                    spawnX > (transform.position.x - deadZoneBox) &&
-                    spawnY < (transform.position.y + deadZoneBox) &&
-                    spawnY > (transform.position.y - deadZoneBox);
+                float minX = areaAttack.size.x * -0.5f;
+                float maxX = areaAttack.size.x * 0.5f;
+                float minY = areaAttack.size.y * -0.5f;
+                float maxY = areaAttack.size.y * 0.5f;
 
-                if (checkIn)
+                float spawnX = transform.position.x + Random.Range(minX, maxX);
+                float spawnY = transform.position.y + Random.Range(minY, maxY);
+
+                bool pointIn = true;
+                while (pointIn)
                 {
-                    spawnX = transform.position.x + Random.Range(minX, maxX);
-                    spawnY = transform.position.y + Random.Range(minY, maxY);
+                    bool checkIn =
+                        spawnX < (transform.position.x + deadZoneBox) &&
+                        spawnX > (transform.position.x - deadZoneBox) &&
+                        spawnY < (transform.position.y + deadZoneBox) &&
+                        spawnY > (transform.position.y - deadZoneBox);
+
+                    if (checkIn)
+                    {
+                        spawnX = transform.position.x + Random.Range(minX, maxX);
+                        spawnY = transform.position.y + Random.Range(minY, maxY);
+                    }
+                    else
+                        pointIn = false;
                 }
-                else
-                    pointIn = false;
+
+                Vector3 spawnPoint = new Vector3(spawnX, spawnY, 0f);
+
+                var area = Instantiate(areaEffectPrefab, spawnPoint, Quaternion.identity);
+                area.transform.parent = temp;
+                var compAreaEffect = area.GetComponent<AreaEffectSingle>();
+                if (gameObject.layer == (int)LayerName.Enemy)
+                    compAreaEffect.gameObject.layer = (int)LayerName.EnemyTrigger;
+                compAreaEffect.damageableTag = damageableTag;
+                compAreaEffect.damage = damage;
             }
-
-            Vector3 spawnPoint = new Vector3(spawnX, spawnY, 0f);
-
-            var area = Instantiate(areaEffectPrefab, spawnPoint, Quaternion.identity);
-            area.transform.parent = temp;
-            var compAreaEffect = area.GetComponent<AreaEffectSingle>();
-            if (gameObject.layer == (int)LayerName.Enemy)
-                compAreaEffect.gameObject.layer = (int)LayerName.EnemyTrigger;
-            compAreaEffect.damageableTag = damageableTag;
-            compAreaEffect.damage = damage;
         }
     }
 }

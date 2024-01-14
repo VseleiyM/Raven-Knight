@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI
+namespace Project.UI
 {
     /// <summary>
     /// Скрипт для выбора, где можно с помощью кнопок 

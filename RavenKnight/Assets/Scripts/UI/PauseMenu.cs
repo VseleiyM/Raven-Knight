@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace UI
+namespace Project.UI
 {
     public class PauseMenu : AbstractMenu
     {

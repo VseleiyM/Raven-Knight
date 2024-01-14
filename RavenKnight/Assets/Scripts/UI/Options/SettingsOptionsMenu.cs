@@ -5,7 +5,7 @@ using UI;
 using UnityEngine;
 using Zenject;
 
-namespace UI
+namespace Project.UI
 {
     public class SettingsOptionsMenu : AbstractOptionsMenu
     {

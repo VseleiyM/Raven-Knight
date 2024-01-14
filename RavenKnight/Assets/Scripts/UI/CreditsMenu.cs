@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Project.UI
 {
     public class CreditsMenu : AbstractMenuWithBack
     {

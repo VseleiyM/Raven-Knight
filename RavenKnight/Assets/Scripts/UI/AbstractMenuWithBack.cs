@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Project.UI
 {
     /// <summary>
     /// Меню имеющее кнопку для возвращения к предыдущему меню.

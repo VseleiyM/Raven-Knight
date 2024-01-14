@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Zenject;
 
-namespace UI
+namespace Project.UI
 {
     public class GraphicsOptionsMenu : AbstractOptionsMenu
     {

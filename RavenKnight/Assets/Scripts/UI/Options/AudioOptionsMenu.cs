@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
 
-namespace UI
+namespace Project.UI
 {
     public class AudioOptionsMenu : AbstractOptionsMenu
     {

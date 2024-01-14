@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+namespace Project
 {
-    [SerializeField] private GameObject gate;
-
-    private void Start()
+    public class Level : MonoBehaviour
     {
-        gate.SetActive(false);
-    }
+        [SerializeField] private GameObject gate;
 
-    private void OnEnable()
-    {
-        GlobalEvents.closeRoom += OnRoomClose;
-        GlobalEvents.openRoom += OnRoomOpen;
-    }
+        private void Start()
+        {
+            gate.SetActive(false);
+        }
 
-    private void OnDisable()
-    {
-        GlobalEvents.closeRoom -= OnRoomClose;
-        GlobalEvents.openRoom -= OnRoomOpen;
-    }
+        private void OnEnable()
+        {
+            GlobalEvents.closeRoom += OnRoomClose;
+            GlobalEvents.openRoom += OnRoomOpen;
+        }
 
-    private void OnRoomClose()
-    {
-        gate.SetActive(true);
-    }
+        private void OnDisable()
+        {
+            GlobalEvents.closeRoom -= OnRoomClose;
+            GlobalEvents.openRoom -= OnRoomOpen;
+        }
 
-    private void OnRoomOpen(int score)
-    {
-        gate.SetActive(false);
+        private void OnRoomClose()
+        {
+            gate.SetActive(true);
+        }
+
+        private void OnRoomOpen(int score)
+        {
+            gate.SetActive(false);
+        }
     }
 }

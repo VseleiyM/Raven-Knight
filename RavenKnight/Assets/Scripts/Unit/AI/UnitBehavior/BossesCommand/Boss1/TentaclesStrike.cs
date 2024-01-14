@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TentaclesStrike : UnitCommand
+namespace Project
 {
-    public override UnitCommand NextStep => _nextStep;
-    [SerializeField] private UnitCommand _nextStep;
-    [Space(10)]
-    [SerializeField] private Transform jointTent;
-    [SerializeField] private Transform tent;
-    [SerializeField] private Transform jointStrikeArea;
-    [SerializeField] private Transform strikeArea;
-
-    private Vector3 target;
-    private Transform temp;
-
-    public override void RequestData(MobInfo mobInfo)
+    public class TentaclesStrike : UnitCommand
     {
-        target = mobInfo.target.position;
-    }
+        public override UnitCommand NextStep => _nextStep;
+        [SerializeField] private UnitCommand _nextStep;
+        [Space(10)]
+        [SerializeField] private Transform jointTent;
+        [SerializeField] private Transform tent;
+        [SerializeField] private Transform jointStrikeArea;
+        [SerializeField] private Transform strikeArea;
 
-    public override void Execute()
-    {
-        Vector3 spawnPoint = new Vector3(jointTent.position.x, jointTent.position.y, 0f);
-        float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
-        float length = (target - spawnPoint).magnitude;
+        private Vector3 target;
+        private Transform temp;
 
-        if (spawnPoint.x < target.x)
-            jointTent.localScale = new Vector3(1, 1, 1);
-        else
-            jointTent.localScale = new Vector3(1, -1, 1);
+        public override void RequestData(MobInfo mobInfo)
+        {
+            target = mobInfo.target.position;
+        }
 
-        jointTent.rotation = Quaternion.Euler(0, 0, angle);
-        jointStrikeArea.rotation = Quaternion.Euler(0, 0, angle);
+        public override void Execute()
+        {
+            Vector3 spawnPoint = new Vector3(jointTent.position.x, jointTent.position.y, 0f);
+            float angle = Mathf.Atan2(target.y - spawnPoint.y, target.x - spawnPoint.x) * Mathf.Rad2Deg;
+            float length = (target - spawnPoint).magnitude;
 
-        strikeArea.localPosition = Vector3.zero + Vector3.right * length / 2 + Vector3.right * 2;
-        strikeArea.localScale = Vector3.one + Vector3.right * length + Vector3.right * 2;
+            if (spawnPoint.x < target.x)
+                jointTent.localScale = new Vector3(1, 1, 1);
+            else
+                jointTent.localScale = new Vector3(1, -1, 1);
+
+            jointTent.rotation = Quaternion.Euler(0, 0, angle);
+            jointStrikeArea.rotation = Quaternion.Euler(0, 0, angle);
+
+            strikeArea.localPosition = Vector3.zero + Vector3.right * length / 2 + Vector3.right * 2;
+            strikeArea.localScale = Vector3.one + Vector3.right * length + Vector3.right * 2;
+        }
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Project.UI
 {
     public class OptionsMenu : AbstractMenuWithBack
     {

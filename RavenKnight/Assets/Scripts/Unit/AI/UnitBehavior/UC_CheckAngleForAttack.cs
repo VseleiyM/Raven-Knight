@@ -2,34 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UC_CheckAngleForAttack : UnitCommand
+namespace Project
 {
-    [SerializeField] private List<E_CheckAngleForAttack> checkSector;
-
-    private MobInfo mobInfo;
-    private UnitCommand _nextStep;
-
-    public override UnitCommand NextStep => _nextStep;
-
-    public override void Execute()
+    public class UC_CheckAngleForAttack : UnitCommand
     {
-        Vector3 startPoint = mobInfo.transform.position;
-        Vector3 target = mobInfo.target.position;
-        float angle = Mathf.Atan2(target.y - startPoint.y, target.x - startPoint.x) * Mathf.Rad2Deg;
-        
-        _nextStep = this;
-        foreach (var sector in checkSector)
+        [SerializeField] private List<E_CheckAngleForAttack> checkSector;
+
+        private MobInfo mobInfo;
+        private UnitCommand _nextStep;
+
+        public override UnitCommand NextStep => _nextStep;
+
+        public override void Execute()
         {
-            if (angle >= sector.Min && angle < sector.Max)
+            Vector3 startPoint = mobInfo.transform.position;
+            Vector3 target = mobInfo.target.position;
+            float angle = Mathf.Atan2(target.y - startPoint.y, target.x - startPoint.x) * Mathf.Rad2Deg;
+
+            _nextStep = this;
+            foreach (var sector in checkSector)
             {
-                _nextStep = sector.NextStep;
-                break;
+                if (angle >= sector.Min && angle < sector.Max)
+                {
+                    _nextStep = sector.NextStep;
+                    break;
+                }
             }
         }
-    }
 
-    public override void RequestData(MobInfo mobInfo)
-    {
-        this.mobInfo = mobInfo;
+        public override void RequestData(MobInfo mobInfo)
+        {
+            this.mobInfo = mobInfo;
+        }
     }
 }

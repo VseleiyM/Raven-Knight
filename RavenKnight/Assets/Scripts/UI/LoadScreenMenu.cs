@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace UI
+namespace Project.UI
 {
     public class LoadScreenMenu : AbstractMenu
     {

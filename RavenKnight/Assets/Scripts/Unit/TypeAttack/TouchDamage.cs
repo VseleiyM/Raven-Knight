@@ -2,31 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchDamage : MonoBehaviour
+
+namespace Project
 {
-    [SerializeField] private DamageableTag damageableTag;
-    [SerializeField] private float damage;
-
-    private Collider2D col2D;
-
-    private void Awake()
+    public class TouchDamage : MonoBehaviour
     {
-        col2D = GetComponent<Collider2D>();
-    }
+        [SerializeField] private DamageableTag damageableTag;
+        [SerializeField] private float damage;
 
-    private void Start()
-    {
-        col2D.enabled = false;
-    }
+        private Collider2D col2D;
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.isTrigger) return;
+        private void Awake()
+        {
+            col2D = GetComponent<Collider2D>();
+        }
 
-        if (damageableTag != DamageableTag.All
-            && !collision.CompareTag(damageableTag.ToString()))
-            return;
+        private void Start()
+        {
+            col2D.enabled = false;
+        }
 
-        collision.gameObject.GetComponent<Target>().TakeDamage(damage);
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.isTrigger) return;
+
+            if (damageableTag != DamageableTag.All
+                && !collision.CompareTag(damageableTag.ToString()))
+                return;
+
+            collision.gameObject.GetComponent<Target>().TakeDamage(damage);
+        }
     }
 }

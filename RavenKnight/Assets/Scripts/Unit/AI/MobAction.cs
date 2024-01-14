@@ -4,68 +4,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MobAction : MonoBehaviour
+namespace Project
 {
-    private MobInfo mobInfo;
-    private Transform folder;
-
-    public event Action takeDamage;
-    public event Action<int> attack;
-    public event Action<int> attackFinished;
-
-    private void Awake()
+    public class MobAction : MonoBehaviour
     {
-        var goFolder = GameObject.Find("Temp");
-        if (!goFolder)
-            folder = new GameObject("Temp").transform;
-        else
-            folder = goFolder.transform;
+        private MobInfo mobInfo;
+        private Transform folder;
 
-        mobInfo = GetComponentInParent<MobInfo>();
-    }
+        public event Action takeDamage;
+        public event Action<int> attack;
+        public event Action<int> attackFinished;
 
-    public void SendMobDead()
-    {
-        GlobalEvents.SendMobDead(mobInfo.TargetInfo.Target);
-        UnitParameter scoreParam = mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore);
-        if (scoreParam != null)
+        private void Awake()
         {
-            GlobalEvents.SendScoreChanged((int)scoreParam.Max);
-            GlobalEvents.SendCreateScoreText(mobInfo.transform.position, (int)scoreParam.Max);
+            var goFolder = GameObject.Find("Temp");
+            if (!goFolder)
+                folder = new GameObject("Temp").transform;
+            else
+                folder = goFolder.transform;
+
+            mobInfo = GetComponentInParent<MobInfo>();
         }
-    }
 
-    public void DestroyUnit()
-    {
-        Destroy(mobInfo.gameObject);
-    }
+        public void SendMobDead()
+        {
+            GlobalEvents.SendMobDead(mobInfo.TargetInfo.Target);
+            UnitParameter scoreParam = mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore);
+            if (scoreParam != null)
+            {
+                GlobalEvents.SendScoreChanged((int)scoreParam.Max);
+                GlobalEvents.SendCreateScoreText(mobInfo.transform.position, (int)scoreParam.Max);
+            }
+        }
 
-    public void SoundEffect(AudioClip clip)
-    {
-        if (clip == null) return;
+        public void DestroyUnit()
+        {
+            Destroy(mobInfo.gameObject);
+        }
 
-        mobInfo.TargetInfo.AudioSource.clip = clip;
-        mobInfo.TargetInfo.AudioSource.Play();
-    }
+        public void SoundEffect(AudioClip clip)
+        {
+            if (clip == null) return;
 
-    public void SendTakeDamage()
-    {
-        takeDamage?.Invoke();
-    }
+            mobInfo.TargetInfo.AudioSource.clip = clip;
+            mobInfo.TargetInfo.AudioSource.Play();
+        }
 
-    public void AttackVariant(int variant)
-    {
-        attack?.Invoke(variant);
-    }
+        public void SendTakeDamage()
+        {
+            takeDamage?.Invoke();
+        }
 
-    public void AttackFinished(int variant)
-    {
-        attackFinished?.Invoke(variant);
-    }
+        public void AttackVariant(int variant)
+        {
+            attack?.Invoke(variant);
+        }
 
-    public void MobSpawned()
-    {
-        mobInfo.TargetInfo.PhysicsCollider.enabled = true;
-        mobInfo.EnableAI();
+        public void AttackFinished(int variant)
+        {
+            attackFinished?.Invoke(variant);
+        }
+
+        public void MobSpawned()
+        {
+            mobInfo.TargetInfo.PhysicsCollider.enabled = true;
+            mobInfo.EnableAI();
+        }
     }
 }

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace UI
+namespace Project.UI
 {
     public class LocalizedText : MonoBehaviour
     {

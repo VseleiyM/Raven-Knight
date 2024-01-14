@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAction : MonoBehaviour
+namespace Project
 {
-    private PlayerInfo playerInfo;
-
-    private void Awake()
+    public class PlayerAction : MonoBehaviour
     {
-        playerInfo = GetComponentInParent<PlayerInfo>();
-    }
+        private PlayerInfo playerInfo;
 
-    public void SoundEffect(AudioClip clip)
-    {
-        playerInfo.TargetInfo.AudioSource.clip = clip;
-        playerInfo.TargetInfo.AudioSource.Play();
-    }
+        private void Awake()
+        {
+            playerInfo = GetComponentInParent<PlayerInfo>();
+        }
 
-    public void Dead()
-    {
-        foreach (var comp in playerInfo.DisableComponents)
-            comp.enabled = false;
-        GlobalEvents.SendPlayerDead(playerInfo.TargetInfo.Target);
+        public void SoundEffect(AudioClip clip)
+        {
+            playerInfo.TargetInfo.AudioSource.clip = clip;
+            playerInfo.TargetInfo.AudioSource.Play();
+        }
+
+        public void Dead()
+        {
+            foreach (var comp in playerInfo.DisableComponents)
+                comp.enabled = false;
+            GlobalEvents.SendPlayerDead(playerInfo.TargetInfo.Target);
+        }
     }
 }

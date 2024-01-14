@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace Project.UI
 {
     public enum MenuType
     {

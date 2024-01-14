@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerInfo))]
-
-public class Movement : MonoBehaviour
+namespace Project
 {
-    private PlayerInfo playerInfo;
-    private Rigidbody2D _rigidbody;
-    private PCControl PCControl;
-
-    public bool isFiring;
-
-    private void Awake()
+    [RequireComponent(typeof(PlayerInfo))]
+    public class Movement : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        playerInfo = GetComponent<PlayerInfo>();
-        PCControl = GetComponent<PCControl>();
-    }
+        private PlayerInfo playerInfo;
+        private Rigidbody2D _rigidbody;
+        private PCControl PCControl;
 
-    public void Move(Vector2 direction)
-    {
-        Vector2 offset = playerInfo.TargetInfo.Project(direction) * Time.fixedDeltaTime * playerInfo.Speed;
-        _rigidbody.MovePosition(_rigidbody.position + offset);
-        
-        playerInfo.TargetInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), direction.magnitude > 0);
-    }
+        public bool isFiring;
 
-    public void LookDirection(Vector2 lookDir)
-    {
-        if (isFiring)
+        private void Awake()
         {
-            playerInfo.TargetInfo.SpriteRenderer.flipX = PCControl.LookVector.x < 0;
+            _rigidbody = GetComponent<Rigidbody2D>();
+            playerInfo = GetComponent<PlayerInfo>();
+            PCControl = GetComponent<PCControl>();
         }
-        else
+
+        public void Move(Vector2 direction)
         {
-            if (lookDir.x < 0)
-                playerInfo.TargetInfo.SpriteRenderer.flipX = true;
-            else if (lookDir.x > 0)
-                playerInfo.TargetInfo.SpriteRenderer.flipX = false;
+            Vector2 offset = playerInfo.TargetInfo.Project(direction) * Time.fixedDeltaTime * playerInfo.Speed;
+            _rigidbody.MovePosition(_rigidbody.position + offset);
+
+            playerInfo.TargetInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), direction.magnitude > 0);
+        }
+
+        public void LookDirection(Vector2 lookDir)
+        {
+            if (isFiring)
+            {
+                playerInfo.TargetInfo.SpriteRenderer.flipX = PCControl.LookVector.x < 0;
+            }
+            else
+            {
+                if (lookDir.x < 0)
+                    playerInfo.TargetInfo.SpriteRenderer.flipX = true;
+                else if (lookDir.x > 0)
+                    playerInfo.TargetInfo.SpriteRenderer.flipX = false;
+            }
         }
     }
 }

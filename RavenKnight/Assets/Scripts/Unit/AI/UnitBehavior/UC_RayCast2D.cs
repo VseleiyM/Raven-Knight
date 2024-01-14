@@ -2,51 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UC_RayCast2D : UnitCommand
+namespace Project
 {
-    [SerializeField] private UnitCommand ifTrue;
-    [SerializeField] private UnitCommand ifFalse;
-
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private DamageableTag damageableTag;
-
-    private MobInfo mobInfo;
-    private Vector3 targetGizmo;
-
-
-    public override UnitCommand NextStep => _nextStep;
-    private UnitCommand _nextStep;
-
-    public override void Execute()
+    public class UC_RayCast2D : UnitCommand
     {
-        Vector2 self = mobInfo.transform.position;
-        Vector2 target = mobInfo.target.transform.position;
-        targetGizmo = target;
-        Vector2 direction = target - self;
+        [SerializeField] private UnitCommand ifTrue;
+        [SerializeField] private UnitCommand ifFalse;
 
-        RaycastHit2D hit = Physics2D.Raycast(self, direction.normalized, 100f, layerMask);
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private DamageableTag damageableTag;
 
-        if (hit)
+        private MobInfo mobInfo;
+        private Vector3 targetGizmo;
+
+
+        public override UnitCommand NextStep => _nextStep;
+        private UnitCommand _nextStep;
+
+        public override void Execute()
         {
-            if (hit.collider.gameObject.layer != (int)LayerName.Level
-                && (hit.collider.tag == damageableTag.ToString()
-                || damageableTag == DamageableTag.All))
+            Vector2 self = mobInfo.transform.position;
+            Vector2 target = mobInfo.target.transform.position;
+            targetGizmo = target;
+            Vector2 direction = target - self;
+
+            RaycastHit2D hit = Physics2D.Raycast(self, direction.normalized, 100f, layerMask);
+
+            if (hit)
             {
-                _nextStep = ifTrue;
+                if (hit.collider.gameObject.layer != (int)LayerName.Level
+                    && (hit.collider.tag == damageableTag.ToString()
+                    || damageableTag == DamageableTag.All))
+                {
+                    _nextStep = ifTrue;
+                }
+                else
+                {
+                    _nextStep = ifFalse;
+                }
             }
             else
             {
                 _nextStep = ifFalse;
             }
         }
-        else
-        {
-            _nextStep = ifFalse;
-        }
-    }
 
-    public override void RequestData(MobInfo mobInfo)
-    {
-        this.mobInfo = mobInfo;
+        public override void RequestData(MobInfo mobInfo)
+        {
+            this.mobInfo = mobInfo;
+        }
     }
 }

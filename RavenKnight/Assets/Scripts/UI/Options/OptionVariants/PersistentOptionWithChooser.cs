@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UI
+namespace Project.UI
 {
     /// <summary>
     /// Класс, который упрощает работы с интерфейсом выбора, 

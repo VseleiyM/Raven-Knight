@@ -2,48 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UC_IF_TakeDamage : UnitCommand
+namespace Project
 {
-    [SerializeField] private UnitCommand ifTrue;
-    [SerializeField] private UnitCommand ifFalse;
-
-    private bool isTakeDamage = false;
-
-    private MobInfo mobInfo;
-    private MobAction mobAction;
-    private UnitCommand _nextStep;
-
-    private void Awake()
+    public class UC_IF_TakeDamage : UnitCommand
     {
-        mobAction = GetComponentInParent<MobAction>();
-        mobAction.takeDamage += OnMobTakeDamage;
-    }
+        [SerializeField] private UnitCommand ifTrue;
+        [SerializeField] private UnitCommand ifFalse;
 
-    private void OnDestroy()
-    {
-        mobAction.takeDamage -= OnMobTakeDamage;
-    }
+        private bool isTakeDamage = false;
 
-    public override UnitCommand NextStep => _nextStep;
+        private MobInfo mobInfo;
+        private MobAction mobAction;
+        private UnitCommand _nextStep;
 
-    public override void Execute()
-    {
-        if (isTakeDamage)
+        private void Awake()
         {
-            _nextStep = ifTrue;
-            isTakeDamage = false;
+            mobAction = GetComponentInParent<MobAction>();
+            mobAction.takeDamage += OnMobTakeDamage;
         }
-        else
-            _nextStep = ifFalse;
-    }
 
-    public override void RequestData(MobInfo mobInfo)
-    {
-        this.mobInfo = mobInfo;
-    }
+        private void OnDestroy()
+        {
+            mobAction.takeDamage -= OnMobTakeDamage;
+        }
 
-    private void OnMobTakeDamage()
-    {
-        isTakeDamage = true;
+        public override UnitCommand NextStep => _nextStep;
+
+        public override void Execute()
+        {
+            if (isTakeDamage)
+            {
+                _nextStep = ifTrue;
+                isTakeDamage = false;
+            }
+            else
+                _nextStep = ifFalse;
+        }
+
+        public override void RequestData(MobInfo mobInfo)
+        {
+            this.mobInfo = mobInfo;
+        }
+
+        private void OnMobTakeDamage()
+        {
+            isTakeDamage = true;
+        }
     }
 }

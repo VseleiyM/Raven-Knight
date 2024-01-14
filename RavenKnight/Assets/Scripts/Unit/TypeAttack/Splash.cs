@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Splash : MonoBehaviour
+namespace Project
 {
-    public DamageableTag damageableTag;
-    public float damage;
-    public CircleCollider2D SplashCollider => _splashCollider;
-    [SerializeField] private CircleCollider2D _splashCollider;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class Splash : MonoBehaviour
     {
-        if (collision.isTrigger
-            || collision.tag == DamageableTag.PickupItems.ToString()) return;
+        public DamageableTag damageableTag;
+        public float damage;
+        public CircleCollider2D SplashCollider => _splashCollider;
+        [SerializeField] private CircleCollider2D _splashCollider;
 
-        if (damageableTag != DamageableTag.All &&
-            collision.tag != damageableTag.ToString()) return;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.isTrigger
+                || collision.tag == DamageableTag.PickupItems.ToString()) return;
 
-        Target target = collision.GetComponent<Target>();
-        if (target != null)
-            target.TakeDamage(damage);
+            if (damageableTag != DamageableTag.All &&
+                collision.tag != damageableTag.ToString()) return;
+
+            Target target = collision.GetComponent<Target>();
+            if (target != null)
+                target.TakeDamage(damage);
+        }
     }
 }

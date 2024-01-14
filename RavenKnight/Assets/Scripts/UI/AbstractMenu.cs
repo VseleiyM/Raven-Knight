@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace UI
+namespace Project.UI
 {
     /// <summary>
     /// Скрипт реализующий общую логику для всех меню.

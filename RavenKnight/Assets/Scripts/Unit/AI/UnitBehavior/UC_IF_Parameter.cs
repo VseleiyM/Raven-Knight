@@ -2,66 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UC_IF_Parameter : UnitCommand
+namespace Project
 {
-    public override UnitCommand NextStep => _nextStep;
-    private UnitCommand _nextStep;
-
-    [SerializeField] private UnitCommand ifTrue;
-    [SerializeField] private UnitCommand ifFalse;
-    [Space(10)]
-    [SerializeField] private bool singleTriggering;
-    [SerializeField] private ParametersList parameterName;
-    [SerializeField] private LogicOperators logicOperator;
-    [SerializeField] private float value;
-
-    private UnitParameter checkableValue;
-    private bool hasTriggered = false;
-
-    public override void RequestData(MobInfo mobInfo)
+    public class UC_IF_Parameter : UnitCommand
     {
-        checkableValue = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
-    }
+        public override UnitCommand NextStep => _nextStep;
+        private UnitCommand _nextStep;
 
-    public override void Execute()
-    {
-        if (checkableValue != null && !hasTriggered)
+        [SerializeField] private UnitCommand ifTrue;
+        [SerializeField] private UnitCommand ifFalse;
+        [Space(10)]
+        [SerializeField] private bool singleTriggering;
+        [SerializeField] private ParametersList parameterName;
+        [SerializeField] private LogicOperators logicOperator;
+        [SerializeField] private float value;
+
+        private UnitParameter checkableValue;
+        private bool hasTriggered = false;
+
+        public override void RequestData(MobInfo mobInfo)
         {
-            bool result = false;
+            checkableValue = mobInfo.TargetInfo.Target.ReturnParameter(parameterName);
+        }
 
-            switch (logicOperator)
+        public override void Execute()
+        {
+            if (checkableValue != null && !hasTriggered)
             {
-                case LogicOperators.Less:
-                    result = checkableValue.current < value;
-                    break;
-                case LogicOperators.More:
-                    result = checkableValue.current > value;
-                    break;
-                case LogicOperators.LessOrEqual:
-                    result = checkableValue.current <= value;
-                    break;
-                case LogicOperators.MoreOrEqual:
-                    result = checkableValue.current >= value;
-                    break;
-                case LogicOperators.Equal:
-                    result = checkableValue.current == value;
-                    break;
-            }
+                bool result = false;
 
-            if (result)
-            {
-                _nextStep = ifTrue;
-                if (singleTriggering)
-                    hasTriggered = true;
+                switch (logicOperator)
+                {
+                    case LogicOperators.Less:
+                        result = checkableValue.current < value;
+                        break;
+                    case LogicOperators.More:
+                        result = checkableValue.current > value;
+                        break;
+                    case LogicOperators.LessOrEqual:
+                        result = checkableValue.current <= value;
+                        break;
+                    case LogicOperators.MoreOrEqual:
+                        result = checkableValue.current >= value;
+                        break;
+                    case LogicOperators.Equal:
+                        result = checkableValue.current == value;
+                        break;
+                }
+
+                if (result)
+                {
+                    _nextStep = ifTrue;
+                    if (singleTriggering)
+                        hasTriggered = true;
+                }
+                else
+                {
+                    _nextStep = ifFalse;
+                }
             }
             else
             {
                 _nextStep = ifFalse;
             }
-        }
-        else
-        {
-            _nextStep = ifFalse;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UI
+namespace Project.UI
 {
     public class GameOptionsMenu : AbstractOptionsMenu
     {

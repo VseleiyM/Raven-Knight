@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AE_ParasiticBombshellAction : MonoBehaviour
+namespace Project
 {
-    [SerializeField] private AreaEffectSingle areaEffect;
-    [SerializeField] private GameObject enemyPrefab;
-
-    private Transform units;
-
-    private void Awake()
+    public class AE_ParasiticBombshellAction : MonoBehaviour
     {
-        var goUnits = GameObject.Find("Units");
-        if (!goUnits)
-            units = new GameObject("Units").transform;
-        else
-            units = goUnits.transform;
-    }
+        [SerializeField] private AreaEffectSingle areaEffect;
+        [SerializeField] private GameObject enemyPrefab;
 
-    public void PBHitArea()
-    {
-        areaEffect.HitArea();
-        var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        enemy.transform.parent = units;
-        var mobInfo = enemy.GetComponent<MobInfo>();
-        mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 6);
+        private Transform units;
+
+        private void Awake()
+        {
+            var goUnits = GameObject.Find("Units");
+            if (!goUnits)
+                units = new GameObject("Units").transform;
+            else
+                units = goUnits.transform;
+        }
+
+        public void PBHitArea()
+        {
+            areaEffect.HitArea();
+            var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            enemy.transform.parent = units;
+            var mobInfo = enemy.GetComponent<MobInfo>();
+            mobInfo.TargetInfo.Animator.SetFloat("SpawnDelay", 6);
+        }
     }
 }

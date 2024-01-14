@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 3955662020405581682}
   - component: {fileID: 1604902823518373767}
   m_Layer: 8
-  m_Name: MiniBoss1
+  m_Name: MiniBoss1_Mob
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,10 +535,11 @@ MonoBehaviour:
     _fillAwake: 0
   dropList:
   - _dropItemPrefab:
-    - {fileID: 2707848527629948363, guid: 5bbbfa020dafa5841bbc67f5529d0edd, type: 3}
-    _min: 1
-    _max: 1
-    _oneItem: 1
+    - {fileID: 2707848527629948363, guid: 0feaea40ea0d732489f2ad84818b0cc6, type: 3}
+    - {fileID: 2707848527629948363, guid: 48e9435a07890f44ab5289595fbe7ebb, type: 3}
+    _min: 0
+    _max: 5
+    _oneItem: 0
   invincibleDuration: 0
 --- !u!195 &1604902823518373761
 NavMeshAgent:

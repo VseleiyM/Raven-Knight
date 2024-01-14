@@ -779,28 +779,6 @@ MonoBehaviour:
   - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
   - {fileID: 2707848527629948363, guid: e532139b04528b04099de54416b2a105, type: 3}
   - {fileID: 2707848527629948363, guid: a211ddf032617b54a97e7ebb325fffc0, type: 3}
-  obstacleList:
-  - {fileID: 5546963084189059680, guid: 30461021fd83331479b72d203d0204a3, type: 3}
-  - {fileID: 5546963084189059680, guid: 4564ddd175fc03649899a73e6561d124, type: 3}
-  - {fileID: 5546963084189059680, guid: 51f7b91bd34fdff43b532956716f0620, type: 3}
-  - {fileID: 8715073157950547314, guid: 45e9a31df8dd9664a93b36747ccda7ca, type: 3}
-  - {fileID: 8715073157950547314, guid: 64e6c53e5b7522e41b1d7c217abb9b83, type: 3}
-  obstacleNearWallList:
-  - {fileID: 8715073157950547314, guid: fe6ca6e4c8e460045b0721aedf971190, type: 3}
-  - {fileID: 8715073157950547314, guid: 0e7edf7f575f33544a6da73edab97fbe, type: 3}
-  - {fileID: 8715073157950547314, guid: b1e19c2f7dfd28d48bb74ef73c84bd36, type: 3}
-  - {fileID: 8715073157950547314, guid: 63dd2011c66f8e543b61cf66cb50f317, type: 3}
-  - {fileID: 8715073157950547314, guid: cb23d539260d05043b673405202d76e0, type: 3}
-  - {fileID: 8715073157950547314, guid: 3aac41e4d64a9224494969094f3b0a2a, type: 3}
-  - {fileID: 8715073157950547314, guid: 75f444c780546c746890f5a6062b053c, type: 3}
-  - {fileID: 8715073157950547314, guid: 0b6ec5c3be1de804a960cd93bd7189ed, type: 3}
-  - {fileID: 8715073157950547314, guid: cbc68098404f27847bd74be2ec71e38a, type: 3}
-  - {fileID: 8715073157950547314, guid: 43701c2edd142d047a6f8f6d23ea5395, type: 3}
-  - {fileID: 8715073157950547314, guid: b91ccd0da7ee7b64588faceb09614ce5, type: 3}
-  - {fileID: 8715073157950547314, guid: 32ddfde002f0ff940b384cf7216c5403, type: 3}
-  - {fileID: 8715073157950547314, guid: 25c46f81b9e2ef84e9db1593006b6981, type: 3}
-  - {fileID: 8715073157950547314, guid: 2505d979415102144a1443ab3eb7794e, type: 3}
-  - {fileID: 8715073157950547314, guid: 29ee65d493dd5cf4c9bce721e5d4a8ba, type: 3}
   objectsWithRule:
   - {fileID: 11400000, guid: b0ff9d6e95e905d49bc37ecdcba45574, type: 2}
   - {fileID: 11400000, guid: 86a6a15c2cdd8a44f85a6ca8512e4652, type: 2}
@@ -845,43 +823,34 @@ MonoBehaviour:
   levelsList:
   - name: Level - 1
     lengthMaze: 3
-    additionalRoom: 1
+    additionalRoom: 0
     difficultScore: 1000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
-    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+    - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     levelBoss: {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b,
       type: 3}
   - name: Level - 2
     lengthMaze: 4
-    additionalRoom: 1
+    additionalRoom: 0
     difficultScore: 2000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
-    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
+    - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
+    - {fileID: 1604902823518373763, guid: 5d3bf7abb7f43784da4d7c03a0c58013, type: 3}
     levelBoss: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
       type: 3}
   - name: Level - 3
     lengthMaze: 5
-    additionalRoom: 2
+    additionalRoom: 0
     difficultScore: 4000
     enemyList:
-    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
     - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
-    levelBoss: {fileID: 3774518901421596487, guid: 85394c16a2fdb724e9e352cac3b44fe4,
-      type: 3}
-  - name: Level - 4
-    lengthMaze: 5
-    additionalRoom: 2
-    difficultScore: 4000
-    enemyList:
-    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
-    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
-    - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
-    - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
+    - {fileID: 1604902823518373763, guid: 5d3bf7abb7f43784da4d7c03a0c58013, type: 3}
+    - {fileID: 454938119889367148, guid: d347017e8588f4d438d9e1831de0c9fe, type: 3}
     levelBoss: {fileID: 3774518901421596487, guid: 85394c16a2fdb724e9e352cac3b44fe4,
       type: 3}
   minPercentDifficult: 0

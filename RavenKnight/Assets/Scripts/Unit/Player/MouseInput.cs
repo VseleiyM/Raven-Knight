@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerInfo))]
-
-public class MouseInput : MonoBehaviour
-{/*
+namespace Project
+{
+    [RequireComponent(typeof(PlayerInfo))]
+    public class MouseInput : MonoBehaviour
+    {/*
     private PlayerInfo playerInfo;
     private Movement movement;
 
@@ -27,4 +28,5 @@ public class MouseInput : MonoBehaviour
             movement.isFiring = false;
         }
     }*/
+    }
 }

@@ -50,8 +50,7 @@ MonoBehaviour:
   roomScore: 0
   maxWave: 0
   roomDifficult: 0
-  enemyList:
-  - {fileID: 0}
+  enemyList: []
   spawnDelay: 3
   bossRoom: 0
   useDurationWave: 0
