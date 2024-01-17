@@ -386,7 +386,7 @@ MonoBehaviour:
   _nextStep: {fileID: 646654120481133589}
   prefabProjectile: {fileID: 8984344394082757371, guid: 4bb68eb17273bd9468d1f75396c1cba4,
     type: 3}
-  damageableTag: 1
+  damageableTag: 0
   damage: 10
   projectileSpeed: 12
 --- !u!114 &646654120481133589
