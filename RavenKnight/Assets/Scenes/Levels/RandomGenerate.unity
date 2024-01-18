@@ -816,24 +816,24 @@ MonoBehaviour:
   prefabLoadNextLevel: {fileID: 2724825222959882951, guid: f9986f99deba3164f8e8db86f4dcd771,
     type: 3}
   spacingRoom: 40
-  minLenghtHalfWall: 6
-  startScore: 300
-  stepScore: 50
+  minLenghtHalfWall: 5
+  startScore: 750
+  stepScore: 250
   bossScore: 5000
   levelsList:
   - name: Level - 1
     lengthMaze: 3
     additionalRoom: 0
-    difficultScore: 1000
+    difficultScore: 600
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     levelBoss: {fileID: 1604902823518373763, guid: baf835e07cced884ea8c5704ec15667b,
       type: 3}
   - name: Level - 2
-    lengthMaze: 4
+    lengthMaze: 5
     additionalRoom: 0
-    difficultScore: 2000
+    difficultScore: 3000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
@@ -842,9 +842,9 @@ MonoBehaviour:
     levelBoss: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
       type: 3}
   - name: Level - 3
-    lengthMaze: 5
+    lengthMaze: 8
     additionalRoom: 0
-    difficultScore: 4000
+    difficultScore: 7000
     enemyList:
     - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}

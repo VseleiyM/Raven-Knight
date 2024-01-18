@@ -334,11 +334,10 @@ MonoBehaviour:
   - name: GainScore
     _parameter: 3
     current: 0
-    _max: 20
+    _max: 35
     _fillAwake: 1
   dropList:
   - _dropItemPrefab:
-    - {fileID: 2707848527629948363, guid: fa859d2df4d18e24b9a4c7a9ab2f3cb5, type: 3}
     - {fileID: 2707848527629948363, guid: 0feaea40ea0d732489f2ad84818b0cc6, type: 3}
     - {fileID: 2707848527629948363, guid: 48e9435a07890f44ab5289595fbe7ebb, type: 3}
     _min: 0
@@ -400,6 +399,7 @@ MonoBehaviour:
   - {fileID: 8259647971286872049}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
+  isBoss: 0
 --- !u!82 &972458798343247043
 AudioSource:
   m_ObjectHideFlags: 0

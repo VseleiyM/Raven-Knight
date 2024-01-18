@@ -531,13 +531,13 @@ MonoBehaviour:
   - name: GainScore
     _parameter: 3
     current: 0
-    _max: 1000
+    _max: 500
     _fillAwake: 0
   dropList:
   - _dropItemPrefab:
     - {fileID: 2707848527629948363, guid: 0feaea40ea0d732489f2ad84818b0cc6, type: 3}
     - {fileID: 2707848527629948363, guid: 48e9435a07890f44ab5289595fbe7ebb, type: 3}
-    _min: 0
+    _min: 2
     _max: 5
     _oneItem: 0
   invincibleDuration: 0
