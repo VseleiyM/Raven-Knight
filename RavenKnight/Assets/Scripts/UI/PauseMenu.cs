@@ -45,6 +45,7 @@ namespace Project.UI
         private void OpenMainMenu()
         {
             GameSceneClose();
+            GlobalEvents.SendChangeMusic(Audio.MusicType.mainMenu);
             menuController.gameMode = EnumScenes.MenuScene;
             Time.timeScale = 1;
             isPause = false;

@@ -22,6 +22,7 @@ namespace Project.UI
             if (!exitEnable) return;
             if (Input.anyKeyDown)
             {
+                GlobalEvents.SendChangeMusic(Audio.MusicType.mainMenu);
                 GlobalEvents.SendReturnMenu();
             }
         }

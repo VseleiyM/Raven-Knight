@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Project.Audio;
 
 namespace Project
 {
@@ -27,6 +28,7 @@ namespace Project
         public static event Action<bool> pauseStatus;
         public static event Action returnMenu;
         public static event Action loadNextLevel;
+        public static event Action<MusicType> changeMusic;
 
         public static void SendPlayerInit(Target player)
         {
@@ -126,6 +128,11 @@ namespace Project
         public static void SendLoadNextLevel()
         {
             loadNextLevel?.Invoke();
+        }
+
+        public static void SendChangeMusic(MusicType type)
+        {
+            changeMusic?.Invoke(type);
         }
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8601581727546483414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 559.7, y: 331.13132, z: -66.158295}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43,8 +43,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6296167492439032971, guid: cc4d9a3ef6d7d2340b4cda21e2c18d7e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ace9504de57dd2a47b9197a79c0d9bc7, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 8601581727991955415}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 559.7, y: 331.13132, z: -66.158295}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 8601581728162818933}
   - component: {fileID: 8601581728162818890}
   - component: {fileID: 292050540314249135}
+  - component: {fileID: 6231191065903142505}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -318,3 +319,20 @@ MonoBehaviour:
     source: {fileID: 8601581727991955412}
   - type: 2
     source: {fileID: 8601581727546483415}
+--- !u!114 &6231191065903142505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601581728162818932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4639516d72c461549abae0f5870452b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 8300000, guid: aad447a0c3e55b5498e2668438c84dc3, type: 3}
+  travelMusic: {fileID: 8300000, guid: ace9504de57dd2a47b9197a79c0d9bc7, type: 3}
+  combatMusic: {fileID: 8300000, guid: ce010988d3d16fd46a4d757887b0bfc4, type: 3}
+  bossMusic: {fileID: 8300000, guid: 44a3e00dd66afce4aa0581ddcd6093bd, type: 3}
+  musicSource: {fileID: 8601581727546483415}

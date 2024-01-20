@@ -48,6 +48,10 @@ namespace Project.GenerateLevel
 
             GlobalEvents.SendCloseRoom();
             GlobalEvents.SendNextWave(currentWaveID + 1, bossRoom);
+            if (!bossRoom)
+                GlobalEvents.SendChangeMusic(Audio.MusicType.combatMusic);
+            else
+                GlobalEvents.SendChangeMusic(Audio.MusicType.bossMusic);
 
             SpawnWave();
 
@@ -183,6 +187,7 @@ namespace Project.GenerateLevel
                 GlobalEvents.mobDead -= OnMobDead;
 
                 GlobalEvents.SendOpenRoom(roomScore);
+                GlobalEvents.SendChangeMusic(Audio.MusicType.travelMusic);
                 if (bossRoom)
                     GlobalEvents.SendBossRoomClear();
             }
