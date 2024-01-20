@@ -59,18 +59,29 @@ public class PCControl : MonoBehaviour
         movement.Move(_direction);
 
         Vector3 lookPoint = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        _lookVector = lookPoint - transform.position;
+        _lookVector = lookPoint - jointGun.position;
         float angle = Mathf.Atan2(_lookVector.y, _lookVector.x) * Mathf.Rad2Deg;
         jointGun.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         var compWeapon = playerInfo.weapon;
-        if (compWeapon.transform.position.x > transform.position.x)
-        {
-            compWeapon.SpriteRenderer.flipY = false;
-        }
-        else
-        {
-            compWeapon.SpriteRenderer.flipY = true;
-        }
-    }
+		
+		if (compWeapon.transform.position.x > transform.position.x)
+		{
+
+			jointGun.localScale = new Vector3(
+				jointGun.localScale.x,
+				Mathf.Abs(jointGun.localScale.y),
+				jointGun.localScale.z
+			);
+		}
+		else
+		{
+
+			jointGun.localScale = new Vector3(
+				jointGun.localScale.x,
+				-Mathf.Abs(jointGun.localScale.y),
+				jointGun.localScale.z
+			);
+		}
+	}
 }

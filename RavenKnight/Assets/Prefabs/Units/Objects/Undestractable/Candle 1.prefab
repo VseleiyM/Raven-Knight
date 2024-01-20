@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 426072171212270225}
   - component: {fileID: 602247737762449302}
   - component: {fileID: 2598558064353514808}
+  - component: {fileID: 3922057220798655931}
   m_Layer: 10
   m_Name: Candle 1
   m_TagString: Untagged
@@ -334,3 +335,23 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath: []
+--- !u!114 &3922057220798655931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8715073157950547314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b14a6c6fb1f7954596a51132a7f97b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light2DComponent: {fileID: 2598558064353514808}
+  minIntensity: 0.9
+  maxIntensity: 1.1
+  minRadius: 3
+  maxOuterRadius: 3
+  minFalloffStrength: 0.65
+  maxFalloffStrength: 0.7
+  flickerSpeed: 0.01
