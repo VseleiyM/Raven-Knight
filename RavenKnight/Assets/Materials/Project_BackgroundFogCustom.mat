@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FogStrength: 0
+    - _FogStrength: 0.4
     - _NoiseStep: 0.4
     - _Scale: 1
     - _Speed: 0
