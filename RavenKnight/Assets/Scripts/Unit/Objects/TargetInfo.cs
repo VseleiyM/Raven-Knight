@@ -42,7 +42,8 @@ namespace Project
 
         private void OnCollisionStay2D(Collision2D collision)
         {
-            _normal = collision.contacts[collision.contacts.Length - 1].normal;
+            if (collision.gameObject.layer == 29)
+                _normal = collision.contacts[collision.contacts.Length - 1].normal;
         }
 
         private void OnCollisionExit2D(Collision2D collision)

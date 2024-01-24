@@ -356,6 +356,9 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5590174953221140528}
   _pointForProjectile: {fileID: 2534778835487802848}
   _colliders2D: []
+  slidingSurface:
+    serializedVersion: 2
+    m_Bits: 536870912
 --- !u!114 &5085090709085001757
 MonoBehaviour:
   m_ObjectHideFlags: 0
