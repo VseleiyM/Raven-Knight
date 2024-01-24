@@ -35,6 +35,8 @@ namespace Project
                 GlobalEvents.SendScoreChanged((int)scoreParam.Max);
                 GlobalEvents.SendCreateScoreText(mobInfo.transform.position, (int)scoreParam.Max);
             }
+            foreach (var component in mobInfo.TargetInfo.Colliders2D)
+                component.enabled = false;
         }
 
         public void DestroyUnit()

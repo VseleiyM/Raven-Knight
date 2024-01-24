@@ -75,9 +75,7 @@ namespace Project
             Agent.isStopped = false;
 
             foreach (var component in TargetInfo.Colliders2D)
-            {
                 component.enabled = true;
-            }
         }
 
         public void OnPlayerDead(Target player)

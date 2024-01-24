@@ -578,7 +578,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 6956132896519755836}
   _pointForProjectile: {fileID: 0}
   _colliders2D:
-  - {fileID: 7488561163540260794}
+  - {fileID: 1470921296317166300}
 --- !u!114 &1604902823518373766
 MonoBehaviour:
   m_ObjectHideFlags: 0
