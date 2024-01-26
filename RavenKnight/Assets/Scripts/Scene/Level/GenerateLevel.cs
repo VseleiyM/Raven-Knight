@@ -19,6 +19,7 @@ namespace Project.GenerateLevel
         [SerializeField] private List<GameObject> boostersList;
         [Space(10)]
         [SerializeField] private List<RuleForObject> objectsWithRule;
+        [SerializeField] private List<GameObject> corridorLight;
         [SerializeField, Range(0, 100)] private int fillObstaclePercent;
         [Space(10)]
         [SerializeField] private Tilemap tilemapFloor;
@@ -526,6 +527,7 @@ namespace Project.GenerateLevel
                             tile = tilesWall[Random.Range(0, tilesWall.Count)];
                             tilemapWall.SetTile(new Vector3Int(offsetRoom.x + 2, offsetRoom.y + y, 0), tile);
                         }
+                        
                     }
                     if (room.corridorDown)
                     {
@@ -685,6 +687,67 @@ namespace Project.GenerateLevel
                     int mustFillCells = countCells * fillObstaclePercent / 100;
                     Vector3 offset = new Vector3(-room.sizeX + 1.5f, -room.sizeY + 1.5f, 0);
 
+                    if (room.corridorUp)
+                    {
+                        Vector3 spawnPoint = new Vector3();
+                        Vector3Int point = new Vector3Int(room.sizeX, rSizeY - 1, 0);
+
+                        mapObstacle[point.x - 3, point.y] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x - 3 + offset.x, offsetRoom.y + point.y + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mapObstacle[point.x + 1, point.y] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + 1 + offset.x, offsetRoom.y + point.y + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mustFillCells = mustFillCells - 2;
+                    }
+                    if (room.corridorDown)
+                    {
+                        Vector3 spawnPoint = new Vector3();
+                        Vector3Int point = new Vector3Int(room.sizeX, 0, 0);
+
+                        mapObstacle[point.x - 3, point.y] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x - 3 + offset.x, offsetRoom.y + point.y + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mapObstacle[point.x + 1, point.y] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + 1 + offset.x, offsetRoom.y + point.y + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mustFillCells = mustFillCells - 2;
+                    }
+                    if (room.corridorLeft)
+                    {
+                        Vector3 spawnPoint = new Vector3();
+                        Vector3Int point = new Vector3Int(0, room.sizeY, 0);
+
+                        mapObstacle[point.x, point.y - 3] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + offset.x, offsetRoom.y + point.y - 3 + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mapObstacle[point.x, point.y + 1] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + offset.x, offsetRoom.y + point.y + 1 + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mustFillCells = mustFillCells - 2;
+                    }
+                    if (room.corridorRight)
+                    {
+                        Vector3 spawnPoint = new Vector3();
+                        Vector3Int point = new Vector3Int(rSizeX - 1, room.sizeY, 0);
+
+                        mapObstacle[point.x, point.y - 3] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + offset.x, offsetRoom.y + point.y - 3 + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mapObstacle[point.x, point.y + 1] = true;
+                        spawnPoint.Set(offsetRoom.x + point.x + offset.x, offsetRoom.y + point.y + 1 + offset.y, 0);
+                        Instantiate(corridorLight[Random.Range(0, corridorLight.Count)], spawnPoint, Quaternion.identity, obstacleFolder);
+
+                        mustFillCells = mustFillCells - 2;
+                    }
+
                     for (int i = 0; i < mustFillCells; i++)
                     {
                         Vector2Int point = new Vector2Int();
@@ -731,8 +794,7 @@ namespace Project.GenerateLevel
                         }
 
                         mapObstacle[point.x, point.y] = true;
-                        Vector3 spawnPoint = new Vector3(offsetRoom.x, offsetRoom.y, 0);
-                        spawnPoint += new Vector3(point.x, point.y, 0);
+                        Vector3 spawnPoint = new Vector3(offsetRoom.x + point.x, offsetRoom.y + point.y, 0);
 
                         GameObject obstaclePrefab = null;
                         List<GameObject> prefabs = new List<GameObject>();
@@ -772,7 +834,7 @@ namespace Project.GenerateLevel
                         if (obstaclePrefab == null)
                             obstaclePrefab = anyObjects[Random.Range(0, anyObjects.Count)].prefab;
 
-                        Instantiate(obstaclePrefab, offset + spawnPoint, Quaternion.identity, obstacleFolder);
+                        Instantiate(obstaclePrefab, spawnPoint + offset, Quaternion.identity, obstacleFolder);
                     }
 
                     room.mapObstacle = mapObstacle;

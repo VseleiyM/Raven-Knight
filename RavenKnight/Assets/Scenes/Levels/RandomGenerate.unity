@@ -800,6 +800,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4cf0bd57e7223f4aac3a7f37ec2fedb, type: 2}
   - {fileID: 11400000, guid: 25bc62d04d2e9c1478d39a6cad5bb59e, type: 2}
   - {fileID: 11400000, guid: a7c9649ac84e8ed408a29df4c8d25b12, type: 2}
+  corridorLight:
+  - {fileID: 8715073157950547314, guid: fe6ca6e4c8e460045b0721aedf971190, type: 3}
+  - {fileID: 8715073157950547314, guid: 0e7edf7f575f33544a6da73edab97fbe, type: 3}
+  - {fileID: 8715073157950547314, guid: b1e19c2f7dfd28d48bb74ef73c84bd36, type: 3}
+  - {fileID: 8715073157950547314, guid: 63dd2011c66f8e543b61cf66cb50f317, type: 3}
+  - {fileID: 8715073157950547314, guid: cb23d539260d05043b673405202d76e0, type: 3}
+  - {fileID: 8715073157950547314, guid: 3aac41e4d64a9224494969094f3b0a2a, type: 3}
+  - {fileID: 8715073157950547314, guid: 75f444c780546c746890f5a6062b053c, type: 3}
+  - {fileID: 8715073157950547314, guid: 0b6ec5c3be1de804a960cd93bd7189ed, type: 3}
+  - {fileID: 8715073157950547314, guid: 29ee65d493dd5cf4c9bce721e5d4a8ba, type: 3}
   fillObstaclePercent: 5
   tilemapFloor: {fileID: 617583768957259113}
   tilemapWall: {fileID: 617583767649761496}
