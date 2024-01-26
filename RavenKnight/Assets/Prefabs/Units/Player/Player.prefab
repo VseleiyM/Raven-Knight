@@ -356,9 +356,6 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5590174953221140528}
   _pointForProjectile: {fileID: 2534778835487802848}
   _colliders2D: []
-  slidingSurface:
-    serializedVersion: 2
-    m_Bits: 536870912
 --- !u!114 &5085090709085001757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,6 +879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: distance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107849903813177512, guid: 8f3c0624ea51bed4ab9c33b37e6ba719,
+        type: 3}
+      propertyPath: invincibleDuration
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4995093625719788206, guid: 8f3c0624ea51bed4ab9c33b37e6ba719,
         type: 3}
