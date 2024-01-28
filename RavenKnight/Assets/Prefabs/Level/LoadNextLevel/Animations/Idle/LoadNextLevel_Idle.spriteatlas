@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LoadNextLevel_Idle
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 399be6facbd630b41bcaf8ed002197ba, type: 3}
+    - {fileID: 2800000, guid: d117d6bf5e39dc04e8e18b46a8d6931e, type: 3}
+    - {fileID: 2800000, guid: cab404e1d6d4efd4f8101643586ccccc, type: 3}
+    - {fileID: 2800000, guid: f259e4aa3d81d5440805b3d4e5ce3cc1, type: 3}
+    - {fileID: 2800000, guid: 33b57e89d98958a48a7ebdd24ca3ce73, type: 3}
+    - {fileID: 2800000, guid: 97784aa3b9faa664cadcb33f1b7714b4, type: 3}
+    - {fileID: 2800000, guid: 2a4a0c0a770799542bb57e99c3cda828, type: 3}
+    - {fileID: 2800000, guid: 21f71a24f4e09ce4781664f18f36d048, type: 3}
+    - {fileID: 2800000, guid: a2a91357daa86c145aee432928e1eec7, type: 3}
+    - {fileID: 2800000, guid: f42404e3000fd8f459c572ff6a82009c, type: 3}
+    - {fileID: 2800000, guid: fe42619019cddc34186a05e97a8a662f, type: 3}
+    - {fileID: 2800000, guid: 51f94fec423b958479f619e40df93b08, type: 3}
+    - {fileID: 2800000, guid: accd6875c530e6e4b9173802732c8565, type: 3}
+    - {fileID: 2800000, guid: 4a66b918f0cb3e74aa31e4e0ed0cad11, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - fe42619019cddc34186a05e97a8a662f: 21300000
+    - cab404e1d6d4efd4f8101643586ccccc: 21300000
+    - 97784aa3b9faa664cadcb33f1b7714b4: 21300000
+    - f42404e3000fd8f459c572ff6a82009c: 21300000
+    - 21f71a24f4e09ce4781664f18f36d048: 21300000
+    - accd6875c530e6e4b9173802732c8565: 21300000
+    - a2a91357daa86c145aee432928e1eec7: 21300000
+    - 4a66b918f0cb3e74aa31e4e0ed0cad11: 21300000
+    - 33b57e89d98958a48a7ebdd24ca3ce73: 21300000
+    - 2a4a0c0a770799542bb57e99c3cda828: 21300000
+    - f259e4aa3d81d5440805b3d4e5ce3cc1: 21300000
+    - 399be6facbd630b41bcaf8ed002197ba: 21300000
+    - 51f94fec423b958479f619e40df93b08: 21300000
+    - d117d6bf5e39dc04e8e18b46a8d6931e: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: fe42619019cddc34186a05e97a8a662f, type: 3}
+  - {fileID: 21300000, guid: cab404e1d6d4efd4f8101643586ccccc, type: 3}
+  - {fileID: 21300000, guid: 97784aa3b9faa664cadcb33f1b7714b4, type: 3}
+  - {fileID: 21300000, guid: f42404e3000fd8f459c572ff6a82009c, type: 3}
+  - {fileID: 21300000, guid: 21f71a24f4e09ce4781664f18f36d048, type: 3}
+  - {fileID: 21300000, guid: accd6875c530e6e4b9173802732c8565, type: 3}
+  - {fileID: 21300000, guid: a2a91357daa86c145aee432928e1eec7, type: 3}
+  - {fileID: 21300000, guid: 4a66b918f0cb3e74aa31e4e0ed0cad11, type: 3}
+  - {fileID: 21300000, guid: 33b57e89d98958a48a7ebdd24ca3ce73, type: 3}
+  - {fileID: 21300000, guid: 2a4a0c0a770799542bb57e99c3cda828, type: 3}
+  - {fileID: 21300000, guid: f259e4aa3d81d5440805b3d4e5ce3cc1, type: 3}
+  - {fileID: 21300000, guid: 399be6facbd630b41bcaf8ed002197ba, type: 3}
+  - {fileID: 21300000, guid: 51f94fec423b958479f619e40df93b08, type: 3}
+  - {fileID: 21300000, guid: d117d6bf5e39dc04e8e18b46a8d6931e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - portal_045
+  - portal_034
+  - portal_038
+  - portal_044
+  - portal_041
+  - portal_048
+  - portal_042
+  - portal_049
+  - portal_037
+  - portal_040
+  - portal_036
+  - portal_032
+  - portal_046
+  - portal_033
+  m_RenderDataMap: {}
+  m_Tag: LoadNextLevel_Idle
+  m_IsVariant: 0
