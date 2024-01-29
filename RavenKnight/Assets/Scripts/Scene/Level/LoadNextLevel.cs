@@ -14,8 +14,8 @@ namespace Project
 
         private void Awake()
         {
-            notification.SetActive(false);
-            enabled = false;
+            /*notification.SetActive(false);
+            enabled = false;*/
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -28,18 +28,20 @@ namespace Project
             }
         }
 
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision == target)
+            {
+                notification.SetActive(false);
+                enabled = false;
+            }
+        }
+
         private void Update()
         {
             if (Input.GetKey(KeyCode.F))
             {
                 GlobalEvents.SendLoadNextLevel();
-            }
-
-            
-            if (!trigger.IsTouching(target))
-            {
-                notification.SetActive(false);
-                enabled = false;
             }
         }
     }
