@@ -335,4 +335,6 @@ MonoBehaviour:
   travelMusic: {fileID: 8300000, guid: ace9504de57dd2a47b9197a79c0d9bc7, type: 3}
   combatMusic: {fileID: 8300000, guid: ce010988d3d16fd46a4d757887b0bfc4, type: 3}
   bossMusic: {fileID: 8300000, guid: 44a3e00dd66afce4aa0581ddcd6093bd, type: 3}
+  timeAttenuation: 1
+  soundAmplification: 2
   musicSource: {fileID: 8601581727546483415}

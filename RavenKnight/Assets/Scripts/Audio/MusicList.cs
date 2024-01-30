@@ -12,6 +12,9 @@ namespace Project.Audio
         [SerializeField] private AudioClip combatMusic;
         [SerializeField] private AudioClip bossMusic;
         [Space(10)]
+        [SerializeField, Min(0.01f)] private float timeAttenuation = 1;
+        [SerializeField, Min(0.01f)] private float soundAmplification = 1;
+        [Space(10)]
         [SerializeField] private AudioSource musicSource;
 
         private void Awake()
@@ -31,6 +34,19 @@ namespace Project.Audio
 
         private void OnChangeMusic(MusicType type)
         {
+            StartCoroutine(ChangeMusic(type));
+        }
+
+        private IEnumerator ChangeMusic(MusicType type)
+        {
+            float timer = 0;
+            while (timer < timeAttenuation)
+            {
+                timer += Time.fixedDeltaTime;
+                musicSource.volume -= Time.fixedDeltaTime / timeAttenuation;
+                yield return new WaitForFixedUpdate();
+            }
+
             musicSource.Stop();
             switch (type)
             {
@@ -48,6 +64,16 @@ namespace Project.Audio
                     break;
             }
             musicSource.Play();
+
+            timer = 0;
+            while (timer < soundAmplification)
+            {
+                timer += Time.fixedDeltaTime;
+                musicSource.volume += Time.fixedDeltaTime / soundAmplification;
+                yield return new WaitForFixedUpdate();
+            }
+            musicSource.volume = 1;
+            
         }
     }
 }
