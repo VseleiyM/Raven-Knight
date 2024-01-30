@@ -11,6 +11,7 @@ namespace Project
         [SerializeField] private GameObject healAreaPrefab;
         [SerializeField] private KeyCode keyCode;
         [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private Image frame;
         [Space(10)]
         [SerializeField] private bool isReady;
         [Header("Filler image")]
@@ -21,6 +22,7 @@ namespace Project
         private void Awake()
         {
             text.color = new Color(1, 1, 1, 0.39f);
+            frame.color = new Color(1, 1, 1, 0);
         }
 
         private void OnEnable()
@@ -45,6 +47,7 @@ namespace Project
                 filledIcon.ToMinValue();
                 isReady = false;
                 text.color = new Color(1, 1, 1, 0.39f);
+                frame.color = new Color(1, 1, 1, 0);
                 Instantiate(healAreaPrefab, spawnPoint.position, Quaternion.identity);
             }
             /*
@@ -72,6 +75,7 @@ namespace Project
                 {
                     isReady = true;
                     text.color = new Color(1, 1, 1, 1);
+                    frame.color = new Color(1, 1, 1, 1);
                 }
             }
         }

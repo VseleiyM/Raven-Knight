@@ -366,7 +366,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7828199278852361010}
+  m_Father: {fileID: 1416623474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -441,7 +441,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7828199278852361012}
+  m_Father: {fileID: 2113946817}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1164,7 +1164,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 707377950}
   m_Father: {fileID: 7828199278852361010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1412,7 +1413,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7828199278852361011}
+  m_Father: {fileID: 1991164167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1486,7 +1487,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1745599295}
   m_Father: {fileID: 7828199278852361011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1611,7 +1613,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 752002065}
   m_Father: {fileID: 7828199278852361012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1714,6 +1717,11 @@ PrefabInstance:
       objectReference: {fileID: 791779946}
     - target: {fileID: 475125353259689822, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
+      propertyPath: frame
+      value: 
+      objectReference: {fileID: 707377951}
+    - target: {fileID: 475125353259689822, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
       propertyPath: keyIcon
       value: 
       objectReference: {fileID: 0}
@@ -1773,6 +1781,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1010599569}
+    - target: {fileID: 1444892832115091956, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: frame
+      value: 
+      objectReference: {fileID: 1745599296}
     - target: {fileID: 1460319966375443323, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_Type
@@ -2140,9 +2153,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: 752002066}
+    - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1433401187}
+    - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: frame
+      value: 
+      objectReference: {fileID: 752002066}
     - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: healAreaPrefab
@@ -3118,10 +3141,6 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 1433401186}
-    - targetCorrespondingSourceObject: {fileID: 7320784339771667328, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 752002065}
     - targetCorrespondingSourceObject: {fileID: 7646494137405233264, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       insertIndex: 0
@@ -3130,10 +3149,6 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 1010599568}
-    - targetCorrespondingSourceObject: {fileID: 7646494137405233264, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1745599295}
     - targetCorrespondingSourceObject: {fileID: 4475444983532410880, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       insertIndex: 0
@@ -3142,10 +3157,6 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 791779945}
-    - targetCorrespondingSourceObject: {fileID: 4475444983532410880, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 707377950}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1022776195687757544, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}

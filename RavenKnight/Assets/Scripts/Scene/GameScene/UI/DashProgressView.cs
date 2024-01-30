@@ -8,6 +8,7 @@ namespace UI
     {
         [SerializeField] private FilledIcon filledIcon = null;
         [SerializeField] private TextMeshProUGUI text = null;
+        [SerializeField] private Image frame;
 
         public float filledValue
         {
@@ -19,6 +20,8 @@ namespace UI
         {
             Color color = text.color;
             text.color = new Color(color.r, color.g, color.b, isReady ? 1f : 0.3f);
+            color = frame.color;
+            frame.color = new Color(color.r, color.g, color.b, isReady ? 1f : 0.3f);
         }
         public static DashProgressView instance { get; private set; }
 
