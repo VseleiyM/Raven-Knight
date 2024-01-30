@@ -1482,6 +1482,16 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 475125353259689822, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 791779946}
+    - target: {fileID: 475125353259689822, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: keyIcon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1120972554413642586, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_Pivot.y
@@ -1537,7 +1547,7 @@ PrefabInstance:
         type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1010599569}
     - target: {fileID: 1460319966375443323, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_Type
@@ -1887,7 +1897,7 @@ PrefabInstance:
         type: 3}
       propertyPath: text
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1433401187}
     - target: {fileID: 3081604422590385101, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: healAreaPrefab

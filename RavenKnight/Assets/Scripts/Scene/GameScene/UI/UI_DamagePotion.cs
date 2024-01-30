@@ -1,4 +1,5 @@
 using UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ namespace Project
         [SerializeField] private TypePickupItem pickupItem;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private KeyCode keyCode;
-        [SerializeField] private Text text;
+        [SerializeField] private TextMeshProUGUI text;
         [Space(10)]
         [SerializeField] private bool isReady;
         [Header("Filler image")]
@@ -30,6 +31,8 @@ namespace Project
                 folder = new GameObject("Temp").transform;
             else
                 folder = goFolder.transform;
+
+            text.color = new Color(1, 1, 1, 0.39f);
         }
 
         private void OnEnable()
