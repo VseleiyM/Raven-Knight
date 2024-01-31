@@ -84,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3078067473397278830}
-  - component: {fileID: 6151063963847493362}
   - component: {fileID: 9129686668908076549}
   m_Layer: 5
   m_Name: FilledIcon
@@ -114,14 +113,6 @@ RectTransform:
   m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6151063963847493362
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452804222168137772}
-  m_CullTransparentMesh: 1
 --- !u!114 &9129686668908076549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799948887983637171}
   - component: {fileID: 3717157698700606957}
+  - component: {fileID: 6230957436822305660}
   m_Layer: 5
   m_Name: DashProgress
   m_TagString: Untagged
@@ -416,7 +408,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filledIcon: {fileID: 9129686668908076549}
-  keyIcon: {fileID: 8935883897407770537}
+  text: {fileID: 0}
+  frame: {fileID: 0}
+--- !u!222 &6230957436822305660
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979700752701879184}
+  m_CullTransparentMesh: 1
 --- !u!1 &8381652088030356614
 GameObject:
   m_ObjectHideFlags: 0
