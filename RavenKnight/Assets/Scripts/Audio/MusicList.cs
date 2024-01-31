@@ -9,6 +9,7 @@ namespace Project.Audio
     {
         [SerializeField] private AudioClip mainMenu;
         [SerializeField] private AudioClip travelMusic;
+        [SerializeField] private AudioClip travelMusic2;
         [SerializeField] private AudioClip combatMusic;
         [SerializeField] private AudioClip bossMusic;
         [Space(10)]
@@ -16,6 +17,10 @@ namespace Project.Audio
         [SerializeField, Min(0.01f)] private float soundAmplification = 1;
         [Space(10)]
         [SerializeField] private AudioSource musicSource;
+        [SerializeField] private AudioSource musicSource2;
+
+        private float musicTimer;
+        private float musicTimer2;
 
         private void Awake()
         {
@@ -47,7 +52,17 @@ namespace Project.Audio
                 yield return new WaitForFixedUpdate();
             }
 
+            switch (type)
+            {
+                case MusicType.combatMusic:
+                    musicTimer = musicSource.time;
+                    break;
+                case MusicType.bossMusic:
+                    musicTimer = musicSource.time;
+                    break;
+            }
             musicSource.Stop();
+            musicSource2.Stop();
             switch (type)
             {
                 case MusicType.mainMenu:
@@ -55,6 +70,9 @@ namespace Project.Audio
                     break;
                 case MusicType.travelMusic:
                     musicSource.clip = travelMusic;
+                    musicSource2.clip = travelMusic2;
+                    musicSource.time = musicTimer;
+                    musicSource2.Play();
                     break;
                 case MusicType.combatMusic:
                     musicSource.clip = combatMusic;
@@ -73,7 +91,7 @@ namespace Project.Audio
                 yield return new WaitForFixedUpdate();
             }
             musicSource.volume = 1;
-            
+
         }
     }
 }
