@@ -1,4 +1,5 @@
 ﻿using UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +10,20 @@ namespace Project
         [SerializeField] private TypePickupItem pickupItem;
         [SerializeField] private GameObject healAreaPrefab;
         [SerializeField] private KeyCode keyCode;
-        [SerializeField] private Text text;
+        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private Image frame;
         [Space(10)]
         [SerializeField] private bool isReady;
         [Header("Filler image")]
         [SerializeField] private FilledIcon filledIcon;
 
         private Transform spawnPoint;
+
+        private void Awake()
+        {
+            text.color = new Color(1, 1, 1, 0.39f);
+            frame.color = new Color(1, 1, 1, 0);
+        }
 
         private void OnEnable()
         {
@@ -39,6 +47,7 @@ namespace Project
                 filledIcon.ToMinValue();
                 isReady = false;
                 text.color = new Color(1, 1, 1, 0.39f);
+                frame.color = new Color(1, 1, 1, 0);
                 Instantiate(healAreaPrefab, spawnPoint.position, Quaternion.identity);
             }
             /*
@@ -66,6 +75,7 @@ namespace Project
                 {
                     isReady = true;
                     text.color = new Color(1, 1, 1, 1);
+                    frame.color = new Color(1, 1, 1, 1);
                 }
             }
         }

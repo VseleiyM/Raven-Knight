@@ -535,7 +535,7 @@ MonoBehaviour:
     _fillAwake: 0
   dropList:
   - _dropItemPrefab:
-    - {fileID: 2707848527629948363, guid: 5bbbfa020dafa5841bbc67f5529d0edd, type: 3}
+    - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
     _min: 1
     _max: 1
     _oneItem: 1

@@ -1,4 +1,5 @@
 using UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,8 @@ namespace Project
         [SerializeField] private TypePickupItem pickupItem;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private KeyCode keyCode;
-        [SerializeField] private Text text;
+        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private Image frame;
         [Space(10)]
         [SerializeField] private bool isReady;
         [Header("Filler image")]
@@ -30,6 +32,9 @@ namespace Project
                 folder = new GameObject("Temp").transform;
             else
                 folder = goFolder.transform;
+
+            text.color = new Color(1, 1, 1, 0.39f);
+            frame.color = new Color(1, 1, 1, 0);
         }
 
         private void OnEnable()
@@ -57,6 +62,7 @@ namespace Project
                 filledIcon.ToMinValue();
                 isReady = false;
                 text.color = new Color(1, 1, 1, 0.39f);
+                frame.color = new Color(1, 1, 1, 0);
                 var projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.Euler(0, 0, angle));
                 projectile.transform.parent = folder;
             }
@@ -77,6 +83,7 @@ namespace Project
                 {
                     isReady = true;
                     text.color = new Color(1, 1, 1, 1);
+                    frame.color = new Color(1, 1, 1, 1);
                 }
             }
         }
