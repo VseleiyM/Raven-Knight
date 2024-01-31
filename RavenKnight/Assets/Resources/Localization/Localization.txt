@@ -1,31 +1,31 @@
 Description	Localization key	English	Chinese	Russian
-Кнопка «Новая игра» в меню	Menu.Main.NewGameButton	New game	新游戏	Новая игра
-Кнопка «Настройки» в меню	Menu.Main.OptionsButton	Options	选项	Настройки
-Кнопка "Авторы" в меню	Menu.Main.CreditsButton	Credits	学分	Авторы
-Кнопка «Выход» в меню	Menu.Main.ExitButton	Exit	出口	Выход
-Кнопка «Игра и видео» в настройках	Menu.Options.SettingsButton	Game and video	游戏和视频	Игра и видео
-Кнопка «Аудио» в настройках	Menu.Options.AudioButton	Audio	音频	Аудио
-Кнопка «Назад» в настройках	Menu.Main.BackButton	Back	返回	Назад
-Кнопка «Сбросить настройки» в настройках	Menu.Main.ResetButton	Reset to default	重置为默认值	По умолчанию
-Подпись ползунка «Мастер» в аудио	Menu.Options.Audio.MasterButton	Master	主	Общая громкость
-Подпись ползунка «Звуки» в аудио	Menu.Options.Audio.SoundButton	Sound	声音	Звук
-Подпись ползунка «Музыка» в аудио	Menu.Options.Audio.MusicButton	Music	音乐	Музыка
-Настройка разрешения экрана в «Игра и видео»	Menu.Options.Settings.ResolutionButton	Resolution	分辨率	Разрешение
-Настройка режима окна в «Игра и видео»	Menu.Options.Settings.WinModeButton	Window mode	窗口模式	Режим окна
-Режим окна «Полный экран»	Menu.Options.Settings.FullScreen	Full screen	全屏	Полный экран
-Режим окна «Окнонный режим»	Menu.Options.Settings.Window	Window	窗户	Оконный
-Настройка языка в «Игра и видео»	Menu.Options.Settings.LanguageButton	Language	语言	Язык
-Кнопка продолжить игру из паузы	Menu.PauseMenu.ContinueButton	Continue	继续	Продолжить
-Кнопка возврата в главное меню из паузы	Menu.PauseMenu.MainMenuButton	Main menu	主菜单	Главное меню
-«Нажмите любую кнопку» на экране загрузки	Menu.LoadScreen.PressAnyButton	Press any button	按任何按钮	Нажмите на любую кнопку
+Кнопка «Новая игра» в меню	Menu.Main.NewGameButton	NEW GAME	新游戏	НОВАЯ ИГРА
+Кнопка «Настройки» в меню	Menu.Main.OptionsButton	OPTIONS	选项	НАСТРОЙКИ
+Кнопка "Авторы" в меню	Menu.Main.CreditsButton	CREDITS	学分	АВТОРЫ
+Кнопка «Выход» в меню	Menu.Main.ExitButton	EXIT	出口	ВЫХОД
+Кнопка «Игра и видео» в настройках	Menu.Options.SettingsButton	GAME AND VIDEO	游戏和视频	ИГРА И ВИДЕО
+Кнопка «Аудио» в настройках	Menu.Options.AudioButton	AUDIO	音频	АУДИО
+Кнопка «Назад» в настройках	Menu.Main.BackButton	BACK	返回	НАЗАД
+Кнопка «Сбросить настройки» в настройках	Menu.Main.ResetButton	RESET TO DEFAULT	重置为默认值	ПО УМОЛЧАНИЮ
+Подпись ползунка «Мастер» в аудио	Menu.Options.Audio.MasterButton	MASTER	主	ОБЩАЯ ГРОМКОСТЬ
+Подпись ползунка «Звуки» в аудио	Menu.Options.Audio.SoundButton	SOUND	声音	ЗВУК
+Подпись ползунка «Музыка» в аудио	Menu.Options.Audio.MusicButton	MUSIC	音乐	МУЗЫКА
+Настройка разрешения экрана в «Игра и видео»	Menu.Options.Settings.ResolutionButton	RESOLUTION	分辨率	РАЗРЕШЕНИЕ
+Настройка режима окна в «Игра и видео»	Menu.Options.Settings.WinModeButton	WINDOW MODE	窗口模式	РЕЖИМ ОКНА
+Режим окна «Полный экран»	Menu.Options.Settings.FullScreen	FULL SCREEN	全屏	ПОЛНЫЙ ЭКРАН
+Режим окна «Окнонный режим»	Menu.Options.Settings.Window	WINDOW	窗户	ОКОННЫЙ
+Настройка языка в «Игра и видео»	Menu.Options.Settings.LanguageButton	LANGUAGE	语言	ЯЗЫК
+Кнопка продолжить игру из паузы	Menu.PauseMenu.ContinueButton	CONTINUE	继续	ПРОДОЛЖИТЬ
+Кнопка возврата в главное меню из паузы	Menu.PauseMenu.MainMenuButton	MAIN MENU	主菜单	ГЛАВНОЕ МЕНЮ
+«Нажмите любую кнопку» на экране загрузки	Menu.LoadScreen.PressAnyButton	PRESS ANY BUTTON	按任何按钮	НАЖМИТЕ НА ЛЮБУЮ КНОПКУ
 Сопроводительный текст на экране загрузки	Menu.LoadScreen.Discription	The world has been overtaken by an epidemic of Pestilence. The disease affects people and animals, turning them into hideous monsters and depriving them of their sanity. The protagonist is infected, but managed to keep his senses. He tries to save his daughter and for this he goes into a dangerous dungeon to find a cure.	一场瘟疫席卷了整个世界。人和动物都会感染这种疾病，变成狰狞的怪物，丧失理智。主人公被感染了，但他还能保持理智。他试图拯救自己的女儿，并为此进入危险的地牢寻找解药。	Мир охватила эпидемия моровой язвы. Болезнь поражает людей и животных, превращая их в отвратительных монстров и лишая рассудка. Главный герой заражен, но сумел сохранить рассудок. Он пытается спасти свою дочь и для этого отправляется в опасное подземелье, чтобы найти лекарство.
-Счет очков в углу HUD	GameMenu.UI.Score	Score	得分	Счёт
-Объявление волны, перед ключем должен быть ее номер	GameMenu.UI.Wave	wave	浪头	волна
-Объявление волны с боссом	GameMunu.UI.BossWave	boss wave	老板波	битва с боссом
-Объявление, что комната зачищена	GameMenu.UI.RoomCleared	room cleared	房间清空	комната зачищена
-Название для внутриигровых очков	GameMenu.UI.Points	points	积分	очки
-Объявление победы	GameMenu.UI.Victory	Victory	胜利	Победа
-Объявление поражения	GameMenu.UI.Defeat	Defeat	失败	Поражение
-Текст "Эпилога"	GameMenu.UI.Epilogue	The world has been overtaken by an epidemic of Pestilence. The disease affects people and animals, turning them into hideous monsters and depriving them of their sanity. The protagonist is infected, but managed to keep his senses. He tries to save his daughter and for this he goes into a dangerous dungeon to find a cure.	一场瘟疫席卷了整个世界。人和动物都会感染这种疾病，变成狰狞的怪物，丧失理智。主人公被感染了，但他还能保持理智。他试图拯救自己的女儿，并为此进入危险的地牢寻找解药。	Мир охватила эпидемия моровой язвы. Болезнь поражает людей и животных, превращая их в отвратительных монстров и лишая рассудка. Главный герой заражен, но сумел сохранить рассудок. Он пытается спасти свою дочь и для этого отправляется в опасное подземелье, чтобы найти лекарство.
-Возврат в Главное меню	GameMenu.UI.ReturnMainMenu	Press "Space" to return Menu	按"空格"返回菜单	Нажмите "Пробел" чтобы вернуться в Главное меню
-Активация перехода на следующий уровень	Prefabs.Level.LoadNextLevel	Press "F"	按"F"	Нажмите "F"
+Счет очков в углу HUD	GameMenu.UI.Score	SCORE	得分	СЧЁТ
+Объявление волны, перед ключем должен быть ее номер	GameMenu.UI.Wave	WAVE	浪头	ВОЛНА
+Объявление волны с боссом	GameMunu.UI.BossWave	BOSS FIGHT	老板波	БИТВА С БОССОМ
+Объявление, что комната зачищена	GameMenu.UI.RoomCleared	ROOM CLEARED	房间清空	КОМНАТА ЗАЧИЩЕНА
+Название для внутриигровых очков	GameMenu.UI.Points	POINTS	积分	ОЧКИ
+Объявление победы	GameMenu.UI.Victory	VICTORY	胜利	ПОБЕДА
+Объявление поражения	GameMenu.UI.Defeat	DEFEAT	失败	ПОРАЖЕНИЕ
+Текст "Эпилога"	GameMenu.UI.Epilogue	The protagonist, overcoming all obstacles, found the cure in the dungeon and was able to cure his daughter, preventing her from turning into a monster. Thanks to his bravery and perseverance, he was also able to develop a vaccine that saved many other people from the disease. After contracting the disease himself, he used the vaccine on himself and was able to feel life return to normal after much agony and suffering.	一场瘟疫席卷了整个世界。人和动物都会感染这种疾病，变成狰狞的怪物，丧失理智。主人公被感染了，但他还能保持理智。他试图拯救自己的女儿，并为此进入危险的地牢寻找解药。	Главный герой, преодолевая все препятствия, нашел лекарство в подземелье и смог вылечить свою дочь, предотвратив ее превращение в монстра. Благодаря его отваге и настойчивости, он также смог разработать вакцину, которая спасла многих других людей от болезни. Заразившись сам, он использовал вакцину на себе и сумел почувствовать, что жизнь вернулась к нормальным рубежам после долгих мук и страданий.
+Возврат в Главное меню	GameMenu.UI.ReturnMainMenu	PRESS «SPACE» TO RETURN	按"空格"返回菜单	НАЖМИТЕ "ПРОБЕЛ" ДЛЯ ВОЗВРАТА В ГЛАВНОЕ МЕНЮ
+Активация перехода на следующий уровень	Prefabs.Level.LoadNextLevel	PRESS «F»	按"F"	НАЖМИТЕ «F»
