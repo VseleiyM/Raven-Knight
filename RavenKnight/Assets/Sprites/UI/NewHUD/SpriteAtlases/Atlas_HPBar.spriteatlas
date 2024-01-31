@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Atlas_HPBar
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 45b6f0c55f6d9a84d84646625bd79220, type: 3}
+    - {fileID: 2800000, guid: e8d71b01ff137244da78ca3da6577f0b, type: 3}
+    - {fileID: 2800000, guid: f74367ffca9c2cf4bb409deb8c94e47b, type: 3}
+    - {fileID: 2800000, guid: 6d325c4bd2380bb49ad444d161ac5631, type: 3}
+    - {fileID: 2800000, guid: 3c0c288b8df539f47bf8ac7cb7e35787, type: 3}
+    - {fileID: 2800000, guid: 5653939dda4fc6b49ba1df37e8be1647, type: 3}
+    - {fileID: 2800000, guid: ab48e89a7313fc444b89d7d1a5ff6ffb, type: 3}
+    - {fileID: 2800000, guid: 08b1a5dd8a1a8e44e9f6515b620445a4, type: 3}
+    - {fileID: 2800000, guid: 228ee62f08e7c094f98fa26fdb38f81d, type: 3}
+    - {fileID: 2800000, guid: 0b809a86e2415a64d80bb47fb505e9a6, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - e8d71b01ff137244da78ca3da6577f0b: 21300000
+    - 45b6f0c55f6d9a84d84646625bd79220: 21300000
+    - 0b809a86e2415a64d80bb47fb505e9a6: 21300000
+    - ab48e89a7313fc444b89d7d1a5ff6ffb: 21300000
+    - 6d325c4bd2380bb49ad444d161ac5631: 21300000
+    - 3c0c288b8df539f47bf8ac7cb7e35787: 21300000
+    - 5653939dda4fc6b49ba1df37e8be1647: 21300000
+    - 08b1a5dd8a1a8e44e9f6515b620445a4: 21300000
+    - 228ee62f08e7c094f98fa26fdb38f81d: 21300000
+    - f74367ffca9c2cf4bb409deb8c94e47b: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e8d71b01ff137244da78ca3da6577f0b, type: 3}
+  - {fileID: 21300000, guid: 45b6f0c55f6d9a84d84646625bd79220, type: 3}
+  - {fileID: 21300000, guid: 0b809a86e2415a64d80bb47fb505e9a6, type: 3}
+  - {fileID: 21300000, guid: ab48e89a7313fc444b89d7d1a5ff6ffb, type: 3}
+  - {fileID: 21300000, guid: 6d325c4bd2380bb49ad444d161ac5631, type: 3}
+  - {fileID: 21300000, guid: 3c0c288b8df539f47bf8ac7cb7e35787, type: 3}
+  - {fileID: 21300000, guid: 5653939dda4fc6b49ba1df37e8be1647, type: 3}
+  - {fileID: 21300000, guid: 08b1a5dd8a1a8e44e9f6515b620445a4, type: 3}
+  - {fileID: 21300000, guid: 228ee62f08e7c094f98fa26fdb38f81d, type: 3}
+  - {fileID: 21300000, guid: f74367ffca9c2cf4bb409deb8c94e47b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - T_CharacterHP_Frame
+  - Icon_Character
+  - T_CharacterHP_Frame_Example_Fill
+  - T_BossHP_Frame
+  - T_CharacterHP_Fill
+  - T_BossHP_BG
+  - T_BossHP_Fill
+  - T_CharacterHP_Frame_Example
+  - T_CharacterHP_Frame_Example_Mask
+  - T_CharacterHP_BG
+  m_RenderDataMap: {}
+  m_Tag: Atlas_HPBar
+  m_IsVariant: 0

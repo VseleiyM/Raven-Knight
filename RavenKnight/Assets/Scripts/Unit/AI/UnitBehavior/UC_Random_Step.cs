@@ -18,7 +18,8 @@ namespace Project
 
         public override void Execute()
         {
-            _nextStep = commandsList[Random.Range(0, commandsList.Count)];
+            int index = Random.Range(0, commandsList.Count);
+            _nextStep = commandsList[index];
         }
     }
 }

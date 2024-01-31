@@ -86,7 +86,7 @@ NavMeshAgent:
   m_Acceleration: 6
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.1
+  m_StoppingDistance: 0.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 0
@@ -296,7 +296,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 611697198402970374}
+  - component: {fileID: 5172595999021038285}
   - component: {fileID: 1715678258332773597}
+  - component: {fileID: 1535911138304238836}
   - component: {fileID: 6936739351587518050}
   - component: {fileID: 4039405043959322454}
   - component: {fileID: 1329891434043092259}
@@ -323,6 +325,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7094357501993202909}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5172595999021038285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270828943839637126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b08084ccd3c49b4faa8cfcf69a59638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commandsList:
+  - {fileID: 1715678258332773597}
+  - {fileID: 1535911138304238836}
 --- !u!114 &1715678258332773597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +353,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 6936739351587518050}
+--- !u!114 &1535911138304238836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270828943839637126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4449c0973264fe643916d5e7c86288d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextStep: {fileID: 6936739351587518050}
+  distance: 1
 --- !u!114 &6936739351587518050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82580d4d4be3fe54397cd02a9be3dd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextStep: {fileID: 1715678258332773597}
+  _nextStep: {fileID: 5172595999021038285}
   time: 1.5
 --- !u!1 &6546613637866747412
 GameObject:
@@ -627,7 +658,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 06b52cb1a8a998549a190589a3d76726, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47e6d421807f30641864549bca2368ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
