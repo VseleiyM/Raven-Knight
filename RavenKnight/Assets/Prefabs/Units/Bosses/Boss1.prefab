@@ -509,7 +509,7 @@ MonoBehaviour:
   - name: Health
     _parameter: 1
     current: 0
-    _max: 100
+    _max: 250
     _fillAwake: 1
   - name: IsBoss
     _parameter: 4
