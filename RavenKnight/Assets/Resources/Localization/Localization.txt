@@ -1,6 +1,6 @@
 Description	Localization key	English	Chinese	Russian
 Кнопка «Новая игра» в меню	Menu.Main.NewGameButton	NEW GAME	新游戏	НОВАЯ ИГРА
-Кнопка «Настройки» в меню	Menu.Main.OptionsButton	OPTIONS	选项	НАСТРОЙКИ
+Кнопка «Настройки» в меню	Menu.Main.OptionsButton	SETTINGS	选项	НАСТРОЙКИ
 Кнопка "Авторы" в меню	Menu.Main.CreditsButton	CREDITS	学分	АВТОРЫ
 Кнопка «Выход» в меню	Menu.Main.ExitButton	EXIT	出口	ВЫХОД
 Кнопка «Игра и видео» в настройках	Menu.Options.SettingsButton	GAME AND VIDEO	游戏和视频	ИГРА И ВИДЕО
