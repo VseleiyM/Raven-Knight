@@ -105,7 +105,7 @@ namespace Project.UI
             GoToMainMenu();
         }
 
-        public event Action pauseKeyDowned;
+        public event System.Action pauseKeyDowned;
         private void Update()
         {
             if (Input.GetKeyDown(pauseButtonKey))

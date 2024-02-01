@@ -11,7 +11,7 @@ namespace Project
         private MobInfo mobInfo;
         private Transform folder;
 
-        public event Action takeDamage;
+        public event System.Action takeDamage;
         public event Action<int> attack;
         public event Action<int> attackFinished;
 

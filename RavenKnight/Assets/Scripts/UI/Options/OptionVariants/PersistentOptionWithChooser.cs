@@ -55,7 +55,7 @@ namespace Project.UI
         /// <summary>
         /// Событие изменения выбора.
         /// </summary>
-        public event Action valueChanged;
+        public event System.Action valueChanged;
         private void OnIndexChanged(int index)
         {
             PlayerPrefs.SetInt(optionName, chooser.currentIndex);

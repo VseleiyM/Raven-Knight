@@ -45,7 +45,7 @@ namespace Project.UI
         /// <summary>
         /// язык локализации сменилс€.
         /// </summary>
-        public event Action languageChanged;
+        public event System.Action languageChanged;
         /// <summary>
         /// —менить €зык локализации.
         /// </summary>

@@ -19,15 +19,15 @@ namespace Project
         public static event Action<Target> bossInit;
         public static event Action<Target> bossTakeDamage;
         public static event Action<Target> bossDead;
-        public static event Action victoryNotification;
-        public static event Action closeRoom;
+        public static event System.Action victoryNotification;
+        public static event System.Action closeRoom;
         public static event Action<int> openRoom;
-        public static event Action waveClear;
-        public static event Action bossRoomClear;
+        public static event System.Action waveClear;
+        public static event System.Action bossRoomClear;
         public static event Action<int, bool> nextWave;
         public static event Action<bool> pauseStatus;
-        public static event Action returnMenu;
-        public static event Action loadNextLevel;
+        public static event System.Action returnMenu;
+        public static event System.Action loadNextLevel;
         public static event Action<MusicType> changeMusic;
 
         public static void SendPlayerInit(Target player)
