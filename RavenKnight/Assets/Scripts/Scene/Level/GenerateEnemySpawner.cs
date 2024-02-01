@@ -48,6 +48,7 @@ namespace Project.GenerateLevel
 
             GlobalEvents.SendCloseRoom();
             GlobalEvents.SendNextWave(currentWaveID + 1, bossRoom);
+
             if (!bossRoom)
                 GlobalEvents.SendChangeMusic(Audio.MusicType.combatMusic);
             else

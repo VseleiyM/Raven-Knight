@@ -579,7 +579,7 @@ MonoBehaviour:
   - {fileID: 2413577295747591741}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
-  isBoss: 1
+  _isBoss: 1
 --- !u!82 &2413799393261654351
 AudioSource:
   m_ObjectHideFlags: 0

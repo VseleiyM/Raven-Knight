@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-
-public class Light2DMig : MonoBehaviour
+public class Light2DFlicker : MonoBehaviour
 {
 	[SerializeField]
 	private Light2D light2DComponent;
@@ -22,49 +20,41 @@ public class Light2DMig : MonoBehaviour
 	private float maxOuterRadius = 5.0f;
 
 	[SerializeField]
-	private float minFalloffStrength = 0.8f; // Минимальное значение falloffStrength
+	private float minFalloffStrength = 0.8f;
 
 	[SerializeField]
-	private float maxFalloffStrength = 1.2f; // Максимальное значение falloffStrength
+	private float maxFalloffStrength = 1.2f;
 
 	[SerializeField]
 	private float flickerSpeed = 0.5f;
 
-	public Light2D Light2DComponent
-	{
-		get { return light2DComponent; }
-		set { light2DComponent = value; }
-	}
-
-	// Остальные геттеры и сеттеры остаются без изменений
-
-	public float MinFalloffStrength
-	{
-		get { return minFalloffStrength; }
-		set { minFalloffStrength = value; }
-	}
-
-	public float MaxFalloffStrength
-	{
-		get { return maxFalloffStrength; }
-		set { maxFalloffStrength = value; }
-	}
+	[SerializeField]
+	private AnimationCurve flickerCurve;
 
 	void Start()
 	{
-		Light2DComponent = GetComponent<Light2D>();
-		InvokeRepeating("Flicker", 0f, flickerSpeed);
+		if (light2DComponent == null)
+		{
+			light2DComponent = GetComponent<Light2D>();
+		}
+		StartCoroutine(FlickerRoutine());
 	}
 
-	void Flicker()
+	IEnumerator FlickerRoutine()
 	{
-		float newIntensity = Random.Range(minIntensity, maxIntensity);
-		float newOuterRadius = Random.Range(minRadius, maxOuterRadius);
-		float newFalloffStrength = Random.Range(minFalloffStrength, maxFalloffStrength);
+		while (true)
+		{
 
-		Light2DComponent.intensity = newIntensity;
-		Light2DComponent.pointLightOuterRadius = newOuterRadius;
-		Light2DComponent.falloffIntensity = newFalloffStrength;
+			float time = Time.time;
+			float curveTime = time % flickerSpeed;
+			float curveValue = flickerCurve.Evaluate(curveTime / flickerSpeed);
+
+			light2DComponent.intensity = Mathf.Lerp(minIntensity, maxIntensity, curveValue);
+			light2DComponent.pointLightOuterRadius = Mathf.Lerp(minRadius, maxOuterRadius, curveValue);
+			light2DComponent.falloffIntensity = Mathf.Lerp(minFalloffStrength, maxFalloffStrength, curveValue);
+
+			yield return new WaitForSeconds(flickerSpeed);
+		}
 	}
 
 }

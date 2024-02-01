@@ -11,7 +11,7 @@ namespace Project
         private MobInfo mobInfo;
         private Transform folder;
 
-        public event Action takeDamage;
+        public event System.Action takeDamage;
         public event Action<int> attack;
         public event Action<int> attackFinished;
 
@@ -28,6 +28,8 @@ namespace Project
 
         public void SendMobDead()
         {
+            if (mobInfo.IsBoss)
+                GlobalEvents.SendBossDead(mobInfo.TargetInfo.Target);
             GlobalEvents.SendMobDead(mobInfo.TargetInfo.Target);
             UnitParameter scoreParam = mobInfo.TargetInfo.Target.ReturnParameter(ParametersList.GainScore);
             if (scoreParam != null)
