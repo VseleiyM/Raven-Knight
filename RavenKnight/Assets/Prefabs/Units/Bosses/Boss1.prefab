@@ -415,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3703864740433641052}
   damageableTag: 1
-  damage: 20
+  damage: 35
   attackTrigger: {fileID: 929490635528617333}
   triggerEnter: 0
 --- !u!114 &2197393784135212354
@@ -449,9 +449,9 @@ MonoBehaviour:
   _nextStep: {fileID: 3703864740433641052}
   projectilePrefab: {fileID: 8984344394082757371, guid: 56654b1e99cedd041b91e1bfbb6b25b5,
     type: 3}
-  count: 10
-  damage: 10
-  projectileSpeed: 10
+  count: 15
+  damage: 15
+  projectileSpeed: 28
 --- !u!1 &3774518901421596487
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableTag: 1
-  damage: 5
+  damage: 100
 --- !u!1 &4893865758667294297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   singleTriggering: 1
   parameterName: 1
   logicOperator: 2
-  value: 50
+  value: 90
 --- !u!114 &1310201724169198316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,7 +1094,7 @@ MonoBehaviour:
   singleTriggering: 1
   parameterName: 1
   logicOperator: 2
-  value: 25
+  value: 75
 --- !u!114 &1540694716670045049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   deadZoneBox: 1
   areaEffectPrefab: {fileID: 3060119034310443955, guid: fc6156740147193478d632006a8d1c09,
     type: 3}
-  count: 10
+  count: 25
   damageableTag: 1
   damage: 20
 --- !u!61 &6991429258201989079

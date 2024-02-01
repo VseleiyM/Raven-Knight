@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 5816136929351097052}
-  distance: 0.5
-  duration: 0.1
+  distance: 2
+  duration: 0.2
 --- !u!114 &5816136929351097052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   - {fileID: 2663658042315519862}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
-  isBoss: 0
+  _isBoss: 0
 --- !u!82 &6568995859037654084
 AudioSource:
   m_ObjectHideFlags: 0

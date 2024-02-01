@@ -89,7 +89,7 @@ MonoBehaviour:
   singleTriggering: 0
   parameterName: 2
   logicOperator: 3
-  value: 15
+  value: 10
 --- !u!114 &9020162151512514217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 352496172790407277}
-  speed: 12
-  angularSpeed: 240
+  speed: 30
+  angularSpeed: 360
   acceleration: 24
 --- !u!114 &352496172790407277
 MonoBehaviour:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 976319993350607840}
   paramName: 4
-  value: 1.5
+  value: 2
 --- !u!114 &976319993350607840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 3580022883237323537}
-  speed: 7
-  angularSpeed: 120
+  speed: 10
+  angularSpeed: 360
   acceleration: 14
 --- !u!114 &3580022883237323537
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 500211464004539317}
   paramName: 4
-  value: 1
+  value: 1.25
 --- !u!114 &500211464004539317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,8 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 943390361182360034}
-  distance: 8
-  duration: 0.5
+  distance: 15
+  duration: 0.4
 --- !u!114 &7585665977811082133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,8 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 943390361182360034}
-  distance: 8
-  duration: 0.25
+  distance: 15
+  duration: 0.4
 --- !u!114 &1444368100406441630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
     _fillAwake: 0
   dropList:
   - _dropItemPrefab:
-    - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
+    - {fileID: 2707848527629948363, guid: e532139b04528b04099de54416b2a105, type: 3}
     _min: 1
     _max: 1
     _oneItem: 1
@@ -550,10 +550,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 2
-  m_Speed: 7
+  m_Speed: 10
   m_Acceleration: 14
   avoidancePriority: 49
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1194,4 +1194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableTag: 1
-  damage: 5
+  damage: 25

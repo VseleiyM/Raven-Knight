@@ -127,7 +127,7 @@ MonoBehaviour:
   - {fileID: 1715678258332773597}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
-  isBoss: 0
+  _isBoss: 0
 --- !u!82 &7175248544281983243
 AudioSource:
   m_ObjectHideFlags: 0
@@ -417,8 +417,8 @@ MonoBehaviour:
   prefabProjectile: {fileID: 8984344394082757371, guid: 4bb68eb17273bd9468d1f75396c1cba4,
     type: 3}
   damageableTag: 0
-  damage: 10
-  projectileSpeed: 12
+  damage: 15
+  projectileSpeed: 16
 --- !u!114 &646654120481133589
 MonoBehaviour:
   m_ObjectHideFlags: 0

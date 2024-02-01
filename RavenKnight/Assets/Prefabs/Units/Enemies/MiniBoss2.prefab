@@ -57,7 +57,7 @@ MonoBehaviour:
   - name: Health
     _parameter: 1
     current: 0
-    _max: 40
+    _max: 70
     _fillAwake: 1
   - name: Rage
     _parameter: 2
@@ -71,7 +71,7 @@ MonoBehaviour:
     _fillAwake: 0
   dropList:
   - _dropItemPrefab:
-    - {fileID: 2707848527629948363, guid: 5bbbfa020dafa5841bbc67f5529d0edd, type: 3}
+    - {fileID: 2707848527629948363, guid: 4ea654d0c64782a41bfb67d2a64ece7c, type: 3}
     _min: 1
     _max: 1
     _oneItem: 1
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ifReady: {fileID: 6745351788423406982}
   IfNot: {fileID: 1628005723835524485}
-  cooldown: 2
+  cooldown: 0.75
 --- !u!114 &6745351788423406982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,8 +483,8 @@ MonoBehaviour:
   prefabProjectile: {fileID: 8984344394082757371, guid: 1d1c6eb0ef7de07429bf3f8a07ebe2a3,
     type: 3}
   damageableTag: 1
-  damage: 10
-  projectileSpeed: 13
+  damage: 15
+  projectileSpeed: 24
 --- !u!114 &3305659195289445607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repeat: {fileID: 7119482269213279229}
   complete: {fileID: 694089403913461069}
-  count: 1
+  count: 4
 --- !u!114 &875744784973677634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,8 +530,8 @@ MonoBehaviour:
   prefabProjectile: {fileID: 8984344394082757371, guid: 1d1c6eb0ef7de07429bf3f8a07ebe2a3,
     type: 3}
   damageableTag: 1
-  damage: 10
-  projectileSpeed: 13
+  damage: 15
+  projectileSpeed: 40
 --- !u!114 &9169617924457285863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repeat: {fileID: 875744784973677634}
   complete: {fileID: 694089403913461069}
-  count: 5
+  count: 4
 --- !u!114 &3004514356511862668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,11 +628,11 @@ MonoBehaviour:
   _nextStep: {fileID: 694089403913461069}
   prefabProjectile: {fileID: 8984344394082757371, guid: 1d1c6eb0ef7de07429bf3f8a07ebe2a3,
     type: 3}
-  projectileCount: 2
+  projectileCount: 3
   corner: 20
   damageableTag: 1
-  damage: 10
-  projectileSpeed: 13
+  damage: 15
+  projectileSpeed: 24
 --- !u!114 &8576077912780188487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,11 +648,11 @@ MonoBehaviour:
   _nextStep: {fileID: 694089403913461069}
   prefabProjectile: {fileID: 8984344394082757371, guid: 1d1c6eb0ef7de07429bf3f8a07ebe2a3,
     type: 3}
-  projectileCount: 7
+  projectileCount: 10
   corner: 45
   damageableTag: 1
-  damage: 10
-  projectileSpeed: 13
+  damage: 15
+  projectileSpeed: 40
 --- !u!114 &694089403913461069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   singleTriggering: 0
   parameterName: 2
   logicOperator: 3
-  value: 15
+  value: 8
 --- !u!114 &8188714008322145992
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,12 +11,17 @@ PrefabInstance:
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: dropList.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: dropList.Array.data[0]._max
-      value: 10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
+        type: 3}
+      propertyPath: dropList.Array.data[0]._min
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: dropList.Array.data[0]._dropItemPrefab.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
@@ -42,13 +47,13 @@ PrefabInstance:
         type: 3}
       propertyPath: dropList.Array.data[0]._dropItemPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 2707848527629948363, guid: fa859d2df4d18e24b9a4c7a9ab2f3cb5,
+      objectReference: {fileID: 2707848527629948363, guid: 48e9435a07890f44ab5289595fbe7ebb,
         type: 3}
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}
       propertyPath: dropList.Array.data[0]._dropItemPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4,
+      objectReference: {fileID: 2707848527629948363, guid: 0feaea40ea0d732489f2ad84818b0cc6,
         type: 3}
     - target: {fileID: 6424155415699884709, guid: 3081286f95115664bb48bd76ae4e2972,
         type: 3}

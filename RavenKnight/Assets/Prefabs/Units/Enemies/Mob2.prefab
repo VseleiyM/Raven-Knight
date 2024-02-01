@@ -334,7 +334,7 @@ MonoBehaviour:
   - name: GainScore
     _parameter: 3
     current: 0
-    _max: 35
+    _max: 40
     _fillAwake: 1
   dropList:
   - _dropItemPrefab:
@@ -354,8 +354,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 14
+  m_Speed: 8
+  m_Acceleration: 18
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.5
@@ -399,7 +399,7 @@ MonoBehaviour:
   - {fileID: 8259647971286872049}
   target: {fileID: 0}
   targetCollider: {fileID: 0}
-  isBoss: 0
+  _isBoss: 0
 --- !u!82 &972458798343247043
 AudioSource:
   m_ObjectHideFlags: 0
@@ -719,8 +719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 5675408672363177785}
-  distance: 1
-  duration: 0.1
+  distance: 2
+  duration: 0.15
 --- !u!114 &5675408672363177785
 MonoBehaviour:
   m_ObjectHideFlags: 0

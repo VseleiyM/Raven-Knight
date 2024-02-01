@@ -834,7 +834,7 @@ MonoBehaviour:
   - name: Level - 1
     lengthMaze: 3
     additionalRoom: 0
-    difficultScore: 600
+    difficultScore: 1800
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
@@ -843,21 +843,21 @@ MonoBehaviour:
   - name: Level - 2
     lengthMaze: 5
     additionalRoom: 0
-    difficultScore: 3000
+    difficultScore: 5000
     enemyList:
     - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
+    - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
     - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
-    - {fileID: 1604902823518373763, guid: 5d3bf7abb7f43784da4d7c03a0c58013, type: 3}
     levelBoss: {fileID: 454938119889367148, guid: 27b83678339598449b8e2dc345768d2b,
       type: 3}
   - name: Level - 3
     lengthMaze: 8
     additionalRoom: 0
-    difficultScore: 7000
+    difficultScore: 12000
     enemyList:
+    - {fileID: 5536215956165206452, guid: e681096c24e318741886647fbd6ca6d4, type: 3}
     - {fileID: 7090846464093108760, guid: 6ccb0c29a1231404fb054304f9e5676b, type: 3}
-    - {fileID: 3760685715564454559, guid: fa965d566cef45449a4e95b661f40742, type: 3}
     - {fileID: 506871643399256372, guid: f8db3b7e63a99e24f9f4879b19a3b33c, type: 3}
     - {fileID: 1604902823518373763, guid: 5d3bf7abb7f43784da4d7c03a0c58013, type: 3}
     - {fileID: 454938119889367148, guid: d347017e8588f4d438d9e1831de0c9fe, type: 3}
