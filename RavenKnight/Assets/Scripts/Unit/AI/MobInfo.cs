@@ -84,8 +84,9 @@ namespace Project
             enableAI = false;
             TargetInfo.Animator.SetBool(AnimatorParameter.Run.ToString(), false);
             TargetInfo.Animator.SetBool(AnimatorParameter.Attack.ToString(), false);
-            if (Agent.isActiveAndEnabled)
-                Agent.SetDestination(this.transform.position);
+            if (Agent != null)
+                if (Agent.isActiveAndEnabled)
+                    Agent.SetDestination(this.transform.position);
         }
 
         public void TakeDamage()

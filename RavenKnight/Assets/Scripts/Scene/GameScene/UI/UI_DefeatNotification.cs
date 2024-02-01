@@ -6,13 +6,7 @@ namespace Project
 {
     public class UI_DefeatNotification : MonoBehaviour
     {
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GlobalEvents.SendReturnMenu();
-            }
-        }
+        [SerializeField] private List<GameObject> disableList;
 
         private void Awake()
         {
@@ -29,9 +23,21 @@ namespace Project
             gameObject.SetActive(false);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GlobalEvents.SendReturnMenu();
+            }
+        }
+
         private void OnPlayerDead(Target player)
         {
             gameObject.SetActive(true);
+            foreach (var item in disableList)
+            {
+                item.SetActive(false);
+            }
         }
     }
 }

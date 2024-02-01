@@ -838,6 +838,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010599567}
   m_CullTransparentMesh: 1
+--- !u!1 &1153634162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1233450791226179682, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+    type: 3}
+  m_PrefabInstance: {fileID: 7828199278852361005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1297038817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,6 +2724,31 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7768458393181427452, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: disableList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768458393181427452, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: disableList.Array.data[0]
+      value: 
+      objectReference: {fileID: 966893686}
+    - target: {fileID: 7768458393181427452, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: disableList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2024479268}
+    - target: {fileID: 7768458393181427452, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: disableList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1153634162}
+    - target: {fileID: 7768458393181427452, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: disableList.Array.data[3]
+      value: 
+      objectReference: {fileID: 2024479267}
     - target: {fileID: 7771319189725359368, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_Pivot.x
