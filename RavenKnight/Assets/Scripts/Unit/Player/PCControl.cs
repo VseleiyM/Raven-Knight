@@ -12,8 +12,21 @@ public class PCControl : MonoBehaviour
     [SerializeField] private DashAbility dashAbility;
     [SerializeField] private KeyCode abilityKey = KeyCode.Space;
     [SerializeField] private KeyCode invincible = KeyCode.I;
+    
+    //временно бомба
+	[SerializeField] private GameObject projectilePrefab;
+	[SerializeField] private Transform folder;
 
-    private float horizontal;
+	[SerializeField] private KeyCode potionCastKey;
+
+	// временно хилка 
+	[SerializeField] private GameObject healAreaPrefab;
+	[SerializeField] private Transform spawnPoint;
+
+	[SerializeField] private KeyCode potionCastKey_1;
+
+
+	private float horizontal;
     private float vertical;
     private Camera _mainCamera;
     private Transform jointGun;
@@ -52,7 +65,13 @@ public class PCControl : MonoBehaviour
 
         if (Input.GetKeyDown(invincible))
             playerInfo.TargetInfo.Target.ChangeInvincible();
-    }
+
+		if (Input.GetKeyDown(potionCastKey) && UI_DamagePotion.instance.isReady)
+			CastPotion();
+
+		if (Input.GetKeyDown(potionCastKey_1) && UI_HealPotion.instance.isReady)
+			CastHealPotion();
+	}
 
     private void FixedUpdate()
     {
@@ -83,5 +102,27 @@ public class PCControl : MonoBehaviour
 				jointGun.localScale.z
 			);
 		}
+	}
+
+    // Временно 
+	private void CastPotion()
+	{
+		Vector3 lookPoint = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 lookingVector = lookPoint - jointGun.position;
+		float angle = Mathf.Atan2(lookingVector.y, lookingVector.x) * Mathf.Rad2Deg;
+
+		UI_DamagePotion.instance.filledIcon.ToMinValue();
+		UI_DamagePotion.instance.isReady = false;
+		UI_DamagePotion.instance.text.color = new Color(1, 1, 1, 0.39f);
+		var projectile = Instantiate(projectilePrefab, jointGun.position, Quaternion.Euler(0, 0, angle));
+		projectile.transform.parent = folder;
+	}
+
+	private void CastHealPotion()
+	{
+		UI_HealPotion.instance.filledIcon.ToMinValue();
+		UI_HealPotion.instance.isReady = false;
+		UI_HealPotion.instance.text.color = new Color(1, 1, 1, 0.39f);
+		Instantiate(healAreaPrefab, spawnPoint.position, Quaternion.identity);
 	}
 }

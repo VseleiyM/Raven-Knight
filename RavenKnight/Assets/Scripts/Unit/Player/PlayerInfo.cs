@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Project;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,13 +20,17 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private Transform _jointGun;
     public ParticleSystem Particle => _particle;
     [SerializeField] private ParticleSystem _particle;
-    
-    public Weapon weapon;
+	public AbilityManager AbilityManager => _abilityManager;
+	private AbilityManager _abilityManager;
+
+	public Weapon weapon;
 
     private void Awake()
     {
         _targetInfo = GetComponent<TargetInfo>();
-        GlobalEvents.victoryNotification += OnVictoryNotification;
+		_abilityManager = GetComponent<AbilityManager>();
+
+		GlobalEvents.victoryNotification += OnVictoryNotification;
     }
 
     private void Start()
