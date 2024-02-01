@@ -194,7 +194,7 @@ AnimationClip:
   - time: 0
     functionName: SoundEffect
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 1c2536bbbe9dd314dac74f8c6ce35d10,
+    objectReferenceParameter: {fileID: 8300000, guid: d0788e725c7b94143bb453c785bc9123,
       type: 3}
     floatParameter: 0
     intParameter: 0

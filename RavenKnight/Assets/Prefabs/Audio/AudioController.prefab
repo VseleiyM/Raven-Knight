@@ -461,11 +461,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4639516d72c461549abae0f5870452b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 8300000, guid: aad447a0c3e55b5498e2668438c84dc3, type: 3}
-  travelMusic: {fileID: 0}
+  mainMenu: {fileID: 8300000, guid: 522fcd907f328404da5e7eea326a4c97, type: 3}
+  travelMusic: {fileID: 8300000, guid: 522fcd907f328404da5e7eea326a4c97, type: 3}
   travelMusic2: {fileID: 8300000, guid: ace9504de57dd2a47b9197a79c0d9bc7, type: 3}
-  combatMusic: {fileID: 8300000, guid: ce010988d3d16fd46a4d757887b0bfc4, type: 3}
-  bossMusic: {fileID: 8300000, guid: 44a3e00dd66afce4aa0581ddcd6093bd, type: 3}
+  combatMusic: {fileID: 8300000, guid: 28e0b720d6fb28144a7f37df71fbd72f, type: 3}
+  bossMusic: {fileID: 8300000, guid: 58d80f6259a7e6e4a85decc33ec7219d, type: 3}
   timeAttenuation: 1
   soundAmplification: 2
   musicSource: {fileID: 8601581727546483415}
