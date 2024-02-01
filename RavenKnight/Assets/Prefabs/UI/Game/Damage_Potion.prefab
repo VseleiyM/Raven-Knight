@@ -60,8 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 7625510398509323608}
-  minValue: 0
-  maxValue: 100
+  additionIcons: []
+  _minValue: 0
+  _maxValue: 100
 --- !u!1 &3468755903545670003
 GameObject:
   m_ObjectHideFlags: 0
