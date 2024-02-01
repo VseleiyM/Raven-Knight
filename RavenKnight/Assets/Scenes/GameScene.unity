@@ -154,7 +154,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1429100624}
+  m_Father: {fileID: 2009855107}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1090,12 +1090,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416623473}
   m_CullTransparentMesh: 1
---- !u!224 &1429100624 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3929333940801426414, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7828199278852361005}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1433401185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1504,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1858,6 +1852,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738090220135821999, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738090220135821999, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1917168784379929228, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
@@ -2503,7 +2507,7 @@ PrefabInstance:
     - target: {fileID: 4994160357446286531, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5118559831386167357, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
@@ -3208,7 +3212,7 @@ PrefabInstance:
     - {fileID: 3685339920470931445, guid: 75ddaad7d7521434bb6c07d77a2e0acb, type: 3}
     - {fileID: 4368947212446342149, guid: 75ddaad7d7521434bb6c07d77a2e0acb, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3929333940801426414, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
+    - targetCorrespondingSourceObject: {fileID: 9080921721827158399, guid: 75ddaad7d7521434bb6c07d77a2e0acb,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 351612557}

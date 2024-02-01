@@ -21,7 +21,8 @@ namespace Project
         [Space(10)]
         [HideInInspector] public Transform target;
         [HideInInspector] public Collider2D targetCollider;
-        [SerializeField] private bool isBoss = false;
+        public bool IsBoss => _isBoss;
+        [SerializeField] private bool _isBoss = false;
         private bool enableAI = false;
         public Coroutine corotine_AI;
 
@@ -49,7 +50,7 @@ namespace Project
             }
             GlobalEvents.playerDead += OnPlayerDead;
 
-            if (TargetInfo.Target.ReturnParameter(ParametersList.IsBoss) != null)
+            if (_isBoss)
                 GlobalEvents.SendBossInit(this.TargetInfo.Target);
         }
         private void OnDestroy()
@@ -89,7 +90,7 @@ namespace Project
 
         public void TakeDamage()
         {
-            if (isBoss)
+            if (_isBoss)
             {
                 GlobalEvents.SendBossTakeDamage(TargetInfo.Target);
             }
