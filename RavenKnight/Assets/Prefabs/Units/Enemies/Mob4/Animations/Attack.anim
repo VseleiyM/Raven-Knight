@@ -160,7 +160,8 @@ AnimationClip:
   - time: 0
     functionName: SoundEffect
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 8300000, guid: 704fa688782de37499133fd4852c1e07,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
