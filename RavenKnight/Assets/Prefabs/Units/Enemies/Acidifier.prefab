@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 454938119889367146}
   - component: {fileID: 454938119889367144}
   m_Layer: 8
-  m_Name: MiniBoss2
+  m_Name: Acidifier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ifReady: {fileID: 6745351788423406982}
   IfNot: {fileID: 1628005723835524485}
-  cooldown: 0.75
+  cooldown: 3
 --- !u!114 &6745351788423406982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,8 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextStep: {fileID: 1628005723835524485}
-  distance: 3
-  duration: 0.2
+  distance: 6
+  duration: 0.3
 --- !u!114 &1628005723835524485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,7 +1084,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
 --- !u!1 &9044246894909139597
 GameObject:
   m_ObjectHideFlags: 0
